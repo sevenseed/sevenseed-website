@@ -1,0 +1,38 @@
+{
+	"members": [
+		{
+			"image": "../images/members/jerome.webp",
+			"name": "Jerome Leclanche",
+			"role1": "Founder • CEO"
+		},
+		{
+			"image": "../images/members/william.webp",
+			"name": "William Elong",
+			"role1": "Chief Strategy Officer"
+		},
+		{
+			"image": "../images/david.webp",
+			"name": "David Stewart",
+			"role1": "AI Lead Engineer",
+			"role2": "GPT & LLM Expert"
+		},
+		{
+			"image": "../images/robert.webp",
+			"name": "Robert Nix",
+			"role1": "Senior Developer",
+			"role2": "Frontend / Backend"
+		},
+		{
+			"image": "../images/benoit.webp",
+			"name": "Benoit Chabord",
+			"role1": "Technical Sales",
+			"role2": "Hubspot Expert"
+		},
+		{
+			"image": "../images/osborne.webp",
+			"name": "Osborne Clarke",
+			"role1": "Legal Counsel",
+			"role2": "Intl. LawFirm"
+		}
+	]
+}

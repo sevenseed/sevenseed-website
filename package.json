@@ -14,13 +14,16 @@
 		"@types/react": "18.2.20",
 		"@types/react-dom": "18.2.7",
 		"autoprefixer": "10.4.15",
+		"daisyui": "^3.9.3",
 		"eslint": "8.47.0",
 		"eslint-config-next": "13.4.19",
-		"next": "13.4.19",
-		"postcss": "8.4.28",
-		"prettier": "^3.0.2",
+		"heroicons": "^2.0.18",
+		"next": "^13.5.6",
+		"postcss": "^8.4.31",
+		"prettier": "^3.0.3",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
+		"react-icons": "^4.11.0",
 		"tailwindcss": "3.3.3",
 		"typescript": "5.1.6"
 	},
@@ -28,7 +31,9 @@
 		"extends": "next/core-web-vitals"
 	},
 	"prettier": {
+		"trailingComma": "all",
+		"printWidth": 88,
 		"useTabs": true,
-		"tabWidth": 88
+		"tabWidth": 4
 	}
 }

@@ -1,0 +1,111 @@
+.circle {
+	position: absolute;
+	top: -5%;
+	background: lightblue;
+	border-radius: 50%;
+	width: 100px;
+	height: 100px;
+}
+.circle2 {
+	position: absolute;
+	top: 10%;
+	left: 20%;
+	background: #eff5ff;
+	border-radius: 50%;
+	width: 100px;
+	height: 100px;
+}
+.circle3 {
+	position: absolute;
+	top: 40%;
+	right: 0%;
+	background: blue;
+	border-radius: 50%;
+	width: 100px;
+	height: 100px;
+}
+.circle4 {
+	position: absolute;
+	bottom: 0%;
+	left: 30%;
+	background: darkcyan;
+	border-radius: 50%;
+	width: 100px;
+	height: 100px;
+}
+
+.square {
+	position: absolute;
+	left: 0%;
+	background: lightblue;
+	width: 100px;
+	height: 100px;
+}
+.square2 {
+	position: absolute;
+	right: 10%;
+	bottom: 25%;
+	background: darkcyan;
+	width: 100px;
+	height: 100px;
+}
+.square3 {
+	position: absolute;
+	top: 5%;
+	right: 15%;
+	background: darkblue;
+	width: 100px;
+	height: 100px;
+}
+.square4 {
+	position: absolute;
+	top: 0%;
+	left: 5%;
+	background: blue;
+	width: 100px;
+	height: 100px;
+	transform: rotate(45deg);
+}
+
+.triangle {
+	position: absolute;
+	left: 15%;
+	bottom: 15%;
+	width: 0;
+	height: 0;
+	border-left: 40px solid transparent;
+	border-right: 40px solid transparent;
+	border-bottom: 80px solid blue;
+}
+.triangle2 {
+	position: absolute;
+	right: 25%;
+	bottom: 5%;
+	width: 0;
+	height: 0;
+	border-left: 40px solid transparent;
+	border-right: 40px solid transparent;
+	border-bottom: 80px solid lightblue;
+}
+
+.triangle3 {
+	position: absolute;
+	top: 10%;
+	right: 35%;
+	width: 0;
+	height: 0;
+	border-top: 40px solid transparent;
+	border-right: 80px solid darkcyan;
+	border-bottom: 40px solid transparent;
+}
+
+.triangle4 {
+	top: 55%;
+	left: 25%;
+	position: absolute;
+	width: 0;
+	height: 0;
+	border-top: 40px solid transparent;
+	border-right: 80px solid lightblue;
+	border-bottom: 40px solid transparent;
+}

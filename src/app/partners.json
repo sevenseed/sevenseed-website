@@ -1,0 +1,64 @@
+{
+	"partners": [
+		{
+			"id": 1,
+			"image": "../images/logo/deel.svg",
+			"name": "deel"
+		},
+		{
+			"id": 2,
+			"image": "../images/logo/hubspot.svg",
+			"name": "hubspot"
+		},
+		{
+			"id": 3,
+			"image": "../images/logo/looka.svg",
+			"name": "looka"
+		},
+		{
+			"id": 4,
+			"image": "../images/logo/stripe.svg",
+			"name": "stripe"
+		},
+		{
+			"id": 5,
+			"image": "../images/logo/sellfy.svg",
+			"name": "sellfy"
+		},
+		{
+			"id": 6,
+			"image": "../images/logo/framer.svg",
+			"name": "framer"
+		},
+		{
+			"id": 7,
+			"image": "../images/logo/google.svg",
+			"name": "google"
+		},
+		{
+			"id": 8,
+			"image": "../images/logo/wise.svg",
+			"name": "wise"
+		},
+		{
+			"id": 9,
+			"image": "../images/logo/travelperk.svg",
+			"name": "travelperk"
+		},
+		{
+			"id": 10,
+			"image": "../images/logo/arc.svg",
+			"name": "arc"
+		},
+		{
+			"id": 11,
+			"image": "../images/logo/notion.svg",
+			"name": "notion"
+		},
+		{
+			"id": 12,
+			"image": "../images/logo/netim.svg",
+			"name": "netim"
+		}
+	]
+}
