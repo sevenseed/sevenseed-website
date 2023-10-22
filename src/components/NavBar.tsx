@@ -1,23 +1,14 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import { Popover } from "@headlessui/react";
 import clsx from "clsx";
+import { useEffect, useRef, useState } from "react";
 
 const sections = [
-	{
-		id: "table-of-contents",
-		title: (
-			<>
-				<span className="hidden lg:inline">Table of contents</span>
-				<span className="lg:hidden">Contents</span>
-			</>
-		),
-	},
-	{ id: "screencasts", title: "Screencasts" },
+	{ id: "how-it-works", title: "How It Works" },
 	{ id: "resources", title: "Resources" },
 	{ id: "pricing", title: "Pricing" },
-	{ id: "author", title: "Author" },
+	{ id: "about-us", title: "About Us" },
 ];
 
 function MenuIcon({

@@ -9,9 +9,8 @@ import videoPlayerImage from "@/images/resources/video-player.svg";
 
 const resources = [
 	{
-		title: "Figma icon templates",
-		description:
-			"Pefectly structured templates for quickly designing new icons at dozens of common sizes.",
+		title: "Feature 1",
+		description: "Feature 1 description",
 		image: function FigmaImage() {
 			return (
 				<div className="absolute inset-0 flex items-center justify-center bg-[radial-gradient(#2C313D_35%,#000)]">
@@ -21,9 +20,8 @@ const resources = [
 		},
 	},
 	{
-		title: "Weekly icon teardowns",
-		description:
-			"Weekly videos where we dissect and recreate beautiful icons we find on the web.",
+		title: "Feature 2",
+		description: "Feature 2 description",
 		image: function VideoPlayerImage() {
 			return (
 				<div className="absolute inset-0 flex items-center justify-center">
@@ -44,9 +42,8 @@ const resources = [
 		},
 	},
 	{
-		title: "Community of icon designers",
-		description:
-			"A private Discord server where you can get help and give feedback on each others' work.",
+		title: "Feature 3",
+		description: "Feature 3 description",
 		image: function DiscordImage() {
 			return (
 				<div className="absolute inset-0 flex items-center justify-center bg-[#6366F1]">
@@ -65,17 +62,15 @@ export function Resources() {
 			className="scroll-mt-14 py-16 sm:scroll-mt-32 sm:py-20 lg:py-32"
 		>
 			<Container>
-				<SectionHeading number="3" id="resources-title">
+				<SectionHeading number="2" id="resources-title">
 					Resources
 				</SectionHeading>
 				<p className="mt-8 font-display text-4xl font-bold tracking-tight text-slate-900">
-					Tools and resources you can use to get started even faster and
-					progress even further.
+					Everything you need to run your company after it’s created.
 				</p>
 				<p className="mt-4 text-lg tracking-tight text-slate-700">
-					Design assets, icon teardowns, and a community of fellow icon
-					designers where you can ask questions, get feedback, and accelerate
-					your learning.
+					We’ll connect you to our community of hundreds of partners and get
+					you special deals for each of them.
 				</p>
 			</Container>
 			<Container size="lg" className="mt-16">

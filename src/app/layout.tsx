@@ -1,6 +1,6 @@
+import clsx from "clsx";
 import { type Metadata } from "next";
 import { Inter } from "next/font/google";
-import clsx from "clsx";
 
 import "@/styles/tailwind.css";
 
@@ -11,9 +11,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-	title: "Everything Starts as a Square - Get lost in the world of icon design",
+	title: "Seven Seed - Your company, in Belgium, in Seven Days",
 	description:
-		"A book and video course that teaches you how to design your own icons from scratch.",
+		"Create your legal entity in Belgium in just seven days. Bank account included.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

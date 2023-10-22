@@ -2,10 +2,10 @@ import Image from "next/image";
 
 import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
-import duotoneImage from "@/images/screencasts/duotone.svg";
-import gridsImage from "@/images/screencasts/grids.svg";
-import setupImage from "@/images/screencasts/setup.svg";
-import strokesImage from "@/images/screencasts/strokes.svg";
+import duotoneImage from "@/images/how-it-works/duotone.svg";
+import gridsImage from "@/images/how-it-works/grids.svg";
+import setupImage from "@/images/how-it-works/setup.svg";
+import strokesImage from "@/images/how-it-works/strokes.svg";
 
 const videos = [
 	{
@@ -54,25 +54,22 @@ function PlayIcon(props: React.ComponentPropsWithoutRef<"svg">) {
 	);
 }
 
-export function Screencasts() {
+export function HowItWorks() {
 	return (
 		<section
-			id="screencasts"
-			aria-labelledby="screencasts-title"
+			id="how-it-works"
+			aria-labelledby="how-it-works-title"
 			className="scroll-mt-14 py-16 sm:scroll-mt-32 sm:py-20 lg:py-32"
 		>
 			<Container>
-				<SectionHeading number="2" id="screencasts-title">
-					Screencasts
+				<SectionHeading number="1" id="how-it-works-title">
+					How It Works
 				</SectionHeading>
 				<p className="mt-8 font-display text-4xl font-bold tracking-tight text-slate-900">
-					Over an hour of high quality, step-by-step video content to sharpen
-					your icon design workflow.
+					A simple, paperless process.
 				</p>
 				<p className="mt-4 text-lg tracking-tight text-slate-700">
-					Learn how to design your very first icons in a series of screencasts
-					that will teach you everything you need to know to go from beginner
-					to pro in just over an hour.
+					Creating a company has never been so easy.
 				</p>
 			</Container>
 			<Container size="lg" className="mt-16">
