@@ -6,7 +6,10 @@ export function GridPattern(
 	let patternId = useId();
 
 	return (
-		<svg aria-hidden="true" className="absolute inset-0 h-full w-full">
+		<svg
+			aria-hidden="true"
+			className={props.className || "absolute inset-0 h-full w-full"}
+		>
 			<defs>
 				<pattern
 					id={patternId}

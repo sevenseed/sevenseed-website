@@ -17,7 +17,7 @@ export default function Home() {
 			<Introduction />
 			<NavBar />
 			<Testimonial
-				id="testimonial-from-tommy-stroman"
+				id="testimonial"
 				author={{
 					name: "Someone Famous",
 					role: "Financial Consultant",
