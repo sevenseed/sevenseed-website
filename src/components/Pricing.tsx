@@ -57,7 +57,7 @@ function Plan({
 							featured ? "text-blue-200" : "text-slate-500",
 						)}
 					>
-						$
+						€
 					</span>
 					<span
 						className={clsx(
@@ -95,7 +95,6 @@ function Plan({
 					href={href}
 					color={featured ? "white" : "slate"}
 					className="mt-8"
-					aria-label={`Get started with the ${name} plan for $${price}`}
 				>
 					Get started
 				</Button>
@@ -125,7 +124,7 @@ export function Pricing() {
 						name="Basic - Your SRL in Seven Days"
 						description="Everything you need."
 						price="1800"
-						href="#"
+						href="/signup"
 						features={[
 							"Company registration",
 							"VAT account registration",
@@ -139,7 +138,7 @@ export function Pricing() {
 						name="Foreign Entrepreneur Package"
 						description="Special package for non-Belgians. Includes a company address in Flanders."
 						price="2200"
-						href="#"
+						href="/signup"
 						features={[
 							"Everything in Basic",
 							"Two months of a registered address in Flanders",

@@ -59,10 +59,10 @@ export function Hero() {
 							account and insurance included.
 						</p>
 						<div className="mt-8 flex gap-4">
-							<Button href="#whitepaper" color="blue">
+							<Button href="/signup" color="blue">
 								Get started
 							</Button>
-							<Button href="#pricing" variant="outline" color="blue">
+							<Button href="/contact" variant="outline" color="blue">
 								Contact us
 							</Button>
 						</div>

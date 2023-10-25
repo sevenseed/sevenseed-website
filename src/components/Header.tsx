@@ -44,7 +44,7 @@ export default function Header() {
 						</a>
 					))}
 					<a
-						href="#"
+						href="/login"
 						className="text-sm font-semibold leading-6 text-gray-900"
 					>
 						Log in <span aria-hidden="true">&rarr;</span>
