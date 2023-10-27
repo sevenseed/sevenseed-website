@@ -10,7 +10,7 @@ export function Hero() {
 		<header className="overflow-hidden bg-slate-100 lg:bg-transparent lg:px-5">
 			<Header />
 			<div className="mx-auto grid max-w-6xl grid-cols-1 grid-rows-[auto_1fr] gap-y-16 pt-16 md:pt-20 lg:grid-cols-12 lg:gap-y-20 lg:px-3 lg:pb-36 lg:pt-20 xl:py-32">
-				<div className="relative flex items-end lg:col-span-5 lg:row-span-2">
+				<div className="relative hidden lg:flex items-end lg:col-span-5 lg:row-span-2">
 					<div className="absolute -bottom-12 -top-20 left-0 right-1/2 z-10 rounded-br-6xl bg-blue-600 text-white/10 md:bottom-8 lg:-inset-y-32 lg:left-[-100vw] lg:right-full lg:-mr-40">
 						<GridPattern
 							x="100%"
@@ -18,7 +18,7 @@ export function Hero() {
 							patternTransform="translate(112 64)"
 						/>
 					</div>
-					<div className="relative z-10 mx-auto flex w-64 rounded-xl bg-slate-600 shadow-xl md:w-80 lg:w-auto">
+					<div className="relative z-10 mx-auto hidden rounded-xl bg-slate-600 shadow-xl lg:flex lg:w-auto">
 						<Image className="w-full" src={coverImage} alt="" priority />
 					</div>
 				</div>
