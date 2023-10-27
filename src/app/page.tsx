@@ -19,12 +19,12 @@ export default function Home() {
 			<Testimonial
 				id="testimonial"
 				author={{
-					name: "Someone Famous",
-					role: "Financial Consultant",
+					name: "Michal Tarnowski",
+					role: "Founder, Trifolium Belgium Consulting SRL",
 					image: avatarImage1,
 				}}
 			>
-				<p>“I love Seven Seed!”</p>
+				<p>“Seven Seed helped me created my company with zero headaches!”</p>
 			</Testimonial>
 			<HowItWorks />
 			<Resources />

@@ -117,13 +117,17 @@ export function Pricing() {
 				<p className="mt-8 font-display text-5xl font-extrabold tracking-tight text-slate-900 sm:text-6xl">
 					Pick your package
 				</p>
+				<p className="mt-8 font-display text-xl font-thin tracking-tight text-slate-900 ">
+					Both our packages give access to the Seven Seed community of
+					founders and startups.
+				</p>
 			</Container>
 			<div className="mx-auto mt-16 max-w-5xl lg:px-6">
 				<div className="grid bg-slate-50 sm:px-6 sm:pb-16 md:grid-cols-2 md:rounded-6xl md:px-8 md:pt-16 lg:p-20">
 					<Plan
 						name="Basic - Your SRL in Seven Days"
-						description="Everything you need."
-						price="1800"
+						description="Everything you need, and a bit more."
+						price="2000"
 						href="/signup"
 						features={[
 							"Company registration",
@@ -131,6 +135,7 @@ export function Pricing() {
 							"Bylaws and notarization",
 							"Financial plan",
 							"Bank account setup",
+							"Two hours of personalized advice",
 						]}
 					/>
 					<Plan
@@ -141,8 +146,9 @@ export function Pricing() {
 						href="/signup"
 						features={[
 							"Everything in Basic",
-							"Two months of a registered address in Flanders",
+							"Your own office address in Flanders",
 							"Mail forwarding & scanning",
+							"Three months incl. (€70/mo after)",
 						]}
 					/>
 				</div>

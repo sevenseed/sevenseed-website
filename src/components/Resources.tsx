@@ -9,8 +9,9 @@ import videoPlayerImage from "@/images/resources/video-player.svg";
 
 const resources = [
 	{
-		title: "Feature 1",
-		description: "Feature 1 description",
+		title: "Exclusive Perks",
+		description:
+			"Access to special deals and perks for dozens of popular tools and services, at highly reduced rates.",
 		image: function FigmaImage() {
 			return (
 				<div className="absolute inset-0 flex items-center justify-center bg-[radial-gradient(#2C313D_35%,#000)]">
@@ -20,8 +21,9 @@ const resources = [
 		},
 	},
 	{
-		title: "Feature 2",
-		description: "Feature 2 description",
+		title: "Unparalleled Network of Partners",
+		description:
+			"We introduce you to the perfect partners for your type of business.",
 		image: function VideoPlayerImage() {
 			return (
 				<div className="absolute inset-0 flex items-center justify-center">
@@ -42,8 +44,9 @@ const resources = [
 		},
 	},
 	{
-		title: "Feature 3",
-		description: "Feature 3 description",
+		title: "Belgium Startups Community",
+		description:
+			"Access to an exclusive community of Belgian entrepreneurs, startups and investors.",
 		image: function DiscordImage() {
 			return (
 				<div className="absolute inset-0 flex items-center justify-center bg-[#6366F1]">

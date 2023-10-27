@@ -9,50 +9,29 @@ import strokesImage from "@/images/how-it-works/strokes.svg";
 
 const videos = [
 	{
-		title: "Getting started with Figma",
-		description:
-			"Get familiar with the Figma UI, the different tools it offers, and the most important features.",
+		title: "Complete the questionnaire",
+		description: "Describe your company, how it will work and make money.",
 		image: setupImage,
-		runtime: { minutes: 16, seconds: 54 },
 	},
 	{
-		title: "Setting up your artboard",
+		title: "Prepare a financial plan",
 		description:
-			"Learn how to create a new artboard and configure your grid and rulers for designing icons.",
+			"We assist in the creation of your personalized financial plan. You just verify and sign it.",
 		image: gridsImage,
-		runtime: { minutes: 9, seconds: 12 },
 	},
 	{
-		title: "Designing your first icon",
+		title: "Online meeting with the notary",
 		description:
-			"Using basic shapes and boolean operations, learn how to design your own notification icon from scratch.",
+			"Our notary writes the articles of incorporation and bylaws, and you e-sign them in an online meeting.",
 		image: strokesImage,
-		runtime: { minutes: 23, seconds: 25 },
 	},
 	{
-		title: "Advanced design techniques",
+		title: "Receive your company package",
 		description:
-			"Learn the techniques you need to know to adapt your original icon to a modern duotone style.",
+			"We send you all your important documents, and prepare your file for the accountant, bank and insurance.",
 		image: duotoneImage,
-		runtime: { minutes: 28, seconds: 44 },
 	},
 ];
-
-function PlayIcon(props: React.ComponentPropsWithoutRef<"svg">) {
-	return (
-		<svg
-			aria-hidden="true"
-			strokeWidth="1.5"
-			strokeLinecap="round"
-			strokeLinejoin="round"
-			viewBox="0 0 16 16"
-			{...props}
-		>
-			<path d="M6.75 10.25v-4.5L10.25 8l-3.5 2.25Z" />
-			<circle cx="8" cy="8" r="6.25" fill="none" />
-		</svg>
-	);
-}
 
 export function HowItWorks() {
 	return (
@@ -88,19 +67,6 @@ export function HowItWorks() {
 							>
 								<div className="flex overflow-hidden rounded shadow-sm">
 									<Image src={video.image} alt="" unoptimized />
-								</div>
-								<div className="absolute bottom-2 left-2 flex items-center rounded-lg bg-black/30 px-1.5 py-0.5 text-sm text-white [@supports(backdrop-filter:blur(0))]:bg-white/10 [@supports(backdrop-filter:blur(0))]:backdrop-blur">
-									<PlayIcon className="h-4 w-4 fill-current stroke-current" />
-									<time
-										dateTime={`${video.runtime.minutes}m ${video.runtime.seconds}s`}
-										className="ml-2"
-									>
-										{`${
-											video.runtime.minutes
-										}:${video.runtime.seconds
-											.toString()
-											.padStart(2, "0")}`}
-									</time>
 								</div>
 							</div>
 							<h3 className="mt-8 text-base font-medium tracking-tight text-slate-900 before:mb-2 before:block before:font-mono before:text-sm before:text-slate-500 before:content-[counter(video,decimal-leading-zero)]">

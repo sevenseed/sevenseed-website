@@ -12,21 +12,22 @@ export function Introduction() {
 		>
 			<Container className="text-lg tracking-tight text-slate-700">
 				<p className="font-display text-4xl font-bold tracking-tight text-slate-900">
-					Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-					nisi ut aliquip ex ea commodo consequat.
+					A simplified, paperless, entrepreneur-friendly company creation
+					process.
 				</p>
 				<p className="mt-4">
-					Duis aute irure dolor in reprehenderit in voluptate velit esse
-					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-					cupidatat non proident, sunt in culpa qui officia deserunt mollit
-					anim id est laborum.
+					Creating a company is a complex and time-consuming process. We help
+					entrepreneurs with the paperwork, to free up time for what matters:
+					Building the business. Seven Seed is your single-point of contact
+					for a simplified legal entity creation process.
 				</p>
 				<ul role="list" className="mt-8 space-y-3">
 					{[
-						"Ut enim ad minima veniam",
-						"Ut enim ad minima veniam",
-						"Ut enim ad minima veniam",
-						"Ut enim ad minima veniam",
+						"Creation of the financial plan",
+						"Articles of incorporation and bylaws",
+						"Online meeting with the notary",
+						"Company and VAT registration fees",
+						"We find a perfect accountant for your business",
 					].map((feature) => (
 						<li key={feature} className="flex">
 							<CheckIcon className="h-8 w-8 flex-none fill-blue-500" />
@@ -35,17 +36,17 @@ export function Introduction() {
 					))}
 				</ul>
 				<p className="mt-8">
-					Duis aute irure dolor in reprehenderit in voluptate velit esse
-					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-					cupidatat non proident, sunt in culpa qui officia deserunt mollit
-					anim id est laborum.
+					We minimize the costs and time spent at the beginning of the
+					entrepreneurial journey, and set up the company for success
+					afterwards by providing introductions to the best possible partners
+					for the created company.
 				</p>
 				<p className="mt-10">
 					<Link
 						href="#whitepaper"
 						className="text-base font-medium text-blue-600 hover:text-blue-800"
 					>
-						Get the whitepaper on company creation{" "}
+						Learn why you should create your company in Belgium{" "}
 						<span aria-hidden="true">&rarr;</span>
 					</Link>
 				</p>
