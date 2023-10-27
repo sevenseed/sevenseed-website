@@ -21,7 +21,7 @@ export default function Header() {
 				/>
 				<a href="/" className="-m-1.5 p-1.5">
 					<span className="sr-only">Seven Seed</span>
-					<img className="h-8 w-auto" src="/images/logo.png" alt="" />
+					<img className="h-12 w-auto" src="/images/logo.png" alt="" />
 				</a>
 				<div className="flex lg:hidden">
 					<button
@@ -62,7 +62,11 @@ export default function Header() {
 					<div className="flex items-center justify-between">
 						<a href="/" className="-m-1.5 p-1.5">
 							<span className="sr-only">Seven Seed</span>
-							<img className="h-8 w-auto" src="/images/logo.png" alt="" />
+							<img
+								className="h-12 w-auto"
+								src="/images/logo.png"
+								alt=""
+							/>
 						</a>
 						<button
 							type="button"
