@@ -2,58 +2,40 @@ import Image from "next/image";
 
 import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
-import abstractBackgroundImage from "@/images/resources/abstract-background.png";
-import discordImage from "@/images/resources/discord.svg";
-import figmaImage from "@/images/resources/figma.svg";
-import videoPlayerImage from "@/images/resources/video-player.svg";
+import communityImage from "@/images/resources/landing/community.png";
+import partnersImage from "@/images/resources/landing/partners.png";
+import perksImage from "@/images/resources/landing/perks.png";
 
 const resources = [
 	{
 		title: "Exclusive Perks",
 		description:
 			"Access to special deals and perks for dozens of popular tools and services, at highly reduced rates.",
-		image: function FigmaImage() {
-			return (
-				<div className="absolute inset-0 flex items-center justify-center bg-[radial-gradient(#2C313D_35%,#000)]">
-					<Image src={figmaImage} alt="" unoptimized />
-				</div>
-			);
-		},
+		image: () => (
+			<div className="absolute inset-0 flex items-center justify-center bg-[radial-gradient(#2C313D_35%,#000)]">
+				<Image src={perksImage} alt="" unoptimized />
+			</div>
+		),
 	},
 	{
 		title: "Unparalleled Network of Partners",
 		description:
 			"We introduce you to the perfect partners for your type of business.",
-		image: function VideoPlayerImage() {
-			return (
-				<div className="absolute inset-0 flex items-center justify-center">
-					<Image
-						className="absolute inset-0 h-full w-full object-cover"
-						src={abstractBackgroundImage}
-						alt=""
-						sizes="(min-width: 1280px) 21rem, (min-width: 1024px) 33vw, (min-width: 768px) 19rem, (min-width: 640px) 50vw, 100vw"
-					/>
-					<Image
-						className="relative"
-						src={videoPlayerImage}
-						alt=""
-						unoptimized
-					/>
-				</div>
-			);
-		},
+		image: () => (
+			<div className="absolute inset-0 flex items-center justify-center">
+				<Image className="relative" src={partnersImage} alt="" unoptimized />
+			</div>
+		),
 	},
 	{
 		title: "Belgium Startups Community",
 		description:
 			"Access to an exclusive community of Belgian entrepreneurs, startups and investors.",
-		image: function DiscordImage() {
-			return (
-				<div className="absolute inset-0 flex items-center justify-center bg-[#6366F1]">
-					<Image src={discordImage} alt="" unoptimized />
-				</div>
-			);
-		},
+		image: () => (
+			<div className="absolute inset-0 flex items-center justify-center bg-[#6366F1]">
+				<Image src={communityImage} alt="" unoptimized />
+			</div>
+		),
 	},
 ];
 
