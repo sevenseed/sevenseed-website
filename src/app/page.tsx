@@ -8,7 +8,7 @@ import { NavBar } from "@/components/NavBar";
 import { Pricing } from "@/components/Pricing";
 import { Resources } from "@/components/Resources";
 import { Testimonial } from "@/components/Testimonial";
-import avatarImage1 from "@/images/avatars/avatar-1.png";
+import avatarMichal from "@/images/avatars/michal-tarnowski.jpg";
 
 export default function Home() {
 	return (
@@ -21,10 +21,13 @@ export default function Home() {
 				author={{
 					name: "Michal Tarnowski",
 					role: "Founder, Trifolium Belgium Consulting SRL",
-					image: avatarImage1,
+					image: avatarMichal,
 				}}
 			>
-				<p>“Seven Seed helped me created my company with zero headaches!”</p>
+				<p>
+					“Seven Seed helped me creating my company quickly and efficiently.
+					Great communication and responsiveness!”
+				</p>
 			</Testimonial>
 			<HowItWorks />
 			<Resources />
