@@ -1,0 +1,19 @@
+.container {
+	@apply flex flex-col py-16 sm:py-20 lg:py-32 w-full md:w-3/4 lg:w-1/2;
+}
+
+.header {
+	@apply mt-6 font-display text-5xl font-extrabold text-slate-900;
+}
+
+.description {
+	@apply mt-4 text-lg tracking-tight text-slate-700;
+}
+
+.fields {
+	@apply mt-6;
+}
+
+.fields label {
+	@apply flex items-center;
+}

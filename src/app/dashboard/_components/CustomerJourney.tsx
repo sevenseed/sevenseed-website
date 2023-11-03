@@ -2,7 +2,7 @@
 
 import { submitCompanyDataToHubspot } from "@/api/hubspot";
 import { CompanyData } from "@/api/interfaces";
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction, createContext, useState } from "react";
 import AddressForm from "./forms/AddressForm";
 import DescriptionForm from "./forms/DescriptionForm";
 import FoundersForm from "./forms/FoundersForm";
@@ -10,7 +10,14 @@ import NameForm from "./forms/NameForm";
 import PayForm from "./forms/PayForm";
 import StructureForm from "./forms/StructureForm";
 
+import styles from "./CustomerJourney.module.css";
+import CompanyEmailForm from "./forms/EmailForm";
+
 const CompanyForms = [
+	{
+		label: "Email",
+		component: <CompanyEmailForm />,
+	},
 	{
 		label: "Structure",
 		component: <StructureForm />,
@@ -64,13 +71,19 @@ const SidebarLinks = ({
 		</button>
 	));
 
+export const CompanyDataContext = createContext<{
+	companyData: CompanyData;
+	setCompanyData: Dispatch<SetStateAction<CompanyData>>;
+}>({ companyData: {} as CompanyData, setCompanyData: () => {} });
+
 const CustomerJourney = () => {
 	const [formIndex, setFormIndex] = useState(0);
 	// TODO: Keep track of company form data from child components in state for submission to hubspot
 	const [companyData, setCompanyData] = useState({} as CompanyData);
+
 	const lastPage = formIndex === CompanyForms.length - 1;
 	return (
-		<div className="flex flex-col py-16 sm:py-20 lg:py-32 w-full md:w-3/4 lg:w-1/2">
+		<div className={styles.container}>
 			<h1 className="font-display text-4xl font-extrabold text-slate-900">
 				Seven Seed Entity Questionnaire
 			</h1>
@@ -79,7 +92,11 @@ const CustomerJourney = () => {
 					<SidebarLinks formIndex={formIndex} setFormIndex={setFormIndex} />
 				</div>
 				<form noValidate>
-					{CompanyForms[formIndex].component}
+					<CompanyDataContext.Provider
+						value={{ companyData, setCompanyData }}
+					>
+						{CompanyForms[formIndex].component}
+					</CompanyDataContext.Provider>
 					<button
 						onClick={(e) => {
 							lastPage
