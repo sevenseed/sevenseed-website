@@ -2,6 +2,7 @@ import clsx from "clsx";
 import { type Metadata } from "next";
 import { Inter } from "next/font/google";
 
+import Header from "@/components/Header";
 import "@/styles/tailwind.css";
 
 const inter = Inter({
@@ -36,7 +37,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 					href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,500,700&display=swap"
 				/>
 			</head>
-			<body className="flex min-h-full flex-col">{children}</body>
+			<body className="flex min-h-full flex-col">
+				<Header />
+				{children}
+			</body>
 		</html>
 	);
 }

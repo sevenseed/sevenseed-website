@@ -6,13 +6,13 @@ import { GridPattern } from "./GridPattern";
 
 const navigation = [{ name: "Contact", href: "/contact" }];
 
-export default function Header() {
+const Header = () => {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
 	return (
 		<>
 			<nav
-				className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+				className="mx-auto flex w-full max-w-7xl items-center justify-between p-6 lg:px-8"
 				aria-label="Global"
 			>
 				<GridPattern
@@ -104,4 +104,6 @@ export default function Header() {
 			</Dialog>
 		</>
 	);
-}
+};
+
+export default Header;

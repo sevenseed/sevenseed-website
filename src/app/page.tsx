@@ -1,7 +1,7 @@
 import { AboutUs } from "@/components/AboutUs";
 import { Footer } from "@/components/Footer";
 import { FreeChapters } from "@/components/FreeChapters";
-import { Hero } from "@/components/Hero";
+import Hero from "@/components/Hero";
 import { HowItWorks } from "@/components/HowItWorks";
 import { Introduction } from "@/components/Introduction";
 import { NavBar } from "@/components/NavBar";
