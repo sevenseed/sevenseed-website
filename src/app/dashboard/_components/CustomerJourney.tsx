@@ -3,50 +3,44 @@
 import { submitCompanyDataToHubspot } from "@/api/hubspot";
 import { CompanyData } from "@/api/interfaces";
 import { Dispatch, SetStateAction, createContext, useState } from "react";
-import AddressForm from "./forms/AddressForm";
-import DescriptionForm from "./forms/DescriptionForm";
-import FoundersForm from "./forms/FoundersForm";
-import NameForm from "./forms/NameForm";
 import PayForm from "./forms/PayForm";
-import StructureForm from "./forms/StructureForm";
 
 import styles from "./CustomerJourney.module.css";
-import CompanyEmailForm from "./forms/EmailForm";
+import CompanyInfoForm from "./forms/CompanyInfoForm";
+import ContactInfoForm from "./forms/ContactInfoForm";
 
 const CompanyForms = [
 	{
-		label: "Email",
-		component: <CompanyEmailForm />,
+		label: "Company Details",
+		component: CompanyInfoForm,
 	},
 	{
-		label: "Structure",
-		component: <StructureForm />,
-	},
-	{
-		label: "Name",
-		component: <NameForm />,
-	},
-	{
-		label: "Description",
-		component: <DescriptionForm />,
-	},
-	{
-		label: "Address",
-		component: <AddressForm />,
-	},
-	{
-		label: "Founders",
-		component: <FoundersForm />,
-	},
-	{
-		label: "TODO",
-		component: <PayForm />,
+		label: "Contact Info",
+		component: ContactInfoForm,
 	},
 	{
 		label: "Pay",
-		component: <PayForm />,
+		component: PayForm,
 	},
 ];
+
+export type CompanyDataFormProps = {
+	companyData: CompanyData;
+	setCompanyData: Dispatch<SetStateAction<CompanyData>>;
+};
+
+type FormStepComponentProps = CompanyDataFormProps & {
+	formIndex: number;
+};
+
+const FormStepComponent = ({
+	formIndex,
+	companyData,
+	setCompanyData,
+}: FormStepComponentProps) => {
+	const Component = CompanyForms[formIndex].component as JSX.ElementType;
+	return <Component companyData={companyData} setCompanyData={setCompanyData} />;
+};
 
 const SidebarLinks = ({
 	formIndex,
@@ -95,7 +89,11 @@ const CustomerJourney = () => {
 					<CompanyDataContext.Provider
 						value={{ companyData, setCompanyData }}
 					>
-						{CompanyForms[formIndex].component}
+						<FormStepComponent
+							formIndex={formIndex}
+							companyData={companyData}
+							setCompanyData={setCompanyData}
+						/>
 					</CompanyDataContext.Provider>
 					<button
 						onClick={(e) => {

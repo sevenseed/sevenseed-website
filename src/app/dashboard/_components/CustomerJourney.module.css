@@ -6,8 +6,12 @@
 	@apply mt-6 font-display text-5xl font-extrabold text-slate-900;
 }
 
+.header2 {
+	@apply mt-6 font-display text-3xl font-extrabold text-slate-900;
+}
+
 .description {
-	@apply mt-4 text-lg tracking-tight text-slate-700;
+	@apply text-sm tracking-tight text-slate-700;
 }
 
 .fields {
@@ -16,4 +20,13 @@
 
 .fields label {
 	@apply flex items-center;
+}
+
+.fields input[type="radio"] {
+	width: 14px;
+}
+
+.fields input,
+.fields textarea {
+	@apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5;
 }

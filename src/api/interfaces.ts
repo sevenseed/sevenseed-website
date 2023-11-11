@@ -1,9 +1,14 @@
 export interface CompanyData {
-	address: string;
-	description: string;
-	email: string;
-	founders: string;
-	name: string;
-	phone: string;
-	// TODO: Add more fields for company data from the hubspot form
+	civilStatus: string;
+	contactAddress: string;
+	contactEmail: string;
+	contactPhoneNumber: string;
+	contactName: string;
+	companyAddress: string;
+	companyDescription: string;
+	companyName: string;
+	companyPhoneNumber: string;
+	initialFunding: string;
+	legalEntity: string;
+	specialRequests: string;
 }
