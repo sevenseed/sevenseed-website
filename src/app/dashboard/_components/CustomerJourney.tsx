@@ -3,7 +3,6 @@
 import { submitCompanyDataToHubspot } from "@/api/hubspot";
 import { CompanyData } from "@/api/interfaces";
 import { Dispatch, SetStateAction, createContext, useState } from "react";
-import PayForm from "./forms/PayForm";
 
 import styles from "./CustomerJourney.module.css";
 import CompanyInfoForm from "./forms/CompanyInfoForm";
@@ -13,16 +12,28 @@ const CompanyForms = [
 	{
 		label: "Company Details",
 		component: CompanyInfoForm,
+		required: [
+			"legalEntity",
+			"companyName",
+			"companyDescription",
+			"companyAddress",
+			"companyPhoneNumber",
+		],
 	},
 	{
 		label: "Contact Info",
 		component: ContactInfoForm,
+		required: ["contactEmail", "contactName", "contactAddress", "civilStatus"],
 	},
-	{
-		label: "Pay",
-		component: PayForm,
-	},
-];
+	// {
+	// 	label: "Pay",
+	// 	component: PayForm,
+	// },
+] as {
+	label: string;
+	component: React.ComponentType<CompanyDataFormProps>;
+	required: (keyof CompanyData)[];
+}[];
 
 export type CompanyDataFormProps = {
 	companyData: CompanyData;
@@ -52,7 +63,7 @@ const SidebarLinks = ({
 	CompanyForms.map((form, index) => (
 		<button
 			key={form.label}
-			onClick={() => setFormIndex(index)}
+			onClick={() => (formIndex > index ? setFormIndex(index) : null)}
 			className={`px-2 text-base text-left font-medium border-l-2 ${
 				formIndex === index
 					? "border-green-600 text-green-600"
@@ -72,11 +83,37 @@ export const CompanyDataContext = createContext<{
 
 const CustomerJourney = () => {
 	const [formIndex, setFormIndex] = useState(0);
-	// TODO: Keep track of company form data from child components in state for submission to hubspot
 	const [companyData, setCompanyData] = useState({} as CompanyData);
 
+	const [completed, setCompleted] = useState(false);
+	const [submitting, setSubmitting] = useState(false);
+	const [submissionError, setSubmissionError] = useState("");
+
+	// Submit form to hubspot, then show a Thank You page
+	const submitForm = async () => {
+		setSubmitting(true);
+		try {
+			await submitCompanyDataToHubspot(companyData);
+			setCompleted(true);
+		} catch (error: any) {
+			console.error(error);
+			setSubmissionError(error.message);
+		}
+		setSubmitting(false);
+	};
+
 	const lastPage = formIndex === CompanyForms.length - 1;
-	return (
+
+	const requiredFields = CompanyForms[formIndex].required;
+	const allRequiredFieldsFilled = requiredFields.every((field) => companyData[field]);
+
+	return completed ? (
+		<div className={styles.container}>
+			<h1 className="font-display text-4xl font-extrabold text-slate-900">
+				Thank you for submitting your information!
+			</h1>
+		</div>
+	) : (
 		<div className={styles.container}>
 			<h1 className="font-display text-4xl font-extrabold text-slate-900">
 				Seven Seed Entity Questionnaire
@@ -95,17 +132,27 @@ const CustomerJourney = () => {
 							setCompanyData={setCompanyData}
 						/>
 					</CompanyDataContext.Provider>
+					{/* {formIndex > 0 && (
+						<button
+							onClick={() => setFormIndex(formIndex - 1)}
+							className="mt-8 px-4 py-2 text-base font-medium text-white bg-slate-900 rounded-md shadow-sm hover:bg-slate-800"
+						>
+							&lt;- Back
+						</button>
+					)}{" "} */}
+					{submissionError && (
+						<p className="text-red-500 text-sm">{submissionError}</p>
+					)}
 					<button
 						onClick={(e) => {
-							lastPage
-								? // TODO: Finish api endpoint for submitting company data to hubspot
-								  submitCompanyDataToHubspot(companyData)
-								: setFormIndex(formIndex + 1);
+							lastPage ? submitForm() : setFormIndex(formIndex + 1);
 							e.preventDefault();
 						}}
-						className="mt-8 px-4 py-2 text-base font-medium text-white bg-slate-900 rounded-md shadow-sm hover:bg-slate-800"
+						className={styles.button}
+						disabled={!allRequiredFieldsFilled || submitting}
 					>
-						{lastPage ? "Submit" : "Continue"} -&gt;
+						{submitting ? "Submitting.." : lastPage ? "Submit" : "Continue"}{" "}
+						-&gt;
 					</button>
 				</form>
 			</div>

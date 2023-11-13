@@ -68,6 +68,7 @@ const CompanyInfoForm = ({ companyData, setCompanyData }: CompanyDataFormProps) 
 							})
 						}
 						value={companyData.companyName}
+						required
 					/>
 				</label>
 			</fieldset>
@@ -90,14 +91,15 @@ const CompanyInfoForm = ({ companyData, setCompanyData }: CompanyDataFormProps) 
 							})
 						}
 						value={companyData.companyDescription}
+						required
 					/>
 				</label>
 			</fieldset>
 
 			<h2 className={styles.header2}>Business Address</h2>
 			<p className={styles.description}>
-				What will the address of the business be? (Leave blank if same as home
-				address)
+				What will the address of the business be? (If you don&apos;t have one
+				yet, enter your home address)
 			</p>
 			<fieldset className={styles.fields}>
 				<label htmlFor="companyAddress">
@@ -113,6 +115,7 @@ const CompanyInfoForm = ({ companyData, setCompanyData }: CompanyDataFormProps) 
 							})
 						}
 						value={companyData.companyAddress}
+						required
 					/>
 				</label>
 			</fieldset>
@@ -136,6 +139,7 @@ const CompanyInfoForm = ({ companyData, setCompanyData }: CompanyDataFormProps) 
 							})
 						}
 						value={companyData.companyPhoneNumber}
+						required
 					/>
 				</label>
 			</fieldset>

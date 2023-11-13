@@ -21,6 +21,7 @@ const ContactInfoForm = ({ companyData, setCompanyData }: CompanyDataFormProps) 
 							})
 						}
 						value={companyData.contactEmail}
+						required
 					/>
 				</label>
 			</fieldset>
@@ -41,6 +42,7 @@ const ContactInfoForm = ({ companyData, setCompanyData }: CompanyDataFormProps) 
 							})
 						}
 						value={companyData.contactName}
+						required
 					/>
 				</label>
 			</fieldset>
@@ -61,6 +63,7 @@ const ContactInfoForm = ({ companyData, setCompanyData }: CompanyDataFormProps) 
 							})
 						}
 						value={companyData.contactAddress}
+						required
 					/>
 				</label>
 			</fieldset>
