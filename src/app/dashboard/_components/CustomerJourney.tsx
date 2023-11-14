@@ -10,6 +10,11 @@ import ContactInfoForm from "./forms/ContactInfoForm";
 
 const CompanyForms = [
 	{
+		label: "Contact Info",
+		component: ContactInfoForm,
+		required: ["contactEmail", "contactName", "contactAddress", "civilStatus"],
+	},
+	{
 		label: "Company Details",
 		component: CompanyInfoForm,
 		required: [
@@ -19,11 +24,6 @@ const CompanyForms = [
 			"companyAddress",
 			"companyPhoneNumber",
 		],
-	},
-	{
-		label: "Contact Info",
-		component: ContactInfoForm,
-		required: ["contactEmail", "contactName", "contactAddress", "civilStatus"],
 	},
 	// {
 	// 	label: "Pay",
