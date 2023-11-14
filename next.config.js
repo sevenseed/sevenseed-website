@@ -18,6 +18,10 @@ const nextConfig = {
 				destination: "/waitlist",
 				permanent: false,
 			},
+			{
+				source: "/qr/card",
+				destination: "/?utm_source=business-card&utm_medium=qrcode",
+			},
 		];
 	},
 };
