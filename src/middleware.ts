@@ -3,9 +3,13 @@ import { NextResponse, type NextRequest } from 'next/server'
 import { SUPABASE_ANON_KEY, SUPABASE_URL } from './config'
 
 export const authMiddleware = async (request: NextRequest) => {
+
+  const requestHeaders = new Headers(request.headers);
+  requestHeaders.set('x-url', request.url);
+
   let response = NextResponse.next({
-    request: {
-      headers: request.headers,
+    request: { 
+      headers: requestHeaders,
     },
   })
 
@@ -25,7 +29,7 @@ export const authMiddleware = async (request: NextRequest) => {
           })
           response = NextResponse.next({
             request: {
-              headers: request.headers,
+              headers: requestHeaders,
             },
           })
           response.cookies.set({
@@ -42,7 +46,7 @@ export const authMiddleware = async (request: NextRequest) => {
           })
           response = NextResponse.next({
             request: {
-              headers: request.headers,
+              headers: requestHeaders,
             },
           })
           response.cookies.set({
