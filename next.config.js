@@ -4,11 +4,6 @@ const nextConfig = {
 	async redirects() {
 		return [
 			{
-				source: "/login",
-				destination: "/waitlist",
-				permanent: false,
-			},
-			{
 				source: "/signup",
 				destination: "/waitlist",
 				permanent: false,
@@ -24,6 +19,9 @@ const nextConfig = {
 				permanent: false,
 			},
 		];
+	},
+	experimental: {
+		serverActions: true,
 	},
 };
 
