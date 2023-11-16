@@ -1,34 +1,8 @@
+import getUser from "@/auth";
 import { Container } from "@/components/Container";
 import { GridPattern } from "@/components/GridPattern";
-import supabase from "@/supabase";
-import { headers } from "next/headers";
-import { RedirectType, redirect, usePathname } from "next/navigation";
-
-const getFullPath = () => {
-	const urlString = headers().get("x-url");
-	if (!urlString) return null;
-	const url = new URL(urlString);
-	return url.pathname + url.search;
-};
-
 const WaitlistPage = async () => {
-	const { data, error } = await supabase.auth.getUser();
-
-	if (error) {
-		if (error.status === 401) {
-			const fullPath = getFullPath();
-			if (fullPath) {
-				return redirect(
-					`/login?${new URLSearchParams({ returnTo: fullPath })}`,
-					RedirectType.replace,
-				);
-			}
-			return redirect("/login", RedirectType.replace);
-		}
-		return <div>{error.status}</div>;
-	}
-
-	const email = data.user.email;
+	const { email } = await getUser();
 
 	return (
 		<div className="relative flex flex-auto items-center">
@@ -43,6 +17,5 @@ const WaitlistPage = async () => {
 		</div>
 	);
 };
-
 
 export default WaitlistPage;
