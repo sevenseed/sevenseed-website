@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 import supabase from "@/supabase";
 
 const showMessage = (message: string) => {
-	return redirect(`/login?message=${message}`);
+	return redirect(`/login?` + new URLSearchParams({ message }));
 };
 
 export default function Login({
