@@ -29,7 +29,7 @@ export default function Login({
 		if (searchParams.returnTo) {
 			return redirect(searchParams.returnTo, RedirectType.replace);
 		}
-		return redirect("/");
+		return redirect("/auth-test");
 	};
 
 	const signUp = async (formData: FormData) => {
