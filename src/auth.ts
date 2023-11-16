@@ -10,7 +10,7 @@ const getFullPath = () => {
 };
 
 const getUserOptional = async () => {
-	const { data, error } = await supabase.auth.getUser();
+	const { data, error } = await supabase().auth.getUser();
 	if (error) {
 		if (error.status === 401) {
 			return null;
