@@ -1,12 +1,14 @@
 export const SUPABASE_URL = (() => {
-	const env = process.env.NEXT_PUBLIC_SUPABASE_URL;
-	if (!env) throw new Error("NEXT_PUBLIC_SUPABASE_URL is missing");
-	return env;
+	const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+	if (!supabaseUrl || !supabaseUrl.includes("supabase.co"))
+		throw new Error("NEXT_PUBLIC_SUPABASE_URL is missing or invalid");
+	return supabaseUrl;
 })();
+
 export const SUPABASE_ANON_KEY = (() => {
-	const env = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-	if (!env) throw new Error("NEXT_PUBLIC_SUPABASE_ANON_KEY is missing");
-	return env;
+	const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+	if (!supabaseKey) throw new Error("NEXT_PUBLIC_SUPABASE_ANON_KEY is missing");
+	return supabaseKey;
 })();
 
 /**
