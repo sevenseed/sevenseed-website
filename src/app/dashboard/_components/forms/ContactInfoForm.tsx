@@ -76,14 +76,14 @@ const ContactInfoForm = ({ companyData, setCompanyData }: CompanyDataFormProps) 
 						type="radio"
 						id="single"
 						name="civilStatus"
-						value="single"
+						value="Single"
 						onChange={(e) =>
 							setCompanyData({
 								...companyData,
 								civilStatus: e.target.value,
 							})
 						}
-						checked={companyData.civilStatus === "single"}
+						checked={companyData.civilStatus === "Single"}
 					/>
 					<span className="text-base font-medium text-gray-700 ml-2">
 						Single
@@ -94,14 +94,14 @@ const ContactInfoForm = ({ companyData, setCompanyData }: CompanyDataFormProps) 
 						type="radio"
 						id="married"
 						name="civilStatus"
-						value="married"
+						value="Married"
 						onChange={(e) =>
 							setCompanyData({
 								...companyData,
 								civilStatus: e.target.value,
 							})
 						}
-						checked={companyData.civilStatus === "married"}
+						checked={companyData.civilStatus === "Married"}
 					/>
 					<span className="text-base font-medium text-gray-700 ml-2">
 						Married
@@ -113,14 +113,14 @@ const ContactInfoForm = ({ companyData, setCompanyData }: CompanyDataFormProps) 
 						type="radio"
 						id="legalCohabitation"
 						name="civilStatus"
-						value="legalCohabitation"
+						value="Legal cohabitation"
 						onChange={(e) =>
 							setCompanyData({
 								...companyData,
 								civilStatus: e.target.value,
 							})
 						}
-						checked={companyData.civilStatus === "legalCohabitation"}
+						checked={companyData.civilStatus === "Legal cohabitation"}
 					/>
 					<span className="text-base font-medium text-gray-700 ml-2">
 						Legal Cohabitation
