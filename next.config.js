@@ -20,6 +20,12 @@ const nextConfig = {
 			},
 		];
 	},
+	// Localization routing
+	i18n: {
+		locales: ["en", "fr"],
+		defaultLocale: "en",
+		localeDetection: false,
+	},
 	experimental: {
 		serverActions: true,
 	},

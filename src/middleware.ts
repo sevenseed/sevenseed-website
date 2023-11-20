@@ -1,4 +1,5 @@
 import { createServerClient, type CookieOptions } from "@supabase/ssr";
+// import createI18nMiddleware from "next-intl/middleware";
 import { NextResponse, type NextRequest } from "next/server";
 import { SUPABASE_ANON_KEY, SUPABASE_URL } from "./config";
 
@@ -58,5 +59,13 @@ export const authMiddleware = async (request: NextRequest) => {
 
 	return response;
 };
+
+// const i18nMiddleware = createI18nMiddleware({
+// 	locales: ["en", "fr"],
+// 	defaultLocale: "en",
+// });
+
+// TODO: Combine auth and i18n middleware
+// See: https://next-intl-docs.vercel.app/docs/routing/middleware#example-auth-js
 
 export default authMiddleware;
