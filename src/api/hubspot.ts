@@ -1,3 +1,6 @@
+"use server";
+import supabase from "@/supabase";
+import { headers } from "next/headers";
 import { CompanyData } from "./interfaces";
 
 // test form: https://share-eu1.hsforms.com/1b1Nc0NqvRQGXd0fuDn2vUQ2dapz2
@@ -56,6 +59,23 @@ export const submitCompanyDataToHubspot = async (data: CompanyData) => {
 	if (!response.ok) {
 		console.error(response);
 		throw new Error("There was an error submitting the form, please try again.");
+	}
+
+	// Create Supabase user at same time as hubspot form submission
+	// TODO: Move this to a separate function and ensure both accounts actually get created successfully
+
+	const origin = headers().get("origin");
+	const { error } = await supabase().auth.signUp({
+		email: data.contactEmail,
+		password: data.password,
+		options: {
+			emailRedirectTo: `${origin}/auth/callback`,
+		},
+	});
+
+	if (error) {
+		console.error(error);
+		throw new Error("There was an error creating account, please try again.");
 	}
 
 	return response;

@@ -7,6 +7,7 @@ import { Dispatch, SetStateAction, createContext, useState } from "react";
 import styles from "./CustomerJourney.module.css";
 import CompanyInfoForm from "./forms/CompanyInfoForm";
 import ContactInfoForm from "./forms/ContactInfoForm";
+import SignupForm from "./forms/SignupForm";
 
 const CompanyForms = [
 	{
@@ -24,6 +25,11 @@ const CompanyForms = [
 			"companyAddress",
 			"companyPhoneNumber",
 		],
+	},
+	{
+		label: "Sign Up",
+		component: SignupForm,
+		required: ["contactEmail", "password"],
 	},
 	// {
 	// 	label: "Pay",
