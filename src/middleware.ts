@@ -1,17 +1,30 @@
 import { createServerClient, type CookieOptions } from "@supabase/ssr";
-// import createI18nMiddleware from "next-intl/middleware";
-import { NextResponse, type NextRequest } from "next/server";
+import { NextResponse, type NextRequest, type NextFetchEvent } from "next/server";
 import { SUPABASE_ANON_KEY, SUPABASE_URL } from "./config";
+import createIntlMiddleware from 'next-intl/middleware';
+import { locales } from "./navigation";
 
-export const authMiddleware = async (request: NextRequest) => {
-	const requestHeaders = new Headers(request.headers);
-	requestHeaders.set("x-url", request.url);
 
-	let response = NextResponse.next({
-		request: {
-			headers: requestHeaders,
-		},
+export const intlResponse = (request: NextRequest) => {
+	const url = new URL(request.url);
+	console.log(url.pathname)
+	if (url.pathname.startsWith("/images") || url.pathname.startsWith("/_next")) {
+		return null;
+	}
+	const handleI18nRouting = createIntlMiddleware({
+		locales: locales,
+		defaultLocale: 'en',
 	});
+	return handleI18nRouting(request);
+
+};
+
+
+
+const middleware = async (request: NextRequest) => {
+
+	let response = intlResponse(request) ?? NextResponse.next()
+	request.headers.set("x-url", request.url);
 
 	const supabase = createServerClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
 		cookies: {
@@ -23,11 +36,6 @@ export const authMiddleware = async (request: NextRequest) => {
 					name,
 					value,
 					...options,
-				});
-				response = NextResponse.next({
-					request: {
-						headers: requestHeaders,
-					},
 				});
 				response.cookies.set({
 					name,
@@ -41,11 +49,6 @@ export const authMiddleware = async (request: NextRequest) => {
 					value: "",
 					...options,
 				});
-				response = NextResponse.next({
-					request: {
-						headers: requestHeaders,
-					},
-				});
 				response.cookies.set({
 					name,
 					value: "",
@@ -57,15 +60,9 @@ export const authMiddleware = async (request: NextRequest) => {
 
 	await supabase.auth.getSession();
 
+	response.headers.set("x-url", request.url);
+
 	return response;
-};
+}
 
-// const i18nMiddleware = createI18nMiddleware({
-// 	locales: ["en", "fr"],
-// 	defaultLocale: "en",
-// });
-
-// TODO: Combine auth and i18n middleware
-// See: https://next-intl-docs.vercel.app/docs/routing/middleware#example-auth-js
-
-export default authMiddleware;
+export default middleware

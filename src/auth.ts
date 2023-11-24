@@ -1,6 +1,7 @@
 import { headers } from "next/headers";
 import supabase from "./supabase";
-import { RedirectType, redirect } from "next/navigation";
+import { RedirectType, } from "next/navigation";
+import { redirect } from "./navigation";
 
 const getFullPath = () => {
 	const urlString = headers().get("x-url");
@@ -35,12 +36,12 @@ const getUser = async () => {
 	}
 	const fullPath = getFullPath();
 	if (fullPath) {
-		redirect(
+		return redirect(
 			`/login?${new URLSearchParams({ returnTo: fullPath })}`,
 			RedirectType.replace,
 		);
 	} else {
-		redirect("/login", RedirectType.replace);
+		return redirect("/login", RedirectType.replace);
 	}
 };
 export default getUser;
