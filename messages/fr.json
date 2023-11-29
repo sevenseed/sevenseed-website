@@ -15,5 +15,18 @@
     "feature3": "Réunion en ligne avec le notaire",
     "feature4": "Frais d'enregistrement de l'entreprise et de la TVA",
     "feature5": "Nous trouvons un comptable parfait pour votre entreprise"
+  },
+  "HowItWorks": {
+    "sectionHeading": "Comment ça fonctionne",
+    "introText": "Un processus simple et sans papier.",
+    "additionalText": "Créer une entreprise n'a jamais été aussi facile.",
+    "questionnaireTitle": "Complétez le questionnaire",
+    "questionnaireDescription": "Décrivez votre entreprise, comment elle fonctionnera et générera des revenus.",
+    "financialPlanTitle": "Préparez un plan financier",
+    "financialPlanDescription": "Nous vous aidons à créer votre plan financier personnalisé. Il vous suffit de le vérifier et de le signer.",
+    "meetingNotaryTitle": "Réunion en ligne avec le notaire",
+    "meetingNotaryDescription": "Notre notaire rédige les statuts et les règlements, et vous les signez électroniquement lors d'une réunion en ligne.",
+    "companyPackageTitle": "Recevez votre dossier d'entreprise",
+    "companyPackageDescription": "Nous vous envoyons tous vos documents importants et préparons votre dossier pour le comptable, la banque et l'assurance."
   }
 }

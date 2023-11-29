@@ -15,5 +15,18 @@
     "feature3": "Online meeting with the notary",
     "feature4": "Company and VAT registration fees",
     "feature5": "We find a perfect accountant for your business"
+  },
+  "HowItWorks": {
+    "sectionHeading": "How It Works",
+    "introText": "A simple, paperless process.",
+    "additionalText": "Creating a company has never been so easy.",
+    "questionnaireTitle": "Complete the questionnaire",
+    "questionnaireDescription": "Describe your company, how it will work and make money.",
+    "financialPlanTitle": "Prepare a financial plan",
+    "financialPlanDescription": "We assist in the creation of your personalized financial plan. You just verify and sign it.",
+    "meetingNotaryTitle": "Online meeting with the notary",
+    "meetingNotaryDescription": "Our notary writes the articles of incorporation and bylaws, and you e-sign them in an online meeting.",
+    "companyPackageTitle": "Receive your company package",
+    "companyPackageDescription": "We send you all your important documents, and prepare your file for the accountant, bank and insurance."
   }
 }
