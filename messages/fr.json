@@ -1,5 +1,19 @@
 {
   "Hero": {
-    "title": "Votre entreprise, dans sept jours."
+    "title": "Votre entreprise, en sept jours.",
+    "content": "Obtenez votre entité légale en Belgique en juste sept jours. Compte bancaire et assurance inclus.",
+    "getStarted": "Commencer",
+    "contactUs": "Contactez-nous"
+  },
+  "Introduction": {
+    "mainHeading": "Un processus de création d'entreprise simplifié, sans papier, adapté aux entrepreneurs.",
+    "introParagraph": "Créer une entreprise est un processus complexe et chronophage. Nous aidons les entrepreneurs avec la paperasse, pour libérer du temps pour ce qui compte : construire l'entreprise. Seven Seed est votre point de contact unique pour un processus de création d'entité légale simplifié.",
+    "finalParagraph": "Nous minimisons les coûts et le temps passé au début du parcours entrepreneurial, et préparons l'entreprise au succès en proposant des présentations aux meilleurs partenaires possibles pour l'entreprise créée.",
+    "linkText": "Découvrez pourquoi vous devriez créer votre entreprise en Belgique",
+    "feature1": "Création du plan financier",
+    "feature2": "Articles de constitution et statuts",
+    "feature3": "Réunion en ligne avec le notaire",
+    "feature4": "Frais d'enregistrement de l'entreprise et de la TVA",
+    "feature5": "Nous trouvons un comptable parfait pour votre entreprise"
   }
 }

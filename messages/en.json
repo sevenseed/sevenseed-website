@@ -1,5 +1,19 @@
 {
   "Hero": {
-    "title": "Your company, in seven days."
+    "title": "Your company, in seven days.",
+    "content": "Get your legal entity in Belgium in just seven days. Bank account and insurance included.",
+    "getStarted": "Get started",
+    "contactUs": "Contact us"
+  },
+  "Introduction": {
+    "mainHeading": "A simplified, paperless, entrepreneur-friendly company creation process.",
+    "introParagraph": "Creating a company is a complex and time-consuming process. We help entrepreneurs with the paperwork, to free up time for what matters: Building the business. Seven Seed is your single-point of contact for a simplified legal entity creation process.",
+    "finalParagraph": "We minimize the costs and time spent at the beginning of the entrepreneurial journey, and set up the company for success afterwards by providing introductions to the best possible partners for the created company.",
+    "linkText": "Learn why you should create your company in Belgium",
+    "feature1": "Creation of the financial plan",
+    "feature2": "Articles of incorporation and bylaws",
+    "feature3": "Online meeting with the notary",
+    "feature4": "Company and VAT registration fees",
+    "feature5": "We find a perfect accountant for your business"
   }
 }

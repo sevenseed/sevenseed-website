@@ -1,5 +1,4 @@
 import Image from "next/image";
-
 import { Button } from "@/components/Button";
 import { GridPattern } from "@/components/GridPattern";
 import coverImage from "@/images/cover.jpg";
@@ -30,16 +29,13 @@ const Hero = () => {
 						<h1 className="font-display text-5xl font-extrabold text-slate-900 sm:text-6xl">
 							{t("title")}
 						</h1>
-						<p className="mt-4 text-3xl text-slate-600">
-							Get your legal entity in Belgium in just seven days. Bank
-							account and insurance included.
-						</p>
+						<p className="mt-4 text-3xl text-slate-600">{t("content")}</p>
 						<div className="mt-8 flex gap-4">
 							<Button href="/signup" color="blue">
-								Get started
+								{t("getStarted")}
 							</Button>
 							<Button href="/contact" variant="outline" color="blue">
-								Contact us
+								{t("contactUs")}
 							</Button>
 						</div>
 					</div>
