@@ -92,7 +92,6 @@ const Header = () => {
 									</a>
 								))}
 							</div>
-							<LanguageSwitcher />
 							<div className="py-6">
 								<a
 									href="/login"
@@ -101,6 +100,7 @@ const Header = () => {
 									Log in
 								</a>
 							</div>
+							<LanguageSwitcher />
 						</div>
 					</div>
 				</Dialog.Panel>

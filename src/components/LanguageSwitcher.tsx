@@ -15,7 +15,11 @@ const LanguageSwitcher = () => {
 
 	return (
 		<div className="flex items-center justify-between">
-			<select defaultValue={currentLocale} onChange={onChange}>
+			<select
+				defaultValue={currentLocale}
+				onChange={onChange}
+				className="bg-transparent text-sm font-semibold leading-6 text-gray-900 focus:ring-0"
+			>
 				{locales.map((locale) => (
 					<option key={locale} value={locale}>
 						{locale}
