@@ -1,9 +1,9 @@
-import Image from "next/image";
-import Link from "next/link";
 import { GridPattern } from "@/components/GridPattern";
 import { SectionHeading } from "@/components/SectionHeading";
 import founderImage from "@/images/avatars/jerome-leclanche.jpg";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
+import Link from "next/link";
 
 function LinkedInIcon(props: React.ComponentPropsWithoutRef<"svg">) {
 	return (
@@ -60,7 +60,7 @@ export function AboutUs() {
 						</p>
 						<p className="mt-8">
 							<Link
-								href={t("founderLinkedInUrl")}
+								href="https://linkedin.com/in/jleclanche"
 								rel="noopener noreferrer"
 								target="_blank"
 								className="inline-flex items-center text-base font-medium tracking-tight text-blue-600"
