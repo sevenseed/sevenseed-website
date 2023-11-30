@@ -35,5 +35,16 @@
     "pricing": "Pricing",
     "aboutUs": "About Us",
     "toggleNavigation": "Toggle navigation menu"
+  },
+  "Resources": {
+    "sectionHeading": "Resources",
+    "introText": "Everything you need to run your company after it’s created.",
+    "additionalText": "We’ll connect you to our community of hundreds of partners and get you special deals for each of them.",
+    "exclusivePerksTitle": "Exclusive Perks",
+    "exclusivePerksDescription": "Access to special deals and perks for dozens of popular tools and services, at highly reduced rates.",
+    "partnersNetworkTitle": "Unparalleled Network of Partners",
+    "partnersNetworkDescription": "We introduce you to the perfect partners for your type of business.",
+    "communityTitle": "Belgium Startups Community",
+    "communityDescription": "Access to an exclusive community of Belgian entrepreneurs, startups and investors."
   }
 }

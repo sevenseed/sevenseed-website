@@ -35,5 +35,16 @@
     "pricing": "Tarification",
     "aboutUs": "À propos de nous",
     "toggleNavigation": "Basculer le menu de navigation"
+  },
+  "Resources": {
+    "sectionHeading": "Ressources",
+    "introText": "Tout ce dont vous avez besoin pour gérer votre entreprise après sa création.",
+    "additionalText": "Nous vous connectons à notre communauté de centaines de partenaires et vous obtenons des offres spéciales pour chacun d'eux.",
+    "exclusivePerksTitle": "Avantages Exclusifs",
+    "exclusivePerksDescription": "Accès à des offres spéciales et avantages pour des dizaines d'outils et services populaires, à des tarifs fortement réduits.",
+    "partnersNetworkTitle": "Réseau de Partenaires Inégalé",
+    "partnersNetworkDescription": "Nous vous présentons les partenaires parfaits pour votre type d'entreprise.",
+    "communityTitle": "Communauté des Startups Belges",
+    "communityDescription": "Accès à une communauté exclusive d'entrepreneurs, de startups et d'investisseurs belges."
   }
 }
