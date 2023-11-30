@@ -2,7 +2,8 @@
 
 import { Popover } from "@headlessui/react";
 import clsx from "clsx";
-import { useEffect, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 const sections = [
 	{ id: "how-it-works", title: "How It Works" },
@@ -36,6 +37,13 @@ export function NavBar() {
 	let navBarRef = useRef<React.ElementRef<"div">>(null);
 	let [activeIndex, setActiveIndex] = useState<number | null>(null);
 	let mobileActiveIndex = activeIndex === null ? 0 : activeIndex;
+	const t = useTranslations("NavBar");
+	const sections = useMemo(() => [
+		{ id: "how-it-works", title: t("howItWorks") },
+		{ id: "resources", title: t("resources") },
+		{ id: "pricing", title: t("pricing") },
+		{ id: "about-us", title: t("aboutUs") },
+	], [t]);
 
 	useEffect(() => {
 		function updateActiveIndex() {
@@ -78,7 +86,7 @@ export function NavBar() {
 			window.removeEventListener("resize", updateActiveIndex);
 			window.removeEventListener("scroll", updateActiveIndex);
 		};
-	}, []);
+	}, [sections]);
 
 	return (
 		<div ref={navBarRef} className="sticky top-0 z-50">

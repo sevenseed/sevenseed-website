@@ -28,5 +28,12 @@
     "meetingNotaryDescription": "Our notary writes the articles of incorporation and bylaws, and you e-sign them in an online meeting.",
     "companyPackageTitle": "Receive your company package",
     "companyPackageDescription": "We send you all your important documents, and prepare your file for the accountant, bank and insurance."
+  },
+  "NavBar": {
+    "howItWorks": "How It Works",
+    "resources": "Resources",
+    "pricing": "Pricing",
+    "aboutUs": "About Us",
+    "toggleNavigation": "Toggle navigation menu"
   }
 }

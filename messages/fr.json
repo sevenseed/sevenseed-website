@@ -28,5 +28,12 @@
     "meetingNotaryDescription": "Notre notaire rédige les statuts et les règlements, et vous les signez électroniquement lors d'une réunion en ligne.",
     "companyPackageTitle": "Recevez votre dossier d'entreprise",
     "companyPackageDescription": "Nous vous envoyons tous vos documents importants et préparons votre dossier pour le comptable, la banque et l'assurance."
+  },
+  "NavBar": {
+    "howItWorks": "Comment ça fonctionne",
+    "resources": "Ressources",
+    "pricing": "Tarification",
+    "aboutUs": "À propos de nous",
+    "toggleNavigation": "Basculer le menu de navigation"
   }
 }
