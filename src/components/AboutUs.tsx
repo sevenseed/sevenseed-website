@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-
 import { GridPattern } from "@/components/GridPattern";
 import { SectionHeading } from "@/components/SectionHeading";
 import founderImage from "@/images/avatars/jerome-leclanche.jpg";
+import { useTranslations } from "next-intl";
 
 function LinkedInIcon(props: React.ComponentPropsWithoutRef<"svg">) {
 	return (
@@ -24,6 +24,8 @@ function LinkedInIcon(props: React.ComponentPropsWithoutRef<"svg">) {
 }
 
 export function AboutUs() {
+	const t = useTranslations("AboutUs");
+
 	return (
 		<section
 			id="about-us"
@@ -45,30 +47,26 @@ export function AboutUs() {
 					</div>
 					<div className="px-4 py-10 sm:px-10 sm:py-16 md:py-20 lg:px-20 lg:py-32">
 						<SectionHeading number="5" id="about-us-title">
-							About Us
+							{t("heading")}
 						</SectionHeading>
 						<p className="mt-8 font-display text-5xl font-extrabold tracking-tight text-slate-900 sm:text-6xl">
 							<span className="block text-blue-600">
-								Jerome Leclanche –
+								{t("founderName")}
 							</span>{" "}
-							The Founder
+							{t("founderTitle")}
 						</p>
 						<p className="mt-4 text-lg tracking-tight text-slate-700">
-							Bureaucracy is the name of the game in Belgium. Navigating
-							it for natives is difficult enough, but for non-natives it’s
-							nearly impossible. I founded Seven Seed to help
-							entrepreneurs bring their ideas to life, and not get bogged
-							down in the difficulties of starting a business in Belgium.
+							{t("founderDescription")}
 						</p>
 						<p className="mt-8">
 							<Link
-								href="https://linkedin.com/in/jleclanche"
+								href={t("founderLinkedInUrl")}
 								rel="noopener noreferrer"
 								target="_blank"
 								className="inline-flex items-center text-base font-medium tracking-tight text-blue-600"
 							>
 								<LinkedInIcon className="h-10 w-10 fill-current" />
-								<span className="ml-4">Follow on LinkedIn</span>
+								<span className="ml-4">{t("followOnLinkedIn")}</span>
 							</Link>
 						</p>
 					</div>
