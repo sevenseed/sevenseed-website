@@ -85,5 +85,14 @@
     "founderDescription": "Bureaucracy is the name of the game in Belgium. Navigating it for natives is difficult enough, but for non-natives it’s nearly impossible. I founded Seven Seed to help entrepreneurs bring their ideas to life, and not get bogged down in the difficulties of starting a business in Belgium.",
     "followOnLinkedIn": "Follow on LinkedIn",
     "founderLinkedInUrl": "https://linkedin.com/in/jleclanche"
+  },
+  "Footer": {
+    "about": "About",
+    "jobs": "Jobs",
+    "press": "Press",
+    "partners": "Partners",
+    "linkedIn": "LinkedIn",
+    "gitHub": "GitHub",
+    "copyright": "Seven Seed SRL. All rights reserved."
   }
 }

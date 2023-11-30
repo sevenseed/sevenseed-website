@@ -85,5 +85,14 @@
     "founderDescription": "La bureaucratie est le nom du jeu en Belgique. La naviguer pour les natifs est déjà assez difficile, mais pour les non-natifs, c'est presque impossible. J'ai fondé Seven Seed pour aider les entrepreneurs à concrétiser leurs idées, et ne pas se laisser submerger par les difficultés de création d'une entreprise en Belgique.",
     "followOnLinkedIn": "Suivez sur LinkedIn",
     "founderLinkedInUrl": "https://linkedin.com/in/jleclanche"
+  },
+  "Footer": {
+    "about": "À propos",
+    "jobs": "Emplois",
+    "press": "Presse",
+    "partners": "Partenaires",
+    "linkedIn": "LinkedIn",
+    "gitHub": "GitHub",
+    "copyright": "Seven Seed SRL. Tous droits réservés."
   }
 }
