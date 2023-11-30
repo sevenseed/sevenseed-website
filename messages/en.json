@@ -46,5 +46,14 @@
     "partnersNetworkDescription": "We introduce you to the perfect partners for your type of business.",
     "communityTitle": "Belgium Startups Community",
     "communityDescription": "Access to an exclusive community of Belgian entrepreneurs, startups and investors."
+  },
+  "FreeChapters": {
+    "sectionAriaLabel": "Free preview",
+    "heading": "Get the free whitepaper",
+    "description": "Enter your email address and we’ll send you our free whitepaper on company creation in Belgium.",
+    "formHeading": "Get the whitepaper",
+    "emailAriaLabel": "Email address",
+    "emailPlaceholder": "Email address",
+    "buttonText": "Send it!"
   }
 }

@@ -46,5 +46,14 @@
     "partnersNetworkDescription": "Nous vous présentons les partenaires parfaits pour votre type d'entreprise.",
     "communityTitle": "Communauté des Startups Belges",
     "communityDescription": "Accès à une communauté exclusive d'entrepreneurs, de startups et d'investisseurs belges."
+  },
+  "FreeChapters": {
+    "sectionAriaLabel": "Aperçu gratuit",
+    "heading": "Obtenez le livre blanc gratuit",
+    "description": "Entrez votre adresse e-mail et nous vous enverrons notre livre blanc gratuit sur la création d'entreprise en Belgique.",
+    "formHeading": "Obtenez le livre blanc",
+    "emailAriaLabel": "Adresse e-mail",
+    "emailPlaceholder": "Adresse e-mail",
+    "buttonText": "Envoyez-le !"
   }
 }
