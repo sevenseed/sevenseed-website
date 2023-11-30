@@ -5,13 +5,6 @@ import clsx from "clsx";
 import { useTranslations } from "next-intl";
 import { useEffect, useMemo, useRef, useState } from "react";
 
-const sections = [
-	{ id: "how-it-works", title: "How It Works" },
-	{ id: "resources", title: "Resources" },
-	{ id: "pricing", title: "Pricing" },
-	{ id: "about-us", title: "About Us" },
-];
-
 function MenuIcon({
 	open,
 	...props
