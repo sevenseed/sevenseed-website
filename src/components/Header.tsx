@@ -92,6 +92,7 @@ const Header = () => {
 									</a>
 								))}
 							</div>
+							<LanguageSwitcher />
 							<div className="py-6">
 								<a
 									href="/login"
