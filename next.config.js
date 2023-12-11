@@ -1,4 +1,4 @@
-const withNextIntl = require('next-intl/plugin')();
+const withNextIntl = require("next-intl/plugin")();
 
 /** @type {import('next').NextConfig} */
 const nextConfig = withNextIntl({
@@ -18,6 +18,11 @@ const nextConfig = withNextIntl({
 			{
 				source: "/qr/card",
 				destination: "/?utm_source=business-card&utm_medium=qrcode",
+				permanent: false,
+			},
+			{
+				source: "/login",
+				destination: "/waitlist",
 				permanent: false,
 			},
 		];
