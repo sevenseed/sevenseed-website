@@ -4,8 +4,8 @@ import { Inter } from "next/font/google";
 
 import Header from "@/components/Header";
 import "@/styles/tailwind.css";
-import { locales } from "@/navigation";
 import { headers } from "next/headers";
+import locales from "@/locales";
 
 const inter = Inter({
 	subsets: ["latin"],

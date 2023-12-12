@@ -1,7 +1,6 @@
 import { headers } from "next/headers";
 import supabase from "./supabase";
-import { RedirectType, } from "next/navigation";
-import { redirect } from "./navigation";
+import { RedirectType, redirect, } from "next/navigation";
 
 const getFullPath = () => {
 	const urlString = headers().get("x-url");

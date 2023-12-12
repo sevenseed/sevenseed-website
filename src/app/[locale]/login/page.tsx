@@ -1,7 +1,6 @@
 import { headers } from "next/headers";
-import { RedirectType , redirect as rawRedirect} from "next/navigation";
+import { RedirectType , redirect as rawRedirect, redirect} from "next/navigation";
 import supabase from "@/supabase";
-import { redirect } from "@/navigation";
 
 const showMessage = (message: string) => {
 	return redirect(`/login?` + new URLSearchParams({ message }));

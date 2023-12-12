@@ -1,5 +1,6 @@
-import { locales, usePathname, useRouter } from "@/navigation";
+import locales from "@/locales";
 import { useLocale } from "next-intl";
+import { useRouter } from "next/navigation";
 import { useCallback } from "react";
 
 const LanguageSwitcher = () => {

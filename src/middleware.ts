@@ -2,7 +2,7 @@ import { createServerClient, type CookieOptions } from "@supabase/ssr";
 import { NextResponse, type NextRequest, type NextFetchEvent } from "next/server";
 import { SUPABASE_ANON_KEY, SUPABASE_URL } from "./config";
 import createIntlMiddleware from "next-intl/middleware";
-import { locales } from "./navigation";
+import locales from "./locales";
 
 export const intlResponse = (request: NextRequest) => {
 	const url = new URL(request.url);
