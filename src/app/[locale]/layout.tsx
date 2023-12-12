@@ -4,6 +4,8 @@ import { Inter } from "next/font/google";
 
 import Header from "@/components/Header";
 import "@/styles/tailwind.css";
+import { headers } from "next/headers";
+import locales from "@/locales";
 
 const inter = Inter({
 	subsets: ["latin"],
@@ -18,6 +20,10 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+	const url = headers().get("x-url");
+	if(!url) {
+		throw new Error("Unknown url");
+	}
 	return (
 		<html
 			lang="en"
@@ -36,6 +42,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 					rel="stylesheet"
 					href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,500,700&display=swap"
 				/>
+				{locales.map((locale) => {
+					const urlObj = new URL(url);
+					urlObj.searchParams.set("lang", locale);
+					return (
+						<link
+							key={locale}
+							rel="alternate"
+							hrefLang={locale}
+							href={urlObj.toString()}
+						/>
+					);
+				})}
 			</head>
 			<body className="flex min-h-full flex-col">
 				<Header />

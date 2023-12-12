@@ -1,5 +1,7 @@
+const withNextIntl = require("next-intl/plugin")();
+
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig = withNextIntl({
 	// redirects
 	async redirects() {
 		return [
@@ -18,17 +20,16 @@ const nextConfig = {
 				destination: "/?utm_source=business-card&utm_medium=qrcode",
 				permanent: false,
 			},
+			{
+				source: "/login",
+				destination: "/waitlist",
+				permanent: false,
+			},
 		];
-	},
-	// Localization routing
-	i18n: {
-		locales: ["en", "fr"],
-		defaultLocale: "en",
-		localeDetection: false,
 	},
 	experimental: {
 		serverActions: true,
 	},
-};
+});
 
 module.exports = nextConfig;

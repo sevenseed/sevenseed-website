@@ -1,5 +1,5 @@
 import { headers } from "next/headers";
-import { RedirectType, redirect } from "next/navigation";
+import { RedirectType , redirect as rawRedirect, redirect} from "next/navigation";
 import supabase from "@/supabase";
 
 const showMessage = (message: string) => {
@@ -27,7 +27,7 @@ export default function Login({
 		}
 
 		if (searchParams.returnTo) {
-			return redirect(searchParams.returnTo, RedirectType.replace);
+			return rawRedirect(searchParams.returnTo, RedirectType.replace);
 		}
 		return redirect("/auth-test");
 	};

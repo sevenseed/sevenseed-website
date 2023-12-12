@@ -1,45 +1,49 @@
 import Image from "next/image";
-
 import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
 import communityImage from "@/images/resources/landing/community.png";
 import partnersImage from "@/images/resources/landing/partners.png";
 import perksImage from "@/images/resources/landing/perks.png";
-
-const resources = [
-	{
-		title: "Exclusive Perks",
-		description:
-			"Access to special deals and perks for dozens of popular tools and services, at highly reduced rates.",
-		image: () => (
-			<div className="absolute inset-0 flex items-center justify-center bg-[radial-gradient(#2C313D_35%,#000)]">
-				<Image src={perksImage} alt="" unoptimized />
-			</div>
-		),
-	},
-	{
-		title: "Unparalleled Network of Partners",
-		description:
-			"We introduce you to the perfect partners for your type of business.",
-		image: () => (
-			<div className="absolute inset-0 flex items-center justify-center">
-				<Image className="relative" src={partnersImage} alt="" unoptimized />
-			</div>
-		),
-	},
-	{
-		title: "Belgium Startups Community",
-		description:
-			"Access to an exclusive community of Belgian entrepreneurs, startups and investors.",
-		image: () => (
-			<div className="absolute inset-0 flex items-center justify-center bg-[#6366F1]">
-				<Image src={communityImage} alt="" unoptimized />
-			</div>
-		),
-	},
-];
+import { useTranslations } from "next-intl";
 
 export function Resources() {
+	const t = useTranslations("Resources");
+
+	const resources = [
+		{
+			title: t("exclusivePerksTitle"),
+			description: t("exclusivePerksDescription"),
+			image: () => (
+				<div className="absolute inset-0 flex items-center justify-center bg-[radial-gradient(#2C313D_35%,#000)]">
+					<Image src={perksImage} alt="" unoptimized />
+				</div>
+			),
+		},
+		{
+			title: t("partnersNetworkTitle"),
+			description: t("partnersNetworkDescription"),
+			image: () => (
+				<div className="absolute inset-0 flex items-center justify-center">
+					<Image
+						className="relative"
+						src={partnersImage}
+						alt=""
+						unoptimized
+					/>
+				</div>
+			),
+		},
+		{
+			title: t("communityTitle"),
+			description: t("communityDescription"),
+			image: () => (
+				<div className="absolute inset-0 flex items-center justify-center bg-[#6366F1]">
+					<Image src={communityImage} alt="" unoptimized />
+				</div>
+			),
+		},
+	];
+
 	return (
 		<section
 			id="resources"
@@ -48,14 +52,13 @@ export function Resources() {
 		>
 			<Container>
 				<SectionHeading number="2" id="resources-title">
-					Resources
+					{t("sectionHeading")}
 				</SectionHeading>
 				<p className="mt-8 font-display text-4xl font-bold tracking-tight text-slate-900">
-					Everything you need to run your company after it’s created.
+					{t("introText")}
 				</p>
 				<p className="mt-4 text-lg tracking-tight text-slate-700">
-					We’ll connect you to our community of hundreds of partners and get
-					you special deals for each of them.
+					{t("additionalText")}
 				</p>
 			</Container>
 			<Container size="lg" className="mt-16">
