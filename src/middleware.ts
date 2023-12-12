@@ -1,29 +1,33 @@
 import { createServerClient, type CookieOptions } from "@supabase/ssr";
 import { NextResponse, type NextRequest, type NextFetchEvent } from "next/server";
 import { SUPABASE_ANON_KEY, SUPABASE_URL } from "./config";
-import createIntlMiddleware from 'next-intl/middleware';
+import createIntlMiddleware from "next-intl/middleware";
 import { locales } from "./navigation";
-
 
 export const intlResponse = (request: NextRequest) => {
 	const url = new URL(request.url);
-	console.log(url.pathname)
+	console.log(url.pathname);
 	if (url.pathname.startsWith("/images") || url.pathname.startsWith("/_next")) {
 		return null;
 	}
+	const lang = url.searchParams.get("lang");
+	if (lang) {
+		request.cookies.set("NEXT_LOCALE", lang);
+	}
 	const handleI18nRouting = createIntlMiddleware({
 		locales: locales,
-		defaultLocale: 'en',
+		defaultLocale: "en",
+		localePrefix: "never",
 	});
-	return handleI18nRouting(request);
-
+	const res = handleI18nRouting(request);
+	if (lang) {
+		res.cookies.set("NEXT_LOCALE", lang);
+	}
+	return res;
 };
 
-
-
 const middleware = async (request: NextRequest) => {
-
-	let response = intlResponse(request) ?? NextResponse.next()
+	let response = intlResponse(request) ?? NextResponse.next();
 	request.headers.set("x-url", request.url);
 
 	const supabase = createServerClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
@@ -63,6 +67,6 @@ const middleware = async (request: NextRequest) => {
 	response.headers.set("x-url", request.url);
 
 	return response;
-}
+};
 
-export default middleware
+export default middleware;

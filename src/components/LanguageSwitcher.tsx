@@ -5,12 +5,13 @@ import { useCallback } from "react";
 const LanguageSwitcher = () => {
 	const currentLocale = useLocale();
 	const router = useRouter();
-	const pathname = usePathname();
 	const onChange = useCallback(
 		(e: React.ChangeEvent<HTMLSelectElement>) => {
-			router.replace(pathname, { locale: e.target.value });
+			const url = new URL(window.location.href);
+			url.searchParams.set("lang", e.target.value);
+			router.replace(url.pathname + url.search);
 		},
-		[pathname, router],
+		[router],
 	);
 
 	return (
