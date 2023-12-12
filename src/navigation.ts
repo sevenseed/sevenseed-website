@@ -5,6 +5,6 @@ export { redirect, usePathname, useRouter } from "next/navigation";
 
 export const locales = ["en", "fr"] as const;
 
-// export const { Link, redirect, usePathname, useRouter } =
-//   createSharedPathnamesNavigation({ locales });
+//todo: remove this file
+
 export const Link = x;
