@@ -4,6 +4,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 import { GridPattern } from "./GridPattern";
 import LanguageSwitcher from "./LanguageSwitcher";
+import Link from "next/link";
 
 const navigation = [{ name: "Contact", href: "/contact" }];
 
@@ -45,12 +46,12 @@ const Header = () => {
 							{item.name}
 						</a>
 					))}
-					<a
+					<Link
 						href="/login"
 						className="text-sm font-semibold leading-6 text-gray-900"
 					>
 						Log in <span aria-hidden="true">&rarr;</span>
-					</a>
+					</Link>
 				</div>
 			</nav>
 			<Dialog

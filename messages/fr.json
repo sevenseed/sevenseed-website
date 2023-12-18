@@ -92,6 +92,17 @@
     "partners": "Partenaires",
     "linkedIn": "LinkedIn",
     "gitHub": "GitHub",
-    "copyright": "Seven Seed SRL. Tous droits réservés."
+    "copyright": "Seven Seed SRL. Tous droits réservés.",
+    "privacyPolicy": "Politique de confidentialité"
+  },
+  "Privacy": {
+    "title": "Politique de confidentialité",
+    "companyInfo": "SevenSeed est une société à responsabilité limitée, incorporée en Belgique sous le nom de Seven Seed SRL, numéro de société 0803774662.",
+    "dpo": "Délégué à la protection des données (DPO) : ",
+    "dpoEmail": "dpo@sevenseed.eu",
+    "inquiries": "Pour les demandes : ",
+    "inquiriesEmail": "privacy@sevenseed.eu",
+    "lastUpdated": "Dernière mise à jour : {updateDate, date, medium}",
+    "lastUpdatedDate": "2023-12-18"
   }
 }
