@@ -10,7 +10,7 @@ const UPDATE_DATE = "19 December 2023";
 const Privacy = () => {
 	return (
 		<>
-			<div className="relative flex flex-auto items-start  pt-10">
+			<div className="relative flex flex-auto items-start p-10">
 				<div className="absolute inset-0 -z-10 text-slate-900/10 [mask-image:linear-gradient(transparent,white,transparent)]">
 					<GridPattern x="50%" y="50%" patternTransform="translate(0 60)" />
 				</div>
