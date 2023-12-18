@@ -94,15 +94,5 @@
     "gitHub": "GitHub",
     "copyright": "Seven Seed SRL. All rights reserved.",
     "privacyPolicy": "Privacy Policy"
-  },
-  "Privacy": {
-    "title": "Privacy Policy",
-    "companyInfo": "SevenSeed is a limited liability company, incorporated in Belgium as Seven Seed SRL, company number 0803774662.",
-    "dpo": "Data Protection Officer (DPO): ",
-    "dpoEmail": "dpo@sevenseed.eu",
-    "inquiries": "For inquiries: ",
-    "inquiriesEmail": "privacy@sevenseed.eu",
-    "lastUpdated": "Last updated: {updateDate, date, medium}",
-    "lastUpdatedDate": "2023-12-18"
   }
 }
