@@ -3,6 +3,7 @@ import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 import { GridPattern } from "./GridPattern";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const navigation = [{ name: "Contact", href: "/contact" }];
 
@@ -34,6 +35,7 @@ const Header = () => {
 					</button>
 				</div>
 				<div className="hidden lg:flex lg:gap-x-12">
+					<LanguageSwitcher />
 					{navigation.map((item) => (
 						<a
 							key={item.name}
@@ -98,6 +100,7 @@ const Header = () => {
 									Log in
 								</a>
 							</div>
+							<LanguageSwitcher />
 						</div>
 					</div>
 				</Dialog.Panel>

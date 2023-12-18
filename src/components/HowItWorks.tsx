@@ -1,39 +1,38 @@
 import Image from "next/image";
-
 import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
 import duotoneImage from "@/images/how-it-works/duotone.svg";
 import gridsImage from "@/images/how-it-works/grids.svg";
 import setupImage from "@/images/how-it-works/setup.svg";
 import strokesImage from "@/images/how-it-works/strokes.svg";
-
-const videos = [
-	{
-		title: "Complete the questionnaire",
-		description: "Describe your company, how it will work and make money.",
-		image: setupImage,
-	},
-	{
-		title: "Prepare a financial plan",
-		description:
-			"We assist in the creation of your personalized financial plan. You just verify and sign it.",
-		image: gridsImage,
-	},
-	{
-		title: "Online meeting with the notary",
-		description:
-			"Our notary writes the articles of incorporation and bylaws, and you e-sign them in an online meeting.",
-		image: strokesImage,
-	},
-	{
-		title: "Receive your company package",
-		description:
-			"We send you all your important documents, and prepare your file for the accountant, bank and insurance.",
-		image: duotoneImage,
-	},
-];
+import { useTranslations } from "next-intl";
+import { useMemo } from "react";
 
 export function HowItWorks() {
+	const t = useTranslations("HowItWorks");
+
+	const videos = useMemo(() => [
+		{
+			title: t("questionnaireTitle"),
+			description: t("questionnaireDescription"),
+			image: setupImage,
+		},
+		{
+			title: t("financialPlanTitle"),
+			description: t("financialPlanDescription"),
+			image: gridsImage,
+		},
+		{
+			title: t("meetingNotaryTitle"),
+			description: t("meetingNotaryDescription"),
+			image: strokesImage,
+		},
+		{
+			title: t("companyPackageTitle"),
+			description: t("companyPackageDescription"),
+			image: duotoneImage,
+		},
+	], [t]);
 	return (
 		<section
 			id="how-it-works"
@@ -42,13 +41,13 @@ export function HowItWorks() {
 		>
 			<Container>
 				<SectionHeading number="1" id="how-it-works-title">
-					How It Works
+					{t("sectionHeading")}
 				</SectionHeading>
 				<p className="mt-8 font-display text-4xl font-bold tracking-tight text-slate-900">
-					A simple, paperless process.
+					{t("introText")}
 				</p>
 				<p className="mt-4 text-lg tracking-tight text-slate-700">
-					Creating a company has never been so easy.
+					{t("additionalText")}
 				</p>
 			</Container>
 			<Container size="lg" className="mt-16">

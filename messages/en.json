@@ -1,0 +1,97 @@
+{
+  "Hero": {
+    "title": "Your company, in seven days.",
+    "content": "Get your legal entity in Belgium in just seven days. Bank account and insurance included.",
+    "getStarted": "Get started",
+    "contactUs": "Contact us"
+  },
+  "Introduction": {
+    "mainHeading": "A simplified, paperless, entrepreneur-friendly company creation process.",
+    "introParagraph": "Creating a company is a complex and time-consuming process. We help entrepreneurs with the paperwork, to free up time for what matters: Building the business. Seven Seed is your single-point of contact for a simplified legal entity creation process.",
+    "finalParagraph": "We minimize the costs and time spent at the beginning of the entrepreneurial journey, and set up the company for success afterwards by providing introductions to the best possible partners for the created company.",
+    "linkText": "Learn why you should create your company in Belgium",
+    "feature1": "Creation of the financial plan",
+    "feature2": "Articles of incorporation and bylaws",
+    "feature3": "Online meeting with the notary",
+    "feature4": "Company and VAT registration fees",
+    "feature5": "We find a perfect accountant for your business"
+  },
+  "HowItWorks": {
+    "sectionHeading": "How It Works",
+    "introText": "A simple, paperless process.",
+    "additionalText": "Creating a company has never been so easy.",
+    "questionnaireTitle": "Complete the questionnaire",
+    "questionnaireDescription": "Describe your company, how it will work and make money.",
+    "financialPlanTitle": "Prepare a financial plan",
+    "financialPlanDescription": "We assist in the creation of your personalized financial plan. You just verify and sign it.",
+    "meetingNotaryTitle": "Online meeting with the notary",
+    "meetingNotaryDescription": "Our notary writes the articles of incorporation and bylaws, and you e-sign them in an online meeting.",
+    "companyPackageTitle": "Receive your company package",
+    "companyPackageDescription": "We send you all your important documents, and prepare your file for the accountant, bank and insurance."
+  },
+  "NavBar": {
+    "howItWorks": "How It Works",
+    "resources": "Resources",
+    "pricing": "Pricing",
+    "aboutUs": "About Us",
+    "toggleNavigation": "Toggle navigation menu"
+  },
+  "Resources": {
+    "sectionHeading": "Resources",
+    "introText": "Everything you need to run your company after it’s created.",
+    "additionalText": "We’ll connect you to our community of hundreds of partners and get you special deals for each of them.",
+    "exclusivePerksTitle": "Exclusive Perks",
+    "exclusivePerksDescription": "Access to special deals and perks for dozens of popular tools and services, at highly reduced rates.",
+    "partnersNetworkTitle": "Unparalleled Network of Partners",
+    "partnersNetworkDescription": "We introduce you to the perfect partners for your type of business.",
+    "communityTitle": "Belgium Startups Community",
+    "communityDescription": "Access to an exclusive community of Belgian entrepreneurs, startups and investors."
+  },
+  "FreeChapters": {
+    "sectionAriaLabel": "Free preview",
+    "heading": "Get the free whitepaper",
+    "description": "Enter your email address and we’ll send you our free whitepaper on company creation in Belgium.",
+    "formHeading": "Get the whitepaper",
+    "emailAriaLabel": "Email address",
+    "emailPlaceholder": "Email address",
+    "buttonText": "Send it!"
+  },
+  "Pricing": {
+    "sectionHeading": "Pricing",
+    "mainDescription": "Pick your package",
+    "subDescription": "Both our packages give access to the Seven Seed community of founders and startups.",
+    "basicPlanName": "Basic - Your SRL in Seven Days",
+    "basicPlanDescription": "Everything you need, and a bit more.",
+    "basicPlanPrice": "2000",
+    "basicPlanFeature1": "Company registration",
+    "basicPlanFeature2": "VAT account registration",
+    "basicPlanFeature3": "Bylaws and notarization",
+    "basicPlanFeature4": "Financial plan",
+    "basicPlanFeature5": "Bank account setup",
+    "basicPlanFeature6": "Two hours of personalized advice",
+    "foreignEntrepreneurPlanName": "Foreign Entrepreneur Package",
+    "foreignEntrepreneurPlanDescription": "Special package for non-Belgians. Includes a company address in Flanders.",
+    "foreignEntrepreneurPlanPrice": "2200",
+    "foreignEntrepreneurPlanFeature1": "Everything in Basic",
+    "foreignEntrepreneurPlanFeature2": "Your own office address in Flanders",
+    "foreignEntrepreneurPlanFeature3": "Mail forwarding & scanning",
+    "foreignEntrepreneurPlanFeature4": "Three months incl. (€70/mo after)",
+    "getStarted": "Get started"
+  },
+  "AboutUs": {
+    "heading": "About Us",
+    "founderName": "Jerome Leclanche –",
+    "founderTitle": "The Founder",
+    "founderDescription": "Bureaucracy is the name of the game in Belgium. Navigating it for natives is difficult enough, but for non-natives it’s nearly impossible. I founded Seven Seed to help entrepreneurs bring their ideas to life, and not get bogged down in the difficulties of starting a business in Belgium.",
+    "followOnLinkedIn": "Follow on LinkedIn"
+  },
+  "Footer": {
+    "about": "About",
+    "jobs": "Jobs",
+    "press": "Press",
+    "partners": "Partners",
+    "linkedIn": "LinkedIn",
+    "gitHub": "GitHub",
+    "copyright": "Seven Seed SRL. All rights reserved."
+  }
+}

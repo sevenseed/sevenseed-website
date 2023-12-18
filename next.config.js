@@ -1,13 +1,10 @@
+const withNextIntl = require("next-intl/plugin")();
+
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig = withNextIntl({
 	// redirects
 	async redirects() {
 		return [
-			{
-				source: "/login",
-				destination: "/waitlist",
-				permanent: false,
-			},
 			{
 				source: "/signup",
 				destination: "/waitlist",
@@ -23,8 +20,16 @@ const nextConfig = {
 				destination: "/?utm_source=business-card&utm_medium=qrcode",
 				permanent: false,
 			},
+			{
+				source: "/login",
+				destination: "/waitlist",
+				permanent: false,
+			},
 		];
 	},
-};
+	experimental: {
+		serverActions: true,
+	},
+});
 
 module.exports = nextConfig;

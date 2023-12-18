@@ -1,12 +1,15 @@
 import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
 import { Pattern } from "@/components/Pattern";
+import { useTranslations } from "next-intl";
 
 export function FreeChapters() {
+	const t = useTranslations("FreeChapters");
+
 	return (
 		<section
 			id="whitepaper"
-			aria-label="Free preview"
+			aria-label={t("sectionAriaLabel")}
 			className="scroll-mt-14 bg-blue-600 sm:scroll-mt-32"
 		>
 			<div className="overflow-hidden lg:relative">
@@ -17,16 +20,15 @@ export function FreeChapters() {
 					<Pattern className="absolute -top-32 left-0 w-full sm:-top-5 sm:left-3/4 sm:ml-8 sm:w-auto md:left-2/3 lg:left-auto lg:right-2 lg:ml-0 xl:left-2/3 xl:right-auto" />
 					<div>
 						<h2 className="font-display text-5xl font-extrabold tracking-tight text-white sm:w-3/4 sm:text-6xl md:w-2/3 lg:w-auto">
-							Get the free whitepaper
+							{t("heading")}
 						</h2>
 						<p className="mt-4 text-lg tracking-tight text-blue-200">
-							Enter your email address and we’ll send you our free
-							whitepaper on company creation in Belgium.
+							{t("description")}
 						</p>
 					</div>
 					<form className="lg:pl-16">
 						<h3 className="text-base font-medium tracking-tight text-white">
-							Get the whitepaper <span aria-hidden="true">&rarr;</span>
+							{t("formHeading")} <span aria-hidden="true">&rarr;</span>
 						</h3>
 						<div className="mt-4 sm:relative sm:flex sm:items-center sm:py-0.5 sm:pr-2.5">
 							<div className="relative sm:static sm:flex-auto">
@@ -34,8 +36,8 @@ export function FreeChapters() {
 									type="email"
 									id="email-address"
 									required
-									aria-label="Email address"
-									placeholder="Email address"
+									aria-label={t("emailAriaLabel")}
+									placeholder={t("emailPlaceholder")}
 									className="peer relative z-10 w-full appearance-none bg-transparent px-4 py-2 text-base text-white placeholder:text-white/70 focus:outline-none sm:py-3"
 								/>
 								<div className="absolute inset-0 rounded-md border border-white/20 peer-focus:border-blue-300 peer-focus:bg-blue-500 peer-focus:ring-1 peer-focus:ring-blue-300 sm:rounded-xl" />
@@ -45,7 +47,7 @@ export function FreeChapters() {
 								color="white"
 								className="mt-4 w-full sm:relative sm:z-10 sm:mt-0 sm:w-auto sm:flex-none"
 							>
-								Send it!
+								{t("buttonText")}
 							</Button>
 						</div>
 					</form>
