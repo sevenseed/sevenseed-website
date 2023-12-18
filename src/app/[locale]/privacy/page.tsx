@@ -10,7 +10,7 @@ const UPDATE_DATE = "19 December 2023";
 const Privacy = () => {
 	return (
 		<>
-			<div className="relative flex flex-auto items-start  p-10">
+			<div className="relative flex flex-auto items-start  pt-10">
 				<div className="absolute inset-0 -z-10 text-slate-900/10 [mask-image:linear-gradient(transparent,white,transparent)]">
 					<GridPattern x="50%" y="50%" patternTransform="translate(0 60)" />
 				</div>
@@ -51,7 +51,7 @@ const Privacy = () => {
 							with applicable data protection laws and as described in
 							this policy. Applicable data protection laws include (i) the
 							General Data Protection Regulation (Regulation 2016/679) (“
-							<strong>GDPR</strong>”) and (ii) all other existing or new
+							<strong>GDPR</strong>”); and (ii) all other existing or new
 							applicable laws relating to or impacting on the processing
 							of personal data of a living person and privacy.
 						</p>
@@ -76,9 +76,12 @@ const Privacy = () => {
 								the categories of personal data that we (or third party
 								data processors acting on our behalf) may collect - for
 								further information on data processors acting on our
-								behalf, see below under point 3, use and store about you
+								behalf, see below under point 3, use and store about
+								you;
 							</li>
-							<li>the purposes for which this data would be collected</li>
+							<li>
+								the purposes for which this data would be collected;
+							</li>
 							<li>the legal basis for processing.</li>
 						</ol>
 						<li>
@@ -118,11 +121,11 @@ const Privacy = () => {
 						<ul className="list-disc list-inside">
 							<li>
 								we are required to do so by applicable law, by a
-								governmental body or by a law enforcement agency
+								governmental body or by a law enforcement agency;
 							</li>
 							<li>
 								to establish or exercise our legal rights or defend
-								against legal claims
+								against legal claims;
 							</li>
 							<li>
 								to investigate, prevent or take actions against illegal
@@ -181,25 +184,25 @@ const Privacy = () => {
 						<ol className="list-disc list-inside">
 							<li>
 								the right to access to personal data that we hold about
-								you
+								you;
 							</li>
 							<li>
 								the right to ask us to update or correct any out-of-date
-								or incorrect personal data that we hold about you
+								or incorrect personal data that we hold about you;
 							</li>
 							<li>
 								where the processing is based on your consent, the right
 								to withdraw consent at any given time, without affecting
 								the lawfulness of processing based on consent before its
-								withdrawal
+								withdrawal;
 							</li>
 							<li>
 								the right to erasure where the conditions of article 17
-								of the GDPR have been met
+								of the GDPR have been met;
 							</li>
 							<li>
 								the right to restriction of processing where the
-								conditions of article 18 of the GDPR have been met
+								conditions of article 18 of the GDPR have been met;
 							</li>
 							<li>
 								the right to data portability insofar the conditions of
@@ -208,7 +211,7 @@ const Privacy = () => {
 							<li>
 								the right to object to processing of personal data
 								concerning you, insofar the conditions under article 21
-								GDPR have been met
+								GDPR have been met; and
 							</li>
 							<li>
 								the right to opt out of any direct marketing
