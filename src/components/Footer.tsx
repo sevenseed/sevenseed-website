@@ -6,10 +6,11 @@ export function Footer() {
 
 	const navigation = {
 		main: [
-			{ name: t("about"), href: "/" },
+			{ name: t("about"), href: "/#about-us" },
 			{ name: t("jobs"), href: "mailto:jobs@sevenseed.eu" },
 			{ name: t("press"), href: "mailto:press@sevenseed.eu" },
 			{ name: t("partners"), href: "/partners" },
+			{ name: t("privacyPolicy"), href: "/privacy" },
 		],
 		social: [
 			{
