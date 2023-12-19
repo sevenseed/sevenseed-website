@@ -133,12 +133,8 @@ const Privacy = () => {
 								potential threats to the physical safety of any person,
 								violations of our terms of use, or as otherwise required
 								by law.
-								<ol>
-									<li>Other recipients</li>
-								</ol>
 							</li>
 						</ul>
-						<p>We may also disclose your personal data to:</p>
 						<li>
 							<strong>How long do we keep your personal data?</strong>
 						</li>
