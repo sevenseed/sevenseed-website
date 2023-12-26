@@ -60,7 +60,7 @@ const CompanyInfoForm = ({ companyData, setCompanyData }: CompanyDataFormProps) 
 						type="text"
 						id="companyName"
 						name="companyName"
-						placeholder="name"
+						placeholder="Acme Inc."
 						onChange={(e) =>
 							setCompanyData({
 								...companyData,
@@ -83,7 +83,7 @@ const CompanyInfoForm = ({ companyData, setCompanyData }: CompanyDataFormProps) 
 					<textarea
 						id="companyDescription"
 						name="companyDescription"
-						placeholder="about the company"
+						placeholder="Acme Inc is a globally diversified corporation setting new standards of excellence in various sectors."
 						onChange={(e) =>
 							setCompanyData({
 								...companyData,
@@ -107,7 +107,7 @@ const CompanyInfoForm = ({ companyData, setCompanyData }: CompanyDataFormProps) 
 						type="text"
 						id="companyAddress"
 						name="companyAddress"
-						placeholder="business address"
+						placeholder="Champ de Mars, 5 Av. Anatole France, 75007 Paris, France"
 						onChange={(e) =>
 							setCompanyData({
 								...companyData,
@@ -131,7 +131,7 @@ const CompanyInfoForm = ({ companyData, setCompanyData }: CompanyDataFormProps) 
 						type="text"
 						id="companyPhoneNumber"
 						name="companyPhoneNumber"
-						placeholder="business phone"
+						placeholder="+33123123123"
 						onChange={(e) =>
 							setCompanyData({
 								...companyData,

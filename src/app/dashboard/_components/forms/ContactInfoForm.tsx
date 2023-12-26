@@ -27,14 +27,14 @@ const ContactInfoForm = ({ companyData, setCompanyData }: CompanyDataFormProps) 
 			</fieldset>
 
 			<h2 className={styles.header2}>Contact Name</h2>
-			<p className={styles.description}>Your name</p>
+			<p className={styles.description}>Your full name</p>
 			<fieldset className={styles.fields}>
 				<label htmlFor="contactName">
 					<input
 						type="text"
 						id="contactName"
 						name="contactName"
-						placeholder="name"
+						placeholder="Alex Doe"
 						onChange={(e) =>
 							setCompanyData({
 								...companyData,
@@ -55,7 +55,7 @@ const ContactInfoForm = ({ companyData, setCompanyData }: CompanyDataFormProps) 
 						type="text"
 						id="contactAddress"
 						name="contactAddress"
-						placeholder="home address"
+						placeholder="Champ de Mars, 5 Av. Anatole France, 75007 Paris, France"
 						onChange={(e) =>
 							setCompanyData({
 								...companyData,
