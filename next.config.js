@@ -5,17 +5,12 @@ const nextConfig = {
 		return [
 			{
 				source: "/login",
-				destination: "/waitlist",
+				destination: "/dashboard",
 				permanent: false,
 			},
 			{
 				source: "/signup",
-				destination: "/waitlist",
-				permanent: false,
-			},
-			{
-				source: "/contact",
-				destination: "/waitlist",
+				destination: "/dashboard",
 				permanent: false,
 			},
 		];

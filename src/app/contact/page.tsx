@@ -1,6 +1,7 @@
 import { Container } from "@/components/Container";
 import EmailLink from "@/components/EmailLink";
 import { GridPattern } from "@/components/GridPattern";
+import Link from "next/link";
 
 const WaitlistPage = () => (
 	<div className="relative flex flex-auto items-center">
@@ -13,9 +14,9 @@ const WaitlistPage = () => (
 			</h1>
 			<p className="mt-4 text-lg tracking-tight text-slate-700">
 				We are currently in private beta and only accept a limited number of new
-				customers. Please send us an email at{" "}
-				<EmailLink email="contact@sevenseed.eu" /> with a description of your
-				company, we will respond as soon as possible.
+				customers. You can reach us at{" "}
+				<EmailLink email="contact@sevenseed.eu" />, we will respond as soon as
+				possible.
 			</p>
 			<EmailLink
 				email="contact@sevenseed.eu"
