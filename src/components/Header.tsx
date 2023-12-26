@@ -3,16 +3,18 @@ import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 import { GridPattern } from "./GridPattern";
+import LanguageSwitcher from "./LanguageSwitcher";
+import Link from "next/link";
 
 const navigation = [{ name: "Contact", href: "/contact" }];
 
-export default function Header() {
+const Header = () => {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
 	return (
 		<>
 			<nav
-				className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+				className="mx-auto flex w-full max-w-7xl items-center justify-between p-6 lg:px-8"
 				aria-label="Global"
 			>
 				<GridPattern
@@ -21,7 +23,7 @@ export default function Header() {
 				/>
 				<a href="/" className="-m-1.5 p-1.5">
 					<span className="sr-only">Seven Seed</span>
-					<img className="h-12 w-auto" src="/images/logo.png" alt="" />
+					<img className="h-12 w-auto" src="/images/logo.svg" alt="" />
 				</a>
 				<div className="flex lg:hidden">
 					<button
@@ -34,6 +36,7 @@ export default function Header() {
 					</button>
 				</div>
 				<div className="hidden lg:flex lg:gap-x-12">
+					<LanguageSwitcher />
 					{navigation.map((item) => (
 						<a
 							key={item.name}
@@ -43,12 +46,12 @@ export default function Header() {
 							{item.name}
 						</a>
 					))}
-					<a
+					<Link
 						href="/login"
 						className="text-sm font-semibold leading-6 text-gray-900"
 					>
 						Log in <span aria-hidden="true">&rarr;</span>
-					</a>
+					</Link>
 				</div>
 			</nav>
 			<Dialog
@@ -64,7 +67,7 @@ export default function Header() {
 							<span className="sr-only">Seven Seed</span>
 							<img
 								className="h-12 w-auto"
-								src="/images/logo.png"
+								src="/images/logo.svg"
 								alt=""
 							/>
 						</a>
@@ -98,10 +101,13 @@ export default function Header() {
 									Log in
 								</a>
 							</div>
+							<LanguageSwitcher />
 						</div>
 					</div>
 				</Dialog.Panel>
 			</Dialog>
 		</>
 	);
-}
+};
+
+export default Header;

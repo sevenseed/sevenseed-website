@@ -1,5 +1,5 @@
 export interface CompanyData {
-	civilStatus: string;
+	civilStatus: "Single" | "Married" | "Legal cohabitation" | string;
 	contactAddress: string;
 	contactEmail: string;
 	contactPhoneNumber: string;
@@ -10,5 +10,6 @@ export interface CompanyData {
 	companyPhoneNumber: string;
 	initialFunding: string;
 	legalEntity: string;
+	password: string;
 	specialRequests: string;
 }

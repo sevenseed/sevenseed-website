@@ -1,26 +1,28 @@
 import clsx from "clsx";
-
 import { Button } from "@/components/Button";
 import { CheckIcon } from "@/components/CheckIcon";
 import { Container } from "@/components/Container";
 import { GridPattern } from "@/components/GridPattern";
 import { SectionHeading } from "@/components/SectionHeading";
+import { useTranslations } from "next-intl";
 
 function Plan({
-	name,
-	description,
-	price,
-	features,
+	nameKey,
+	descriptionKey,
+	priceKey,
+	featureKeys,
 	href,
 	featured = false,
 }: {
-	name: string;
-	description: string;
-	price: string;
-	features: Array<string>;
+	nameKey: string;
+	descriptionKey: string;
+	priceKey: string;
+	featureKeys: string[];
 	href: string;
 	featured?: boolean;
 }) {
+	const t = useTranslations("Pricing");
+
 	return (
 		<div
 			className={clsx(
@@ -40,7 +42,7 @@ function Plan({
 						featured ? "text-white" : "text-slate-900",
 					)}
 				>
-					{name}
+					{t(nameKey)}
 				</h3>
 				<p
 					className={clsx(
@@ -48,7 +50,7 @@ function Plan({
 						featured ? "text-white" : "text-slate-600",
 					)}
 				>
-					{description}
+					{t(descriptionKey)}
 				</p>
 				<p className="order-first flex font-display font-bold">
 					<span
@@ -65,7 +67,7 @@ function Plan({
 							featured ? "text-white" : "text-slate-900",
 						)}
 					>
-						{price}
+						{t(priceKey)}
 					</span>
 				</p>
 				<div className="order-last mt-8">
@@ -78,15 +80,15 @@ function Plan({
 								: "divide-slate-200 text-slate-900",
 						)}
 					>
-						{features.map((feature) => (
-							<li key={feature} className="flex py-2">
+						{featureKeys.map((key) => (
+							<li key={key} className="flex py-2">
 								<CheckIcon
 									className={clsx(
 										"h-8 w-8 flex-none",
 										featured ? "fill-white" : "fill-slate-600",
 									)}
 								/>
-								<span className="ml-4">{feature}</span>
+								<span className="ml-4">{t(key)}</span>
 							</li>
 						))}
 					</ul>
@@ -96,7 +98,7 @@ function Plan({
 					color={featured ? "white" : "slate"}
 					className="mt-8"
 				>
-					Get started
+					{t("getStarted")}
 				</Button>
 			</div>
 		</div>
@@ -104,6 +106,24 @@ function Plan({
 }
 
 export function Pricing() {
+	const t = useTranslations("Pricing");
+
+	const basicPlanFeatures = [
+		"basicPlanFeature1",
+		"basicPlanFeature2",
+		"basicPlanFeature3",
+		"basicPlanFeature4",
+		"basicPlanFeature5",
+		"basicPlanFeature6",
+	];
+
+	const foreignEntrepreneurPlanFeatures = [
+		"foreignEntrepreneurPlanFeature1",
+		"foreignEntrepreneurPlanFeature2",
+		"foreignEntrepreneurPlanFeature3",
+		"foreignEntrepreneurPlanFeature4",
+	];
+
 	return (
 		<section
 			id="pricing"
@@ -112,44 +132,31 @@ export function Pricing() {
 		>
 			<Container>
 				<SectionHeading number="3" id="pricing-title">
-					Pricing
+					{t("sectionHeading")}
 				</SectionHeading>
 				<p className="mt-8 font-display text-5xl font-extrabold tracking-tight text-slate-900 sm:text-6xl">
-					Pick your package
+					{t("mainDescription")}
 				</p>
-				<p className="mt-8 font-display text-xl font-thin tracking-tight text-slate-900 ">
-					Both our packages give access to the Seven Seed community of
-					founders and startups.
+				<p className="mt-8 font-display text-xl font-thin tracking-tight text-slate-900">
+					{t("subDescription")}
 				</p>
 			</Container>
 			<div className="mx-auto mt-16 max-w-5xl lg:px-6">
 				<div className="grid bg-slate-50 sm:px-6 sm:pb-16 md:grid-cols-2 md:rounded-6xl md:px-8 md:pt-16 lg:p-20">
 					<Plan
-						name="Basic - Your SRL in Seven Days"
-						description="Everything you need, and a bit more."
-						price="2000"
+						nameKey="basicPlanName"
+						descriptionKey="basicPlanDescription"
+						priceKey="basicPlanPrice"
+						featureKeys={basicPlanFeatures}
 						href="/signup"
-						features={[
-							"Company registration",
-							"VAT account registration",
-							"Bylaws and notarization",
-							"Financial plan",
-							"Bank account setup",
-							"Two hours of personalized advice",
-						]}
 					/>
 					<Plan
 						featured
-						name="Foreign Entrepreneur Package"
-						description="Special package for non-Belgians. Includes a company address in Flanders."
-						price="2200"
+						nameKey="foreignEntrepreneurPlanName"
+						descriptionKey="foreignEntrepreneurPlanDescription"
+						priceKey="foreignEntrepreneurPlanPrice"
+						featureKeys={foreignEntrepreneurPlanFeatures}
 						href="/signup"
-						features={[
-							"Everything in Basic",
-							"Your own office address in Flanders",
-							"Mail forwarding & scanning",
-							"Three months incl. (€70/mo after)",
-						]}
 					/>
 				</div>
 			</div>
