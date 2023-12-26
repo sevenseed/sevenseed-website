@@ -7,6 +7,7 @@ import { Dispatch, SetStateAction, createContext, useState } from "react";
 import styles from "./CustomerJourney.module.css";
 import CompanyInfoForm from "./forms/CompanyInfoForm";
 import ContactInfoForm from "./forms/ContactInfoForm";
+import { useRouter } from "next/navigation";
 
 const CompanyForms = [
 	{
@@ -88,13 +89,15 @@ const CustomerJourney = () => {
 	const [completed, setCompleted] = useState(false);
 	const [submitting, setSubmitting] = useState(false);
 	const [submissionError, setSubmissionError] = useState("");
-
+	const { push } = useRouter();
 	// Submit form to hubspot, then show a Thank You page
 	const submitForm = async () => {
 		setSubmitting(true);
 		try {
 			await submitCompanyDataToHubspot(companyData);
+			// todo: replace with toast or notification
 			setCompleted(true);
+			setTimeout(() => push("/"), 2000);
 		} catch (error: any) {
 			console.error(error);
 			setSubmissionError(error.message);
@@ -111,6 +114,8 @@ const CustomerJourney = () => {
 		<div className={styles.container}>
 			<h1 className="font-display text-4xl font-extrabold text-slate-900">
 				Thank you for submitting your information!
+				<br />
+				We are redirecting you to the home page.
 			</h1>
 		</div>
 	) : (
