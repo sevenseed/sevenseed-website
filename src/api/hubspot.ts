@@ -1,3 +1,4 @@
+import { HUBSPOT_FORM_GUID, HUBSPOT_PORTAL_ID } from "@/config";
 import { CompanyData } from "./interfaces";
 
 // test form: https://share-eu1.hsforms.com/1b1Nc0NqvRQGXd0fuDn2vUQ2dapz2
@@ -10,10 +11,6 @@ export const submitCompanyDataToHubspot = async (data: CompanyData) => {
 
 	// TODO: Determine if hubspot library is worth adding 12mb of dependencies
 	// https://www.npmjs.com/package/@hubspot/api-client
-
-	const portalId = process.env.HUBSPOT_PORTAL_ID || "143267582"; // seven seed portal
-	const formGuid =
-		process.env.HUBSPOT_FORM_GUID || "9ef70045-f624-41d0-a978-35d4ad96e52a"; // test form: 6f535cd0-daaf-4501-9777-47ee0e7daf51
 
 	const hubspotFormData = {
 		fields: [
@@ -43,7 +40,7 @@ export const submitCompanyDataToHubspot = async (data: CompanyData) => {
 	};
 
 	const response = await fetch(
-		`https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formGuid}`,
+		`https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_FORM_GUID}`,
 		{
 			method: "POST",
 			headers: {
