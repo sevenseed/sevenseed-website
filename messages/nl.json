@@ -1,0 +1,98 @@
+{
+  "Hero": {
+    "title": "Uw bedrijf, in zeven dagen.",
+    "content": "Krijg uw juridische entiteit in België in slechts zeven dagen. Bankrekening en verzekering inbegrepen.",
+    "getStarted": "Beginnen",
+    "contactUs": "Neem contact met ons op"
+  },
+  "Introduction": {
+    "mainHeading": "Een vereenvoudigd, papierloos, ondernemersvriendelijk bedrijfscreatieproces.",
+    "introParagraph": "Het creëren van een bedrijf is een complex en tijdrovend proces. We helpen ondernemers met de papierwinkel, zodat ze tijd vrijmaken voor wat belangrijk is: Het ontwikkelen van het bedrijf. Seven Seed is uw enige contactpunt voor een vereenvoudigd proces van het creëren van een juridische entiteit.",
+    "finalParagraph": "We minimaliseren de kosten en tijd die aan het begin van de ondernemersreis worden besteed, en zetten het bedrijf vervolgens op weg naar succes door inleidingen te geven aan de best mogelijke partners voor het gecreëerde bedrijf.",
+    "linkText": "Leer waarom u uw bedrijf in België zou moeten opzetten",
+    "feature1": "Creatie van het financiële plan",
+    "feature2": "Statuten en interne reglementen",
+    "feature3": "Online vergadering met de notaris",
+    "feature4": "Bedrijfs- en btw-registratiekosten",
+    "feature5": "We vinden een perfecte accountant voor uw bedrijf"
+  },
+  "HowItWorks": {
+    "sectionHeading": "Hoe het werkt",
+    "introText": "Een eenvoudig, papierloos proces.",
+    "additionalText": "Een bedrijf opzetten is nog nooit zo makkelijk geweest.",
+    "questionnaireTitle": "Vul de vragenlijst in",
+    "questionnaireDescription": "Beschrijf uw bedrijf, hoe het zal werken en geld zal verdienen.",
+    "financialPlanTitle": "Bereid een financieel plan voor",
+    "financialPlanDescription": "Wij helpen bij de oprichting van uw gepersonaliseerd financieel plan. U verifieert en ondertekent het alleen.",
+    "meetingNotaryTitle": "Online vergadering met de notaris",
+    "meetingNotaryDescription": "Onze notaris schrijft de statuten en interne reglementen, en u ondertekent ze elektronisch in een online vergadering.",
+    "companyPackageTitle": "Ontvang uw bedrijfspakket",
+    "companyPackageDescription": "We sturen u al uw belangrijke documenten en bereiden uw dossier voor op de accountant, bank en verzekering."
+  },
+  "NavBar": {
+    "howItWorks": "Hoe Het Werkt",
+    "resources": "Hulpmiddelen",
+    "pricing": "Prijzen",
+    "aboutUs": "Over Ons",
+    "toggleNavigation": "Navigatiemenu omschakelen"
+  },
+  "Resources": {
+    "sectionHeading": "Hulpmiddelen",
+    "introText": "Alles wat u nodig heeft om uw bedrijf te runnen nadat het is opgericht.",
+    "additionalText": "We zullen u verbinden met onze community van honderden partners en u speciale deals bieden voor elk van hen.",
+    "exclusivePerksTitle": "Exclusieve Voordelen",
+    "exclusivePerksDescription": "Toegang tot speciale deals en voordelen voor tientallen populaire hulpmiddelen en diensten, tegen sterk gereduceerde tarieven.",
+    "partnersNetworkTitle": "Ongeëvenaard Netwerk van Partners",
+    "partnersNetworkDescription": "Wij introduceren u aan de perfecte partners voor uw type bedrijf.",
+    "communityTitle": "Belgische Startups Gemeenschap",
+    "communityDescription": "Toegang tot een exclusieve gemeenschap van Belgische ondernemers, startups en investeerders."
+  },
+  "FreeChapters": {
+    "sectionAriaLabel": "Gratis voorbeeld",
+    "heading": "Ontvang het gratis whitepaper",
+    "description": "Voer uw e-mailadres in en wij sturen u onze gratis whitepaper over het oprichten van een bedrijf in België.",
+    "formHeading": "Ontvang het whitepaper",
+    "emailAriaLabel": "E-mailadres",
+    "emailPlaceholder": "E-mailadres",
+    "buttonText": "Stuur het op!"
+  },
+  "Pricing": {
+    "sectionHeading": "Prijzen",
+    "mainDescription": "Kies uw pakket",
+    "subDescription": "Beide pakketten geven toegang tot de Seven Seed community van oprichters en startups.",
+    "basicPlanName": "Basis - Uw BV in Zeven Dagen",
+    "basicPlanDescription": "Alles wat u nodig heeft, en een beetje meer.",
+    "basicPlanPrice": "2000",
+    "basicPlanFeature1": "Bedrijfsregistratie",
+    "basicPlanFeature2": "BTW-accountregistratie",
+    "basicPlanFeature3": "Statuten en notarisatie",
+    "basicPlanFeature4": "Financieel plan",
+    "basicPlanFeature5": "Bankrekening setup",
+    "basicPlanFeature6": "Twee uur gepersonaliseerd advies",
+    "foreignEntrepreneurPlanName": "Pakket voor buitenlandse ondernemers",
+    "foreignEntrepreneurPlanDescription": "Speciaal pakket voor niet-Belgen. Inclusief een bedrijfsadres in Vlaanderen.",
+    "foreignEntrepreneurPlanPrice": "2200",
+    "foreignEntrepreneurPlanFeature1": "Alles in Basis",
+    "foreignEntrepreneurPlanFeature2": "Uw eigen kantooradres in Vlaanderen",
+    "foreignEntrepreneurPlanFeature3": "Mail forwarding & scanning",
+    "foreignEntrepreneurPlanFeature4": "Drie maanden incl. (€70/maand daarna)",
+    "getStarted": "Beginnen"
+  },
+  "AboutUs": {
+    "heading": "Over Ons",
+    "founderName": "Jerome Leclanche –",
+    "founderTitle": "De Oprichter",
+    "founderDescription": "Bureaucratie is de naam van het spel in België. Het is voor de inwoners al moeilijk genoeg om er doorheen te navigeren, maar voor niet-inwoners is het bijna onmogelijk. Ik heb Seven Seed opgericht om ondernemers te helpen hun ideeën tot leven te brengen en niet te verzanden in de moeilijkheden van het starten van een bedrijf in België.",
+    "followOnLinkedIn": "Volg op LinkedIn"
+  },
+  "Footer": {
+    "about": "Over",
+    "jobs": "Jobs",
+    "press": "Pers",
+    "partners": "Partners",
+    "linkedIn": "LinkedIn",
+    "gitHub": "GitHub",
+    "copyright": "Seven Seed BV. Alle rechten voorbehouden.",
+    "privacyPolicy": "Privacybeleid"
+  }
+}
