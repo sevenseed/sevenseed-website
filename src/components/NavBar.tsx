@@ -31,12 +31,15 @@ export function NavBar() {
 	let [activeIndex, setActiveIndex] = useState<number | null>(null);
 	let mobileActiveIndex = activeIndex === null ? 0 : activeIndex;
 	const t = useTranslations("NavBar");
-	const sections = useMemo(() => [
-		{ id: "how-it-works", title: t("howItWorks") },
-		{ id: "resources", title: t("resources") },
-		{ id: "pricing", title: t("pricing") },
-		{ id: "about-us", title: t("aboutUs") },
-	], [t]);
+	const sections = useMemo(
+		() => [
+			{ id: "how-it-works", title: t("howItWorks") },
+			{ id: "resources", title: t("resources") },
+			{ id: "pricing", title: t("pricing") },
+			{ id: "about-us", title: t("aboutUs") },
+		],
+		[t],
+	);
 
 	useEffect(() => {
 		function updateActiveIndex() {

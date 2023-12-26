@@ -1,5 +1,5 @@
 import { headers } from "next/headers";
-import { RedirectType , redirect as rawRedirect, redirect} from "next/navigation";
+import { RedirectType, redirect as rawRedirect, redirect } from "next/navigation";
 import supabase from "@/supabase";
 
 const showMessage = (message: string) => {

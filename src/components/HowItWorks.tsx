@@ -11,28 +11,31 @@ import { useMemo } from "react";
 export function HowItWorks() {
 	const t = useTranslations("HowItWorks");
 
-	const videos = useMemo(() => [
-		{
-			title: t("questionnaireTitle"),
-			description: t("questionnaireDescription"),
-			image: setupImage,
-		},
-		{
-			title: t("financialPlanTitle"),
-			description: t("financialPlanDescription"),
-			image: gridsImage,
-		},
-		{
-			title: t("meetingNotaryTitle"),
-			description: t("meetingNotaryDescription"),
-			image: strokesImage,
-		},
-		{
-			title: t("companyPackageTitle"),
-			description: t("companyPackageDescription"),
-			image: duotoneImage,
-		},
-	], [t]);
+	const videos = useMemo(
+		() => [
+			{
+				title: t("questionnaireTitle"),
+				description: t("questionnaireDescription"),
+				image: setupImage,
+			},
+			{
+				title: t("financialPlanTitle"),
+				description: t("financialPlanDescription"),
+				image: gridsImage,
+			},
+			{
+				title: t("meetingNotaryTitle"),
+				description: t("meetingNotaryDescription"),
+				image: strokesImage,
+			},
+			{
+				title: t("companyPackageTitle"),
+				description: t("companyPackageDescription"),
+				image: duotoneImage,
+			},
+		],
+		[t],
+	);
 	return (
 		<section
 			id="how-it-works"
