@@ -157,9 +157,7 @@ const CompanyInfoForm = ({ companyData, setCompanyData }: CompanyDataFormProps) 
 						Use an existing address
 					</span>
 				</label>
-			</fieldset>
-			{companyData.companyAddress.type !== "CreateNewAddress" ? (
-				<fieldset className={styles.fields}>
+				{companyData.companyAddress.type !== "CreateNewAddress" ? (
 					<label htmlFor="companyAddress">
 						<input
 							type="text"
@@ -187,8 +185,8 @@ const CompanyInfoForm = ({ companyData, setCompanyData }: CompanyDataFormProps) 
 							required
 						/>
 					</label>
-				</fieldset>
-			) : null}
+				) : null}
+			</fieldset>
 
 			<h2 className={styles.header2}>Business Phone Number</h2>
 			<p className={styles.description}>
