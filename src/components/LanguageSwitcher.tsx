@@ -58,7 +58,7 @@ const LanguageSwitcher = () => {
 					type="button"
 					onClick={() => setExpanded(!expanded)}
 				>
-					Language {expanded ? <UpArrow /> : <DownArrow />}
+					Language ({currentLocale}) {expanded ? <UpArrow /> : <DownArrow />}
 				</button>
 				<div
 					className={`${

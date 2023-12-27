@@ -1,2 +1,2 @@
-const locales = ["en", "fr"] as const;
+const locales = ["en", "fr", "nl"] as const;
 export default locales;
