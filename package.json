@@ -6,9 +6,12 @@
 		"dev": "concurrently -r \"next dev\" npm:typecheck:watch",
 		"build": "next build",
 		"start": "next start",
-		"lint": "next lint",
+		"lint": "next lint --max-warnings=0",
 		"format": "prettier --write .",
 		"typecheck:watch": "tsc --noEmit --watch --preserveWatchOutput --project tsconfig.watch.json"
+	},
+	"engines": {
+		"node": "18.x"
 	},
 	"dependencies": {
 		"@headlessui/react": "^1.7.17",
