@@ -20,8 +20,7 @@ const WaitlistPage = () => (
 				Please complete the following form to get started.
 			</p>
 			<Link
-				href="https://share-eu1.hsforms.com/1nvcARfYkQdCpeDXUrZblKg2dapz2"
-				target="_blank"
+				href="/signup"
 				className="mt-6 inline-flex justify-center rounded-md py-1 px-4 text-base font-semibold tracking-tight shadow-sm focus:outline-none bg-blue-600 text-white hover:bg-blue-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 active:bg-blue-700 active:text-white/80"
 			>
 				Get started <span aria-hidden="true">&nbsp;&rarr;</span>

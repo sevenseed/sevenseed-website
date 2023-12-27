@@ -3,11 +3,12 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"dev": "next dev",
+		"dev": "concurrently -r \"next dev\" npm:typecheck:watch",
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
-		"format": "prettier --write ."
+		"format": "prettier --write .",
+		"typecheck:watch": "tsc --noEmit --watch --preserveWatchOutput --project tsconfig.watch.json"
 	},
 	"dependencies": {
 		"@headlessui/react": "^1.7.17",
@@ -41,5 +42,8 @@
 		"printWidth": 88,
 		"useTabs": true,
 		"tabWidth": 4
+	},
+	"devDependencies": {
+		"concurrently": "^8.2.2"
 	}
 }

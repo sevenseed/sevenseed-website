@@ -3,11 +3,11 @@
 }
 
 .header {
-	@apply mt-6 font-display text-5xl font-extrabold text-slate-900;
+	@apply my-6 font-display text-5xl font-extrabold text-slate-900;
 }
 
 .header2 {
-	@apply mt-6 font-display text-3xl font-extrabold text-slate-900;
+	@apply font-display text-3xl font-extrabold text-slate-900;
 }
 
 .description {
@@ -15,7 +15,7 @@
 }
 
 .fields {
-	@apply mt-6;
+	@apply mb-6;
 }
 
 .fields label {
@@ -31,8 +31,12 @@
 	@apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5;
 }
 
+.fields input:disabled {
+	@apply bg-gray-100 text-gray-500;
+}
+
 .button {
-	@apply mt-8 px-4 py-2 text-base font-medium text-white bg-slate-900 rounded-md shadow-sm hover:bg-slate-800;
+	@apply px-4 py-2 text-base font-medium text-white bg-slate-900 rounded-md shadow-sm hover:bg-slate-800;
 }
 
 .button[disabled] {

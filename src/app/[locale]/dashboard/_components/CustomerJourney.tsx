@@ -7,7 +7,7 @@ import { Dispatch, SetStateAction, createContext, useState } from "react";
 import styles from "./CustomerJourney.module.css";
 import CompanyInfoForm from "./forms/CompanyInfoForm";
 import ContactInfoForm from "./forms/ContactInfoForm";
-import SignupForm from "./forms/SignupForm";
+import { useRouter } from "next/navigation";
 
 const CompanyForms = [
 	{
@@ -26,11 +26,11 @@ const CompanyForms = [
 			"companyPhoneNumber",
 		],
 	},
-	{
-		label: "Sign Up",
-		component: SignupForm,
-		required: ["contactEmail", "password"],
-	},
+	// {
+	// 	label: "Sign Up",
+	// 	component: SignupForm,
+	// 	required: ["contactEmail", "password"],
+	// },
 	// {
 	// 	label: "Pay",
 	// 	component: PayForm,
@@ -89,18 +89,33 @@ export const CompanyDataContext = createContext<{
 
 const CustomerJourney = () => {
 	const [formIndex, setFormIndex] = useState(0);
-	const [companyData, setCompanyData] = useState({} as CompanyData);
+	const [companyData, setCompanyData] = useState<CompanyData>({
+		contactEmail: "",
+		contactName: "",
+		contactAddress: "",
+		civilStatus: "",
+		legalEntity: "",
+		companyName: "",
+		companyDescription: "",
+		companyAddress: { type: "HomeAddress" },
+		companyPhoneNumber: "",
+		contactPhoneNumber: "",
+		initialFunding: "",
+		specialRequests: "",
+	});
 
 	const [completed, setCompleted] = useState(false);
 	const [submitting, setSubmitting] = useState(false);
 	const [submissionError, setSubmissionError] = useState("");
-
+	const { push } = useRouter();
 	// Submit form to hubspot, then show a Thank You page
 	const submitForm = async () => {
 		setSubmitting(true);
 		try {
 			await submitCompanyDataToHubspot(companyData);
+			// todo: replace with toast or notification
 			setCompleted(true);
+			setTimeout(() => push("/"), 2000);
 		} catch (error: any) {
 			console.error(error);
 			setSubmissionError(error.message);
@@ -117,6 +132,8 @@ const CustomerJourney = () => {
 		<div className={styles.container}>
 			<h1 className="font-display text-4xl font-extrabold text-slate-900">
 				Thank you for submitting your information!
+				<br />
+				We are redirecting you to the home page.
 			</h1>
 		</div>
 	) : (

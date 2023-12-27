@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	const url = headers().get("x-url");
-	if(!url) {
+	if (!url) {
 		throw new Error("Unknown url");
 	}
 	return (

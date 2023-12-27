@@ -6,23 +6,18 @@ const nextConfig = withNextIntl({
 	async redirects() {
 		return [
 			{
-				source: "/signup",
-				destination: "/waitlist",
+				source: "/login",
+				destination: "/dashboard",
 				permanent: false,
 			},
 			{
-				source: "/contact",
-				destination: "/waitlist",
+				source: "/signup",
+				destination: "/dashboard",
 				permanent: false,
 			},
 			{
 				source: "/qr/card",
 				destination: "/?utm_source=business-card&utm_medium=qrcode",
-				permanent: false,
-			},
-			{
-				source: "/login",
-				destination: "/waitlist",
 				permanent: false,
 			},
 		];

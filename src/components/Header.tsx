@@ -35,7 +35,7 @@ const Header = () => {
 						<Bars3Icon className="h-6 w-6" aria-hidden="true" />
 					</button>
 				</div>
-				<div className="hidden lg:flex lg:gap-x-12">
+				<div className="hidden lg:flex lg:gap-x-12 items-center">
 					<LanguageSwitcher />
 					{navigation.map((item) => (
 						<a
@@ -47,10 +47,10 @@ const Header = () => {
 						</a>
 					))}
 					<Link
-						href="/login"
-						className="text-sm font-semibold leading-6 text-gray-900"
+						href="/signup"
+						className="text-sm font-semibold leading-6 inline-flex justify-center rounded-md py-1 px-4 tracking-tight shadow-sm focus:outline-none bg-blue-600 text-white hover:bg-blue-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 active:bg-blue-700 active:text-white/80"
 					>
-						Log in <span aria-hidden="true">&rarr;</span>
+						Get started <span aria-hidden="true">&rarr;</span>
 					</Link>
 				</div>
 			</nav>
