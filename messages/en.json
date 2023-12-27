@@ -62,7 +62,6 @@
 		"subDescription": "Both our packages give access to the Seven Seed community of founders and startups.",
 		"basicPlanName": "Basic - Your SRL in Seven Days",
 		"basicPlanDescription": "Everything you need, and a bit more.",
-		"basicPlanPrice": "2000",
 		"basicPlanFeature1": "Company registration",
 		"basicPlanFeature2": "VAT account registration",
 		"basicPlanFeature3": "Bylaws and notarization",
@@ -71,7 +70,7 @@
 		"basicPlanFeature6": "Two hours of personalized advice",
 		"foreignEntrepreneurPlanName": "Foreign Entrepreneur Package",
 		"foreignEntrepreneurPlanDescription": "Special package for non-Belgians. Includes a company address in Flanders.",
-		"foreignEntrepreneurPlanPrice": "2200",
+
 		"foreignEntrepreneurPlanFeature1": "Everything in Basic",
 		"foreignEntrepreneurPlanFeature2": "Your own office address in Flanders",
 		"foreignEntrepreneurPlanFeature3": "Mail forwarding & scanning",

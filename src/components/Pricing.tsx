@@ -9,14 +9,14 @@ import { useTranslations } from "next-intl";
 function Plan({
 	nameKey,
 	descriptionKey,
-	priceKey,
+	price,
 	featureKeys,
 	href,
 	featured = false,
 }: {
 	nameKey: string;
 	descriptionKey: string;
-	priceKey: string;
+	price: string;
 	featureKeys: string[];
 	href: string;
 	featured?: boolean;
@@ -67,7 +67,7 @@ function Plan({
 							featured ? "text-white" : "text-slate-900",
 						)}
 					>
-						{t(priceKey)}
+						{price}
 					</span>
 				</p>
 				<div className="order-last mt-8">
@@ -146,7 +146,7 @@ export function Pricing() {
 					<Plan
 						nameKey="basicPlanName"
 						descriptionKey="basicPlanDescription"
-						priceKey="basicPlanPrice"
+						price="2000"
 						featureKeys={basicPlanFeatures}
 						href="/signup"
 					/>
@@ -154,7 +154,7 @@ export function Pricing() {
 						featured
 						nameKey="foreignEntrepreneurPlanName"
 						descriptionKey="foreignEntrepreneurPlanDescription"
-						priceKey="foreignEntrepreneurPlanPrice"
+						price="2200"
 						featureKeys={foreignEntrepreneurPlanFeatures}
 						href="/signup"
 					/>
