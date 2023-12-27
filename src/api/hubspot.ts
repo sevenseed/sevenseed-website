@@ -76,18 +76,18 @@ export const submitCompanyDataToHubspot = async (data: CompanyData) => {
 	// TODO: Move this to a separate function and ensure both accounts actually get created successfully
 
 	const origin = headers().get("origin");
-	const { error } = await supabase().auth.signUp({
-		email: data.contactEmail,
-		password: data.password,
-		options: {
-			emailRedirectTo: `${origin}/auth/callback`,
-		},
-	});
+	// const { error } = await supabase().auth.signUp({
+	// 	email: data.contactEmail,
+	// 	password: data.password,
+	// 	options: {
+	// 		emailRedirectTo: `${origin}/auth/callback`,
+	// 	},
+	// });
 
-	if (error) {
-		console.error(error);
-		throw new Error("There was an error creating account, please try again.");
-	}
+	// if (error) {
+	// 	console.error(error);
+	// 	throw new Error("There was an error creating account, please try again.");
+	// }
 
 	return response;
 };

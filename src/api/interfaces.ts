@@ -20,6 +20,6 @@ export interface CompanyData {
 	companyPhoneNumber: string;
 	initialFunding: string;
 	legalEntity: string;
-	password: string;
+	// password: string;
 	specialRequests: string;
 }
