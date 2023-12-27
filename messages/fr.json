@@ -1,13 +1,13 @@
 {
   "Hero": {
     "title": "Votre entreprise, en sept jours.",
-    "content": "Obtenez votre entité légale en Belgique en juste sept jours. Compte bancaire et assurance inclus.",
+    "content": "Obtenez votre entité légale en Belgique en seulement sept jours. Compte bancaire et assurance inclus.",
     "getStarted": "Commencer",
     "contactUs": "Contactez-nous"
   },
   "Introduction": {
     "mainHeading": "Un processus de création d'entreprise simplifié, sans papier, adapté aux entrepreneurs.",
-    "introParagraph": "Créer une entreprise est un processus complexe et chronophage. Nous aidons les entrepreneurs avec la paperasse, pour libérer du temps pour ce qui compte : construire l'entreprise. Seven Seed est votre point de contact unique pour un processus de création d'entité légale simplifié.",
+    "introParagraph": "Créer une entreprise est un processus complexe et chronophage. Nous aidons les entrepreneurs avec la paperasse, pour libérer du temps pour l'essentiel : construire l'entreprise. Seven Seed est votre point de contact unique pour un processus de création d'entité légale simplifié.",
     "finalParagraph": "Nous minimisons les coûts et le temps passé au début du parcours entrepreneurial, et préparons l'entreprise au succès en proposant des présentations aux meilleurs partenaires possibles pour l'entreprise créée.",
     "linkText": "Découvrez pourquoi vous devriez créer votre entreprise en Belgique",
     "feature1": "Création du plan financier",
@@ -80,7 +80,7 @@
     "heading": "À propos de nous",
     "founderName": "Jerome Leclanche –",
     "founderTitle": "Le Fondateur",
-    "founderDescription": "La bureaucratie est le nom du jeu en Belgique. La naviguer pour les natifs est déjà assez difficile, mais pour les non-natifs, c'est presque impossible. J'ai fondé Seven Seed pour aider les entrepreneurs à concrétiser leurs idées, et ne pas se laisser submerger par les difficultés de création d'une entreprise en Belgique.",
+    "founderDescription": "La Belgique est réputée pour sa lourdeur bureaucratique. La maîtriser pour les natifs peut s'avérer complexe, mais pour les non-natifs, c'est pratiquement mission impossible ! J'ai fondé Seven Seed pour aider les entrepreneurs à concrétiser leurs idées et ne pas se laisser submerger par les difficultés de création d'une entreprise en Belgique tout en profitant de ses nombreux avantages.",
     "followOnLinkedIn": "Suivez sur LinkedIn"
   },
   "Footer": {
