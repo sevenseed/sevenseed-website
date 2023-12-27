@@ -4,14 +4,16 @@ import founderImage from "@/images/avatars/jerome-leclanche.jpg";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
+import { ComponentPropsWithoutRef } from "react";
 
-function LinkedInIcon(props: React.ComponentPropsWithoutRef<"svg">) {
+function LinkedInIcon(props: ComponentPropsWithoutRef<"svg">) {
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			width="26"
 			height="26"
 			viewBox="0 0 192 192"
+			{...props}
 		>
 			{
 				<path
@@ -65,7 +67,7 @@ export function AboutUs() {
 								target="_blank"
 								className="inline-flex items-center text-base font-medium tracking-tight text-blue-600"
 							>
-								<LinkedInIcon className="h-10 w-10 fill-current" />
+								<LinkedInIcon />
 								<span className="ml-4">{t("followOnLinkedIn")}</span>
 							</Link>
 						</p>
