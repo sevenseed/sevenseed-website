@@ -9,8 +9,11 @@ import { Pricing } from "@/components/Pricing";
 import { Resources } from "@/components/Resources";
 import { Testimonial } from "@/components/Testimonial";
 import avatarMichal from "@/images/avatars/michal-tarnowski.jpg";
+import { useTranslations } from "next-intl";
 
 export default function Home() {
+	const t = useTranslations("Testimonials");
+
 	return (
 		<>
 			<Hero />
@@ -20,14 +23,11 @@ export default function Home() {
 				id="testimonial"
 				author={{
 					name: "Michal Tarnowski",
-					role: "Founder, Trifolium Belgium Consulting SRL",
+					role: t("authorTitle"),
 					image: avatarMichal,
 				}}
 			>
-				<p>
-					“Seven Seed helped me creating my company quickly and efficiently.
-					Great communication and responsiveness!”
-				</p>
+				<p>“{t("review")}”</p>
 			</Testimonial>
 			<HowItWorks />
 			<Resources />
