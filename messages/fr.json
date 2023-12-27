@@ -6,15 +6,15 @@
 		"contactUs": "Contactez-nous"
 	},
 	"Introduction": {
-		"mainHeading": "Un processus de création d'entreprise simplifié, sans papier, adapté aux entrepreneurs.",
+		"mainHeading": "Un processus de création d'entreprise simplifié, adapté aux entrepreneurs.",
 		"introParagraph": "Créer une entreprise est un processus complexe et chronophage. Nous aidons les entrepreneurs avec la paperasse, pour libérer du temps pour l'essentiel : construire l'entreprise. Seven Seed est votre point de contact unique pour un processus de création d'entité légale simplifié.",
 		"finalParagraph": "Nous minimisons les coûts et le temps passé au début du parcours entrepreneurial, et préparons l'entreprise au succès en proposant des présentations aux meilleurs partenaires possibles pour l'entreprise créée.",
 		"linkText": "Découvrez pourquoi vous devriez créer votre entreprise en Belgique",
 		"feature1": "Création du plan financier",
 		"feature2": "Articles de constitution et statuts",
 		"feature3": "Réunion en ligne avec le notaire",
-		"feature4": "Frais d'enregistrement de l'entreprise et de la TVA",
-		"feature5": "Nous trouvons un comptable parfait pour votre entreprise"
+		"feature4": "Frais d'enregistrement de l'entreprise et de la TVA inclus",
+		"feature5": "Relation avec un comptable adapté à votre entreprise"
 	},
 	"HowItWorks": {
 		"sectionHeading": "Comment ça fonctionne",
@@ -22,12 +22,16 @@
 		"additionalText": "Créer une entreprise n'a jamais été aussi facile.",
 		"questionnaireTitle": "Complétez le questionnaire",
 		"questionnaireDescription": "Décrivez votre entreprise, comment elle fonctionnera et générera des revenus.",
-		"financialPlanTitle": "Préparez un plan financier",
+		"financialPlanTitle": "Signez le plan financier",
 		"financialPlanDescription": "Nous vous aidons à créer votre plan financier personnalisé. Il vous suffit de le vérifier et de le signer.",
 		"meetingNotaryTitle": "Réunion en ligne avec le notaire",
 		"meetingNotaryDescription": "Notre notaire rédige les statuts et les règlements, et vous les signez électroniquement lors d'une réunion en ligne.",
-		"companyPackageTitle": "Recevez votre dossier d'entreprise",
+		"companyPackageTitle": "Recevez votre dossier d'ouverture",
 		"companyPackageDescription": "Nous vous envoyons tous vos documents importants et préparons votre dossier pour le comptable, la banque et l'assurance."
+	},
+	"Testimonials": {
+		"review": "Seven Seed m'a aidé à créer mon entreprise rapidement et efficacement. Excellente communication et réactivité !",
+		"authorTitle": "Fondateur, Trifolium Belgium Consulting SRL"
 	},
 	"NavBar": {
 		"howItWorks": "Comment ça fonctionne",

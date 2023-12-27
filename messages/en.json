@@ -29,6 +29,10 @@
 		"companyPackageTitle": "Receive your company package",
 		"companyPackageDescription": "We send you all your important documents, and prepare your file for the accountant, bank and insurance."
 	},
+	"Testimonials": {
+		"review": "Seven Seed helped me create my company quickly and efficiently. Great communication and responsiveness!",
+		"authorTitle": "Founder, Trifolium Belgium Consulting SRL"
+	},
 	"NavBar": {
 		"howItWorks": "How It Works",
 		"resources": "Resources",
