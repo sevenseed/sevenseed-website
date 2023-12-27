@@ -1,7 +1,6 @@
 import { Container } from "@/components/Container";
 import EmailLink from "@/components/EmailLink";
 import { GridPattern } from "@/components/GridPattern";
-import Link from "next/link";
 
 const WaitlistPage = () => (
 	<div className="relative flex flex-auto items-center">
