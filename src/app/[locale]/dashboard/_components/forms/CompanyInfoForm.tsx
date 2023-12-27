@@ -98,27 +98,97 @@ const CompanyInfoForm = ({ companyData, setCompanyData }: CompanyDataFormProps) 
 
 			<h2 className={styles.header2}>Business Address</h2>
 			<p className={styles.description}>
-				What will the address of the business be? (If you don&apos;t have one
-				yet, enter your home address)
+				What will the address of the business be?
 			</p>
 			<fieldset className={styles.fields}>
-				<label htmlFor="companyAddress">
+				<label htmlFor="homeAddress">
 					<input
-						type="text"
-						id="companyAddress"
-						name="companyAddress"
-						placeholder="Champ de Mars, 5 Av. Anatole France, 75007 Paris, France"
-						onChange={(e) =>
+						type="radio"
+						id="homeAddress"
+						onChange={(e) => {
 							setCompanyData({
 								...companyData,
-								companyAddress: e.target.value,
-							})
-						}
-						value={companyData.companyAddress}
-						required
+								companyAddress: {
+									type: "HomeAddress",
+								},
+							});
+						}}
+						checked={companyData.companyAddress.type === "HomeAddress"}
 					/>
+					<span className="text-base font-medium text-gray-700 ml-2">
+						Use my home address
+					</span>
+				</label>
+				<label htmlFor="createNewAddress">
+					<input
+						type="radio"
+						id="createNewAddress"
+						onChange={(e) => {
+							setCompanyData({
+								...companyData,
+								companyAddress: {
+									type: "CreateNewAddress",
+								},
+							});
+						}}
+						checked={companyData.companyAddress.type === "CreateNewAddress"}
+					/>
+					<span className="text-base font-medium text-gray-700 ml-2">
+						Get me an address
+					</span>
+				</label>
+
+				<label htmlFor="existingAddress">
+					<input
+						type="radio"
+						id="existingAddress"
+						onChange={(e) => {
+							setCompanyData({
+								...companyData,
+								companyAddress: {
+									type: "ExistingAddress",
+									location: "",
+								},
+							});
+						}}
+						checked={companyData.companyAddress.type === "ExistingAddress"}
+					/>
+					<span className="text-base font-medium text-gray-700 ml-2">
+						Use an existing address
+					</span>
 				</label>
 			</fieldset>
+			{companyData.companyAddress.type !== "CreateNewAddress" ? (
+				<fieldset className={styles.fields}>
+					<label htmlFor="companyAddress">
+						<input
+							type="text"
+							id="companyAddress"
+							name="companyAddress"
+							placeholder="Champ de Mars, 5 Av. Anatole France, 75007 Paris, France"
+							disabled={companyData.companyAddress.type === "HomeAddress"}
+							onChange={
+								companyData.companyAddress.type === "ExistingAddress"
+									? (e) =>
+											setCompanyData({
+												...companyData,
+												companyAddress: {
+													type: "ExistingAddress",
+													location: e.target.value,
+												},
+											})
+									: undefined
+							}
+							value={
+								companyData.companyAddress.type === "HomeAddress"
+									? companyData.contactAddress
+									: companyData.companyAddress.location
+							}
+							required
+						/>
+					</label>
+				</fieldset>
+			) : null}
 
 			<h2 className={styles.header2}>Business Phone Number</h2>
 			<p className={styles.description}>

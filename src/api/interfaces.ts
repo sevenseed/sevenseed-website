@@ -4,7 +4,17 @@ export interface CompanyData {
 	contactEmail: string;
 	contactPhoneNumber: string;
 	contactName: string;
-	companyAddress: string;
+	companyAddress:
+		| {
+				type: "HomeAddress";
+		  }
+		| {
+				type: "CreateNewAddress";
+		  }
+		| {
+				type: "ExistingAddress";
+				location: string;
+		  };
 	companyDescription: string;
 	companyName: string;
 	companyPhoneNumber: string;

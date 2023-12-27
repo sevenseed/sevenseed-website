@@ -90,7 +90,21 @@ export const CompanyDataContext = createContext<{
 
 const CustomerJourney = () => {
 	const [formIndex, setFormIndex] = useState(0);
-	const [companyData, setCompanyData] = useState({} as CompanyData);
+	const [companyData, setCompanyData] = useState<CompanyData>({
+		contactEmail: "",
+		password: "",
+		contactName: "",
+		contactAddress: "",
+		civilStatus: "",
+		legalEntity: "",
+		companyName: "",
+		companyDescription: "",
+		companyAddress: { type: "HomeAddress" },
+		companyPhoneNumber: "",
+		contactPhoneNumber: "",
+		initialFunding: "",
+		specialRequests: "",
+	});
 
 	const [completed, setCompleted] = useState(false);
 	const [submitting, setSubmitting] = useState(false);

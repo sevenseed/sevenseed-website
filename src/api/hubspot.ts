@@ -3,6 +3,7 @@ import { HUBSPOT_FORM_GUID, HUBSPOT_PORTAL_ID } from "@/config";
 import supabase from "@/supabase";
 import { headers } from "next/headers";
 import { CompanyData } from "./interfaces";
+import assertUnreachable from "@/assertUnreachable";
 
 // test form: https://share-eu1.hsforms.com/1b1Nc0NqvRQGXd0fuDn2vUQ2dapz2
 export const submitCompanyDataToHubspot = async (data: CompanyData) => {
@@ -15,6 +16,19 @@ export const submitCompanyDataToHubspot = async (data: CompanyData) => {
 	// TODO: Determine if hubspot library is worth adding 12mb of dependencies
 	// https://www.npmjs.com/package/@hubspot/api-client
 
+	const companyAddress = (() => {
+		switch (data.companyAddress.type) {
+			case "HomeAddress":
+				return "USE_HOME_ADDRESS";
+			case "CreateNewAddress":
+				return "CREATE_NEW_ADDRESS";
+			case "ExistingAddress":
+				return data.companyAddress.location;
+			default:
+				return assertUnreachable(data.companyAddress);
+		}
+	})();
+
 	const hubspotFormData = {
 		fields: [
 			{ objectTypeId: "0-1", name: "email", value: data.contactEmail },
@@ -26,7 +40,7 @@ export const submitCompanyDataToHubspot = async (data: CompanyData) => {
 				name: "description",
 				value: data.companyDescription,
 			},
-			{ objectTypeId: "0-2", name: "address", value: data.companyAddress },
+			{ objectTypeId: "0-2", name: "address", value: companyAddress },
 			{ objectTypeId: "0-2", name: "phone", value: data.companyPhoneNumber },
 			{
 				objectTypeId: "0-2",
