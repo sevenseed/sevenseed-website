@@ -5,7 +5,8 @@ import { useState } from "react";
 import { GridPattern } from "./GridPattern";
 import LanguageSwitcher from "./LanguageSwitcher";
 import Link from "next/link";
-
+import Image from "next/image";
+import logo from "@/images/logo.svg";
 const navigation = [{ name: "Contact", href: "/contact" }];
 
 const Header = () => {
@@ -23,7 +24,7 @@ const Header = () => {
 				/>
 				<a href="/" className="-m-1.5 p-1.5">
 					<span className="sr-only">Seven Seed</span>
-					<img className="h-12 w-auto" src="/images/logo.svg" alt="" />
+					<Image className="h-12 w-auto" src={logo} alt="" />
 				</a>
 				<div className="flex lg:hidden">
 					<button
@@ -65,11 +66,7 @@ const Header = () => {
 					<div className="flex items-center justify-between">
 						<a href="/" className="-m-1.5 p-1.5">
 							<span className="sr-only">Seven Seed</span>
-							<img
-								className="h-12 w-auto"
-								src="/images/logo.svg"
-								alt=""
-							/>
+							<Image className="h-12 w-auto" src={logo} alt="" />
 						</a>
 						<button
 							type="button"

@@ -22,6 +22,9 @@ const nextConfig = withNextIntl({
 			},
 		];
 	},
+	eslint: {
+		ignoreDuringBuilds: true,
+	},
 	experimental: {
 		serverActions: true,
 	},

@@ -3,12 +3,19 @@
 import { Popover } from "@headlessui/react";
 import clsx from "clsx";
 import { useTranslations } from "next-intl";
-import { useEffect, useMemo, useRef, useState } from "react";
+import {
+	ComponentPropsWithoutRef,
+	ElementRef,
+	useEffect,
+	useMemo,
+	useRef,
+	useState,
+} from "react";
 
 function MenuIcon({
 	open,
 	...props
-}: React.ComponentPropsWithoutRef<"svg"> & {
+}: ComponentPropsWithoutRef<"svg"> & {
 	open: boolean;
 }) {
 	return (
@@ -27,7 +34,7 @@ function MenuIcon({
 }
 
 export function NavBar() {
-	let navBarRef = useRef<React.ElementRef<"div">>(null);
+	let navBarRef = useRef<ElementRef<"div">>(null);
 	let [activeIndex, setActiveIndex] = useState<number | null>(null);
 	let mobileActiveIndex = activeIndex === null ? 0 : activeIndex;
 	const t = useTranslations("NavBar");

@@ -1,11 +1,12 @@
 import clsx from "clsx";
+import { ComponentPropsWithoutRef } from "react";
 
 export function SectionHeading({
 	number,
 	children,
 	className,
 	...props
-}: React.ComponentPropsWithoutRef<"h2"> & { number: string }) {
+}: ComponentPropsWithoutRef<"h2"> & { number: string }) {
 	return (
 		<h2
 			className={clsx(

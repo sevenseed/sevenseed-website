@@ -1,4 +1,4 @@
-import { useId } from "react";
+import { ComponentPropsWithoutRef, useId } from "react";
 
 export function Pattern({
 	size = 40,
@@ -11,7 +11,7 @@ export function Pattern({
 		[1, 0, 1, 1, 0, 0, 0, 1],
 	],
 	...props
-}: React.ComponentPropsWithoutRef<"svg"> & {
+}: ComponentPropsWithoutRef<"svg"> & {
 	size?: number;
 	gapX?: number;
 	gapY?: number;

@@ -6,9 +6,12 @@
 		"dev": "concurrently -r \"next dev\" npm:typecheck:watch",
 		"build": "next build",
 		"start": "next start",
-		"lint": "next lint",
-		"format": "prettier --write .",
+		"lint": "next lint --max-warnings=0 && prettier --check '**/*.json'",
+		"lint:fix": "next lint --fix --max-warnings=0 && prettier --write '**/*.json'",
 		"typecheck:watch": "tsc --noEmit --watch --preserveWatchOutput --project tsconfig.watch.json"
+	},
+	"engines": {
+		"node": "18.x"
 	},
 	"dependencies": {
 		"@headlessui/react": "^1.7.17",
@@ -44,6 +47,8 @@
 		"tabWidth": 4
 	},
 	"devDependencies": {
-		"concurrently": "^8.2.2"
+		"concurrently": "^8.2.2",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-plugin-prettier": "^5.1.2"
 	}
 }

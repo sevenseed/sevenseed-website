@@ -1,8 +1,10 @@
-export const EmailLink: React.FC<{
+import { FC, ReactNode } from "react";
+
+export const EmailLink: FC<{
 	email: string;
 	className?: string;
 	subject?: string;
-	children?: React.ReactNode | React.ReactNode[];
+	children?: ReactNode | ReactNode[];
 }> = ({ email, className, subject, children }) => (
 	<a
 		href={

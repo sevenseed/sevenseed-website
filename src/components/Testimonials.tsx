@@ -12,6 +12,7 @@ import avatarImage8 from "@/images/avatars/avatar-8.png";
 import avatarImage9 from "@/images/avatars/avatar-9.png";
 import avatarImage10 from "@/images/avatars/avatar-10.png";
 import avatarImage11 from "@/images/avatars/avatar-11.png";
+import { ReactNode } from "react";
 
 const testimonials = [
 	[
@@ -108,7 +109,7 @@ function Testimonial({
 	children,
 }: {
 	author: { name: string; role: string; image: ImageProps["src"] };
-	children: React.ReactNode;
+	children: ReactNode;
 }) {
 	return (
 		<figure className="rounded-4xl p-8 shadow-md ring-1 ring-slate-900/5">

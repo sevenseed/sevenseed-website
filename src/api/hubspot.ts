@@ -1,7 +1,7 @@
 "use server";
 import { HUBSPOT_FORM_GUID, HUBSPOT_PORTAL_ID } from "@/config";
-import supabase from "@/supabase";
-import { headers } from "next/headers";
+// import supabase from "@/supabase";
+// import { headers } from "next/headers";
 import { CompanyData } from "./interfaces";
 import assertUnreachable from "@/assertUnreachable";
 
@@ -75,7 +75,7 @@ export const submitCompanyDataToHubspot = async (data: CompanyData) => {
 	// Create Supabase user at same time as hubspot form submission
 	// TODO: Move this to a separate function and ensure both accounts actually get created successfully
 
-	const origin = headers().get("origin");
+	// const origin = headers().get("origin");
 	// const { error } = await supabase().auth.signUp({
 	// 	email: data.contactEmail,
 	// 	password: data.password,

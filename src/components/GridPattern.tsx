@@ -1,8 +1,6 @@
-import { useId } from "react";
+import { ComponentPropsWithoutRef, useId } from "react";
 
-export function GridPattern(
-	props: Omit<React.ComponentPropsWithoutRef<"pattern">, "id">,
-) {
+export function GridPattern(props: Omit<ComponentPropsWithoutRef<"pattern">, "id">) {
 	let patternId = useId();
 
 	return (
