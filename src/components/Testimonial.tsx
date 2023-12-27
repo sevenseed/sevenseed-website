@@ -3,6 +3,7 @@ import Image, { type ImageProps } from "next/image";
 import { Container } from "@/components/Container";
 import { GridPattern } from "@/components/GridPattern";
 import { StarRating } from "@/components/StarRating";
+import { ReactNode } from "react";
 
 export function Testimonial({
 	id,
@@ -11,7 +12,7 @@ export function Testimonial({
 }: {
 	id: string;
 	author: { name: string; role: string; image: ImageProps["src"] };
-	children: React.ReactNode;
+	children: ReactNode;
 }) {
 	return (
 		<aside

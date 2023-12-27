@@ -1,8 +1,4 @@
-import {
-	createServerClient,
-	type CookieOptions,
-	createBrowserClient,
-} from "@supabase/ssr";
+import { createServerClient, type CookieOptions } from "@supabase/ssr";
 import { IS_SERVER, SUPABASE_ANON_KEY, SUPABASE_URL } from "./config";
 import { cookies } from "next/headers";
 

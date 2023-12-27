@@ -105,7 +105,7 @@ const CompanyInfoForm = ({ companyData, setCompanyData }: CompanyDataFormProps) 
 					<input
 						type="radio"
 						id="homeAddress"
-						onChange={(e) => {
+						onChange={() => {
 							setCompanyData({
 								...companyData,
 								companyAddress: {
@@ -123,7 +123,7 @@ const CompanyInfoForm = ({ companyData, setCompanyData }: CompanyDataFormProps) 
 					<input
 						type="radio"
 						id="createNewAddress"
-						onChange={(e) => {
+						onChange={() => {
 							setCompanyData({
 								...companyData,
 								companyAddress: {
@@ -142,7 +142,7 @@ const CompanyInfoForm = ({ companyData, setCompanyData }: CompanyDataFormProps) 
 					<input
 						type="radio"
 						id="existingAddress"
-						onChange={(e) => {
+						onChange={() => {
 							setCompanyData({
 								...companyData,
 								companyAddress: {

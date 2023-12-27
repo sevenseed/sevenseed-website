@@ -2,7 +2,14 @@
 
 import { submitCompanyDataToHubspot } from "@/api/hubspot";
 import { CompanyData } from "@/api/interfaces";
-import { Dispatch, SetStateAction, createContext, useState } from "react";
+import {
+	ComponentType,
+	Dispatch,
+	ElementType,
+	SetStateAction,
+	createContext,
+	useState,
+} from "react";
 
 import styles from "./CustomerJourney.module.css";
 import CompanyInfoForm from "./forms/CompanyInfoForm";
@@ -37,7 +44,7 @@ const CompanyForms = [
 	// },
 ] as {
 	label: string;
-	component: React.ComponentType<CompanyDataFormProps>;
+	component: ComponentType<CompanyDataFormProps>;
 	required: (keyof CompanyData)[];
 }[];
 
@@ -55,7 +62,7 @@ const FormStepComponent = ({
 	companyData,
 	setCompanyData,
 }: FormStepComponentProps) => {
-	const Component = CompanyForms[formIndex].component as JSX.ElementType;
+	const Component = CompanyForms[formIndex].component as ElementType;
 	return <Component companyData={companyData} setCompanyData={setCompanyData} />;
 };
 

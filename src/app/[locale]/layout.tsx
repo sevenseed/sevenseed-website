@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import "@/styles/tailwind.css";
 import { headers } from "next/headers";
 import locales from "@/locales";
+import { ReactNode } from "react";
 
 const inter = Inter({
 	subsets: ["latin"],
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
 		"Create your legal entity in Belgium in just seven days. Bank account included.",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
 	const url = headers().get("x-url");
 	if (!url) {
 		throw new Error("Unknown url");

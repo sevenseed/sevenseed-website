@@ -1,5 +1,6 @@
 import Link from "next/link";
 import clsx from "clsx";
+import { ComponentPropsWithoutRef } from "react";
 
 const baseStyles = {
 	solid: "inline-flex justify-center rounded-md py-1 px-4 text-base font-semibold tracking-tight shadow-sm focus:outline-none",
@@ -26,8 +27,8 @@ type ButtonProps<Variant extends VariantKey, Color extends ColorKey<Variant>> = 
 	variant?: Variant;
 	color?: Color;
 } & (
-	| Omit<React.ComponentPropsWithoutRef<typeof Link>, "color">
-	| (Omit<React.ComponentPropsWithoutRef<"button">, "color"> & {
+	| Omit<ComponentPropsWithoutRef<typeof Link>, "color">
+	| (Omit<ComponentPropsWithoutRef<"button">, "color"> & {
 			href?: undefined;
 	  })
 );
