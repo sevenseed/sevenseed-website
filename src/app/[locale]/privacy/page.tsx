@@ -127,6 +127,15 @@ const Privacy = () => (
 					unauthorized or unlawful processing and against accidental
 					destruction, loss or damage.
 				</p>
+				<h2>In-person events</h2>
+				<p>
+					Occasionally, Seven Seed organizes in-person events. By signing up
+					to these events, you understand that Seven Seed events may be
+					photographed and video-recorded, and published on social media
+					channels and online video-sharing platforms such as LinkedIn and
+					YouTube. You agree that Seven Seed may use photos and videos of the
+					event for promotional purposes.
+				</p>
 				<h2>Your rights</h2>
 				<p>
 					You have the following rights as a data subject:
