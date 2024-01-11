@@ -67,7 +67,7 @@ export default function TeamPage() {
 
 	return (
 		<div className="flex flex-col items-center">
-			<h1 className="my-6 font-display text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 text-center">
+			<h1 className="my-12 font-display text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 text-center">
 				{t("title")}
 			</h1>
 			<div className="flex flex-wrap m-4 gap-8 lg:gap-16 justify-center">
