@@ -2,7 +2,8 @@ import React, { useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-import founderImage from "@/images/avatars/jerome-leclanche.jpg";
+import jeromeImage from "@/images/avatars/jerome-leclanche.jpg";
+import brentImage from "@/images/avatars/brent-dedecker.jpg";
 import { useTranslations } from "next-intl";
 
 export default function TeamPage() {
@@ -14,20 +15,20 @@ export default function TeamPage() {
 				name: t("jerome-leclanche"),
 				role: t("founder"),
 				description: t("jerome-leclanche-description"),
-				image: founderImage,
+				image: jeromeImage,
 				contact: {
 					label: t("linkedin"),
 					href: "https://linkedin.com/in/jleclanche",
 				},
 			},
 			{
-				name: "Dwight Schrute",
-				role: "Assistant to the Regional Manager",
-				description: "Beets, bears, Battlestar Galactica",
-				image: "https://ozgrozer.github.io/100k-faces/0/0/000983.jpg",
+				name: t("brent-dedecker"),
+				role: t("business-development"),
+				description: t("brent-dedecker-description"),
+				image: brentImage,
 				contact: {
 					label: "LinkedIn",
-					href: "https://www.linkedin.com/in/dwight-schrute-3a3b4b/",
+					href: "https://www.linkedin.com/in/brent-dedecker",
 				},
 			},
 			{
