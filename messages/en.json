@@ -74,7 +74,6 @@
 		"basicPlanFeature6": "Two hours of personalized advice",
 		"foreignEntrepreneurPlanName": "Foreign Entrepreneur Package",
 		"foreignEntrepreneurPlanDescription": "Special package for non-Belgians. Includes a company address in Flanders.",
-
 		"foreignEntrepreneurPlanFeature1": "Everything in Basic",
 		"foreignEntrepreneurPlanFeature2": "Your own office address in Flanders",
 		"foreignEntrepreneurPlanFeature3": "Mail forwarding & scanning",
@@ -97,5 +96,12 @@
 		"gitHub": "GitHub",
 		"copyright": "Seven Seed SRL. All rights reserved.",
 		"privacyPolicy": "Privacy Policy"
+	},
+	"Team": {
+		"title": "Meet the team",
+		"linkedin": "LinkedIn",
+		"jerome-leclanche": "Jerome Leclanche",
+		"jerome-leclanche-description": "Managing Director",
+		"founder": "Founder"
 	}
 }
