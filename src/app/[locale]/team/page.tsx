@@ -2,15 +2,17 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
+import founderImage from "@/images/avatars/jerome-leclanche.jpg";
+
 const teamMembers = [
 	{
-		name: "Michael Scott",
-		role: "Regional Manager",
-		description: "World's best boss",
-		image: "https://ozgrozer.github.io/100k-faces/0/8/008280.jpg",
+		name: "Jerome Leclanche",
+		role: "Founder",
+		description: "Managing Director",
+		image: founderImage,
 		contact: {
-			label: "Website",
-			href: "https://www.dundermifflin.com",
+			label: "Linkedin",
+			href: "https://linkedin.com/in/jleclanche",
 		},
 	},
 	{
