@@ -43,7 +43,6 @@ export function NavBar() {
 			{ id: "how-it-works", title: t("howItWorks") },
 			{ id: "resources", title: t("resources") },
 			{ id: "pricing", title: t("pricing") },
-			{ id: "about-us", title: t("aboutUs") },
 		],
 		[t],
 	);

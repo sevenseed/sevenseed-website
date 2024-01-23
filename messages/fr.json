@@ -37,7 +37,6 @@
 		"howItWorks": "Comment ça fonctionne",
 		"resources": "Ressources",
 		"pricing": "Tarification",
-		"aboutUs": "À propos de nous",
 		"toggleNavigation": "Basculer le menu de navigation"
 	},
 	"Resources": {
@@ -79,13 +78,6 @@
 		"foreignEntrepreneurPlanFeature3": "Réexpédition et numérisation du courrier",
 		"foreignEntrepreneurPlanFeature4": "Trois mois incl. (70 €/mois après)",
 		"getStarted": "Commencer"
-	},
-	"AboutUs": {
-		"heading": "À propos de nous",
-		"founderName": "Jerome Leclanche –",
-		"founderTitle": "Le Fondateur",
-		"founderDescription": "La Belgique est réputée pour sa lourdeur bureaucratique. La maîtriser pour les natifs peut s'avérer complexe, mais pour les non-natifs, c'est pratiquement mission impossible ! J'ai fondé Seven Seed pour aider les entrepreneurs à concrétiser leurs idées et ne pas se laisser submerger par les difficultés de création d'une entreprise en Belgique tout en profitant de ses nombreux avantages.",
-		"followOnLinkedIn": "Suivez sur LinkedIn"
 	},
 	"Footer": {
 		"about": "À propos",

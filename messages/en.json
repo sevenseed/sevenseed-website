@@ -37,7 +37,6 @@
 		"howItWorks": "How It Works",
 		"resources": "Resources",
 		"pricing": "Pricing",
-		"aboutUs": "About Us",
 		"toggleNavigation": "Toggle navigation menu"
 	},
 	"Resources": {
@@ -80,13 +79,6 @@
 		"foreignEntrepreneurPlanFeature3": "Mail forwarding & scanning",
 		"foreignEntrepreneurPlanFeature4": "Three months incl. (€70/mo after)",
 		"getStarted": "Get started"
-	},
-	"AboutUs": {
-		"heading": "About Us",
-		"founderName": "Jerome Leclanche –",
-		"founderTitle": "The Founder",
-		"founderDescription": "Bureaucracy is the name of the game in Belgium. Navigating it for natives is difficult enough, but for non-natives it’s nearly impossible. I founded Seven Seed to help entrepreneurs bring their ideas to life, and not get bogged down in the difficulties of starting a business in Belgium.",
-		"followOnLinkedIn": "Follow on LinkedIn"
 	},
 	"Footer": {
 		"about": "About",

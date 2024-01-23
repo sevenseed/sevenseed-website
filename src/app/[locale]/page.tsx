@@ -1,4 +1,3 @@
-import { AboutUs } from "@/components/AboutUs";
 import { Footer } from "@/components/Footer";
 import { FreeChapters } from "@/components/FreeChapters";
 import Hero from "@/components/Hero";
@@ -33,7 +32,6 @@ export default function Home() {
 			<Resources />
 			<FreeChapters />
 			<Pricing />
-			<AboutUs />
 			<Footer />
 		</>
 	);
