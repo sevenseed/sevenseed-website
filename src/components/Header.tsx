@@ -51,7 +51,10 @@ const Header = () => {
 						href="/signup"
 						className="text-sm font-semibold leading-6 inline-flex justify-center rounded-md py-1 px-4 tracking-tight shadow-sm focus:outline-none bg-blue-600 text-white hover:bg-blue-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 active:bg-blue-700 active:text-white/80"
 					>
-						Get started <span aria-hidden="true">&rarr;</span>
+						Get started{" "}
+						<span className="ml-1.5" aria-hidden="true">
+							&rarr;
+						</span>
 					</Link>
 				</div>
 			</nav>
