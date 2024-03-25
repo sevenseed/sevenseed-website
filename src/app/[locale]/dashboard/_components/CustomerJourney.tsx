@@ -1,5 +1,5 @@
 "use client";
-
+import { loadStripe } from "@stripe/stripe-js";
 import { submitCompanyDataToHubspot } from "@/api/hubspot";
 import { CompanyData } from "@/api/interfaces";
 import {
@@ -11,10 +11,15 @@ import {
 	useState,
 } from "react";
 
+const STRIPE_PK = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
+if (!STRIPE_PK) throw "Stripe publishable key not found";
+
+// * necessary in order to properly load Stripe on a given page
+const stripePromise = loadStripe(STRIPE_PK);
+
 import styles from "./CustomerJourney.module.css";
 import CompanyInfoForm from "./forms/CompanyInfoForm";
 import ContactInfoForm from "./forms/ContactInfoForm";
-import { useRouter } from "next/navigation";
 
 const CompanyForms = [
 	{
@@ -37,10 +42,6 @@ const CompanyForms = [
 	// 	label: "Sign Up",
 	// 	component: SignupForm,
 	// 	required: ["contactEmail", "password"],
-	// },
-	// {
-	// 	label: "Pay",
-	// 	component: PayForm,
 	// },
 ] as {
 	label: string;
@@ -114,7 +115,7 @@ const CustomerJourney = () => {
 	const [completed, setCompleted] = useState(false);
 	const [submitting, setSubmitting] = useState(false);
 	const [submissionError, setSubmissionError] = useState("");
-	const { push } = useRouter();
+
 	// Submit form to hubspot, then show a Thank You page
 	const submitForm = async () => {
 		setSubmitting(true);
@@ -122,7 +123,7 @@ const CustomerJourney = () => {
 			await submitCompanyDataToHubspot(companyData);
 			// todo: replace with toast or notification
 			setCompleted(true);
-			setTimeout(() => push("/"), 2000);
+			// setTimeout(() => push("/checkout"), 2000);
 		} catch (error: any) {
 			console.error(error);
 			setSubmissionError(error.message);
@@ -135,13 +136,34 @@ const CustomerJourney = () => {
 	const requiredFields = CompanyForms[formIndex].required;
 	const allRequiredFieldsFilled = requiredFields.every((field) => companyData[field]);
 
-	return completed ? (
+	// return completed ? (
+	return true ? (
 		<div className={styles.container}>
-			<h1 className="font-display text-4xl font-extrabold text-slate-900">
+			<h1 className={styles.heading}>
 				Thank you for submitting your information!
-				<br />
-				We are redirecting you to the home page.
 			</h1>
+			<p className={styles.paragraph}>
+				We now ask you to submit the deposit. Click on the button below, it will
+				take you to the checkout page. All payments are handled securely by
+				Stripe.
+			</p>
+			<p className={styles.paragraph}>
+				Once the deposit has been submitted, we will also ask you to provide a
+				photo or scan of a document confirming your identity, as required by
+				law. Please have your ID close at hand.
+			</p>
+			<form className={styles.checkout} action="/api/checkout" method="POST">
+				<section>
+					<button type="submit" role="link">
+						Checkout via{" "}
+						<img
+							className="logo"
+							src="/images/logo/stripe.white.svg"
+							alt="Stripe"
+						/>
+					</button>
+				</section>
+			</form>
 		</div>
 	) : (
 		<div className={styles.container}>

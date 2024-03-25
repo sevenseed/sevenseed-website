@@ -42,6 +42,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 					rel="stylesheet"
 					href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,500,700&display=swap"
 				/>
+				{/* Stripe recommends preloading its JS toolkit because it enables them to track potential fraud better */}
+				<script src="https://js.stripe.com/v3" async></script>
 				{locales.map((locale) => {
 					const urlObj = new URL(url);
 					urlObj.searchParams.set("lang", locale);
