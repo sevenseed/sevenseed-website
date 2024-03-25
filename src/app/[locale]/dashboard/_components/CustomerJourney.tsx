@@ -182,7 +182,7 @@ const CustomerJourney = () => {
 						disabled={!allRequiredFieldsFilled || submitting}
 					>
 						{submitting ? "Submitting.." : lastPage ? "Submit" : "Continue"}{" "}
-						-&gt;
+						&rarr;
 					</button>
 				</form>
 			</div>
