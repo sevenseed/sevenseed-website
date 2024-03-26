@@ -33,7 +33,11 @@ export async function GET(req: Request) {
 // ! before fulfilling the order (in our case, registering a company)
 // * https://docs.stripe.com/payments/checkout/fulfill-orders
 
-export async function POST() {
+export async function POST(req: Request) {
+	const { searchParams } = new URL(req.url);
+	const customer_email = searchParams.get("customer_email");
+	if (!customer_email) throw "Customer email address not found in request URL";
+
 	let url;
 
 	try {
@@ -44,6 +48,7 @@ export async function POST() {
 					quantity: 1,
 				},
 			],
+			customer_email,
 			mode: "payment",
 			success_url: `http://localhost:3000/return?success=true`,
 			cancel_url: `http://localhost:3000/return?cancel=true`,

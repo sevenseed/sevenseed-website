@@ -152,7 +152,11 @@ const CustomerJourney = () => {
 				photo or scan of a document confirming your identity, as required by
 				law. Please have your ID close at hand.
 			</p>
-			<form className={styles.checkout} action="/api/checkout" method="POST">
+			<form
+				className={styles.checkout}
+				action={`/api/checkout?customer_email=${companyData.contactEmail || "test@example.com"}`}
+				method="POST"
+			>
 				<section>
 					<button type="submit" role="link">
 						Checkout via{" "}
