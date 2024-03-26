@@ -1,5 +1,4 @@
 "use client";
-import { loadStripe } from "@stripe/stripe-js";
 import { submitCompanyDataToHubspot } from "@/api/hubspot";
 import { CompanyData } from "@/api/interfaces";
 import {
@@ -11,15 +10,11 @@ import {
 	useState,
 } from "react";
 
-const STRIPE_PK = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
-if (!STRIPE_PK) throw "Stripe publishable key not found";
-
-// * necessary in order to properly load Stripe on a given page
-const stripePromise = loadStripe(STRIPE_PK);
-
 import styles from "./CustomerJourney.module.css";
 import CompanyInfoForm from "./forms/CompanyInfoForm";
 import ContactInfoForm from "./forms/ContactInfoForm";
+import { createCheckoutSession } from "@/api/actions";
+import { useRouter } from "next/navigation";
 
 const CompanyForms = [
 	{
@@ -116,6 +111,8 @@ const CustomerJourney = () => {
 	const [submitting, setSubmitting] = useState(false);
 	const [submissionError, setSubmissionError] = useState("");
 
+	const router = useRouter();
+
 	// Submit form to hubspot, then show a Thank You page
 	const submitForm = async () => {
 		setSubmitting(true);
@@ -123,7 +120,6 @@ const CustomerJourney = () => {
 			await submitCompanyDataToHubspot(companyData);
 			// todo: replace with toast or notification
 			setCompleted(true);
-			// setTimeout(() => push("/checkout"), 2000);
 		} catch (error: any) {
 			console.error(error);
 			setSubmissionError(error.message);
@@ -136,29 +132,38 @@ const CustomerJourney = () => {
 	const requiredFields = CompanyForms[formIndex].required;
 	const allRequiredFieldsFilled = requiredFields.every((field) => companyData[field]);
 
-	// return completed ? (
-	return true ? (
+	const redirectToCheckout = async (email: string) => {
+		const testEmail = "test@example.com";
+		const url = await createCheckoutSession(email || testEmail);
+		if (!url) throw "Checkout session did not supply URL";
+
+		router.replace(url);
+	};
+
+	return completed ? (
 		<div className={styles.container}>
 			<h1 className={styles.heading}>
 				Thank you for submitting your information!
 			</h1>
 			<p className={styles.paragraph}>
-				We now ask you to submit the deposit. Click on the button below, it will
+				We now ask you to submit a deposit. Click on the button below, it will
 				take you to the checkout page. All payments are handled securely by
 				Stripe.
 			</p>
 			<p className={styles.paragraph}>
 				Once the deposit has been submitted, we will also ask you to provide a
-				photo or scan of a document confirming your identity, as required by
-				law. Please have your ID close at hand.
+				photo or scan of a document confirming your identity, as we are required
+				to do by law. Please have your ID close at hand.
 			</p>
-			<form
-				className={styles.checkout}
-				action={`/api/checkout?customer_email=${companyData.contactEmail || "test@example.com"}`}
-				method="POST"
-			>
+			<form className={styles.checkout}>
 				<section>
-					<button type="submit" role="link">
+					<button
+						role="link"
+						onClick={(event) => {
+							event.preventDefault();
+							return redirectToCheckout(companyData.contactEmail);
+						}}
+					>
 						Checkout via{" "}
 						<img
 							className="logo"
