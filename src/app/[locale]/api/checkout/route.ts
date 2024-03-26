@@ -50,7 +50,7 @@ export async function POST(req: Request) {
 			],
 			customer_email,
 			mode: "payment",
-			success_url: `http://localhost:3000/return?success=true`,
+			success_url: `http://localhost:3000/return?success=true&session_id={CHECKOUT_SESSION_ID}`,
 			cancel_url: `http://localhost:3000/return?cancel=true`,
 			automatic_tax: { enabled: true },
 		});
