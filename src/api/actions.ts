@@ -15,11 +15,25 @@ export async function createCheckoutSession(customer_email: string) {
 			},
 		],
 		customer_email,
+		customer_creation: "always",
 		mode: "payment",
-		success_url: `http://localhost:3000/return?success=true&session_id={CHECKOUT_SESSION_ID}`,
-		cancel_url: `http://localhost:3000/return?cancel=true`,
+		success_url: `http://localhost:3000/success?session_id={CHECKOUT_SESSION_ID}`,
+		cancel_url: `http://localhost:3000/cancel?session_id={CHECKOUT_SESSION_ID}`,
 		automatic_tax: { enabled: true },
 	});
 
 	return session.url;
+}
+
+export async function getSessionObject(sessionId: string) {
+	const session = await stripe.checkout.sessions.retrieve(sessionId);
+
+	return {
+		status: session.status,
+		customer_email: session.customer_email,
+	};
+}
+
+export async function expireSession(sessionId: string) {
+	return await stripe.checkout.sessions.expire(sessionId);
 }

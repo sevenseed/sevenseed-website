@@ -7,6 +7,7 @@ import {
 	ElementType,
 	SetStateAction,
 	createContext,
+	useCallback,
 	useState,
 } from "react";
 
@@ -113,8 +114,24 @@ const CustomerJourney = () => {
 
 	const router = useRouter();
 
+	const testData: CompanyData = {
+		contactEmail: "test@example.com",
+		contactName: "Hello World",
+		contactAddress: "1 Main Ave, Notown, Nowhere",
+		civilStatus: "Single",
+		legalEntity: "SRL",
+		companyName: "ACME Inc.",
+		companyDescription:
+			"If you've ever blown off a finger, that was probably us. Sorry!",
+		companyAddress: { type: "HomeAddress" },
+		companyPhoneNumber: "+1555555555",
+		contactPhoneNumber: "+1555555555",
+		initialFunding: "",
+		specialRequests: "",
+	};
+
 	// Submit form to hubspot, then show a Thank You page
-	const submitForm = async () => {
+	const submitForm = useCallback(async () => {
 		setSubmitting(true);
 		try {
 			await submitCompanyDataToHubspot(companyData);
@@ -125,16 +142,15 @@ const CustomerJourney = () => {
 			setSubmissionError(error.message);
 		}
 		setSubmitting(false);
-	};
+	}, []);
 
 	const lastPage = formIndex === CompanyForms.length - 1;
 
 	const requiredFields = CompanyForms[formIndex].required;
 	const allRequiredFieldsFilled = requiredFields.every((field) => companyData[field]);
 
-	const redirectToCheckout = async (email: string) => {
-		const testEmail = "test@example.com";
-		const url = await createCheckoutSession(email || testEmail);
+	const redirectToCheckout = async (companyData: CompanyData) => {
+		const url = await createCheckoutSession(companyData.contactEmail);
 		if (!url) throw "Checkout session did not supply URL";
 
 		router.replace(url);
@@ -161,7 +177,7 @@ const CustomerJourney = () => {
 						role="link"
 						onClick={(event) => {
 							event.preventDefault();
-							return redirectToCheckout(companyData.contactEmail);
+							return redirectToCheckout(testData);
 						}}
 					>
 						Checkout via{" "}

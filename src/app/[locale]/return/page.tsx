@@ -1,31 +1,43 @@
 "use client";
-import { useEffect, useState } from "react";
-import { redirect } from "next/navigation";
+import { useEffect, useMemo, useState } from "react";
+import { redirect, useSearchParams } from "next/navigation";
+import { getSessionObject } from "@/api/actions";
 
 export default function Return() {
-	const [status, setStatus] = useState(null);
-	const [cancelled, setCancelled] = useState(false);
-	const [succeeded, setSucceeded] = useState(false);
-	const [customerEmail, setCustomerEmail] = useState("");
+	const [status, setStatus] = useState<string | null>(null);
+	const [customerEmail, setCustomerEmail] = useState<string | null>(null);
+
+	const urlParams = useSearchParams();
+	const cancelled = urlParams.has("cancel");
+	const succeeded = urlParams.has("success");
 
 	useEffect(() => {
-		const queryString = window.location.search;
-		const urlParams = new URLSearchParams(queryString);
-		const sessionId = urlParams.get("session_id");
-		const hasSucceeded = urlParams.has("success");
-		const hasCancelled = urlParams.has("cancel");
+		console.log("effect");
+		let fetching = false;
 
-		fetch(`http://localhost:3000/api/checkout?session_id=${sessionId}`, {
-			method: "GET",
-		})
-			.then((res) => res.json())
-			.then((data) => {
-				setStatus(data.status);
-				setCustomerEmail(data.customer_email);
-				setSucceeded(hasSucceeded);
-				setCancelled(hasCancelled);
-			});
-	}, []);
+		const sessionId = urlParams.has("session_id")
+			? urlParams.get("session_id")
+			: null;
+
+		async function getSession() {
+			console.log("getSession");
+			if (fetching) return;
+			fetching = true;
+
+			const { status, customer_email } = await getSessionObject(sessionId!);
+			console.log("🚀 ~ getSession ~ status:", status);
+
+			setStatus(status);
+			setCustomerEmail(customer_email);
+
+			fetching = false;
+		}
+
+		if (sessionId) {
+			console.log("sessionId");
+			getSession();
+		}
+	}, [urlParams]);
 
 	if (status === "open") {
 		return redirect("/");
@@ -45,7 +57,7 @@ export default function Return() {
 				<p>You have cancelled the payment.</p>
 			</section>
 		) : (
-			<section></section>
+			<section>Something went wrong.</section>
 		);
 	}
 
