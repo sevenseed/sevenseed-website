@@ -24,7 +24,12 @@ const Header = () => {
 				/>
 				<a href="/" className="-m-1.5 p-1.5">
 					<span className="sr-only">Seven Seed</span>
-					<Image className="h-12 w-auto" src={logo} alt="" />
+					<Image
+						className="h-12 w-auto"
+						src={logo}
+						alt="Seven Seed"
+						priority
+					/>
 				</a>
 				<div className="flex lg:hidden">
 					<button
