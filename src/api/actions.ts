@@ -35,5 +35,8 @@ export async function getSessionObject(sessionId: string) {
 }
 
 export async function expireSession(sessionId: string) {
+	const session = await getSessionObject(sessionId);
+	if (session.status === "expired") return;
+
 	return await stripe.checkout.sessions.expire(sessionId);
 }
