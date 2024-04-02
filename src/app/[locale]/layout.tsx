@@ -3,9 +3,9 @@ import { type Metadata } from "next";
 import { Inter } from "next/font/google";
 
 import Header from "@/components/Header";
+import locales from "@/locales";
 import "@/styles/tailwind.css";
 import { headers } from "next/headers";
-import locales from "@/locales";
 import { ReactNode } from "react";
 
 const inter = Inter({
@@ -15,9 +15,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-	title: "Seven Seed - Your company, in Belgium, in Seven Days",
-	description:
-		"Create your legal entity in Belgium in just seven days. Bank account included.",
+	title: "Seven Seed - Your company in Seven Days",
+	description: "Incorporate in Belgium in just seven days. Entirely online.",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

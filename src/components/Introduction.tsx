@@ -1,7 +1,7 @@
-import Link from "next/link";
 import { CheckIcon } from "@/components/CheckIcon";
 import { Container } from "@/components/Container";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 
 const FEATURES = ["feature1", "feature2", "feature3", "feature4", "feature5"];
 
@@ -27,7 +27,6 @@ export function Introduction() {
 						</li>
 					))}
 				</ul>
-				<p className="mt-8">{t("finalParagraph")}</p>
 				<p className="mt-10">
 					<Link
 						href="#whitepaper"
