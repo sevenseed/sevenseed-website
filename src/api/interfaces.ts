@@ -1,25 +1,42 @@
-export interface CompanyData {
-	civilStatus: "Single" | "Married" | "Legal cohabitation" | string;
-	contactAddress: string;
+import { type BaseHTMLAttributes } from "react";
+
+export interface GenericObject {
+	[key: string | number]: any;
+}
+
+export interface CompanyData extends GenericObject {
+	contactName: string;
 	contactEmail: string;
 	contactPhoneNumber: string;
-	contactName: string;
-	companyAddress:
-		| {
-				type: "HomeAddress";
-		  }
-		| {
-				type: "CreateNewAddress";
-		  }
-		| {
-				type: "ExistingAddress";
-				location: string;
-		  };
-	companyDescription: string;
+	civilStatus: "Single" | "Married" | "Legal Cohabitation" | string;
+
+	contactAddressCountry: string;
+	contactAddressRegion?: string;
+	contactAddressCity: string;
+	contactAddressPostalCode: string;
+	contactAddressAddressLine1: string;
+	contactAddressAddressLine2?: string;
+
 	companyName: string;
+	companyDescription: string;
 	companyPhoneNumber: string;
-	initialFunding: string;
 	legalEntity: string;
-	// password: string;
+
+	companyAddressCountry: string;
+	companyAddressRegion?: string;
+	companyAddressCity: string;
+	companyAddressPostalCode: string;
+	companyAddressAddressLine1: string;
+	companyAddressAddressLine2?: string;
+	companyAddressType: "HomeAddress" | "CreateNewAddress" | "ExistingAddress";
+
+	initialFunding: string;
 	specialRequests: string;
+	// password: string;
+}
+
+export interface Form {
+	id: string;
+	label: string;
+	component?: ({ ...props }: BaseHTMLAttributes<HTMLDivElement>) => JSX.Element;
 }
