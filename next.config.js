@@ -7,12 +7,12 @@ const nextConfig = withNextIntl({
 		return [
 			{
 				source: "/login",
-				destination: "/dashboard",
+				destination: "/dashboard/company/create",
 				permanent: false,
 			},
 			{
 				source: "/signup",
-				destination: "/dashboard",
+				destination: "/dashboard/company/create",
 				permanent: false,
 			},
 			{

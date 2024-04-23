@@ -21,6 +21,11 @@
 .email {
 	@apply font-mono;
 }
+
 .link {
 	@apply font-mono text-blue-600 hover:text-blue-500;
+}
+
+.verification {
+	@apply w-full;
 }

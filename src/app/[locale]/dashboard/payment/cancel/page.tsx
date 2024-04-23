@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { expireSession } from "@/api/actions";
+import { expireCheckoutSession } from "@/api/actions";
 
 export default function Cancel() {
 	const [status, setStatus] = useState<string>("open");
@@ -16,7 +16,7 @@ export default function Cancel() {
 			if (sending) return;
 			sending = true;
 
-			await expireSession(sessionId!);
+			await expireCheckoutSession(sessionId!);
 
 			setStatus("complete");
 

@@ -17,15 +17,15 @@ export async function createCheckoutSession(customer_email: string) {
 		customer_email,
 		customer_creation: "always",
 		mode: "payment",
-		success_url: `http://localhost:3000/success?session_id={CHECKOUT_SESSION_ID}`,
-		cancel_url: `http://localhost:3000/cancel?session_id={CHECKOUT_SESSION_ID}`,
+		success_url: `http://localhost:3000/dashboard/identity/verify?session_id={CHECKOUT_SESSION_ID}`,
+		cancel_url: `http://localhost:3000/dashboard/payment/cancel?session_id={CHECKOUT_SESSION_ID}`,
 		automatic_tax: { enabled: true },
 	});
 
 	return session.url;
 }
 
-export async function getSessionObject(sessionId: string) {
+export async function getCheckoutSessionObject(sessionId: string) {
 	const session = await stripe.checkout.sessions.retrieve(sessionId);
 
 	return {
@@ -34,9 +34,33 @@ export async function getSessionObject(sessionId: string) {
 	};
 }
 
-export async function expireSession(sessionId: string) {
-	const session = await getSessionObject(sessionId);
+export async function expireCheckoutSession(sessionId: string) {
+	const session = await getCheckoutSessionObject(sessionId);
 	if (session.status === "expired") return;
 
-	return await stripe.checkout.sessions.expire(sessionId);
+	await stripe.checkout.sessions.expire(sessionId);
+	return;
+}
+
+export async function createVerificationSession(sessionId: string) {
+	const verificationSession = await stripe.identity.verificationSessions.create({
+		type: "document",
+		return_url: "http://localhost:3000/dashboard/identity/submitted",
+		client_reference_id: sessionId,
+	});
+
+	return verificationSession.url;
+}
+
+export async function getVerificationSessionObject(sessionId: string) {
+	const session = await stripe.identity.verificationSessions.retrieve(sessionId);
+
+	return session.status === "requires_input"
+		? {
+				status: session.status,
+				url: session.url,
+		  }
+		: {
+				status: session.status,
+		  };
 }
