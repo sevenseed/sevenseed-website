@@ -205,7 +205,7 @@ export default function Create() {
 								type="radio"
 								name={id}
 								value={option}
-								checked={data[id] === option}
+								defaultChecked={data[id] === option}
 								onChange={(event) =>
 									setData({
 										...data,
