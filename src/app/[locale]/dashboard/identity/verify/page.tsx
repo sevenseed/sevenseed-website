@@ -1,12 +1,11 @@
 "use client";
-import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import DecoratedButton from "@/components/DecoratedButton";
+import StripeInlineLogo from "@/components/StripeInlineLogo";
 import { createVerificationSession, getCheckoutSessionObject } from "@/api/actions";
 
 import styles from "./verify.module.css";
-import StripeInlineLogo from "@/components/StripeInlineLogo";
 
 export default function Verify() {
 	const [status, setStatus] = useState<string | null>(null);
@@ -17,6 +16,7 @@ export default function Verify() {
 		return urlParams.get("session_id");
 	}, []);
 	const router = useRouter();
+	const pathname = usePathname();
 
 	useEffect(() => {
 		let fetching = false;
@@ -33,6 +33,7 @@ export default function Verify() {
 			setCustomerEmail(customer_email);
 
 			fetching = false;
+			window.history.pushState({}, "", pathname);
 		}
 
 		getSession();

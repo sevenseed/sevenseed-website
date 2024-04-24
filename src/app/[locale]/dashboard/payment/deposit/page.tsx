@@ -1,24 +1,27 @@
 "use client";
-import { useMemo, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useEffect, useMemo, useState } from "react";
+import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { createCheckoutSession } from "@/api/actions";
 import DecoratedButton from "@/components/DecoratedButton";
-import { useRouter } from "next/navigation";
-
-import styles from "./deposit.module.css";
 import StripeInlineLogo from "@/components/StripeInlineLogo";
 
+import styles from "./deposit.module.css";
+
 export default function Deposit() {
-	const router = useRouter();
 	const urlParams = useSearchParams();
 	const email = useMemo(() => {
 		return urlParams.get("email");
 	}, []);
 	if (!email) throw "Customer email was not supplied along with URL";
 
+	const router = useRouter();
+	const pathname = usePathname();
+
 	// * remove query params
-	// ! this behaves very poorly, breaking rendering
-	// router.replace("/dashboard/payment/deposit");
+	// > https://github.com/vercel/next.js/discussions/48320#discussioncomment-5629141
+	useEffect(() => {
+		window.history.pushState({}, "", pathname);
+	}, []);
 
 	const [redirecting, setRedirecting] = useState(false);
 
