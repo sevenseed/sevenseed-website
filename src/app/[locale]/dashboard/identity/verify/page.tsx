@@ -14,7 +14,7 @@ export default function Verify() {
 	const urlParams = useSearchParams();
 	const sessionId = useMemo(() => {
 		return urlParams.get("session_id");
-	}, []);
+	}, [urlParams]);
 	const router = useRouter();
 	const pathname = usePathname();
 
@@ -37,7 +37,7 @@ export default function Verify() {
 		}
 
 		getSession();
-	}, []);
+	}, [sessionId]);
 
 	const redirectToIdentityVerification = async (sessionId: string) => {
 		const url = await createVerificationSession(sessionId);

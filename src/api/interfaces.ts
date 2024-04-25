@@ -38,5 +38,5 @@ export interface CompanyData extends GenericObject {
 export interface Form {
 	id: string;
 	label: string;
-	component?: ({ ...props }: BaseHTMLAttributes<HTMLDivElement>) => JSX.Element;
+	// component?: ({ ...props }: BaseHTMLAttributes<HTMLDivElement>) => JSX.Element;
 }

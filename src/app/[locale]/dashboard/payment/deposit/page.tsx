@@ -11,7 +11,7 @@ export default function Deposit() {
 	const urlParams = useSearchParams();
 	const email = useMemo(() => {
 		return urlParams.get("email");
-	}, []);
+	}, [urlParams]);
 	if (!email) throw "Customer email was not supplied along with URL";
 
 	const router = useRouter();

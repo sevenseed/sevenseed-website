@@ -158,7 +158,7 @@ export default function Create() {
 								: "Submit"
 							: "Next"}
 					</button>
-					{state.errors !== null
+					{state.errors
 						? "Please review the form and fill in all required fields"
 						: ""}
 				</form>
