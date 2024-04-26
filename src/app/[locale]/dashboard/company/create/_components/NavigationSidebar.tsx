@@ -6,7 +6,7 @@ export default function NavigationSidebar() {
 	const { forms, step, setStep } = useContext(NewCompanyContext);
 
 	return (
-		<div className="flex flex-col items-start">
+		<div className="hidden sm:flex flex-col items-start">
 			{forms.map((form) => {
 				const className = clsx(
 					"border-l-2 border-current font-medium pl-2",
