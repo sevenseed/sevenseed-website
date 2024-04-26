@@ -3,6 +3,7 @@ import { type HTMLProps } from "react";
 type HTMLInputProps = HTMLProps<HTMLInputElement>;
 type HTMLTextareaProps = HTMLProps<HTMLTextAreaElement>;
 type CompanyFormInputProps = {
+	// makes `id` a mandatory member
 	id: string;
 	description?: string;
 };
