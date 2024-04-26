@@ -126,7 +126,7 @@ export function RadioFormInput({
 				{required ? <RequiredMark /> : ""}
 			</span>
 			<div className="pl-1 space-y-1">
-				{options.map((option, index) => {
+				{options.map((option) => {
 					const optionBasedID = `${id}--${option.replaceAll(" ", "")}`;
 
 					return (
@@ -136,7 +136,6 @@ export function RadioFormInput({
 								type="radio"
 								name={id}
 								value={option}
-								defaultChecked={index === 0}
 								onChange={onChange}
 								required={required}
 							/>
