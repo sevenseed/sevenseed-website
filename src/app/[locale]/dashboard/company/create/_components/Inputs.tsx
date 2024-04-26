@@ -1,12 +1,12 @@
 "use client";
-import { useContext } from "react";
+import { type ChangeEvent, useCallback, useContext } from "react";
+import { NewCompanyContext } from "@/contexts/NewCompanyContext";
 import {
 	type FormInputProps,
 	type MultilineInputProps,
 	type RadioInputProps,
 } from "./types";
 import clsx from "clsx";
-import { NewCompanyContext } from "@/contexts/NewCompanyContext";
 
 const RequiredMark = () => (
 	<span className="font-normal text-gray-400 ml-3" title="This field must be filled">
@@ -25,6 +25,15 @@ export function SimpleFormInput({
 }: FormInputProps) {
 	const { companyData, setCompanyData } = useContext(NewCompanyContext);
 
+	const value = companyData[id];
+
+	const onChange = useCallback(
+		(event: ChangeEvent<HTMLInputElement>) => {
+			setCompanyData({ ...companyData, [id]: event.currentTarget.value });
+		},
+		[companyData],
+	);
+
 	return (
 		<fieldset className="flex flex-col w-full space-y-1">
 			<label htmlFor={id} className="flex flex-col">
@@ -40,10 +49,8 @@ export function SimpleFormInput({
 				type={type}
 				required={required}
 				placeholder={placeholder}
-				value={companyData[id]}
-				onChange={(event) => {
-					setCompanyData({ ...companyData, [id]: event.currentTarget.value });
-				}}
+				value={value}
+				onChange={onChange}
 				className={clsx(
 					"rounded-md border p-1 px-2 focus-visible:outline-2 focus-visible:outline-primary-300",
 					className,
@@ -64,6 +71,15 @@ export function MultilineFormInput({
 }: MultilineInputProps) {
 	const { companyData, setCompanyData } = useContext(NewCompanyContext);
 
+	const value = companyData[id];
+
+	const onChange = useCallback(
+		(event: ChangeEvent<HTMLTextAreaElement>) => {
+			setCompanyData({ ...companyData, [id]: event.currentTarget.value });
+		},
+		[companyData],
+	);
+
 	return (
 		<fieldset className="flex flex-col w-full space-y-1">
 			<label htmlFor={id} className="flex flex-col">
@@ -79,10 +95,8 @@ export function MultilineFormInput({
 				required={required}
 				placeholder={placeholder}
 				className="rounded-md border p-1 px-2 focus-visible:outline-2 focus-visible:outline-primary-300"
-				value={companyData[id]}
-				onChange={(event) => {
-					setCompanyData({ ...companyData, [id]: event.currentTarget.value });
-				}}
+				value={value}
+				onChange={onChange}
 				rows={rows}
 				cols={cols}
 			/>
@@ -97,6 +111,13 @@ export function RadioFormInput({
 	required = false,
 }: RadioInputProps) {
 	const { companyData, setCompanyData } = useContext(NewCompanyContext);
+
+	const onChange = useCallback(
+		(event: ChangeEvent<HTMLInputElement>) => {
+			setCompanyData({ ...companyData, [id]: event.currentTarget.value });
+		},
+		[companyData],
+	);
 
 	return (
 		<fieldset className="flex flex-col w-full space-y-1">
@@ -116,12 +137,7 @@ export function RadioFormInput({
 								name={id}
 								value={option}
 								defaultChecked={index === 0}
-								onChange={(event) =>
-									setCompanyData({
-										...companyData,
-										[id]: event.currentTarget.value,
-									})
-								}
+								onChange={onChange}
 								required={required}
 							/>
 							<label htmlFor={optionBasedID} className="pl-1">
