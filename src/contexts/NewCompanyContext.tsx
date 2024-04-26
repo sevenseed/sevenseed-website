@@ -6,6 +6,7 @@ import {
 	type FormEventHandler,
 	createContext,
 	useState,
+	useMemo,
 } from "react";
 import { useForm } from "@formspree/react";
 import { type Form, type CompanyData } from "@/api/interfaces";
@@ -18,6 +19,7 @@ interface NewCompanyContext {
 	state: { [k: string]: any };
 	handleSubmit: FormEventHandler<HTMLFormElement>;
 	forms: Form[];
+	currentStepIndex: number;
 	lastStepID: Form["id"];
 }
 
@@ -51,6 +53,21 @@ const defaultCompanyData: CompanyData = {
 	specialRequests: "",
 };
 
+export const requiredCompanyData: Array<keyof CompanyData> = [
+	"contactName",
+	"contactEmail",
+	"contactPhoneNumber",
+	"civilStatus",
+
+	"contactAddressCountry",
+	"contactAddressCity",
+	"contactAddressAddressLine1",
+
+	"companyName",
+	"legalEntity",
+	"companyPhoneNumber",
+];
+
 const forms: Form[] = [
 	{ id: "you", label: "You" },
 	{ id: "address", label: "Address" },
@@ -66,16 +83,32 @@ export const NewCompanyContext = createContext<NewCompanyContext>({
 	state: {},
 	handleSubmit: () => {},
 	forms,
+	currentStepIndex: 0,
 	lastStepID,
 });
 
 const formID = process.env.NEXT_PUBLIC_FORM_ID;
-if (!formID) throw "Formspree form ID not found in environment file";
 
 export function NewCompanyContextProvider({ children }: PropsWithChildren) {
+	if (!formID)
+		return (
+			<div>
+				<p>Something went wrong!</p>
+				<p>
+					Please report the following error to{" "}
+					<a href="mailto:support@sevenseed.eu">support@sevenseed.eu</a>
+				</p>
+				<pre>Formspree form ID not found in environment file</pre>
+			</div>
+		);
+
 	const [step, setStep] = useState("you");
 	const [companyData, setCompanyData] = useState<CompanyData>(defaultCompanyData);
-	const [state, handleSubmit] = useForm(formID!);
+	const [state, handleSubmit] = useForm(formID);
+
+	const currentStepIndex = useMemo(() => {
+		return forms.findIndex((form) => form.id === step);
+	}, [step]);
 
 	return (
 		<NewCompanyContext.Provider
@@ -87,6 +120,7 @@ export function NewCompanyContextProvider({ children }: PropsWithChildren) {
 				state,
 				handleSubmit,
 				forms,
+				currentStepIndex,
 				lastStepID,
 			}}
 		>
