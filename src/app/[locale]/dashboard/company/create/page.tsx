@@ -22,11 +22,11 @@ export default function Create() {
 	}
 
 	return (
-		<div className="flex flex-col py-16 sm:py-20 lg:py-32 w-full md:w-3/4 lg:w-1/2 gap-y-4 mx-auto">
-			<h1 className="font-display text-4xl font-extrabold text-slate-900">
+		<div className="flex flex-col py-16 sm:py-20 lg:py-32 px-8 w-full md:w-3/4 lg:w-1/2 gap-y-8 mx-auto">
+			<h1 className="font-display text-4xl font-extrabold text-slate-900 text-balance">
 				Seven Seed Entity Questionnaire
 			</h1>
-			<div className="flex gap-x-12 mt-6">
+			<div className="flex sm:gap-x-8">
 				<NavigationSidebar />
 				<form onSubmit={handleSubmit}>
 					<input
