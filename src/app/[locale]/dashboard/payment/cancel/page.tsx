@@ -81,7 +81,7 @@ export default function Cancel() {
 						<a className={styles.email} href="mailto:support@sevenseed.eu">
 							email us
 						</a>{" "}
-						and let us know why. We're always looking to improve our
+						and let us know why. We&apos;re always looking to improve our
 						service.
 					</p>
 				</div>
