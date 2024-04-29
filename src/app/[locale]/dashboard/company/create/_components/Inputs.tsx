@@ -1,18 +1,64 @@
 "use client";
-import { type ChangeEvent, useCallback, useContext } from "react";
+import {
+	type ChangeEvent,
+	type PropsWithChildren,
+	useCallback,
+	useContext,
+} from "react";
 import { NewCompanyContext } from "@/contexts/NewCompanyContext";
 import {
 	type FormInputProps,
 	type MultilineInputProps,
 	type RadioInputProps,
 } from "./types";
+import { validateChildrenAsComponent } from "@/api/validate";
 import clsx from "clsx";
 
+import styles from "../../company.module.css";
+
+// TODO: revamp as HOCs
+
 const RequiredMark = () => (
-	<span className="font-normal text-gray-400 ml-3" title="This field must be filled">
+	<span className={styles.required} title="Please fill out this field">
 		required
 	</span>
 );
+
+export function RadioOption({
+	id,
+	label,
+	value,
+	required = false,
+}: {
+	id: string;
+	label: string;
+	value: string;
+	required?: boolean;
+}) {
+	const { companyData, setCompanyData } = useContext(NewCompanyContext);
+
+	const onChange = useCallback(
+		(event: ChangeEvent<HTMLInputElement>) => {
+			setCompanyData({ ...companyData, [id]: event.currentTarget.value });
+		},
+		[id, companyData, setCompanyData],
+	);
+
+	return (
+		<label className={styles.inputRadio}>
+			<input
+				type="radio"
+				id={id + value.replaceAll(" ", "")}
+				name={id}
+				value={value}
+				onChange={onChange}
+				required={required}
+				defaultChecked={value === companyData[id]}
+			/>
+			<span>{label}</span>
+		</label>
+	);
+}
 
 export function SimpleFormInput({
 	id,
@@ -21,41 +67,45 @@ export function SimpleFormInput({
 	placeholder = "",
 	type = "text",
 	required = false,
+	disabled = false,
 	className = "",
+	value = undefined,
 }: FormInputProps) {
 	const { companyData, setCompanyData } = useContext(NewCompanyContext);
 
-	const value = companyData[id];
+	const inputValue = value ?? companyData[id];
 
 	const onChange = useCallback(
 		(event: ChangeEvent<HTMLInputElement>) => {
 			setCompanyData({ ...companyData, [id]: event.currentTarget.value });
 		},
-		[companyData],
+		[id, companyData, setCompanyData],
 	);
 
 	return (
-		<fieldset className="flex flex-col w-full space-y-1">
-			<label htmlFor={id} className="flex flex-col">
-				<span className="font-semibold">
+		<fieldset className={styles.fieldset} disabled={disabled}>
+			<label className={styles.label}>
+				<span className={styles.labelText}>
 					{label}
 					{required ? <RequiredMark /> : ""}
 				</span>
-				{description ? <span className="text-sm">{description}</span> : ""}
-			</label>
-			<input
-				id={id}
-				name={id}
-				type={type}
-				required={required}
-				placeholder={placeholder}
-				value={value}
-				onChange={onChange}
-				className={clsx(
-					"rounded-md border p-1 px-2 focus-visible:outline-2 focus-visible:outline-primary-300",
-					className,
+				{description ? (
+					<span className={styles.description}>{description}</span>
+				) : (
+					""
 				)}
-			/>
+
+				<input
+					id={id}
+					name={id}
+					type={type}
+					required={required}
+					placeholder={placeholder}
+					value={inputValue}
+					onChange={onChange}
+					className={clsx(styles.inputText, className)}
+				/>
+			</label>
 		</fieldset>
 	);
 }
@@ -77,75 +127,58 @@ export function MultilineFormInput({
 		(event: ChangeEvent<HTMLTextAreaElement>) => {
 			setCompanyData({ ...companyData, [id]: event.currentTarget.value });
 		},
-		[companyData],
+		[id, companyData, setCompanyData],
 	);
 
 	return (
-		<fieldset className="flex flex-col w-full space-y-1">
-			<label htmlFor={id} className="flex flex-col">
-				<span className="font-semibold">
+		<fieldset className={styles.fieldset}>
+			<label className={styles.label}>
+				<span className={styles.labelText}>
 					{label}
 					{required ? <RequiredMark /> : ""}
 				</span>
-				{description ? <span className="text-sm">{description}</span> : ""}
+				{description ? (
+					<span className={styles.description}>{description}</span>
+				) : (
+					""
+				)}
+				<textarea
+					id={id}
+					name={id}
+					required={required}
+					placeholder={placeholder}
+					className={styles.inputText}
+					value={value}
+					onChange={onChange}
+					rows={rows}
+					cols={cols}
+				/>
 			</label>
-			<textarea
-				id={id}
-				name={id}
-				required={required}
-				placeholder={placeholder}
-				className="rounded-md border p-1 px-2 focus-visible:outline-2 focus-visible:outline-primary-300"
-				value={value}
-				onChange={onChange}
-				rows={rows}
-				cols={cols}
-			/>
 		</fieldset>
 	);
 }
 
 export function RadioFormInput({
-	id,
-	label,
-	options,
+	// id,
+	label = "",
 	required = false,
-}: RadioInputProps) {
-	const { companyData, setCompanyData } = useContext(NewCompanyContext);
-
-	const onChange = useCallback(
-		(event: ChangeEvent<HTMLInputElement>) => {
-			setCompanyData({ ...companyData, [id]: event.currentTarget.value });
-		},
-		[companyData],
-	);
+	children,
+}: RadioInputProps & PropsWithChildren) {
+	if (!validateChildrenAsComponent(children, RadioOption)) {
+		throw new Error("Children of a <RadioFormInput /> are not all <RadioOption />");
+	}
 
 	return (
-		<fieldset className="flex flex-col w-full space-y-1">
-			<span className="font-semibold pl-1">
-				{label}
-				{required ? <RequiredMark /> : ""}
-			</span>
-			<div className="pl-1 space-y-1">
-				{options.map((option) => {
-					const optionBasedID = `${id}--${option.replaceAll(" ", "")}`;
-
-					return (
-						<div key={option}>
-							<input
-								id={optionBasedID}
-								type="radio"
-								name={id}
-								value={option}
-								onChange={onChange}
-								required={required}
-							/>
-							<label htmlFor={optionBasedID} className="pl-1">
-								{option}
-							</label>
-						</div>
-					);
-				})}
-			</div>
+		<fieldset className={styles.fieldset}>
+			{label ? (
+				<span className={styles.labelText}>
+					{label}
+					{required ? <RequiredMark /> : ""}
+				</span>
+			) : (
+				""
+			)}
+			<div className={styles.inputRadioContainer}>{children}</div>
 		</fieldset>
 	);
 }

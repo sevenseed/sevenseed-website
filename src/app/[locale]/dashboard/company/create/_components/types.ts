@@ -15,6 +15,4 @@ export type FormInputProps = InputProps;
 
 export type MultilineInputProps = MultilineProps;
 
-export type RadioInputProps = InputProps & {
-	options: string[];
-};
+export type RadioInputProps = InputProps;
