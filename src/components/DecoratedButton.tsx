@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import { type ButtonHTMLAttributes, type PropsWithChildren } from "react";
 import { type GenericObject } from "@/api/interfaces";
+import Image from "next/image";
 
 type StripeButtonProps = {
 	theme: string;
@@ -35,9 +36,11 @@ export default function DecoratedButton({
 					<div />
 					<span>{children}</span>
 					{/* we use the class `invisible` rather than the prop `hidden` because `hidden` removes the element completely, breaking up the layout of the button */}
-					<img
+					<Image
 						className={isLoaderVisible ? "" : "invisible"}
 						src="/images/svg/loading-spinner-ring.svg"
+						width={16}
+						height={16}
 						alt="Loading..."
 					/>
 				</button>
