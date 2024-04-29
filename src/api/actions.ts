@@ -1,8 +1,13 @@
 "use server";
 import Stripe from "stripe";
 
-const STRIPE_SK = process.env.STRIPE_SECRET_KEY;
+const STRIPE_SK = process.env.STRIPE_SK;
 if (!STRIPE_SK) throw "Stripe secret key not found";
+
+const PRODUCT_KEY = process.env.PRODUCT_KEY;
+if (!PRODUCT_KEY) throw "Product key not found";
+
+const BACKEND_HOST = process.env.BACKEND_HOST || "http://127.0.0.1:3000";
 
 const stripe = new Stripe(STRIPE_SK);
 
@@ -10,15 +15,15 @@ export async function createCheckoutSession(customer_email: string) {
 	const session = await stripe.checkout.sessions.create({
 		line_items: [
 			{
-				price: "price_1OwZb6Ij6g3bgR0qEBU3S2uk",
+				price: PRODUCT_KEY,
 				quantity: 1,
 			},
 		],
 		customer_email,
 		customer_creation: "always",
 		mode: "payment",
-		success_url: `http://localhost:3000/dashboard/identity/verify?session_id={CHECKOUT_SESSION_ID}`,
-		cancel_url: `http://localhost:3000/dashboard/payment/cancel?session_id={CHECKOUT_SESSION_ID}`,
+		success_url: `${BACKEND_HOST}/dashboard/identity/verify?session_id={CHECKOUT_SESSION_ID}`,
+		cancel_url: `${BACKEND_HOST}/dashboard/payment/cancel?session_id={CHECKOUT_SESSION_ID}`,
 		automatic_tax: { enabled: true },
 	});
 
@@ -36,16 +41,16 @@ export async function getCheckoutSessionObject(sessionId: string) {
 
 export async function expireCheckoutSession(sessionId: string) {
 	const session = await getCheckoutSessionObject(sessionId);
-	if (session.status === "expired") return;
+	if (session.status === "expired") return { email: session.customer_email };
 
 	await stripe.checkout.sessions.expire(sessionId);
-	return;
+	return { email: session.customer_email };
 }
 
 export async function createVerificationSession(sessionId: string) {
 	const verificationSession = await stripe.identity.verificationSessions.create({
 		type: "document",
-		return_url: "http://localhost:3000/dashboard/identity/submitted",
+		return_url: `${BACKEND_HOST}/dashboard/identity/submitted`,
 		client_reference_id: sessionId,
 	});
 
