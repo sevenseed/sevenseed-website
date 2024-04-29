@@ -1,20 +1,22 @@
 import { useContext, useMemo, type PropsWithChildren } from "react";
-import { type Form } from "@/api/interfaces";
+import { type FormPage as FormPageInterface } from "@/api/interfaces";
 import { NewCompanyContext } from "@/contexts/NewCompanyContext";
+
+import styles from "../../company.module.css";
 
 export default function FormPage({
 	step: formStep,
 	label,
 	children,
-}: PropsWithChildren<{ step: Form["id"]; label: string }>) {
+}: PropsWithChildren<FormPageInterface>) {
 	const { step } = useContext(NewCompanyContext);
-	const isHidden = useMemo(() => {
+	const hidden = useMemo(() => {
 		return formStep !== step;
 	}, [formStep, step]);
 
 	return (
-		<div className="w-96 lg:min-w-96 flex flex-col gap-y-2" hidden={isHidden}>
-			<h2 className="font-display text-3xl font-semibold mb-2">{label}</h2>
+		<div className={styles.formPage} hidden={hidden}>
+			<h2 className={styles.formPageHeader}>{label}</h2>
 			{children}
 		</div>
 	);

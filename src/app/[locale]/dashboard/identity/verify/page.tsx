@@ -5,7 +5,7 @@ import DecoratedButton from "@/components/DecoratedButton";
 import StripeInlineLogo from "@/components/StripeInlineLogo";
 import { createVerificationSession, getCheckoutSessionObject } from "@/api/actions";
 
-import styles from "./verify.module.css";
+import styles from "../../dashboard.module.css";
 
 export default function Verify() {
 	const [status, setStatus] = useState<string | null>(null);
@@ -37,7 +37,7 @@ export default function Verify() {
 		}
 
 		getSession();
-	}, [sessionId]);
+	}, [pathname, sessionId]);
 
 	const redirectToIdentityVerification = async (sessionId: string) => {
 		const url = await createVerificationSession(sessionId);

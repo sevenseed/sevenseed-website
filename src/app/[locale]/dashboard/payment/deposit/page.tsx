@@ -5,7 +5,7 @@ import { createCheckoutSession } from "@/api/actions";
 import DecoratedButton from "@/components/DecoratedButton";
 import StripeInlineLogo from "@/components/StripeInlineLogo";
 
-import styles from "./deposit.module.css";
+import styles from "../../dashboard.module.css";
 
 export default function Deposit() {
 	const urlParams = useSearchParams();
@@ -21,7 +21,7 @@ export default function Deposit() {
 	// > https://github.com/vercel/next.js/discussions/48320#discussioncomment-5629141
 	useEffect(() => {
 		window.history.pushState({}, "", pathname);
-	}, []);
+	}, [pathname]);
 
 	const [redirecting, setRedirecting] = useState(false);
 
@@ -33,7 +33,7 @@ export default function Deposit() {
 	};
 
 	return (
-		<div className="mx-4 relative flex flex-auto justify-center">
+		<div className={styles.wrapper}>
 			<div className={styles.container}>
 				<h1 className={styles.heading}>
 					Thank you for submitting your information!

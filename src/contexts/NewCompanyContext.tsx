@@ -1,82 +1,77 @@
 "use client";
-import {
-	type PropsWithChildren,
-	type Dispatch,
-	type SetStateAction,
-	type FormEventHandler,
-	createContext,
-	useState,
-	useMemo,
-} from "react";
+import { type PropsWithChildren, createContext, useState, useMemo } from "react";
 import { useForm } from "@formspree/react";
-import { type Form, type CompanyData } from "@/api/interfaces";
-
-interface NewCompanyContext {
-	step: Form["id"];
-	setStep: Function;
-	companyData: CompanyData;
-	setCompanyData: Dispatch<SetStateAction<CompanyData>>;
-	state: { [k: string]: any };
-	handleSubmit: FormEventHandler<HTMLFormElement>;
-	forms: Form[];
-	currentStepIndex: number;
-	lastStepID: Form["id"];
-}
+import {
+	type Form,
+	type CompanyData,
+	type KeyArray,
+	type NewCompanyContext as NewCompanyContextInterface,
+} from "@/api/interfaces";
 
 const defaultCompanyData: CompanyData = {
 	contactName: "",
+	dateOfBirth: "",
+	civilStatus: "Single",
 	contactEmail: "",
 	contactPhoneNumber: "",
-	civilStatus: "",
 
-	contactAddressCountry: "",
-	contactAddressRegion: "",
-	contactAddressCity: "",
-	contactAddressPostalCode: "",
 	contactAddressAddressLine1: "",
 	contactAddressAddressLine2: "",
+	contactAddressPostalCode: "",
+	contactAddressCity: "",
+	contactAddressRegion: "",
+	contactAddressCountry: "",
 
-	legalEntity: "",
+	legalEntity: "SRL",
 	companyName: "",
 	companyDescription: "",
 	companyPhoneNumber: "",
 
+	companyAddressType: "HomeAddress",
 	companyAddressCountry: "",
 	companyAddressRegion: "",
 	companyAddressCity: "",
 	companyAddressPostalCode: "",
 	companyAddressAddressLine1: "",
 	companyAddressAddressLine2: "",
-	companyAddressType: "HomeAddress",
 
 	initialFunding: "",
 	specialRequests: "",
 };
 
-export const requiredCompanyData: Array<keyof CompanyData> = [
+export const defaultRequiredCompanyData: KeyArray<CompanyData> = [
 	"contactName",
+	"dateOfBirth",
+	"civilStatus",
 	"contactEmail",
 	"contactPhoneNumber",
-	"civilStatus",
 
-	"contactAddressCountry",
-	"contactAddressCity",
 	"contactAddressAddressLine1",
+	"contactAddressCity",
+	"contactAddressCountry",
 
 	"companyName",
+	"companyDescription",
 	"legalEntity",
 	"companyPhoneNumber",
+
+	"companyAddressType",
+];
+
+export const existingAddressRequiredCompanyData: KeyArray<CompanyData> = [
+	"companyAddressAddressLine1",
+	"companyAddressCity",
+	"companyAddressCountry",
 ];
 
 const forms: Form[] = [
-	{ id: "you", label: "You" },
-	{ id: "address", label: "Address" },
+	{ id: "client", label: "You" },
 	{ id: "company", label: "Company" },
 ];
 const lastStepID = forms[forms.length - 1].id;
 
-export const NewCompanyContext = createContext<NewCompanyContext>({
-	step: "you",
+export const NewCompanyContext = createContext<NewCompanyContextInterface>({
+	step: "client",
 	setStep: () => {},
 	companyData: defaultCompanyData,
 	setCompanyData: () => {},
@@ -88,23 +83,12 @@ export const NewCompanyContext = createContext<NewCompanyContext>({
 });
 
 const formID = process.env.NEXT_PUBLIC_FORM_ID;
+if (!formID) throw new Error("Formspree form ID not found in environment file");
 
 export function NewCompanyContextProvider({ children }: PropsWithChildren) {
-	if (!formID)
-		return (
-			<div>
-				<p>Something went wrong!</p>
-				<p>
-					Please report the following error to{" "}
-					<a href="mailto:support@sevenseed.eu">support@sevenseed.eu</a>
-				</p>
-				<pre>Formspree form ID not found in environment file</pre>
-			</div>
-		);
-
-	const [step, setStep] = useState("you");
+	const [step, setStep] = useState("client");
 	const [companyData, setCompanyData] = useState<CompanyData>(defaultCompanyData);
-	const [state, handleSubmit] = useForm(formID);
+	const [state, handleSubmit] = useForm(formID!);
 
 	const currentStepIndex = useMemo(() => {
 		return forms.findIndex((form) => form.id === step);

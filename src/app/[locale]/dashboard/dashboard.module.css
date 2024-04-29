@@ -2,6 +2,10 @@
 	@apply flex flex-col py-16 sm:py-20 lg:py-32 w-full md:w-3/4 lg:w-1/2 gap-y-3;
 }
 
+.wrapper {
+	@apply mx-4 relative flex flex-auto justify-center;
+}
+
 .header {
 	@apply my-6 font-display text-5xl font-extrabold text-slate-900;
 }
@@ -24,8 +28,4 @@
 
 .link {
 	@apply font-mono text-blue-600 hover:text-blue-500;
-}
-
-.verification {
-	@apply w-full;
 }

@@ -2,21 +2,21 @@ import { useContext } from "react";
 import { NewCompanyContext } from "@/contexts/NewCompanyContext";
 import clsx from "clsx";
 
+import styles from "../../company.module.css";
+
 export default function NavigationSidebar() {
 	const { forms, step, setStep } = useContext(NewCompanyContext);
 
 	return (
-		<div className="hidden sm:flex flex-col items-start">
+		<div className={styles.navigationSidebar}>
 			{forms.map((form) => {
-				const className = clsx(
-					"border-l-2 border-current font-medium pl-2",
-					form.id === step ? "text-green-600" : "text-gray-300",
-				);
-
 				return (
 					<button
 						key={form.id}
-						className={className}
+						className={clsx(
+							styles.navigationSidebarStep,
+							form.id === step ? "text-green-600" : "text-gray-300",
+						)}
 						onClick={() => setStep(form.id)}
 					>
 						{form.label}

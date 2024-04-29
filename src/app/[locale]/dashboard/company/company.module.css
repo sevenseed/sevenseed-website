@@ -1,0 +1,51 @@
+.button {
+	@apply border px-3 py-2 w-full bg-[#305cb7] hover:bg-[#577bc5] active:bg-[#274b94] text-white mt-4 rounded;
+}
+
+.fieldset {
+	@apply flex flex-col w-full space-y-1;
+}
+
+.label {
+	@apply flex flex-col;
+}
+
+.labelText {
+	@apply font-semibold;
+}
+
+.required {
+	@apply font-normal text-gray-400 ml-3;
+}
+
+.description {
+	@apply text-sm;
+}
+
+.inputText {
+	@apply rounded-md border p-1 px-2 focus-visible:outline-2 focus-visible:outline-blue-300 disabled:cursor-not-allowed;
+}
+
+.inputRadioContainer {
+	@apply flex flex-col items-start gap-y-1;
+}
+
+.inputRadio {
+	@apply flex items-center gap-x-1;
+}
+
+.navigationSidebar {
+	@apply hidden sm:flex flex-col items-start;
+}
+
+.navigationSidebarStep {
+	@apply border-l-2 border-current font-medium pl-2;
+}
+
+.formPage {
+	@apply w-full lg:w-96 flex flex-col gap-y-2;
+}
+
+.formPageHeader {
+	@apply font-display text-3xl font-semibold mb-2;
+}

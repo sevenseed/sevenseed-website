@@ -1,13 +1,13 @@
 "use client";
-import { useState } from "react";
+// import { useState } from "react";
 // import { useEffect, useMemo, useState } from "react";
 // import { useSearchParams } from "next/navigation";
 // import { getVerificationSessionObject } from "@/api/actions";
 // import { useRouter } from "next/navigation";
 
-import { type NullableString } from "@/api/types";
+// import { type NullableString } from "@/api/types";
 
-import styles from "./submitted.module.css";
+import styles from "../../dashboard.module.css";
 
 export default function Submitted() {
 	/* const router = useRouter();
@@ -16,7 +16,7 @@ export default function Submitted() {
 		return urlParams.get("session_id");
 	}, []); */
 
-	const [status, setStatus] = useState<NullableString>(null);
+	// const [status, setStatus] = useState<NullableString>(null);
 	// const [retryURL, setRetryURL] = useState<NullableString>(null);
 
 	/* useEffect(() => {
@@ -38,26 +38,6 @@ export default function Submitted() {
 
 		getSession();
 	}, []); */
-
-	if (status === "open") {
-		return "Waiting for the verification session to close...";
-	}
-
-	if (status === "complete") {
-		return (
-			<div className="mx-4 relative flex flex-auto justify-center">
-				<div className={styles.container}>
-					<h1 className={styles.heading}>
-						Thank you for verifying your identity!
-					</h1>
-					<p>
-						The identity verification service is currently running its
-						checks. We will contact you once the results are in!
-					</p>
-				</div>
-			</div>
-		);
-	}
 
 	// return null;
 	return (
