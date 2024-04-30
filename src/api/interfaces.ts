@@ -1,25 +1,60 @@
-export interface CompanyData {
-	civilStatus: "Single" | "Married" | "Legal cohabitation" | string;
-	contactAddress: string;
+import { type Dispatch, type SetStateAction, type FormEventHandler } from "react";
+
+export type KeyArray<T> = Array<keyof T>;
+
+export interface GenericObject {
+	[key: string | number]: any;
+}
+
+export interface CompanyData extends GenericObject {
+	contactName: string;
+	dateOfBirth: string;
+	civilStatus: "Single" | "Married" | "Legal Cohabitation" | string;
 	contactEmail: string;
 	contactPhoneNumber: string;
-	contactName: string;
-	companyAddress:
-		| {
-				type: "HomeAddress";
-		  }
-		| {
-				type: "CreateNewAddress";
-		  }
-		| {
-				type: "ExistingAddress";
-				location: string;
-		  };
-	companyDescription: string;
+
+	contactAddressCountry: string;
+	contactAddressRegion?: string;
+	contactAddressCity: string;
+	contactAddressPostalCode: string;
+	contactAddressAddressLine1: string;
+	contactAddressAddressLine2?: string;
+
 	companyName: string;
+	companyDescription: string;
 	companyPhoneNumber: string;
-	initialFunding: string;
 	legalEntity: string;
-	// password: string;
+
+	companyAddressType: "HomeAddress" | "CreateNewAddress" | "ExistingAddress";
+	companyAddressCountry: string;
+	companyAddressRegion?: string;
+	companyAddressCity: string;
+	companyAddressPostalCode: string;
+	companyAddressAddressLine1: string;
+	companyAddressAddressLine2?: string;
+
+	initialFunding: string;
 	specialRequests: string;
+}
+
+export interface NewCompanyContext {
+	step: Form["id"];
+	setStep: Function;
+	companyData: CompanyData;
+	setCompanyData: Dispatch<SetStateAction<CompanyData>>;
+	state: { [k: string]: any };
+	handleSubmit: FormEventHandler<HTMLFormElement>;
+	forms: Form[];
+	currentStepIndex: number;
+	lastStepID: Form["id"];
+}
+
+export interface Form {
+	id: string;
+	label: string;
+}
+
+export interface FormPage {
+	step: Form["id"];
+	label: string;
 }

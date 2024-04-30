@@ -6,7 +6,7 @@ import Header from "@/components/Header";
 import locales from "@/locales";
 import "@/styles/tailwind.css";
 import { headers } from "next/headers";
-import { ReactNode } from "react";
+import { PropsWithChildren } from "react";
 
 const inter = Inter({
 	subsets: ["latin"],
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 	description: "Incorporate in Belgium in just seven days. Entirely online.",
 };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default function RootLayout({ children }: PropsWithChildren) {
 	const url = headers().get("x-url");
 	if (!url) {
 		throw new Error("Unknown url");
@@ -42,6 +42,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 					rel="stylesheet"
 					href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,500,700&display=swap"
 				/>
+				{/* Stripe recommends preloading its JS toolkit because it enables them to track potential fraud better */}
+				<script src="https://js.stripe.com/v3" async></script>
 				{locales.map((locale) => {
 					const urlObj = new URL(url);
 					urlObj.searchParams.set("lang", locale);
