@@ -50,9 +50,9 @@ export default function Create() {
 		);
 	}
 
-	const env = process.env.NODE_ENV;
+	const env = process.env.VERCEL_ENV;
 	const subjectLine =
-		(env === "development" || env === "test" ? "[TEST] " : "") +
+		(env === "development" || env === "preview" ? "[TEST] " : "") +
 		"Application for Seven Seed";
 
 	return (

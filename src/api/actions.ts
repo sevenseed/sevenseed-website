@@ -7,7 +7,10 @@ if (!STRIPE_SK) throw "Stripe secret key not found";
 const PRODUCT_KEY = process.env.PRODUCT_KEY_INCORPORATION_REGULAR;
 if (!PRODUCT_KEY) throw "Product key not found";
 
-const BACKEND_HOST = process.env.BACKEND_HOST || "http://127.0.0.1:3000";
+const BACKEND_HOST =
+	`https://${process.env.VERCEL_URL}` ||
+	`https://${process.env.BACKEND_HOST}` ||
+	"http://127.0.0.1:3000";
 
 const stripe = new Stripe(STRIPE_SK);
 
