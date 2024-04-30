@@ -82,7 +82,7 @@ export const NewCompanyContext = createContext<NewCompanyContextInterface>({
 	lastStepID,
 });
 
-const formID = process.env.NEXT_PUBLIC_FORM_ID;
+const formID = process.env.NEXT_PUBLIC_FORMSPREE_FORM_ID;
 if (!formID) throw new Error("Formspree form ID not found in environment file");
 
 export function NewCompanyContextProvider({ children }: PropsWithChildren) {

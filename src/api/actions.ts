@@ -4,7 +4,7 @@ import Stripe from "stripe";
 const STRIPE_SK = process.env.STRIPE_SK;
 if (!STRIPE_SK) throw "Stripe secret key not found";
 
-const PRODUCT_KEY = process.env.PRODUCT_KEY;
+const PRODUCT_KEY = process.env.PRODUCT_KEY_INCORPORATION_REGULAR;
 if (!PRODUCT_KEY) throw "Product key not found";
 
 const BACKEND_HOST = process.env.BACKEND_HOST || "http://127.0.0.1:3000";
