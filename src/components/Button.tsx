@@ -1,14 +1,15 @@
 import Link from "next/link";
 import clsx from "clsx";
 import { ComponentPropsWithoutRef } from "react";
+import { GenericObject } from "@/api/interfaces";
 
-const baseStyles = {
+const baseStyles: GenericObject = {
 	solid: "inline-flex justify-center rounded-md py-1 px-4 text-base font-semibold tracking-tight shadow-sm focus:outline-none",
 	outline:
 		"inline-flex justify-center rounded-md border py-[calc(theme(spacing.1)-1px)] px-[calc(theme(spacing.4)-1px)] text-base font-semibold tracking-tight focus:outline-none",
 };
 
-const variantStyles = {
+const variantStyles: GenericObject = {
 	solid: {
 		slate: "bg-slate-900 text-white hover:bg-slate-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 active:bg-slate-700 active:text-white/80 disabled:opacity-30 disabled:hover:bg-slate-900",
 		blue: "bg-blue-600 text-white hover:bg-blue-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 active:bg-blue-700 active:text-white/80 disabled:opacity-30 disabled:hover:bg-blue-600",
