@@ -3,7 +3,10 @@ import { useEffect, useMemo, useState } from "react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import DecoratedButton from "@/components/DecoratedButton";
 import StripeInlineLogo from "@/components/StripeInlineLogo";
-import { createVerificationSession, getCheckoutSessionObject } from "@/api/actions";
+import {
+	createVerificationSession,
+	getCheckoutSessionObject,
+} from "@/api/actions/stripe";
 
 import styles from "../../dashboard.module.css";
 

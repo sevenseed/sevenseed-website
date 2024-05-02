@@ -74,11 +74,15 @@ const Header = () => {
 					<div className="flex items-center justify-between">
 						<a href="/" className="-m-1.5 p-1.5">
 							<span className="sr-only">Seven Seed</span>
-							<Image className="h-12 w-auto" src={logo} alt="" />
+							<Image
+								className="h-12 w-auto"
+								src={logo}
+								alt="Seven Seed"
+							/>
 						</a>
 						<button
 							type="button"
-							className="-m-2.5 rounded-md p-2.5 text-gray-700"
+							className="self-end -m-2.5 rounded-md p-2.5 text-gray-700"
 							onClick={() => setMobileMenuOpen(false)}
 						>
 							<span className="sr-only">Close menu</span>

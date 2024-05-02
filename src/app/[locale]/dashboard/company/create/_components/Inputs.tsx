@@ -73,6 +73,8 @@ export function SimpleFormInput({
 }: FormInputProps) {
 	const { companyData, setCompanyData } = useContext(NewCompanyContext);
 
+	// * nullish coalescence in order to force empty values to display empty
+	// * instead of falling back on an available `companyData[id]` value
 	const inputValue = value ?? companyData[id];
 
 	const onChange = useCallback(
@@ -87,7 +89,7 @@ export function SimpleFormInput({
 			<label className={styles.label}>
 				<span className={styles.labelText}>
 					{label}
-					{required ? <RequiredMark /> : ""}
+					{required && <RequiredMark />}
 				</span>
 				{description ? (
 					<span className={styles.description}>{description}</span>
