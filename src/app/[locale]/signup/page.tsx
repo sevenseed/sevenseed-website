@@ -1,24 +1,29 @@
 "use client";
 import { useCallback, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { signIn } from "@/api/actions/auth";
+import { signUp } from "@/api/actions/auth";
 import { Button } from "@/components/Button";
 
-export default function Login() {
+export default function Signup() {
 	const [message, setMessage] = useState("");
 	const [isSubmitting, setIsSubmitting] = useState(false);
 
 	const searchParams = useSearchParams();
-	const returnTo = useMemo(() => {
-		return searchParams.get("returnTo") || "";
+	const success = useMemo(() => {
+		return searchParams.get("success") || false;
 	}, [searchParams]);
 
-	const handleSignIn = useCallback(
+	// TODO:
+	// *  1. on submit/"Sign In", run `signIn`
+	// *  2. if the function doesn't redirect, capture its output (i.e., error message) and `setMessage` to it
+	// *  3. clear displayed message while querying
+
+	const handleSignUp = useCallback(
 		async (formData: FormData) => {
 			setIsSubmitting(true);
 			setMessage("");
 
-			const { message, error } = await signIn(formData, returnTo);
+			const { message, error } = await signUp(formData);
 
 			if (error) console.error(error);
 
@@ -30,10 +35,18 @@ export default function Login() {
 		[isSubmitting, message],
 	);
 
+	if (success)
+		return (
+			<div>
+				<p>Thank you!</p>
+				<p>Please check your email to continue the sign-up process.</p>
+			</div>
+		);
+
 	return (
 		<form
-			className="self-center flex-1 flex flex-col w-full justify-center gap-2 text-foreground px-8 sm:max-w-md"
-			action={handleSignIn}
+			className="self-center flex-1 flex flex-col w-full justify-center gap-2 px-8 sm:max-w-md"
+			action={handleSignUp}
 		>
 			<label className="flex flex-col gap-y-0.5 text-md">
 				Email
@@ -55,12 +68,10 @@ export default function Login() {
 				/>
 			</label>
 			<Button disabled={isSubmitting} variant="solid" color="blue">
-				Sign In
+				Sign Up
 			</Button>
 			{message && (
-				<p className="mt-4 p-4 bg-foreground/10 text-foreground text-center">
-					{message}
-				</p>
+				<p className="mt-4 p-4 bg-foreground/10 text-center">{message}</p>
 			)}
 		</form>
 	);
