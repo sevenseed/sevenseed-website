@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useMemo, useState } from "react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
-import { createCheckoutSession } from "@/api/actions";
+import { createCheckoutSession } from "@/api/actions/stripe";
 import DecoratedButton from "@/components/DecoratedButton";
 import StripeInlineLogo from "@/components/StripeInlineLogo";
 
