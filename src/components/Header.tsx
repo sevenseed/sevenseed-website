@@ -4,7 +4,6 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 import { GridPattern } from "./GridPattern";
 import LanguageSwitcher from "./LanguageSwitcher";
-import Link from "next/link";
 import Image from "next/image";
 import logo from "@/images/logo.svg";
 import { Button } from "./Button";
