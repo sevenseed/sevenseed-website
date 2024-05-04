@@ -1,18 +1,19 @@
-import { GridPattern } from "@/components/GridPattern";
+import { Button } from "@/components/Button";
 import { type Metadata } from "next";
-// import CustomerJourney from "./_components/CustomerJourney";
 
 export const metadata: Metadata = {
-	title: "Seven Seed - Dashboard",
+	title: "Dashboard — Seven Seed",
 	description: "Seven Seed Dashboard",
 };
 
 const DashboardPage = () => (
-	<div className="mx-4 relative flex flex-auto justify-center">
-		<div className="absolute inset-0 -z-10 text-slate-900/10 [mask-image:linear-gradient(transparent,white,transparent)]">
-			<GridPattern x="50%" y="50%" patternTransform="translate(0 60)" />
+	<div className="grid md:grid-cols-2 px-4 mt-16">
+		<div className="flex flex-col gap-y-4 p-4 bg-gray-50 border rounded">
+			<h1 className="text-2xl font-bold">Your company</h1>
+			<Button href="/dashboard/company/create" variant="solid" color="blue">
+				Click here to start your application
+			</Button>
 		</div>
-		{/* <CustomerJourney /> */}
 	</div>
 );
 
