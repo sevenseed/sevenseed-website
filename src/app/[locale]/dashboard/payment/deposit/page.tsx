@@ -2,7 +2,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { createCheckoutSession } from "@/api/actions/stripe";
-import DecoratedButton from "@/components/DecoratedButton";
+import ButtonWithLoader from "@/components/ButtonWithLoader";
 import StripeInlineLogo from "@/components/StripeInlineLogo";
 
 import styles from "../../dashboard.module.css";
@@ -48,7 +48,7 @@ export default function Deposit() {
 					a photo or scan of a document confirming your identity, as we are
 					required to do by law. Please have your ID close at hand.
 				</p>
-				<DecoratedButton
+				<ButtonWithLoader
 					theme="checkout"
 					isLoaderVisible={redirecting}
 					onClick={(event) => {
@@ -58,7 +58,7 @@ export default function Deposit() {
 					}}
 				>
 					Checkout with <StripeInlineLogo />
-				</DecoratedButton>
+				</ButtonWithLoader>
 			</div>
 		</div>
 	);
