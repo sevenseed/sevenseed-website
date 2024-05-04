@@ -32,7 +32,7 @@ export const signUp = async (formData: FormData) => {
 		email,
 		password,
 		options: {
-			emailRedirectTo: `${origin}/auth/callback`,
+			emailRedirectTo: `${origin}/dashboard`,
 		},
 	});
 
@@ -40,5 +40,5 @@ export const signUp = async (formData: FormData) => {
 		return { message: "Could not sign up user", error };
 	}
 
-	return redirect("/signup?success=true");
+	return redirect("/dashboard");
 };
