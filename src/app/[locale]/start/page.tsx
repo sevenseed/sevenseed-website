@@ -4,6 +4,7 @@ import { useSearchParams } from "next/navigation";
 import { signIn, signUp } from "@/api/actions/auth";
 import ButtonWithLoader from "@/components/ButtonWithLoader";
 import clsx from "clsx";
+import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
 
 type UserFlow = "signIn" | "signUp";
 
@@ -11,6 +12,7 @@ export default function Signup() {
 	const [isSubmitting, setIsSubmitting] = useState(false);
 	const [message, setMessage] = useState("");
 	const [flow, setFlow] = useState<UserFlow>("signIn");
+	const [showPassword, setShowPassword] = useState(false);
 
 	const searchParams = useSearchParams();
 	const returnTo = useMemo(() => {
@@ -54,7 +56,7 @@ export default function Signup() {
 				<fieldset className="flex justify-between p-2 gap-x-2 bg-gray-50 border rounded-lg shadow">
 					<label
 						className={clsx(
-							"flex-1 p-2 text-center",
+							"flex-1 p-2 text-center duration-200",
 							"rounded select-none cursor-pointer",
 							flow === "signIn"
 								? "bg-blue-500 hover:bg-blue-600 text-white"
@@ -66,9 +68,10 @@ export default function Signup() {
 							name="flow"
 							id="flow--signIn"
 							value="signIn"
-							onChange={(event) =>
-								setFlow(event.currentTarget.value as UserFlow)
-							}
+							onChange={(event) => {
+								setFlow(event.currentTarget.value as UserFlow);
+								setShowPassword(false);
+							}}
 							defaultChecked
 							hidden
 						/>
@@ -89,9 +92,10 @@ export default function Signup() {
 							name="flow"
 							id="flow--signUp"
 							value="signUp"
-							onChange={(event) =>
-								setFlow(event.currentTarget.value as UserFlow)
-							}
+							onChange={(event) => {
+								setFlow(event.currentTarget.value as UserFlow);
+								setShowPassword(false);
+							}}
 							hidden
 						/>
 						Sign Up
@@ -114,13 +118,28 @@ export default function Signup() {
 							</label>
 							<label className="flex flex-col gap-y-0.5 text-md">
 								Password
-								<input
-									className="rounded-md px-4 py-2 mt-1 bg-inherit border"
-									type="password"
-									name="password"
-									placeholder="••••••••"
-									required
-								/>
+								<div className="relative flex items-center bg-inherit">
+									<input
+										className="flex-1 px-4 py-2 rounded-md border"
+										type={showPassword ? "text" : "password"}
+										name="password"
+										placeholder="••••••••"
+										required
+									/>
+									{showPassword ? (
+										<EyeIcon
+											onClick={() => setShowPassword(false)}
+											strokeWidth={2}
+											className="absolute right-0 h-8 px-4 py-2 cursor-pointer"
+										/>
+									) : (
+										<EyeSlashIcon
+											onClick={() => setShowPassword(true)}
+											strokeWidth={2}
+											className="absolute right-0 h-8 px-4 py-2 cursor-pointer"
+										/>
+									)}
+								</div>
 							</label>
 						</div>
 						<ButtonWithLoader theme="signIn" isLoaderVisible={isSubmitting}>
@@ -144,13 +163,28 @@ export default function Signup() {
 							</label>
 							<label className="flex flex-col gap-y-0.5 text-md">
 								Password
-								<input
-									className="rounded-md px-4 py-2 mt-1 bg-inherit border"
-									type="password"
-									name="password"
-									placeholder="••••••••"
-									required
-								/>
+								<div className="relative flex items-center bg-inherit">
+									<input
+										className="flex-1 px-4 py-2 rounded-md border"
+										type={showPassword ? "text" : "password"}
+										name="password"
+										placeholder="••••••••"
+										required
+									/>
+									{showPassword ? (
+										<EyeIcon
+											onClick={() => setShowPassword(false)}
+											strokeWidth={2}
+											className="absolute right-0 h-8 px-4 py-2 cursor-pointer"
+										/>
+									) : (
+										<EyeSlashIcon
+											onClick={() => setShowPassword(true)}
+											strokeWidth={2}
+											className="absolute right-0 h-8 px-4 py-2 cursor-pointer"
+										/>
+									)}
+								</div>
 							</label>
 						</div>
 						<ButtonWithLoader theme="signUp" isLoaderVisible={isSubmitting}>
