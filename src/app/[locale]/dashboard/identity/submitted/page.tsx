@@ -1,45 +1,12 @@
 "use client";
-// import { useState } from "react";
-// import { useEffect, useMemo, useState } from "react";
-// import { useSearchParams } from "next/navigation";
-// import { getVerificationSessionObject } from "@/api/actions";
-// import { useRouter } from "next/navigation";
-
-// import { type NullableString } from "@/api/types";
-
+import { useEffect } from "react";
 import styles from "../../dashboard.module.css";
 
 export default function Submitted() {
-	/* const router = useRouter();
-	const urlParams = useSearchParams();
-	const sessionId = useMemo(() => {
-		return urlParams.get("session_id");
-	}, []); */
+	useEffect(() => {
+		window.localStorage.setItem("applicationSubmitted", "true");
+	}, []);
 
-	// const [status, setStatus] = useState<NullableString>(null);
-	// const [retryURL, setRetryURL] = useState<NullableString>(null);
-
-	/* useEffect(() => {
-		let fetching = false;
-
-		async function getSession() {
-			if (fetching) return;
-			fetching = true;
-
-			const object = await getVerificationSessionObject(sessionId!);
-
-			setStatus(object.status);
-			if (object.status === "requires_input") {
-				setRetryURL(object.url);
-			}
-
-			fetching = false;
-		}
-
-		getSession();
-	}, []); */
-
-	// return null;
 	return (
 		<div className="mx-4 relative flex flex-auto justify-center">
 			<div className={styles.container}>
