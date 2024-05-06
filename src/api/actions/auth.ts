@@ -3,6 +3,25 @@ import supabase from "@/supabase";
 import { headers } from "next/headers";
 import { RedirectType, redirect } from "next/navigation";
 
+export const getUser = async () => {
+	const { data, error } = await supabase().auth.getUser();
+	if (error) {
+		if (error.status === 401) {
+			return null;
+		} else {
+			throw new Error(error.message);
+		}
+	}
+	const user = data.user;
+	if (!user.email) {
+		throw new Error("User email is missing");
+	}
+	return {
+		id: user.id,
+		email: user.email,
+	};
+};
+
 export const signIn = async (formData: FormData, returnTo = "") => {
 	const email = formData.get("email") as string;
 	const password = formData.get("password") as string;
