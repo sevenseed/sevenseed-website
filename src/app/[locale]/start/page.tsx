@@ -2,9 +2,9 @@
 import { useCallback, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { signIn, signUp } from "@/api/actions/auth";
+import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
 import ButtonWithLoader from "@/components/ButtonWithLoader";
 import clsx from "clsx";
-import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
 
 type UserFlow = "signIn" | "signUp";
 
