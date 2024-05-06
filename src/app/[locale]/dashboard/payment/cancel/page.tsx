@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
-import { expireCheckoutSession } from "@/api/actions";
+import { expireCheckoutSession } from "@/api/actions/stripe";
 
 import styles from "../../dashboard.module.css";
 

@@ -1,19 +1,17 @@
-import { GridPattern } from "@/components/GridPattern";
 import { type Metadata } from "next";
-// import CustomerJourney from "./_components/CustomerJourney";
+import CompanySegment from "./_components/DashboardCompanySegment";
 
 export const metadata: Metadata = {
-	title: "Seven Seed - Dashboard",
+	title: "Dashboard — Seven Seed",
 	description: "Seven Seed Dashboard",
 };
 
-const DashboardPage = () => (
-	<div className="mx-4 relative flex flex-auto justify-center">
-		<div className="absolute inset-0 -z-10 text-slate-900/10 [mask-image:linear-gradient(transparent,white,transparent)]">
-			<GridPattern x="50%" y="50%" patternTransform="translate(0 60)" />
+const DashboardPage = () => {
+	return (
+		<div className="grid md:grid-cols-[repeat(auto-fit,minmax(24rem,1fr))] gap-4 px-4 mt-16">
+			<CompanySegment />
 		</div>
-		{/* <CustomerJourney /> */}
-	</div>
-);
+	);
+};
 
 export default DashboardPage;

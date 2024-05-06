@@ -31,7 +31,7 @@ const Hero = () => {
 						</h1>
 						<p className="mt-4 text-3xl text-slate-600">{t("content")}</p>
 						<div className="mt-8 flex gap-4">
-							<Button href="/signup" color="blue">
+							<Button href="/start" color="blue">
 								{t("getStarted")}
 							</Button>
 							<Button href="/contact" variant="outline" color="blue">

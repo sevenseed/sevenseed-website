@@ -1,9 +1,12 @@
 "use client";
 import { useEffect, useMemo, useState } from "react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
-import DecoratedButton from "@/components/DecoratedButton";
+import ButtonWithLoader from "@/components/ButtonWithLoader";
 import StripeInlineLogo from "@/components/StripeInlineLogo";
-import { createVerificationSession, getCheckoutSessionObject } from "@/api/actions";
+import {
+	createVerificationSession,
+	getCheckoutSessionObject,
+} from "@/api/actions/stripe";
 
 import styles from "../../dashboard.module.css";
 
@@ -76,7 +79,7 @@ export default function Verify() {
 						to submit the documents for verification. Your documents are
 						processed with utmost privacy by Stripe; we never receive them.
 					</p>
-					<DecoratedButton
+					<ButtonWithLoader
 						theme="verification"
 						isLoaderVisible={redirecting}
 						onClick={async (event) => {
@@ -87,7 +90,7 @@ export default function Verify() {
 						}}
 					>
 						Verify via <StripeInlineLogo />
-					</DecoratedButton>
+					</ButtonWithLoader>
 				</div>
 			</div>
 		);

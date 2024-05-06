@@ -1,0 +1,63 @@
+"use server";
+import supabase from "@/supabase";
+import { headers } from "next/headers";
+import { RedirectType, redirect } from "next/navigation";
+
+export const getUser = async () => {
+	const { data, error } = await supabase().auth.getUser();
+	if (error) {
+		if (error.status === 401) {
+			return null;
+		} else {
+			throw new Error(error.message);
+		}
+	}
+	const user = data.user;
+	if (!user.email) {
+		throw new Error("User email is missing");
+	}
+	return {
+		id: user.id,
+		email: user.email,
+	};
+};
+
+export const signIn = async (formData: FormData, returnTo = "") => {
+	const email = formData.get("email") as string;
+	const password = formData.get("password") as string;
+
+	const { error } = await supabase().auth.signInWithPassword({
+		email,
+		password,
+	});
+
+	if (error) {
+		return { message: "Could not authenticate user", error };
+	}
+
+	if (returnTo) {
+		return redirect(returnTo, RedirectType.replace);
+	}
+
+	return redirect("/dashboard");
+};
+
+export const signUp = async (formData: FormData) => {
+	const origin = headers().get("origin");
+	const email = formData.get("email") as string;
+	const password = formData.get("password") as string;
+
+	const { error } = await supabase().auth.signUp({
+		email,
+		password,
+		options: {
+			emailRedirectTo: `${origin}/dashboard`,
+		},
+	});
+
+	if (error) {
+		return { message: "Could not sign up user", error };
+	}
+
+	return redirect("/dashboard");
+};
