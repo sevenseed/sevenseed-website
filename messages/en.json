@@ -1,12 +1,13 @@
 {
 	"Hero": {
-		"title": "Incorporate in a Click.",
-		"content": "Incorporate your company in Belgium in just seven days. Entirely online.",
+		"preTitle": "Incorporate in",
+		"sevenDays": "Seven Days",
+		"content": "The simplest way for anyone to launch and run a company in Belgium. Incorporate your company, access accounting services, and manage everything your business needs — all online, from anywhere.",
 		"getStarted": "Get started",
 		"contactUs": "Contact us"
 	},
 	"Introduction": {
-		"mainHeading": "Built by founders, for founders.",
+		"mainHeading": "Built by founders, for founders",
 		"introParagraph": "We provide a unified online platform for the entire incorporation process. Focus on what matters, instead of the paperwork.",
 		"linkText": "Learn why you should create your company in Belgium",
 		"feature1": "Creation of the financial plan",
