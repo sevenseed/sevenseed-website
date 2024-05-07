@@ -20,7 +20,7 @@ const Header = () => {
 			>
 				<GridPattern
 					patternTransform="translate(0 80)"
-					className="text-slate-900/10 w-full inset-0 absolute pointer-events-none"
+					className="text-slate-900/10 w-full inset-0 absolute pointer-events-none mask-image-gradient-to-b from-black to-transparent"
 				/>
 				<a href="/" className="-m-1.5 p-1.5">
 					<span className="sr-only">Seven Seed</span>
