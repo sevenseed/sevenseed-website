@@ -5,7 +5,7 @@ const Hero = () => {
 	const t = useTranslations("Hero");
 
 	return (
-		<header className="flex justify-center mt-16 px-8">
+		<header className="flex justify-center">
 			<div className="md:max-w-3xl flex flex-col place-items-center gap-y-6 text-balance text-center">
 				<h1 className="font-display text-5xl font-extrabold text-slate-900 sm:text-6xl">
 					{t("preTitle")}{" "}
