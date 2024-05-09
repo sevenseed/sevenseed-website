@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { type TestimonialAuthor } from "./layout/Testimonials";
 import { useTranslations } from "next-intl";
-import { Container } from "./Container";
+import Container from "./Container";
 import { StarRating } from "./StarRating";
 
 export default function Testimonial({ author }: { author: TestimonialAuthor }) {

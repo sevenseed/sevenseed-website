@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Container } from "@/components/Container";
+import Container from "../Container";
 import { CheckIcon } from "@/components/CheckIcon";
 import { useTranslations } from "next-intl";
 
