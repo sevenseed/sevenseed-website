@@ -1,8 +1,8 @@
 import Hero from "./_components/layout/Hero";
 import Introduction from "./_components/layout/Introduction";
-// import Footer from "./_components/layout/Footer";
 import Features from "./_components/layout/Features";
 import Testimonials from "./_components/layout/Testimonials";
+import Footer from "./_components/layout/Footer";
 
 // import { FreeChapters } from "./_components/FreeChapters";
 // import { HowItWorks } from "./_components/HowItWorks";
@@ -20,7 +20,7 @@ export default function Home() {
 			{/* <Resources /> */}
 			{/* <FreeChapters /> */}
 			{/* <Pricing /> */}
-			{/* <Footer /> */}
+			<Footer />
 		</main>
 	);
 }
