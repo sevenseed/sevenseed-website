@@ -1,4 +1,4 @@
-import Link from "next/link";
+// import Link from "next/link";
 import Container from "../Container";
 import { CheckIcon } from "@/components/CheckIcon";
 import { useTranslations } from "next-intl";
@@ -12,29 +12,29 @@ export default function Introduction() {
 		<section
 			id="introduction"
 			aria-label="Introduction"
-			className="flex justify-center"
+			className="flex justify-start sm:justify-center"
 		>
-			<Container className="flex flex-col items-center text-center text-lg tracking-tight text-slate-700 text-balance">
-				<p className="font-display text-4xl font-bold tracking-tight text-slate-900">
+			<Container className="flex flex-col gap-y-4 sm:items-center text-lg text-slate-700 text-balance">
+				<p className="font-display text-4xl font-bold text-slate-900 text-start">
 					{t("mainHeading")}
 				</p>
-				<p className="max-w-md sm:max-w-lg mt-4">{t("introParagraph")}</p>
-				<ul role="list" className="mt-8 space-y-3">
+				<p className="text-justify sm:text-center leading-normal">
+					{t("introParagraph")}
+				</p>
+				<ul role="list" className="flex flex-col items-start gap-y-3">
 					{FEATURES.map((feature) => (
-						<li key={feature} className="flex">
-							<CheckIcon className="h-8 w-8 flex-none fill-blue-500" />
-							<span className="ml-4">{t(feature)}</span>
+						<li key={feature} className="flex gap-x-2">
+							<CheckIcon className="h-8 w-8 flex-none -ml-2 fill-blue-500" />
+							<span className="">{t(feature)}</span>
 						</li>
 					))}
 				</ul>
-				<p className="mt-10">
-					<Link
-						href="#whitepaper"
-						className="text-base font-medium text-blue-600 hover:text-blue-800"
-					>
-						{t("linkText")} <span aria-hidden="true">&rarr;</span>
-					</Link>
-				</p>
+				{/* <Link
+					href="#whitepaper"
+					className="font-medium text-blue-600 hover:text-blue-800"
+				>
+					{t("linkText")} <span aria-hidden="true">&rarr;</span>
+				</Link> */}
 			</Container>
 		</section>
 	);
