@@ -15,7 +15,7 @@ const Header = () => {
 	return (
 		<>
 			<nav
-				className="mx-auto flex w-full max-w-7xl items-center justify-between p-6 lg:px-8"
+				className="mx-auto flex w-full max-w-7xl items-center justify-between p-6 lg:px-8 mb-16"
 				aria-label="Global"
 			>
 				<GridPattern

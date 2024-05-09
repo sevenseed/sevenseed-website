@@ -15,7 +15,7 @@ export default function Home() {
 	const t = useTranslations("Testimonials");
 
 	return (
-		<>
+		<main className="flex flex-col gap-y-16 px-8">
 			<Hero />
 			<Introduction />
 			<Testimonial
@@ -33,6 +33,6 @@ export default function Home() {
 			{/* <FreeChapters /> */}
 			{/* <Pricing /> */}
 			{/* <Footer /> */}
-		</>
+		</main>
 	);
 }

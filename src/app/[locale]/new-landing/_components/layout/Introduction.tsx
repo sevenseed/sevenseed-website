@@ -12,7 +12,7 @@ export default function Introduction() {
 		<section
 			id="introduction"
 			aria-label="Introduction"
-			className="flex justify-center pb-16 pt-20 sm:pb-20 md:pt-36 lg:py-32"
+			className="flex justify-center"
 		>
 			<Container className="flex flex-col items-center text-center text-lg tracking-tight text-slate-700 text-balance">
 				<p className="font-display text-4xl font-bold tracking-tight text-slate-900">
