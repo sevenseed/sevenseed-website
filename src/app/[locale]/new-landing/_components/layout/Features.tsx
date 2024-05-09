@@ -1,5 +1,9 @@
 import Feature from "../Feature";
 
+const DemoExhibit = () => {
+	return <span className="text-5xl text-slate-400 font-bold">Exhibit</span>;
+};
+
 export default function Features() {
 	return (
 		<section id="features" className="flex justify-center">
@@ -16,7 +20,7 @@ export default function Features() {
 						</p>
 					</Feature.Description>
 					<Feature.Exhibit>
-						<p className="text-5xl text-slate-400 font-bold">Exhibit</p>
+						<DemoExhibit />
 					</Feature.Exhibit>
 				</Feature>
 				<Feature>
@@ -31,7 +35,7 @@ export default function Features() {
 						</p>
 					</Feature.Description>
 					<Feature.Exhibit>
-						<p className="text-5xl text-slate-400 font-bold">Exhibit</p>
+						<DemoExhibit />
 					</Feature.Exhibit>
 				</Feature>
 				<Feature>
@@ -46,7 +50,7 @@ export default function Features() {
 						</p>
 					</Feature.Description>
 					<Feature.Exhibit>
-						<p className="text-5xl text-slate-400 font-bold">Exhibit</p>
+						<DemoExhibit />
 					</Feature.Exhibit>
 				</Feature>
 				<Feature>
@@ -61,7 +65,7 @@ export default function Features() {
 						</p>
 					</Feature.Description>
 					<Feature.Exhibit>
-						<p className="text-5xl text-slate-400 font-bold">Exhibit</p>
+						<DemoExhibit />
 					</Feature.Exhibit>
 				</Feature>
 			</div>

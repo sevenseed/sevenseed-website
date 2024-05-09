@@ -2,17 +2,21 @@ import clsx from "clsx";
 import { PropsWithChildren } from "react";
 
 function Description({ children }: PropsWithChildren) {
-	return <div className="space-y-2">{children}</div>;
+	return (
+		<div className="space-y-4 sm:space-y-2 text-justify sm:text-start">
+			{children}
+		</div>
+	);
 }
 function Heading({ children }: PropsWithChildren) {
-	return <h2 className="font-bold text-2xl leading-tight">{children}</h2>;
+	return <h2 className="font-bold text-2xl leading-tight text-start">{children}</h2>;
 }
 
 Description.Heading = Heading;
 
 function Exhibit({ children }: PropsWithChildren) {
-	// TODO: add border and shadow
-	return <div>{children}</div>;
+	// TODO: add border and shadow when actual content is there
+	return <div className="flex-[1_0_50%] text-center p-8 sm:p-16">{children}</div>;
 }
 
 export default function Feature({ children }: PropsWithChildren) {
