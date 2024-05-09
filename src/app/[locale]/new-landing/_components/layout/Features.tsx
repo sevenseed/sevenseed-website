@@ -11,8 +11,8 @@ export default function Features() {
 						</Feature.Description.Heading>
 						<p>
 							Incorporate as an independent or an SRL, in a region of your
-							choosing. We'll guide you through which is best for your
-							business if you don't know.
+							choosing. We&apos;ll guide you through which is best for
+							your business if you don&apos;t know.
 						</p>
 					</Feature.Description>
 					<Feature.Exhibit>
@@ -40,7 +40,7 @@ export default function Features() {
 							Your accounting set up from the start
 						</Feature.Description.Heading>
 						<p>
-							We'll open your VAT number and get you a dedicated
+							We&apos;ll open your VAT number and get you a dedicated
 							accountant perfect for your business. Compliant from the
 							start, without headaches.
 						</p>
@@ -55,8 +55,8 @@ export default function Features() {
 							Get a business address in Brussels
 						</Feature.Description.Heading>
 						<p>
-							Don't have a business address in Brussels? For only 65 € /
-							month, we provide you with an address, mail scanning and
+							Don&apos;t have a business address in Brussels? For only 65
+							€ / month, we provide you with an address, mail scanning and
 							forwarding. Easy as that.
 						</p>
 					</Feature.Description>
