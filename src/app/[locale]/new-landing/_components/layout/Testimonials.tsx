@@ -30,7 +30,7 @@ export default function Testimonials() {
 		<section
 			id="testimonials"
 			aria-label="Testimonials"
-			className="flex flex-col items-center relative bg-slate-100 py-16 sm:py-32 -mx-8"
+			className="flex flex-col items-center relative bg-slate-100 py-16 sm:py-32 px-8 -mx-8"
 		>
 			<div className="text-slate-900/10">
 				<GridPattern x="50%" patternTransform="translate(0 80)" />

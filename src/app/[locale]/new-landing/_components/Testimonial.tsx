@@ -8,13 +8,10 @@ export default function Testimonial({ author }: { author: TestimonialAuthor }) {
 	const t = useTranslations("Testimonials");
 
 	return (
-		<Container
-			size="xs"
-			className="relative bg-slate-50 border rounded-xl py-16 mx-4"
-		>
+		<Container size="xs" className="relative bg-white border rounded-xl py-16 px-8">
 			<figure className="flex flex-col sm:items-center gap-y-6">
 				<StarRating />
-				<blockquote className="sm:px-8 font-display text-4xl font-medium tracking-tight text-slate-900 sm:text-center text-balance">
+				<blockquote className="font-display text-4xl font-medium tracking-tight text-slate-900 sm:text-center text-balance">
 					“{t(`review.${author.reviewKey}`)}”
 				</blockquote>
 				<figcaption className="flex gap-2 sm:flex-col sm:items-center sm:text-center">
