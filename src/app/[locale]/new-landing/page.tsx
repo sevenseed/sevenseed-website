@@ -1,6 +1,7 @@
 import Hero from "./_components/layout/Hero";
 import Introduction from "./_components/layout/Introduction";
 // import Footer from "./_components/layout/Footer";
+import Features from "./_components/layout/Features";
 import Testimonials from "./_components/layout/Testimonials";
 
 // import { FreeChapters } from "./_components/FreeChapters";
@@ -13,6 +14,7 @@ export default function Home() {
 		<main className="flex flex-col gap-y-16 px-8">
 			<Hero />
 			<Introduction />
+			<Features />
 			<Testimonials />
 			{/* <HowItWorks /> */}
 			{/* <Resources /> */}
