@@ -1,6 +1,7 @@
 {
 	"Hero": {
-		"title": "Votre entreprise, en sept jours.",
+		"preTitle": "Votre entreprise, en",
+		"sevenDays": "sept jours",
 		"content": "Obtenez votre entité légale en Belgique en seulement sept jours. Compte bancaire et assurance inclus.",
 		"getStarted": "Commencer",
 		"contactUs": "Contactez-nous"
@@ -29,8 +30,10 @@
 		"companyPackageDescription": "Nous vous envoyons tous vos documents importants et préparons votre dossier pour le comptable, la banque et l'assurance."
 	},
 	"Testimonials": {
-		"review": "Seven Seed m'a aidé à créer mon entreprise rapidement et efficacement. Excellente communication et réactivité !",
-		"authorTitle": "Fondateur, Trifolium Belgium Consulting SRL"
+		"review": {
+			"michal-tarnowski": "Seven Seed m'a aidé à créer mon entreprise rapidement et efficacement. Excellente communication et réactivité !"
+		},
+		"founder": "Fondateur"
 	},
 	"NavBar": {
 		"howItWorks": "Comment ça fonctionne",

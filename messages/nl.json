@@ -1,6 +1,7 @@
 {
 	"Hero": {
-		"title": "Uw bedrijf, in zeven dagen.",
+		"preTitle": "Uw bedrijf, in",
+		"sevenDays": "zeven dagen",
 		"content": "Krijg uw juridische entiteit in België in slechts zeven dagen. Bankrekening en verzekering inbegrepen.",
 		"getStarted": "Beginnen",
 		"contactUs": "Neem contact met ons op"
@@ -29,8 +30,10 @@
 		"companyPackageDescription": "We sturen u al uw belangrijke documenten en bereiden uw dossier voor op de accountant, bank en verzekering."
 	},
 	"Testimonials": {
-		"review": "Seven Seed heeft mij geholpen mijn bedrijf snel en efficiënt op te zetten. Geweldige communicatie en reactievermogen!",
-		"authorTitle": "Oprichter, Trifolium Belgium Consulting SRL"
+		"review": {
+			"michal-tarnowski": "Seven Seed heeft mij geholpen mijn bedrijf snel en efficiënt op te zetten. Geweldige communicatie en reactievermogen!"
+		},
+		"founder": "Oprichter"
 	},
 	"NavBar": {
 		"howItWorks": "Hoe Het Werkt",
