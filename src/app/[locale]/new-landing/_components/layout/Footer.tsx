@@ -33,7 +33,7 @@ export default function Footer() {
 	const t = useTranslations("Footer");
 
 	return (
-		<footer className="flex justify-center relative pt-32 px-8 pb-8 -mx-8 -mt-16">
+		<footer className="flex justify-center relative pt-32 px-8 pb-8 -mx-8">
 			<div className="absolute inset-x-0 top-0 h-32 text-slate-900/10 [mask-image:linear-gradient(white,transparent)]">
 				<GridPattern x="50%" />
 			</div>
