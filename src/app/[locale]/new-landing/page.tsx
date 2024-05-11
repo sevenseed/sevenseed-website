@@ -2,11 +2,12 @@ import Hero from "./_components/layout/Hero";
 import Introduction from "./_components/layout/Introduction";
 import Features from "./_components/layout/Features";
 import Testimonials from "./_components/layout/Testimonials";
+import Pricing from "./_components/layout/Pricing";
+import GetStarted from "./_components/layout/GetStarted";
 import Footer from "./_components/layout/Footer";
 
 // import { FreeChapters } from "./_components/FreeChapters";
 // import { HowItWorks } from "./_components/HowItWorks";
-// import { Pricing } from "./_components/Pricing";
 // import { Resources } from "./_components/Resources";
 
 export default function Home() {
@@ -19,7 +20,8 @@ export default function Home() {
 			{/* <HowItWorks /> */}
 			{/* <Resources /> */}
 			{/* <FreeChapters /> */}
-			{/* <Pricing /> */}
+			<Pricing />
+			<GetStarted />
 			<Footer />
 		</main>
 	);

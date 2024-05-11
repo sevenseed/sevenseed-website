@@ -64,9 +64,9 @@
 	"Pricing": {
 		"sectionHeading": "Pricing",
 		"mainDescription": "Pick your package",
-		"subDescription": "Both our packages give access to the Seven Seed community of founders and startups.",
-		"basicPlanName": "Basic - Your SRL in Seven Days",
-		"basicPlanDescription": "Everything you need, and a bit more.",
+		"subDescription": "Our inclusive package gives you access to the Seven Seed community of founders and startups.",
+		"basicPlanName": "Your company in seven days",
+		"basicPlanDescription": "Everything you need, and a bit more",
 		"basicPlanFeature1": "Company registration",
 		"basicPlanFeature2": "VAT account registration",
 		"basicPlanFeature3": "Bylaws and notarization",
@@ -80,6 +80,11 @@
 		"foreignEntrepreneurPlanFeature2": "Your own office address in Flanders",
 		"foreignEntrepreneurPlanFeature3": "Mail forwarding & scanning",
 		"foreignEntrepreneurPlanFeature4": "Three months incl. (€70/mo after)",
+		"getStarted": "Get started"
+	},
+	"GetStarted": {
+		"title": "Let's get started",
+		"content": "You turn the key. We make sure the company gets off the ground at speed.",
 		"getStarted": "Get started"
 	},
 	"Footer": {

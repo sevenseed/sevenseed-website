@@ -64,9 +64,9 @@
 	"Pricing": {
 		"sectionHeading": "Tarification",
 		"mainDescription": "Choisissez votre forfait",
-		"subDescription": "Nos deux forfaits donnent accès à la communauté Seven Seed de fondateurs et de startups.",
-		"basicPlanName": "Basique - Votre SRL en Sept Jours",
-		"basicPlanDescription": "Tout ce dont vous avez besoin, et même un peu plus.",
+		"subDescription": "Notre forfait tout compris donnent accès à la communauté Seven Seed de fondateurs et de startups.",
+		"basicPlanName": "Votre entreprise en sept jours",
+		"basicPlanDescription": "Tout ce dont vous avez besoin, et même un peu plus",
 		"basicPlanFeature1": "Enregistrement de l'entreprise",
 		"basicPlanFeature2": "Enregistrement du compte TVA",
 		"basicPlanFeature3": "Statuts et notarisation",
@@ -79,6 +79,11 @@
 		"foreignEntrepreneurPlanFeature2": "Votre propre adresse de bureau en Flandre",
 		"foreignEntrepreneurPlanFeature3": "Réexpédition et numérisation du courrier",
 		"foreignEntrepreneurPlanFeature4": "Trois mois incl. (70 €/mois après)",
+		"getStarted": "Commencer"
+	},
+	"GetStarted": {
+		"title": "Allons commencer",
+		"content": "Vous tournez la clé. Nous veillons à ce que l'entreprise décolle rapidement.",
 		"getStarted": "Commencer"
 	},
 	"Footer": {
