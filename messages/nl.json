@@ -64,9 +64,9 @@
 	"Pricing": {
 		"sectionHeading": "Prijzen",
 		"mainDescription": "Kies uw pakket",
-		"subDescription": "Beide pakketten geven toegang tot de Seven Seed community van oprichters en startups.",
-		"basicPlanName": "Basis - Uw BV in Zeven Dagen",
-		"basicPlanDescription": "Alles wat u nodig heeft, en een beetje meer.",
+		"subDescription": "Ons inclusieve pakket geeft u toegang tot de Seven Seed community van oprichters en startups.",
+		"basicPlanName": "Uw bedrijf in zeven dagen",
+		"basicPlanDescription": "Alles wat u nodig heeft, en een beetje meer",
 		"basicPlanFeature1": "Bedrijfsregistratie",
 		"basicPlanFeature2": "BTW-accountregistratie",
 		"basicPlanFeature3": "Statuten en notarisatie",
@@ -79,6 +79,11 @@
 		"foreignEntrepreneurPlanFeature2": "Uw eigen kantooradres in Vlaanderen",
 		"foreignEntrepreneurPlanFeature3": "Mail forwarding & scanning",
 		"foreignEntrepreneurPlanFeature4": "Drie maanden incl. (€70/maand daarna)",
+		"getStarted": "Beginnen"
+	},
+	"GetStarted": {
+		"title": "Laten we beginnen",
+		"content": "Wij zorgen ervoor dat het bedrijf snel van de grond komt.",
 		"getStarted": "Beginnen"
 	},
 	"Footer": {
