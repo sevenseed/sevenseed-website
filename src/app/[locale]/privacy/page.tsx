@@ -1,4 +1,4 @@
-import { Container } from "@/components/Container";
+import Container from "@/components/Container";
 import EmailLink from "@/components/EmailLink";
 import Link from "next/link";
 

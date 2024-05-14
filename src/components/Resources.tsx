@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Container } from "@/components/Container";
+import Container from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
 import communityImage from "@/images/resources/landing/community.png";
 import partnersImage from "@/images/resources/landing/partners.png";

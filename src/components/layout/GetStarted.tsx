@@ -10,7 +10,7 @@ const GetStarted = () => {
 				<h1 className="font-display font-extrabold text-slate-900 text-5xl sm:text-center">
 					{t("title")}
 				</h1>
-				<p className="md:max-w-lg text-xl text-slate-600 text-justify sm:text-center">
+				<p className="md:max-w-lg text-xl text-slate-600 sm:text-center">
 					{t("content")}
 				</p>
 				<div className="w-full flex justify-center">

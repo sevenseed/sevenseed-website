@@ -1,5 +1,5 @@
+import Container from "@/components/Container";
 import { Button } from "@/components/Button";
-import { Container } from "@/components/Container";
 import { Pattern } from "@/components/Pattern";
 import { useTranslations } from "next-intl";
 

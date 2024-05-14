@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Container } from "@/components/Container";
+import Container from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
 import duotoneImage from "@/images/how-it-works/duotone.svg";
 import gridsImage from "@/images/how-it-works/grids.svg";

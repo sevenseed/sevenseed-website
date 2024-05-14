@@ -1,4 +1,3 @@
-// import Link from "next/link";
 import Container from "../Container";
 import { CheckIcon } from "@/components/CheckIcon";
 import { useTranslations } from "next-intl";
@@ -14,11 +13,11 @@ export default function Introduction() {
 			aria-label="Introduction"
 			className="flex justify-start sm:justify-center"
 		>
-			<Container className="flex flex-col gap-y-4 sm:items-center text-lg text-slate-700 text-balance">
-				<p className="font-display text-4xl font-bold text-slate-900 text-start">
+			<Container className="flex flex-col gap-y-4 sm:items-center text-lg text-slate-700 text-balance sm:text-center">
+				<p className="font-display text-4xl font-bold text-slate-900">
 					{t("mainHeading")}
 				</p>
-				<p className="text-justify sm:text-center leading-normal">
+				<p className="sm:text-center leading-normal">
 					{t("introParagraph")}
 				</p>
 				<ul role="list" className="flex flex-col items-start gap-y-3">
@@ -29,12 +28,6 @@ export default function Introduction() {
 						</li>
 					))}
 				</ul>
-				{/* <Link
-					href="#whitepaper"
-					className="font-medium text-blue-600 hover:text-blue-800"
-				>
-					{t("linkText")} <span aria-hidden="true">&rarr;</span>
-				</Link> */}
 			</Container>
 		</section>
 	);

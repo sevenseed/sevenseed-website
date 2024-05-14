@@ -1,11 +1,11 @@
-import { GridPattern } from "@/components/GridPattern";
+import clsx from "clsx";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { GridPattern } from "@/components/GridPattern";
+
 import LinkedInIcon from "../icons/LinkedInIcon";
 import GithubIcon from "../icons/GithubIcon";
-import Image from "next/image";
-
 import logo from "@/images/logo.svg";
-import clsx from "clsx";
 
 const navigation = {
 	main: [

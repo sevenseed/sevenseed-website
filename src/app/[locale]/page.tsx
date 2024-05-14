@@ -1,38 +1,21 @@
-import { Footer } from "@/components/Footer";
-import { FreeChapters } from "@/components/FreeChapters";
-import Hero from "@/components/Hero";
-import { HowItWorks } from "@/components/HowItWorks";
-import { Introduction } from "@/components/Introduction";
-import NavBar from "@/components/TranslatedNavBar";
-import { Pricing } from "@/components/Pricing";
-import { Resources } from "@/components/Resources";
-import { Testimonial } from "@/components/Testimonial";
-import avatarMichal from "@/images/avatars/michal-tarnowski.jpg";
-import { useTranslations } from "next-intl";
+import Hero from "@/components/layout/Hero";
+import Introduction from "@/components/layout/Introduction";
+import Features from "@/components/layout/Features";
+import Testimonials from "@/components/layout/Testimonials";
+import Pricing from "@/components/layout/Pricing";
+import GetStarted from "@/components/layout/GetStarted";
+import Footer from "@/components/layout/Footer";
 
 export default function Home() {
-	const t = useTranslations("Testimonials");
-
 	return (
-		<>
+		<main className="flex flex-col gap-y-16 px-8">
 			<Hero />
 			<Introduction />
-			<NavBar />
-			<Testimonial
-				id="testimonial"
-				author={{
-					name: "Michal Tarnowski",
-					role: t("authorTitle"),
-					image: avatarMichal,
-				}}
-			>
-				<p>“{t("review")}”</p>
-			</Testimonial>
-			<HowItWorks />
-			<Resources />
-			<FreeChapters />
+			<Features />
+			<Testimonials />
 			<Pricing />
+			<GetStarted />
 			<Footer />
-		</>
+		</main>
 	);
 }

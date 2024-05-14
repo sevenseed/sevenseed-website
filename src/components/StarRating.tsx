@@ -10,7 +10,7 @@ function StarIcon(props: ComponentPropsWithoutRef<"svg">) {
 
 export function StarRating({ rating = 5 }: { rating?: 1 | 2 | 3 | 4 | 5 }) {
 	return (
-		<div className="flex gap-1">
+		<div className="flex gap-1 text-blue-700">
 			{Array(rating)
 				.fill(0)
 				.map((index) => (
