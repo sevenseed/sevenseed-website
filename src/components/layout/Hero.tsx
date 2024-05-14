@@ -11,7 +11,7 @@ const Hero = () => {
 					{t("preTitle")}{" "}
 					<span className="text-blue-700">{t("sevenDays")}</span>
 				</h1>
-				<p className="text-2xl text-slate-600 text-justify sm:text-center">
+				<p className="text-2xl text-slate-600 sm:text-center">
 					{t("content")}
 				</p>
 				<div className="w-full flex gap-4 justify-between sm:justify-center">

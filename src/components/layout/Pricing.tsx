@@ -1,6 +1,16 @@
-import { CheckIcon } from "@/components/CheckIcon";
 import clsx from "clsx";
 import { useTranslations } from "next-intl";
+import { CheckIcon } from "@/components/CheckIcon";
+
+const basicPlanFeatures = [
+	"basicPlanFeature1",
+	"basicPlanFeature2",
+	"basicPlanFeature3",
+	"basicPlanFeature4",
+	"basicPlanFeature5",
+	"basicPlanFeature6",
+	"basicPlanFeature7",
+];
 
 function Plan({
 	nameKey,
@@ -64,7 +74,7 @@ function Plan({
 							<span className="text-7xl tracking-tight">{price}</span>
 						</div>
 						<span className="block text-slate-500 ml-6 -mt-2">
-							one-time fee
+							HVAT — one-time fee
 						</span>
 					</div>
 				</div>
@@ -75,15 +85,6 @@ function Plan({
 
 export default function Pricing() {
 	const t = useTranslations("Pricing");
-
-	const basicPlanFeatures = [
-		"basicPlanFeature1",
-		"basicPlanFeature2",
-		"basicPlanFeature3",
-		"basicPlanFeature4",
-		"basicPlanFeature5",
-		"basicPlanFeature6",
-	];
 
 	return (
 		<section
