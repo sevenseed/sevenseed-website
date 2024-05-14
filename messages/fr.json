@@ -1,6 +1,7 @@
 {
 	"Hero": {
-		"title": "Votre entreprise, en sept jours.",
+		"preTitle": "Votre entreprise, en",
+		"sevenDays": "sept jours",
 		"content": "Obtenez votre entité légale en Belgique en seulement sept jours. Compte bancaire et assurance inclus.",
 		"getStarted": "Commencer",
 		"contactUs": "Contactez-nous"
@@ -29,8 +30,10 @@
 		"companyPackageDescription": "Nous vous envoyons tous vos documents importants et préparons votre dossier pour le comptable, la banque et l'assurance."
 	},
 	"Testimonials": {
-		"review": "Seven Seed m'a aidé à créer mon entreprise rapidement et efficacement. Excellente communication et réactivité !",
-		"authorTitle": "Fondateur, Trifolium Belgium Consulting SRL"
+		"review": {
+			"michal-tarnowski": "Seven Seed m'a aidé à créer mon entreprise rapidement et efficacement. Excellente communication et réactivité !"
+		},
+		"founder": "Fondateur"
 	},
 	"NavBar": {
 		"howItWorks": "Comment ça fonctionne",
@@ -58,24 +61,48 @@
 		"emailPlaceholder": "Adresse e-mail",
 		"buttonText": "Envoyez-le !"
 	},
+	"Features": {
+		"legalEntity": {
+			"heading": "Formez votre entité juridique",
+			"description": "Incorporez-vous en tant qu'indépendant ou SRL, dans la région de votre choix. Nous vous guiderons vers ce qui convient le mieux à votre entreprise si vous ne le savez pas."
+		},
+		"nonblocking": {
+			"heading": "Ouvrir un compte bancaire sans bloquer de capital",
+			"description": "De nombreux fondateurs perdent des semaines à essayer d’ouvrir des comptes bancaires bloqués pour leur capital de départ. Avec Seven Seed, nous vous aiderons à vous constituer en société sans en avoir un."
+		},
+		"accounting": {
+			"heading": "Votre comptabilité mise en place dès le départ",
+			"description": "Nous ouvrirons votre numéro de TVA et vous trouverons un comptable dédié, parfait pour votre entreprise. Conforme dès le départ, sans prise de tête."
+		},
+		"office": {
+			"heading": "Obtenez une adresse commerciale à Bruxelles",
+			"description": "Vous n'avez pas d'adresse professionnelle à Bruxelles ? Pour seulement 65 €/mois, nous mettons à votre disposition une adresse, une numérisation et un réacheminement du courrier. C'est aussi simple que cela."
+		}
+	},
 	"Pricing": {
 		"sectionHeading": "Tarification",
 		"mainDescription": "Choisissez votre forfait",
-		"subDescription": "Nos deux forfaits donnent accès à la communauté Seven Seed de fondateurs et de startups.",
-		"basicPlanName": "Basique - Votre SRL en Sept Jours",
-		"basicPlanDescription": "Tout ce dont vous avez besoin, et même un peu plus.",
+		"subDescription": "Notre forfait tout compris donnent accès à la communauté Seven Seed de fondateurs et de startups.",
+		"basicPlanName": "Votre entreprise en sept jours",
+		"basicPlanDescription": "Tout ce dont vous avez besoin, et même un peu plus",
 		"basicPlanFeature1": "Enregistrement de l'entreprise",
 		"basicPlanFeature2": "Enregistrement du compte TVA",
 		"basicPlanFeature3": "Statuts et notarisation",
-		"basicPlanFeature4": "Plan financier",
-		"basicPlanFeature5": "Configuration du compte bancaire",
-		"basicPlanFeature6": "Deux heures de conseil personnalisé",
+		"basicPlanFeature4": "Frais de notaire inclus",
+		"basicPlanFeature5": "Plan financier",
+		"basicPlanFeature6": "Configuration du compte bancaire",
+		"basicPlanFeature7": "Deux heures de conseil personnalisé",
 		"foreignEntrepreneurPlanName": "Forfait Entrepreneur Étranger",
 		"foreignEntrepreneurPlanDescription": "Forfait spécial pour les non-Belges. Comprend une adresse d'entreprise en Flandre.",
 		"foreignEntrepreneurPlanFeature1": "Tout dans le Basique",
 		"foreignEntrepreneurPlanFeature2": "Votre propre adresse de bureau en Flandre",
 		"foreignEntrepreneurPlanFeature3": "Réexpédition et numérisation du courrier",
 		"foreignEntrepreneurPlanFeature4": "Trois mois incl. (70 €/mois après)",
+		"getStarted": "Commencer"
+	},
+	"GetStarted": {
+		"title": "Allons commencer",
+		"content": "Vous tournez la clé. Nous veillons à ce que l'entreprise décolle rapidement.",
 		"getStarted": "Commencer"
 	},
 	"Footer": {

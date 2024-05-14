@@ -1,12 +1,13 @@
 {
 	"Hero": {
-		"title": "Incorporate in a Click.",
-		"content": "Incorporate your company in Belgium in just seven days. Entirely online.",
+		"preTitle": "Incorporate in",
+		"sevenDays": "Seven Days",
+		"content": "The simplest way for anyone to launch and run a company in Belgium. Incorporate your company, access accounting services, and manage everything your business needs — all online, from anywhere.",
 		"getStarted": "Get started",
 		"contactUs": "Contact us"
 	},
 	"Introduction": {
-		"mainHeading": "Built by founders, for founders.",
+		"mainHeading": "Built by founders, for founders",
 		"introParagraph": "We provide a unified online platform for the entire incorporation process. Focus on what matters, instead of the paperwork.",
 		"linkText": "Learn why you should create your company in Belgium",
 		"feature1": "Creation of the financial plan",
@@ -29,8 +30,10 @@
 		"companyPackageDescription": "We send you all your important documents, and prepare your file for the accountant, bank and insurance."
 	},
 	"Testimonials": {
-		"review": "Seven Seed helped me create my company quickly and efficiently. Great communication and responsiveness!",
-		"authorTitle": "Founder, Trifolium Belgium Consulting SRL"
+		"review": {
+			"michal-tarnowski": "Seven Seed helped me create my company quickly and efficiently. Great communication and responsiveness!"
+		},
+		"founder": "Founder"
 	},
 	"NavBar": {
 		"howItWorks": "How It Works",
@@ -58,18 +61,37 @@
 		"emailPlaceholder": "Email address",
 		"buttonText": "Send it!"
 	},
+	"Features": {
+		"legalEntity": {
+			"heading": "Form your legal entity",
+			"description": "Incorporate as an independent or an SRL, in a region of your choosing. We'll guide you through which is best for your business if you don't know."
+		},
+		"nonblocking": {
+			"heading": "Open a bank account without blocking capital",
+			"description": "Many founders waste weeks trying to open blocked bank accounts for their starting capital. With Seven Seed, we will help you incorporate without one."
+		},
+		"accounting": {
+			"heading": "Your accounting set up from the start",
+			"description": "We'll open your VAT number and get you a dedicated accountant perfect for your business. Compliant from the start, without headaches."
+		},
+		"office": {
+			"heading": "Get a business address in Brussels",
+			"description": "Don't have a business address in Brussels? For only 65 € / month, we provide you with an address, mail scanning and forwarding. Easy as that."
+		}
+	},
 	"Pricing": {
 		"sectionHeading": "Pricing",
 		"mainDescription": "Pick your package",
-		"subDescription": "Both our packages give access to the Seven Seed community of founders and startups.",
-		"basicPlanName": "Basic - Your SRL in Seven Days",
-		"basicPlanDescription": "Everything you need, and a bit more.",
+		"subDescription": "Our inclusive package gives you access to the Seven Seed community of founders and startups.",
+		"basicPlanName": "Your company in seven days",
+		"basicPlanDescription": "Everything you need, and a bit more",
 		"basicPlanFeature1": "Company registration",
 		"basicPlanFeature2": "VAT account registration",
 		"basicPlanFeature3": "Bylaws and notarization",
-		"basicPlanFeature4": "Financial plan",
-		"basicPlanFeature5": "Bank account setup",
-		"basicPlanFeature6": "Two hours of personalized advice",
+		"basicPlanFeature4": "Notary fees included",
+		"basicPlanFeature5": "Financial plan",
+		"basicPlanFeature6": "Bank account setup",
+		"basicPlanFeature7": "Two hours of personalized advice",
 		"foreignEntrepreneurPlanName": "Foreign Entrepreneur Package",
 		"foreignEntrepreneurPlanDescription": "Special package for non-Belgians. Includes a company address in Flanders.",
 
@@ -77,6 +99,11 @@
 		"foreignEntrepreneurPlanFeature2": "Your own office address in Flanders",
 		"foreignEntrepreneurPlanFeature3": "Mail forwarding & scanning",
 		"foreignEntrepreneurPlanFeature4": "Three months incl. (€70/mo after)",
+		"getStarted": "Get started"
+	},
+	"GetStarted": {
+		"title": "Let's get started",
+		"content": "You turn the key. We make sure the company gets off the ground at speed.",
 		"getStarted": "Get started"
 	},
 	"Footer": {

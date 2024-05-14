@@ -15,12 +15,12 @@ const Header = () => {
 	return (
 		<>
 			<nav
-				className="mx-auto flex w-full max-w-7xl items-center justify-between p-6 lg:px-8"
+				className="mx-auto flex w-full max-w-7xl items-center justify-between p-6 lg:px-8 mb-16"
 				aria-label="Global"
 			>
 				<GridPattern
 					patternTransform="translate(0 80)"
-					className="text-slate-900/10 w-full inset-0 absolute pointer-events-none"
+					className="text-slate-900/10 w-full inset-0 absolute pointer-events-none mask-image-gradient-to-b from-black to-transparent"
 				/>
 				<a href="/" className="-m-1.5 p-1.5">
 					<span className="sr-only">Seven Seed</span>

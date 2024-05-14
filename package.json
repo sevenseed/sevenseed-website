@@ -17,6 +17,7 @@
 		"@formspree/react": "^2.5.1",
 		"@headlessui/react": "^1.7.17",
 		"@heroicons/react": "^2.0.18",
+		"@lostisworld/tailwind-mask": "^1.0.1",
 		"@stripe/stripe-js": "^3.1.0",
 		"@supabase/ssr": "^0.0.10",
 		"@supabase/supabase-js": "^2.38.4",

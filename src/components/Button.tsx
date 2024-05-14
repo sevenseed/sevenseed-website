@@ -4,9 +4,9 @@ import { ComponentPropsWithoutRef } from "react";
 import { GenericObject } from "@/api/interfaces";
 
 const baseStyles: GenericObject = {
-	solid: "inline-flex justify-center rounded-md py-1 px-4 text-base font-semibold tracking-tight shadow-sm focus:outline-none",
+	solid: "inline-flex justify-center rounded-md py-1 px-4 text-base font-semibold tracking-tight shadow-sm duration-200 focus:outline-none",
 	outline:
-		"inline-flex justify-center rounded-md border py-[calc(theme(spacing.1)-1px)] px-[calc(theme(spacing.4)-1px)] text-base font-semibold tracking-tight focus:outline-none",
+		"inline-flex justify-center rounded-md border py-[calc(theme(spacing.1)-1px)] px-[calc(theme(spacing.4)-1px)] text-base font-semibold tracking-tight duration-200 focus:outline-none",
 };
 
 const variantStyles: GenericObject = {

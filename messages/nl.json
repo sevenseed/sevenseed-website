@@ -1,6 +1,7 @@
 {
 	"Hero": {
-		"title": "Uw bedrijf, in zeven dagen.",
+		"preTitle": "Uw bedrijf, in",
+		"sevenDays": "zeven dagen",
 		"content": "Krijg uw juridische entiteit in België in slechts zeven dagen. Bankrekening en verzekering inbegrepen.",
 		"getStarted": "Beginnen",
 		"contactUs": "Neem contact met ons op"
@@ -29,8 +30,10 @@
 		"companyPackageDescription": "We sturen u al uw belangrijke documenten en bereiden uw dossier voor op de accountant, bank en verzekering."
 	},
 	"Testimonials": {
-		"review": "Seven Seed heeft mij geholpen mijn bedrijf snel en efficiënt op te zetten. Geweldige communicatie en reactievermogen!",
-		"authorTitle": "Oprichter, Trifolium Belgium Consulting SRL"
+		"review": {
+			"michal-tarnowski": "Seven Seed heeft mij geholpen mijn bedrijf snel en efficiënt op te zetten. Geweldige communicatie en reactievermogen!"
+		},
+		"founder": "Oprichter"
 	},
 	"NavBar": {
 		"howItWorks": "Hoe Het Werkt",
@@ -58,24 +61,48 @@
 		"emailPlaceholder": "E-mailadres",
 		"buttonText": "Stuur het op!"
 	},
+	"Features": {
+		"legalEntity": {
+			"heading": "Vorm uw rechtspersoon",
+			"description": "Oprichten als zelfstandige of als BV, in een regio naar keuze. Als u het niet weet, begeleiden wij u door welke oplossing het beste is voor uw bedrijf."
+		},
+		"nonblocking": {
+			"heading": "Open een bankrekening zonder kapitaal te blokkeren",
+			"description": "Veel oprichters verspillen weken met het openen van geblokkeerde bankrekeningen voor hun startkapitaal. Met Seven Seed helpen we u bij het integreren ervan zonder."
+		},
+		"accounting": {
+			"heading": "Uw boekhouding vanaf het begin geregeld",
+			"description": "Wij openen uw BTW-nummer en zorgen voor een toegewijde accountant die perfect bij uw bedrijf past. Conform vanaf het begin, zonder kopzorgen."
+		},
+		"office": {
+			"heading": "Zorg voor een zakelijk adres in Brussel",
+			"description": "Heeft u geen vestigingsadres in Brussel? Voor slechts 65 € / maand voorzien wij u van een adres, het scannen en doorsturen van de post. Zo makkelijk."
+		}
+	},
 	"Pricing": {
 		"sectionHeading": "Prijzen",
 		"mainDescription": "Kies uw pakket",
-		"subDescription": "Beide pakketten geven toegang tot de Seven Seed community van oprichters en startups.",
-		"basicPlanName": "Basis - Uw BV in Zeven Dagen",
-		"basicPlanDescription": "Alles wat u nodig heeft, en een beetje meer.",
+		"subDescription": "Ons inclusieve pakket geeft u toegang tot de Seven Seed community van oprichters en startups.",
+		"basicPlanName": "Uw bedrijf in zeven dagen",
+		"basicPlanDescription": "Alles wat u nodig heeft, en een beetje meer",
 		"basicPlanFeature1": "Bedrijfsregistratie",
 		"basicPlanFeature2": "BTW-accountregistratie",
 		"basicPlanFeature3": "Statuten en notarisatie",
-		"basicPlanFeature4": "Financieel plan",
-		"basicPlanFeature5": "Bankrekening setup",
-		"basicPlanFeature6": "Twee uur gepersonaliseerd advies",
+		"basicPlanFeature4": "Notariskosten inbegrepen",
+		"basicPlanFeature5": "Financieel plan",
+		"basicPlanFeature6": "Bankrekening setup",
+		"basicPlanFeature7": "Twee uur gepersonaliseerd advies",
 		"foreignEntrepreneurPlanName": "Pakket voor buitenlandse ondernemers",
 		"foreignEntrepreneurPlanDescription": "Speciaal pakket voor niet-Belgen. Inclusief een bedrijfsadres in Vlaanderen.",
 		"foreignEntrepreneurPlanFeature1": "Alles in Basis",
 		"foreignEntrepreneurPlanFeature2": "Uw eigen kantooradres in Vlaanderen",
 		"foreignEntrepreneurPlanFeature3": "Mail forwarding & scanning",
 		"foreignEntrepreneurPlanFeature4": "Drie maanden incl. (€70/maand daarna)",
+		"getStarted": "Beginnen"
+	},
+	"GetStarted": {
+		"title": "Laten we beginnen",
+		"content": "Je draait de sleutel om. Wij zorgen ervoor dat het bedrijf snel van de grond komt.",
 		"getStarted": "Beginnen"
 	},
 	"Footer": {
