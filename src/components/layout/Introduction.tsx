@@ -17,9 +17,7 @@ export default function Introduction() {
 				<p className="font-display text-4xl font-bold text-slate-900">
 					{t("mainHeading")}
 				</p>
-				<p className="sm:text-center leading-normal">
-					{t("introParagraph")}
-				</p>
+				<p className="sm:text-center leading-normal">{t("introParagraph")}</p>
 				<ul role="list" className="flex flex-col items-start gap-y-3">
 					{FEATURES.map((feature) => (
 						<li key={feature} className="flex gap-x-2">
