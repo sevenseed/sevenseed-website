@@ -1,4 +1,8 @@
 {
+	"Contact": {
+		"getInTouch": "Contactez-nous",
+		"contactDescription": "Si vous avez des questions sur Seven Seed, le processus de candidature ou les services que nous fournissons, contactez-nous et nous vous répondrons dans un délai d'un jour ouvrable."
+	},
 	"Hero": {
 		"preTitle": "Votre entreprise, en",
 		"sevenDays": "sept jours",

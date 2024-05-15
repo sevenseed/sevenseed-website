@@ -1,4 +1,8 @@
 {
+	"Contact": {
+		"getInTouch": "Neem contact op",
+		"contactDescription": "Als u vragen heeft over Seven Seed, het aanmeldingsproces of de diensten die wij leveren, neem dan contact met ons op en wij zullen binnen 1 werkdag reageren."
+	},
 	"Hero": {
 		"preTitle": "Uw bedrijf, in",
 		"sevenDays": "zeven dagen",
