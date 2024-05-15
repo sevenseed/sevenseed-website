@@ -5,9 +5,9 @@ import Link from "next/link";
 const UPDATE_DATE = "2023-12-01";
 
 const Privacy = () => (
-	<div className="relative flex flex-auto items-start p-10">
-		<Container className="flex flex-col prose">
-			<h1 className="mt-6 font-display text-4xl font-extrabold text-slate-900 sm:text-5xl">
+	<div className="relative flex flex-auto justify-center px-4 mb-8">
+		<Container className="prose">
+			<h1 className="font-display text-4xl font-extrabold text-slate-900 sm:text-5xl">
 				Privacy Policy
 			</h1>
 			<p>
@@ -40,7 +40,7 @@ const Privacy = () => (
 				laws relating to or impacting on the processing of personal data of a
 				living person and privacy.
 			</p>
-			<h2 className="mt-6 font-display text-3xl font-bold text-slate-900 sm:text-4xl">
+			<h2 className="font-display text-3xl font-bold text-slate-900 sm:text-4xl">
 				Personal data
 			</h2>
 			<p>
@@ -93,7 +93,7 @@ const Privacy = () => (
 					otherwise required by law.
 				</li>
 			</ul>
-			<h2 className="mt-6 font-display text-3xl font-bold text-slate-900 sm:text-4xl">
+			<h2 className="font-display text-3xl font-bold text-slate-900 sm:text-4xl">
 				Retention
 			</h2>
 			<p>
@@ -101,7 +101,7 @@ const Privacy = () => (
 				with our legal obligations (including bookkeeping, social and tax
 				obligations).
 			</p>
-			<h2 className="mt-6 font-display text-3xl font-bold text-slate-900 sm:text-4xl">
+			<h2 className="font-display text-3xl font-bold text-slate-900 sm:text-4xl">
 				International transfers
 			</h2>
 			<p>
@@ -117,7 +117,7 @@ const Privacy = () => (
 				into of the standard contractual clauses issued by the European
 				Commission.
 			</p>
-			<h2 className="mt-6 font-display text-3xl font-bold text-slate-900 sm:text-4xl">
+			<h2 className="font-display text-3xl font-bold text-slate-900 sm:text-4xl">
 				Security
 			</h2>
 			<p>
@@ -125,7 +125,7 @@ const Privacy = () => (
 				the personal data that you provide to us against unauthorized or
 				unlawful processing and against accidental destruction, loss or damage.
 			</p>
-			<h2 className="mt-6 font-display text-3xl font-bold text-slate-900 sm:text-4xl">
+			<h2 className="font-display text-3xl font-bold text-slate-900 sm:text-4xl">
 				In-person events
 			</h2>
 			<p>
@@ -136,7 +136,7 @@ const Privacy = () => (
 				Seven Seed may use photos and videos of the event for promotional
 				purposes.
 			</p>
-			<h2 className="mt-6 font-display text-3xl font-bold text-slate-900 sm:text-4xl">
+			<h2 className="font-display text-3xl font-bold text-slate-900 sm:text-4xl">
 				Your rights
 			</h2>
 			<p>You have the following rights as a data subject:</p>
