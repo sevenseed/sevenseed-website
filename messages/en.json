@@ -1,4 +1,8 @@
 {
+	"Contact": {
+		"getInTouch": "Get in touch",
+		"contactDescription": "If you have any questions about Seven Seed, the application process, or the services we provide, reach out to us and we will respond within 1 business day."
+	},
 	"Hero": {
 		"preTitle": "Incorporate in",
 		"sevenDays": "Seven Days",
