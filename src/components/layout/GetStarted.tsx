@@ -14,7 +14,11 @@ const GetStarted = () => {
 					{t("content")}
 				</p>
 				<div className="w-full flex justify-center">
-					<Button className="flex-1 sm:flex-none" href="/start" color="blue">
+					<Button
+						className="flex-1 sm:flex-none"
+						href="/get-started"
+						color="blue"
+					>
 						{t("getStarted")}
 					</Button>
 				</div>

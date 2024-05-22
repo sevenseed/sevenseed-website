@@ -13,7 +13,11 @@ const Hero = () => {
 				</h1>
 				<p className="text-2xl text-slate-600 sm:text-center">{t("content")}</p>
 				<div className="w-full flex gap-4 justify-between sm:justify-center">
-					<Button className="flex-1 sm:flex-none" href="/start" color="blue">
+					<Button
+						className="flex-1 sm:flex-none"
+						href="/get-started"
+						color="blue"
+					>
 						{t("getStarted")}
 					</Button>
 					<Button
