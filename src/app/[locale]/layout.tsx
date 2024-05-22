@@ -1,12 +1,13 @@
-import clsx from "clsx";
-import { type Metadata } from "next";
-import { Inter } from "next/font/google";
-
-import Header from "@/components/Header";
-import locales from "@/locales";
-import "@/styles/tailwind.css";
-import { headers } from "next/headers";
 import { PropsWithChildren } from "react";
+import { type Metadata } from "next";
+import { headers } from "next/headers";
+import { Inter } from "next/font/google";
+import locales from "@/locales";
+import clsx from "clsx";
+
+import "@/styles/tailwind.css";
+import Header from "@/components/Header";
+import Footer from "@/components/layout/Footer";
 
 const inter = Inter({
 	subsets: ["latin"],
@@ -60,6 +61,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
 			<body className="flex min-h-full flex-col">
 				<Header />
 				{children}
+				<Footer />
 			</body>
 		</html>
 	);

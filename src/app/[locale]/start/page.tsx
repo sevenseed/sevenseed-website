@@ -11,7 +11,7 @@ type UserFlow = "signIn" | "signUp";
 export default function Signup() {
 	const [isSubmitting, setIsSubmitting] = useState(false);
 	const [message, setMessage] = useState("");
-	const [flow, setFlow] = useState<UserFlow>("signIn");
+	const [flow, setFlow] = useState<UserFlow>("signUp");
 	const [showPassword, setShowPassword] = useState(false);
 
 	const searchParams = useSearchParams();

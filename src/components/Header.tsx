@@ -52,7 +52,7 @@ const Header = () => {
 							{item.name}
 						</a>
 					))}
-					<Button href="/start" variant="solid" color="blue">
+					<Button href="/get-started" variant="solid" color="blue">
 						Get started
 					</Button>
 				</div>
