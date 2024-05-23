@@ -2,11 +2,11 @@
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
-import { GridPattern } from "./GridPattern";
-import LanguageSwitcher from "./LanguageSwitcher";
+import { GridPattern } from "../GridPattern";
+import LanguageSwitcher from "../LanguageSwitcher";
 import Image from "next/image";
 import logo from "@/images/logo.svg";
-import { Button } from "./Button";
+import { Button } from "../Button";
 const navigation = [{ name: "Contact", href: "/contact" }];
 
 const Header = () => {
@@ -52,7 +52,7 @@ const Header = () => {
 							{item.name}
 						</a>
 					))}
-					<Button href="/start" variant="solid" color="blue">
+					<Button href="/get-started" variant="solid" color="blue">
 						Get started
 					</Button>
 				</div>

@@ -56,7 +56,7 @@ export default function Create() {
 		"Application for Seven Seed";
 
 	return (
-		<div className="flex flex-col py-16 sm:py-20 lg:py-32 px-8 w-full md:w-3/4 lg:w-1/2 gap-y-8 mx-auto">
+		<div className="flex flex-col py-4 mb-12 sm:py-8 lg:py-16 px-8 w-full md:w-3/4 lg:w-1/2 gap-y-8 mx-auto">
 			<h1 className="font-display text-4xl font-extrabold text-slate-900 text-balance">
 				Seven Seed Entity Questionnaire
 			</h1>
