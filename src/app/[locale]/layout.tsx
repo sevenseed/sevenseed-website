@@ -6,7 +6,7 @@ import locales from "@/locales";
 import clsx from "clsx";
 
 import "@/styles/tailwind.css";
-import Header from "@/components/Header";
+import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
 const inter = Inter({
