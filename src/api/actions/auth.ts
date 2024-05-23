@@ -42,7 +42,7 @@ export const signIn = async (formData: FormData, returnTo = "") => {
 	return redirect("/dashboard");
 };
 
-export const signUp = async (formData: FormData) => {
+export const signUp = async (formData: FormData, redirectTo = "/dashboard") => {
 	const origin = headers().get("origin");
 	const email = formData.get("email") as string;
 	const password = formData.get("password") as string;
@@ -51,7 +51,7 @@ export const signUp = async (formData: FormData) => {
 		email,
 		password,
 		options: {
-			emailRedirectTo: `${origin}/dashboard`,
+			emailRedirectTo: `${origin}${redirectTo}`,
 		},
 	});
 
@@ -59,5 +59,5 @@ export const signUp = async (formData: FormData) => {
 		return { message: "Could not sign up user", error };
 	}
 
-	return redirect("/dashboard");
+	return redirect(redirectTo);
 };
