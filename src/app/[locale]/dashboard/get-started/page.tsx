@@ -1,9 +1,9 @@
 "use client";
 import { useCallback, useContext, useState } from "react";
+import { NewCompanyContext } from "@/contexts/NewCompanyContext";
 import { signUp } from "@/api/actions/auth";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
 import ButtonWithLoader from "@/components/ButtonWithLoader";
-import { NewCompanyContext } from "@/contexts/NewCompanyContext";
 
 export default function Signup() {
 	const { companyData, setCompanyData } = useContext(NewCompanyContext);
