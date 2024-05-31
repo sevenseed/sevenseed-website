@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useMemo, useState } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import ButtonWithLoader from "@/components/ButtonWithLoader";
 import StripeInlineLogo from "@/components/StripeInlineLogo";
@@ -9,10 +9,11 @@ import {
 } from "@/api/actions/stripe";
 
 import styles from "../../dashboard.module.css";
+import { NewCompanyContext } from "@/contexts/NewCompanyContext";
 
 export default function Verify() {
+	const { companyData } = useContext(NewCompanyContext);
 	const [status, setStatus] = useState<string | null>(null);
-	const [customerEmail, setCustomerEmail] = useState<string | null>(null);
 	const [redirecting, setRedirecting] = useState(false);
 	const urlParams = useSearchParams();
 	const sessionId = useMemo(() => {
@@ -20,27 +21,25 @@ export default function Verify() {
 	}, [urlParams]);
 	const router = useRouter();
 	const pathname = usePathname();
+	const [isFetching, setIsFetching] = useState(false);
 
 	useEffect(() => {
-		let fetching = false;
-
 		async function getSession() {
-			if (fetching) return;
-			fetching = true;
+			if (isFetching) return;
+			setIsFetching(true);
 
-			const { status, customer_email } = await getCheckoutSessionObject(
-				sessionId!,
-			);
+			const { status } = await getCheckoutSessionObject(sessionId!);
 
 			setStatus(status);
-			setCustomerEmail(customer_email);
 
-			fetching = false;
-			window.history.pushState({}, "", pathname);
+			setIsFetching(false);
 		}
 
 		getSession();
-	}, [pathname, sessionId]);
+		// TODO: handle URL params cleaning
+		// * this method cleans too well
+		// window.history.replaceState({}, "", pathname);
+	}, [pathname, sessionId, isFetching]);
 
 	const redirectToIdentityVerification = async (sessionId: string) => {
 		const url = await createVerificationSession(sessionId);
@@ -62,8 +61,9 @@ export default function Verify() {
 					</h1>
 					<p>
 						We appreciate your business! A confirmation email will be sent
-						to <span className={styles.email}>{customerEmail}</span>. If you
-						have any questions, please send us a message at{" "}
+						to{" "}
+						<span className={styles.email}>{companyData.contactEmail}</span>
+						. If you have any questions, please send us a message at{" "}
 						<a className={styles.link} href="mailto:support@sevenseed.eu">
 							support@sevenseed.eu
 						</a>
