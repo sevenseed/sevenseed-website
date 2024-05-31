@@ -56,7 +56,7 @@ export default function Cancel() {
 						Was this a mistake? You can go back to the{" "}
 						<a
 							className={styles.link}
-							href={`/payment/deposit?email=${email}`}
+							href={`/dashboard/payment/deposit?email=${email}`}
 						>
 							deposit page
 						</a>{" "}

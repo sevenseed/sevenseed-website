@@ -44,16 +44,16 @@ export default function Create() {
 		return setFormHasEnoughInfo(allRequiredFieldsFilled);
 	}, [companyData]);
 
+	const goToDepositPage = () => {
+		return router.push(`/dashboard/payment/deposit`);
+	};
+
 	if (state.succeeded) {
-		return router.push(
-			`/dashboard/payment/deposit?email=${companyData.contactEmail}`,
-		);
+		return goToDepositPage();
 	}
 
 	const env = process.env.VERCEL_ENV;
-	const subjectLine =
-		(env === "development" || env === "preview" ? "[TEST] " : "") +
-		"Application for Seven Seed";
+	const isTesting = env === undefined || env === "development" || env === "preview";
 
 	return (
 		<div className="flex flex-col py-4 mb-12 sm:py-8 lg:py-16 px-8 w-full md:w-3/4 lg:w-1/2 gap-y-8 mx-auto">
@@ -62,8 +62,21 @@ export default function Create() {
 			</h1>
 			<div className="flex sm:gap-x-8">
 				<NavigationSidebar />
-				<form onSubmit={handleSubmit}>
-					<input name="subject" type="hidden" value={subjectLine} />
+				<form
+					onSubmit={
+						isTesting
+							? (event) => {
+									event.preventDefault();
+									goToDepositPage();
+							  }
+							: handleSubmit
+					}
+				>
+					<input
+						name="subject"
+						type="hidden"
+						value="Application for Seven Seed"
+					/>
 
 					<ClientInfoPage />
 					<CompanyInfoPage />
