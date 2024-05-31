@@ -16,7 +16,7 @@ const GetStarted = () => {
 				<div className="w-full flex justify-center">
 					<Button
 						className="flex-1 sm:flex-none"
-						href="/get-started"
+						href="/dashboard/get-started"
 						color="blue"
 					>
 						{t("getStarted")}

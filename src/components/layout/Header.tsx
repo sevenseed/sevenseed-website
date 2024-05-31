@@ -52,7 +52,7 @@ const Header = () => {
 							{item.name}
 						</a>
 					))}
-					<Button href="/get-started" variant="solid" color="blue">
+					<Button href="/dashboard/get-started" variant="solid" color="blue">
 						Get started
 					</Button>
 				</div>
