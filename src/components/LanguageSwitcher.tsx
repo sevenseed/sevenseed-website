@@ -1,5 +1,6 @@
 "use client";
 
+import { GenericObject } from "@/api/interfaces";
 import locales from "@/locales";
 import { useLocale } from "next-intl";
 import { useRouter } from "next/navigation";
@@ -39,6 +40,24 @@ const UpArrow = () => (
 	</svg>
 );
 
+const localeIndicator: GenericObject = {
+	en: {
+		en: "🇬🇧 English",
+		fr: "🇫🇷 French",
+		nl: "🇳🇱 Dutch",
+	},
+	fr: {
+		en: "🇬🇧 Anglais",
+		fr: "🇫🇷 Français",
+		nl: "🇳🇱 Néerlandais",
+	},
+	nl: {
+		en: "🇬🇧 Engels",
+		fr: "🇫🇷 Frans",
+		nl: "🇳🇱 Nederlands",
+	},
+};
+
 const LanguageSwitcher = () => {
 	const [expanded, setExpanded] = useState(false);
 	const currentLocale = useLocale();
@@ -52,18 +71,24 @@ const LanguageSwitcher = () => {
 
 	return (
 		<>
+			<div
+				className="absolute top-0 left-0 right-0 bottom-0"
+				onClick={() => setExpanded(false)}
+				hidden={!expanded}
+			/>
 			<div className="relative">
 				<button
 					className="bg-transparent text-sm font-semibold leading-6 text-gray-900 focus:ring-0 inline-flex items-center justify-center"
 					type="button"
 					onClick={() => setExpanded(!expanded)}
 				>
-					Language ({currentLocale}) {expanded ? <UpArrow /> : <DownArrow />}
+					{localeIndicator[currentLocale][currentLocale]}{" "}
+					{expanded ? <UpArrow /> : <DownArrow />}
 				</button>
 				<div
 					className={`${
 						expanded ? "visible" : "hidden"
-					} absolute w-full z-10 mt-1 bg-white rounded-lg shadow-lg ring-1 ring-black ring-opacity-5`}
+					} absolute w-max z-10 mt-1 bg-white rounded-lg shadow-lg ring-1 ring-black ring-opacity-5`}
 				>
 					<div className="py-1">
 						{locales.map((locale) => (
@@ -80,7 +105,7 @@ const LanguageSwitcher = () => {
 									setExpanded(false);
 								}}
 							>
-								{locale}
+								{localeIndicator[currentLocale][locale]}
 							</button>
 						))}
 					</div>
