@@ -14,7 +14,7 @@ const ForgotPasswordPage = () => {
 		setTimeout(() => {
 			router.push("/reset-password");
 		}, 3000);
-	}, []);
+	}, [router]);
 
 	return (
 		<div className="flex flex-col max-w-xl mx-auto gap-y-8 px-4 mb-8">
