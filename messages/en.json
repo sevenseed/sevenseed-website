@@ -119,5 +119,11 @@
 		"gitHub": "GitHub",
 		"copyright": "Seven Seed SRL. All rights reserved.",
 		"privacyPolicy": "Privacy Policy"
+	},
+	"Password": {
+		"forgotPassword": "Forgot password?",
+		"resetPassword": "Reset password",
+		"forgotPasswordDescription": "Enter your email address in the field below. If an account registered to it exists, you should receive an email guiding you through the password reset process.",
+		"resetPasswordDescription": "Enter your new password"
 	}
 }

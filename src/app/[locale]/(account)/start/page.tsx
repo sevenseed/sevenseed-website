@@ -5,6 +5,7 @@ import { signIn, signUp } from "@/api/actions/auth";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
 import ButtonWithLoader from "@/components/ButtonWithLoader";
 import clsx from "clsx";
+import Link from "next/link";
 
 type UserFlow = "signIn" | "signUp";
 
@@ -72,7 +73,6 @@ export default function Signup() {
 								setFlow(event.currentTarget.value as UserFlow);
 								setShowPassword(false);
 							}}
-							defaultChecked
 							hidden
 						/>
 						Sign In
@@ -192,6 +192,12 @@ export default function Signup() {
 						</ButtonWithLoader>
 					</form>
 				)}
+				<Link
+					className="w-full text-center p-2 rounded-lg text-slate-500 hover:bg-blue-100 hover:text-blue-400"
+					href="/forgot-password"
+				>
+					Forgot your password?
+				</Link>
 				{message && (
 					<p className="px-4 py-4 md:py-2 bg-red-50 border border-red-300 rounded text-red-500 text-center">
 						{message}
