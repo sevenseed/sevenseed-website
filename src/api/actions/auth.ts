@@ -65,3 +65,19 @@ export const signUp = async (formData: FormData, redirectTo = "/dashboard") => {
 
 	return redirect(redirectTo);
 };
+
+export const sendPasswordRecoveryEmail = async (email: string) => {
+	const origin = headers().get("origin");
+
+	const response = await supabase().auth.resetPasswordForEmail(email, {
+		redirectTo: `${origin}/reset-password`,
+	});
+
+	return response;
+};
+
+export const setPassword = async (password: string) => {
+	const response = await supabase().auth.updateUser({ password });
+
+	return response;
+};
