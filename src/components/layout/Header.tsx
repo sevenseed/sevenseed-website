@@ -10,7 +10,7 @@ import { Button } from "../Button";
 
 const navigation = [
 	{ name: "Contact", href: "/contact" },
-	{ name: "Login", href: "/start" },
+	{ name: "Login", href: "/auth" },
 ];
 
 const Header = () => {
