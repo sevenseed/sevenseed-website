@@ -5,6 +5,7 @@ import { RedirectType, redirect } from "next/navigation";
 
 export const getUser = async () => {
 	const { data, error } = await supabase().auth.getUser();
+
 	if (error) {
 		if (error.status === 401) {
 			return null;
@@ -12,13 +13,16 @@ export const getUser = async () => {
 			throw new Error(error.message);
 		}
 	}
-	const user = data.user;
-	if (!user.email) {
+
+	const { id, email } = data.user;
+
+	if (!email) {
 		throw new Error("User email is missing");
 	}
+
 	return {
-		id: user.id,
-		email: user.email,
+		id,
+		email,
 	};
 };
 
