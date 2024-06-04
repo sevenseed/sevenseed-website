@@ -28,10 +28,9 @@ export default function Signup() {
 
 		if (error) console.error(error);
 
-		if (message) {
-			setMessage(message);
-			setIsSubmitting(false);
-		}
+		if (message) setMessage(message);
+
+		setIsSubmitting(false);
 	}, []);
 
 	const handleSignIn = useCallback(
@@ -43,10 +42,9 @@ export default function Signup() {
 
 			if (error) console.error(error);
 
-			if (message) {
-				setMessage(message);
-				setIsSubmitting(false);
-			}
+			if (message) setMessage(message);
+
+			setIsSubmitting(false);
 		},
 		[returnTo],
 	);
