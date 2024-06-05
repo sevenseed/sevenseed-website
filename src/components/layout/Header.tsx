@@ -7,7 +7,11 @@ import LanguageSwitcher from "../LanguageSwitcher";
 import Image from "next/image";
 import logo from "@/images/logo.svg";
 import { Button } from "../Button";
-const navigation = [{ name: "Contact", href: "/contact" }];
+
+const navigation = [
+	{ name: "Contact", href: "/contact" },
+	{ name: "Login", href: "/auth" },
+];
 
 const Header = () => {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -94,7 +98,6 @@ const Header = () => {
 								{item.name}
 							</a>
 						))}
-						{/* TODO: conditionally display either "Sign Up" or "Sign in" */}
 						<a
 							href="/start"
 							className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
