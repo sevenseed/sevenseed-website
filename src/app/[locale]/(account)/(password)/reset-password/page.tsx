@@ -17,10 +17,12 @@ const ResetPasswordPage = () => {
 		setIsSending(true);
 
 		const { data, error } = await setPassword(newPassword);
-		console.log("🚀 ~ handlePasswordReset ~ data:", data);
 
-		if (error) setErrorMessage(error.message);
-		if (data) setHasSubmittedSuccessfully(true);
+		if (error) {
+			setErrorMessage(error.message);
+		} else if (data) {
+			setHasSubmittedSuccessfully(true);
+		}
 
 		setIsSending(false);
 	}, [newPassword]);
