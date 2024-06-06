@@ -1,35 +1,27 @@
 "use client";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import {
 	NewCompanyContext,
 	defaultRequiredCompanyData,
 	existingAddressRequiredCompanyData,
 } from "@/contexts/NewCompanyContext";
+import clsx from "clsx";
 
 import NavigationSidebar from "./_components/NavigationSidebar";
 import ClientInfoPage from "./_pages/ClientInfoPage";
+import ClientAddressPage from "./_pages/ClientAddressPage";
 import CompanyInfoPage from "./_pages/CompanyInfoPage";
-import clsx from "clsx";
+import CompanyAddressPage from "./_pages/CompanyAddressPage";
 
 import styles from "../company.module.css";
 
 export default function Create() {
 	const router = useRouter();
-	const {
-		step,
-		setStep,
-		companyData,
-		state,
-		handleSubmit,
-		forms,
-		currentStepIndex,
-		lastStepID,
-	} = useContext(NewCompanyContext);
+	const { companyData, formState, handleSubmit, nextStep, moveToNextStep } =
+		useContext(NewCompanyContext);
 
-	const [formHasEnoughInfo, setFormHasEnoughInfo] = useState(false);
-
-	useEffect(() => {
+	const formHasEnoughInfo = useMemo(() => {
 		const requiredKeysArray =
 			companyData.companyAddressType === "ExistingAddress"
 				? [...defaultRequiredCompanyData, ...existingAddressRequiredCompanyData]
@@ -41,19 +33,21 @@ export default function Create() {
 				return entry[1] !== "";
 			});
 
-		return setFormHasEnoughInfo(allRequiredFieldsFilled);
+		return allRequiredFieldsFilled;
 	}, [companyData]);
 
 	const goToDepositPage = () => {
 		return router.push(`/dashboard/payment/deposit`);
 	};
 
-	if (state.succeeded) {
+	if (formState.succeeded) {
 		return goToDepositPage();
 	}
 
 	const env = process.env.VERCEL_ENV;
 	const isTesting = env === undefined || env === "development" || env === "preview";
+
+	const disableSubmit = formState.submitting || !formHasEnoughInfo;
 
 	return (
 		<div className="flex flex-col py-4 mb-12 sm:py-8 lg:py-16 px-8 w-full md:w-3/4 lg:w-1/2 gap-y-8 mx-auto">
@@ -79,24 +73,30 @@ export default function Create() {
 					/>
 
 					<ClientInfoPage />
+					<ClientAddressPage />
 					<CompanyInfoPage />
+					<CompanyAddressPage />
 
-					{step === lastStepID ? (
+					{nextStep === null ? (
 						<button
 							type="submit"
-							disabled={state.submitting || !formHasEnoughInfo}
+							disabled={disableSubmit}
 							className={clsx(
 								styles.button,
 								"disabled:bg-gray-600 disabled:cursor-not-allowed",
 							)}
+							title={
+								disableSubmit &&
+								"Please fill out all the required fields"
+							}
 						>
-							{state.submitting ? "Submitting..." : "Submit"}
+							{formState.submitting ? "Submitting..." : "Submit"}
 						</button>
 					) : (
 						<button
 							type="button"
 							className={styles.button}
-							onClick={() => setStep(forms[currentStepIndex + 1].id)}
+							onClick={() => moveToNextStep()}
 						>
 							Next
 						</button>

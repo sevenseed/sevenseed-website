@@ -42,14 +42,15 @@ export interface NewCompanyContext {
 	setStep: Function;
 	companyData: CompanyData;
 	setCompanyData: Dispatch<SetStateAction<CompanyData>>;
-	state: { [k: string]: any };
+	formState: { [key: string]: any };
 	handleSubmit: FormEventHandler<HTMLFormElement>;
 	forms: Form[];
-	currentStepIndex: number;
-	lastStepID: Form["id"];
+	nextStep: Form | null;
+	moveToNextStep: Function;
 }
 
 export interface Form {
+	order: number;
 	id: string;
 	label: string;
 }
