@@ -21,8 +21,9 @@ export default function NavigationSidebar() {
 
 	return (
 		<div className={styles.navigationSidebar}>
-			{CATEGORIES.toSorted((a, b) => a.order - b.order).map(
-				({ label, forms: formIDs }) => (
+			{[...CATEGORIES]
+				.sort((a, b) => a.order - b.order)
+				.map(({ label, forms: formIDs }) => (
 					<div className={styles.navigationSidebarCategory} key={label}>
 						<span className={styles.navigationSidebarCategoryLabel}>
 							{label}
@@ -46,8 +47,7 @@ export default function NavigationSidebar() {
 								);
 							})}
 					</div>
-				),
-			)}
+				))}
 		</div>
 	);
 }
