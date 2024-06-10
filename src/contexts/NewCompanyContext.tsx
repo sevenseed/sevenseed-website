@@ -87,7 +87,9 @@ export const NewCompanyContext = createContext<NewCompanyContextInterface>({
 	handleSubmit: () => {},
 	forms,
 	nextStep: null,
+	previousStep: null,
 	moveToNextStep: () => {},
+	moveToPreviousStep: () => {},
 });
 
 const formID = process.env.NEXT_PUBLIC_FORMSPREE_FORM_ID;
@@ -98,8 +100,29 @@ export function NewCompanyContextProvider({ children }: PropsWithChildren) {
 	const [companyData, setCompanyData] = useState<CompanyData>(defaultCompanyData);
 	const [formState, handleSubmit] = useForm(formID!);
 
+	const currentStep = useMemo(() => {
+		return forms.find((form) => form.id === step);
+	}, [step]);
+
+	const previousStep = useMemo(() => {
+		if (!currentStep)
+			throw "Current step not found while calculating previous step in company form navigation";
+
+		const precedingStep =
+			currentStep === forms[0] ? null : forms[currentStep.order - 1];
+
+		if (precedingStep !== null && precedingStep === undefined)
+			throw "Previous step not found while calculating next step in company form navigation";
+
+		return precedingStep;
+	}, [step]);
+
+	const moveToPreviousStep = useCallback(
+		() => (previousStep ? setStep(previousStep.id) : setStep(forms[0].id)),
+		[previousStep],
+	);
+
 	const nextStep = useMemo(() => {
-		const currentStep = forms.find((form) => form.id === step);
 		if (!currentStep)
 			throw "Current step not found while calculating next step in company form navigation";
 
@@ -107,7 +130,8 @@ export function NewCompanyContextProvider({ children }: PropsWithChildren) {
 		const followingStep =
 			currentStep === forms[forms.length - 1]
 				? null
-				: forms.find((form) => form.order === currentStep.order + 1);
+				: forms[currentStep.order + 1];
+
 		if (followingStep !== null && followingStep === undefined)
 			throw "Next step not found while calculating next step in company form navigation";
 
@@ -130,7 +154,9 @@ export function NewCompanyContextProvider({ children }: PropsWithChildren) {
 				handleSubmit,
 				forms,
 				nextStep,
+				previousStep,
 				moveToNextStep,
+				moveToPreviousStep,
 			}}
 		>
 			{children}

@@ -46,7 +46,9 @@ export interface NewCompanyContext {
 	handleSubmit: FormEventHandler<HTMLFormElement>;
 	forms: Form[];
 	nextStep: Form | null;
+	previousStep: Form | null;
 	moveToNextStep: Function;
+	moveToPreviousStep: Function;
 }
 
 export interface Form {
