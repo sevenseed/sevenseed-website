@@ -115,7 +115,7 @@ export function NewCompanyContextProvider({ children }: PropsWithChildren) {
 			throw "Previous step not found while calculating next step in company form navigation";
 
 		return precedingStep;
-	}, [step]);
+	}, [currentStep]);
 
 	const moveToPreviousStep = useCallback(
 		() => (previousStep ? setStep(previousStep.id) : setStep(forms[0].id)),
@@ -136,7 +136,7 @@ export function NewCompanyContextProvider({ children }: PropsWithChildren) {
 			throw "Next step not found while calculating next step in company form navigation";
 
 		return followingStep;
-	}, [step]);
+	}, [currentStep]);
 
 	const moveToNextStep = useCallback(
 		() => (nextStep ? setStep(nextStep.id) : setStep(forms[forms.length - 1].id)),
