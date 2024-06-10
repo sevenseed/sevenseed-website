@@ -1,5 +1,9 @@
 .button {
-	@apply border px-3 py-2 w-full bg-[#305cb7] hover:bg-[#577bc5] active:bg-[#274b94] text-white mt-4 rounded;
+	@apply border px-3 py-2 bg-[#305cb7] hover:bg-[#577bc5] active:bg-[#274b94] disabled:bg-gray-600 disabled:cursor-not-allowed disabled:hover:bg-gray-500 text-white rounded;
+}
+
+.buttonOutline {
+	@apply border px-3 py-2 text-[#305cb7] border-current hover:text-[#577bc5] active:text-[#274b94] disabled:text-gray-500 disabled:cursor-not-allowed disabled:bg-gray-500/10 rounded;
 }
 
 .fieldset {
