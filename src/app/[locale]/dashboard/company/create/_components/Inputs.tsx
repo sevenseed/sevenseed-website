@@ -75,6 +75,7 @@ export function SimpleFormInput({
 
 	// * nullish coalescence in order to force empty values to display empty
 	// * instead of falling back on an available `companyData[id]` value
+	// * e.g. with company address
 	const inputValue = value ?? companyData[id];
 
 	const onChange = useCallback(
