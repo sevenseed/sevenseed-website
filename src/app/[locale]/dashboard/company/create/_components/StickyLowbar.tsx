@@ -1,17 +1,33 @@
-import { RefObject, useCallback, useContext, useMemo } from "react";
-import clsx from "clsx";
+import {
+	type MouseEventHandler,
+	type RefObject,
+	useCallback,
+	useContext,
+	useMemo,
+} from "react";
 import {
 	NewCompanyContext,
 	defaultRequiredCompanyData,
 	existingAddressRequiredCompanyData,
 } from "@/contexts/NewCompanyContext";
+import { type CompanyData } from "@/api/interfaces";
+import clsx from "clsx";
+import compare from "just-compare";
 
 import styles from "../../company.module.css";
 
+// * we use `formRef` to reference the form in order to be able
+// * to put this navbar anywhere on the page
+// * this allows us to control the layout of the navbar easily
+// * while retaining its `.submit()` capabilities
 export default function StickyLowbar({
 	formRef,
+	snapshot,
+	saveFn,
 }: {
 	formRef: RefObject<HTMLFormElement>;
+	snapshot: Partial<CompanyData>;
+	saveFn: MouseEventHandler<HTMLButtonElement>;
 }) {
 	const {
 		companyData,
@@ -37,10 +53,20 @@ export default function StickyLowbar({
 		return allRequiredFieldsFilled;
 	}, [companyData]);
 
+	const hasDataChanged = useMemo(
+		() => !compare(snapshot, companyData),
+		[snapshot, companyData],
+	);
+
+	// * `.requestSubmit()` triggers the `submit` event in browser
+	// * `.submit()` doesn't trigger it
 	const submitForm = useCallback(() => {
 		if (formRef.current) formRef.current.requestSubmit();
 	}, [formRef]);
 
+	// TODO: use `HTMLFormElement.checkValidity()`?
+	// * this methods fires an `invalid` element at invalid inputs inside the form
+	// * which has caused issued during initial testing
 	const disableSubmit = formState.submitting || !formHasEnoughInfo;
 
 	return (
@@ -54,7 +80,12 @@ export default function StickyLowbar({
 			<div className="w-full">
 				<button
 					type="button"
-					className={clsx(styles.buttonOutline, "w-full sm:w-max bg-white")}
+					className={clsx(
+						"w-full sm:w-max duration-200",
+						hasDataChanged ? styles.button : styles.buttonOutline,
+						hasDataChanged || "bg-white",
+					)}
+					onClick={saveFn}
 				>
 					Save without submitting
 				</button>
