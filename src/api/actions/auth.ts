@@ -1,10 +1,12 @@
 "use server";
-import supabase from "@/supabase";
+import { createClient } from "@/supabase/server";
 import { headers } from "next/headers";
 import { RedirectType, redirect } from "next/navigation";
 
 export const getUser = async () => {
-	const { data, error } = await supabase().auth.getUser();
+	const supabase = createClient();
+
+	const { data, error } = await supabase.auth.getUser();
 
 	if (error) {
 		if (error.status === 401) {
@@ -27,10 +29,12 @@ export const getUser = async () => {
 };
 
 export const signIn = async (formData: FormData, returnTo = "") => {
+	const supabase = createClient();
+
 	const email = formData.get("email") as string;
 	const password = formData.get("password") as string;
 
-	const { error } = await supabase().auth.signInWithPassword({
+	const { error } = await supabase.auth.signInWithPassword({
 		email,
 		password,
 	});
@@ -47,11 +51,13 @@ export const signIn = async (formData: FormData, returnTo = "") => {
 };
 
 export const signUp = async (formData: FormData, redirectTo = "/dashboard") => {
+	const supabase = createClient();
+
 	const origin = headers().get("origin");
 	const email = formData.get("email") as string;
 	const password = formData.get("password") as string;
 
-	const { error } = await supabase().auth.signUp({
+	const { error } = await supabase.auth.signUp({
 		email,
 		password,
 		options: {
@@ -67,9 +73,11 @@ export const signUp = async (formData: FormData, redirectTo = "/dashboard") => {
 };
 
 export const sendPasswordRecoveryEmail = async (email: string) => {
+	const supabase = createClient();
+
 	const origin = headers().get("origin");
 
-	const response = await supabase().auth.resetPasswordForEmail(email, {
+	const response = await supabase.auth.resetPasswordForEmail(email, {
 		redirectTo: `${origin}/reset-password`,
 	});
 
@@ -77,7 +85,9 @@ export const sendPasswordRecoveryEmail = async (email: string) => {
 };
 
 export const setPassword = async (password: string) => {
-	const response = await supabase().auth.updateUser({ password });
+	const supabase = createClient();
+
+	const response = await supabase.auth.updateUser({ password });
 
 	return response;
 };
