@@ -5,13 +5,13 @@ import {
 	useContext,
 	useRef,
 	useState,
-	useMemo,
+	useEffect,
 } from "react";
 import { useRouter } from "next/navigation";
-import { createClient } from "@supabase/supabase-js";
+import { createClient } from "@/supabase/client";
 import { NewCompanyContext } from "@/contexts/NewCompanyContext";
 import * as changeKeys from "change-case/keys";
-import { DatabaseReadyCompanyData, type CompanyData } from "@/api/interfaces";
+import type { DatabaseReadyCompanyData, CompanyData } from "@/api/interfaces";
 import pick from "just-pick";
 import { UUID } from "crypto";
 
@@ -23,25 +23,19 @@ import ClientAddressPage from "./_pages/ClientAddressPage";
 import CompanyInfoPage from "./_pages/CompanyInfoPage";
 import CompanyAddressPage from "./_pages/CompanyAddressPage";
 
+const supabase = createClient();
+
 export default function Create() {
 	const { companyData, formState, handleSubmit } = useContext(NewCompanyContext);
+
 	const [snapshot, setSnapshot] = useState<Partial<CompanyData>>(companyData);
+	const [companyId, setCompanyId] = useState<UUID>();
+	const [userId, setUserId] = useState<UUID>();
 	const formElement = useRef<HTMLFormElement>(null);
 	const router = useRouter();
-	const [id, setId] = useState<UUID>();
 
 	const env = process.env.VERCEL_ENV;
 	const isTesting = env === undefined || env === "development" || env === "preview";
-
-	const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-	if (!supabaseUrl) throw "Supabase project URL not found in environment";
-	const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-	if (!supabaseKey) throw "Supabase secret key not found in environment";
-
-	const supabase = useMemo(
-		() => createClient(supabaseUrl, supabaseKey),
-		[supabaseUrl, supabaseKey],
-	);
 
 	const goToDepositPage = useCallback(() => {
 		return router.push(`/dashboard/payment/deposit`);
@@ -63,29 +57,31 @@ export default function Create() {
 			pick(companyData, DBKeys),
 		) as Partial<DatabaseReadyCompanyData>;
 
-		const response = await supabase
+		const upsertObject = companyId
+			? [{ id: companyId, owner_id: userId, ...databaseReadySnapshot }]
+			: [{ owner_id: userId, ...databaseReadySnapshot }];
+
+		const { data, error } = await supabase
 			.from("companies")
 			// * if `id` is received from the DB, use it to supply data further
 			// * when `id` already exists in the DB, row data would be overridden
 			// * `.select()` the data so we can extract `id`
-			.upsert(id ? [{ id, ...databaseReadySnapshot }] : [databaseReadySnapshot], {
+			.upsert(upsertObject, {
 				onConflict: "id",
 			})
 			.select();
 
-		if (!id) setId(response?.data?.[0].id!);
+		if (error) throw new Error(error.message);
+		if (!companyId) setCompanyId(data?.[0].id!);
 
-		return response;
-	}, [companyData, id, saveSnapshot, supabase]);
+		return data;
+	}, [companyData, companyId, userId, saveSnapshot]);
 
 	const handleCompanyFormSubmit = useCallback(
 		async (event: FormEvent<HTMLFormElement>) => {
 			event.preventDefault();
 
-			const { data, error } = await saveDataToSupabase();
-			if (error) throw new Error(error.message);
-
-			console.log(data);
+			await saveDataToSupabase();
 
 			if (isTesting) {
 				goToDepositPage();
@@ -95,6 +91,19 @@ export default function Create() {
 		},
 		[goToDepositPage, handleSubmit, isTesting, saveDataToSupabase],
 	);
+
+	const getUserSession = useCallback(async () => {
+		const {
+			data: { user },
+		} = await supabase.auth.getUser();
+		console.log("🚀 ~ getUserSession ~ user:", user);
+		if (!user) router.push(`/auth?returnTo=/dashboard/company/create`);
+		return setUserId(user?.id as UUID);
+	}, [router]);
+
+	useEffect(() => {
+		getUserSession();
+	}, [getUserSession]);
 
 	if (formState.succeeded) {
 		return goToDepositPage();
