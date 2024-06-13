@@ -1,8 +1,7 @@
-import { createServerClient, type CookieOptions } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
-import { SUPABASE_ANON_KEY, SUPABASE_URL } from "./config";
 import createIntlMiddleware from "next-intl/middleware";
-import locales from "./locales";
+import { createClient } from "@/supabase/server";
+import locales from "@/locales";
 
 export const intlResponse = (request: NextRequest) => {
 	const url = new URL(request.url);
@@ -30,37 +29,7 @@ const middleware = async (request: NextRequest) => {
 	let response = intlResponse(request) ?? NextResponse.next();
 	request.headers.set("x-url", request.url);
 
-	const supabase = createServerClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
-		cookies: {
-			get(name: string) {
-				return request.cookies.get(name)?.value;
-			},
-			set(name: string, value: string, options: CookieOptions) {
-				request.cookies.set({
-					name,
-					value,
-					...options,
-				});
-				response.cookies.set({
-					name,
-					value,
-					...options,
-				});
-			},
-			remove(name: string, options: CookieOptions) {
-				request.cookies.set({
-					name,
-					value: "",
-					...options,
-				});
-				response.cookies.set({
-					name,
-					value: "",
-					...options,
-				});
-			},
-		},
-	});
+	const supabase = createClient();
 
 	await supabase.auth.getSession();
 
