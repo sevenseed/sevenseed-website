@@ -1,7 +1,7 @@
-import clsx from "clsx";
-import { type ButtonHTMLAttributes, type PropsWithChildren } from "react";
+import type { ButtonHTMLAttributes, PropsWithChildren } from "react";
 import { type GenericObject } from "@/api/interfaces";
-import Image from "next/image";
+import Loader from "@/components/Loader";
+import clsx from "clsx";
 
 type StripeButtonProps = {
 	theme: string;
@@ -38,14 +38,7 @@ export default function ButtonWithLoader({
 			{/* filler `<div />` to align elements inside this flex container */}
 			<div className="w-4" />
 			<span>{children}</span>
-			{/* we use the class `invisible` rather than the prop `hidden` because `hidden` removes the element completely, breaking up the layout of the button */}
-			<Image
-				className={isLoaderVisible ? "" : "invisible"}
-				src="/images/svg/loading-spinner-ring.svg"
-				width={16}
-				height={16}
-				alt="Loading..."
-			/>
+			<Loader isLoaderVisible={isLoaderVisible} />
 		</button>
 	);
 }
