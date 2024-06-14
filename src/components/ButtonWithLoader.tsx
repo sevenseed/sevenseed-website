@@ -35,7 +35,7 @@ export default function ButtonWithLoader({
 			role="link"
 			{...props}
 		>
-			{/* filler div to align elements inside this flex container */}
+			{/* filler `<div />` to align elements inside this flex container */}
 			<div className="w-4" />
 			<span>{children}</span>
 			{/* we use the class `invisible` rather than the prop `hidden` because `hidden` removes the element completely, breaking up the layout of the button */}
