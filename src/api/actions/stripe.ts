@@ -67,8 +67,8 @@ export async function getVerificationSessionObject(sessionId: string) {
 		? {
 				status: session.status,
 				url: session.url,
-		  }
+			}
 		: {
 				status: session.status,
-		  };
+			};
 }

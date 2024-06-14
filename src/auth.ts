@@ -37,11 +37,11 @@ const getUser = async () => {
 	const fullPath = getFullPath();
 	if (fullPath) {
 		return redirect(
-			`/login?${new URLSearchParams({ returnTo: fullPath })}`,
+			`/auth?${new URLSearchParams({ returnTo: fullPath })}`,
 			RedirectType.replace,
 		);
 	} else {
-		return redirect("/login", RedirectType.replace);
+		return redirect("/auth", RedirectType.replace);
 	}
 };
 export default getUser;

@@ -1,4 +1,5 @@
 import type { Dispatch, SetStateAction, FormEventHandler } from "react";
+import type { UUID } from "crypto";
 
 export type KeyArray<T> = Array<keyof T>;
 
@@ -32,14 +33,14 @@ export interface CompanyData extends GenericObject {
 	companyAddressPostalCode: string;
 	companyAddressAddressLine1: string;
 	companyAddressAddressLine2?: string;
-
-	initialFunding: string;
-	specialRequests: string;
 }
 
 // * snake_case version of the `CompanyData` type
 // * for use when submitting to Supabase
 export interface DatabaseReadyCompanyData extends GenericObject {
+	id?: UUID;
+	application_submitted: boolean;
+
 	contact_name: string;
 	date_of_birth: string;
 	civil_status: "Single" | "Married" | "Legal Cohabitation" | string;
@@ -65,9 +66,6 @@ export interface DatabaseReadyCompanyData extends GenericObject {
 	company_address_postal_code: string;
 	company_address_address_line1: string;
 	company_address_address_line2?: string;
-
-	initial_funding: string;
-	special_requests: string;
 }
 
 export interface Form {

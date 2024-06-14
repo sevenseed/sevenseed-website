@@ -1,7 +1,7 @@
 "use server";
 import { createClient } from "@/supabase/server";
-import { headers } from "next/headers";
 import { RedirectType, redirect } from "next/navigation";
+import { headers } from "next/headers";
 
 export const getUser = async () => {
 	const supabase = createClient();
