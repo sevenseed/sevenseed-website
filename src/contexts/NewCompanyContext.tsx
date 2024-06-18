@@ -71,15 +71,14 @@ export const existingAddressRequiredCompanyData: KeyArray<CompanyData> = [
 ];
 
 const forms: Form[] = [
-	{ order: 0, id: "client", label: "Information" },
-	{ order: 1, id: "clientAddress", label: "Address" },
+	{ order: 0, id: "company", label: "Information" },
+	{ order: 1, id: "companyAddress", label: "Address" },
 
-	{ order: 2, id: "company", label: "Information" },
-	{ order: 3, id: "companyAddress", label: "Address" },
+	{ order: 2, id: "kyc", label: "Founders" },
 ].sort((a, b) => a.order - b.order);
 
 export const NewCompanyContext = createContext<NewCompanyContextInterface>({
-	step: "client",
+	step: "",
 	setStep: () => {},
 	companyData: defaultCompanyData,
 	setCompanyData: () => {},

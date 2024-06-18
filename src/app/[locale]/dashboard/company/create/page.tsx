@@ -12,6 +12,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { createClient } from "@/supabase/client";
 import { NewCompanyContext } from "@/contexts/NewCompanyContext";
 import { getUser } from "@/api/actions/auth";
+import { getApplication } from "@/api/actions/database";
 import omit from "just-omit";
 import * as changeKeys from "change-case/keys";
 import type { DatabaseReadyCompanyData, CompanyData } from "@/api/interfaces";
@@ -21,11 +22,9 @@ import Loader from "@/components/Loader";
 import StickyLowbar from "./_components/StickyLowbar";
 
 import NavigationSidebar from "./_components/NavigationSidebar";
-import ClientInfoPage from "./_pages/ClientInfoPage";
-import ClientAddressPage from "./_pages/ClientAddressPage";
 import CompanyInfoPage from "./_pages/CompanyInfoPage";
 import CompanyAddressPage from "./_pages/CompanyAddressPage";
-import { getApplication } from "@/api/actions/database";
+import KYCPage from "./_pages/KYCPage";
 
 const supabase = createClient();
 
@@ -186,10 +185,10 @@ export default function Create() {
 							value="Application for Seven Seed"
 						/>
 
-						<ClientInfoPage />
-						<ClientAddressPage />
 						<CompanyInfoPage />
 						<CompanyAddressPage />
+
+						<KYCPage />
 					</form>
 				</div>
 
