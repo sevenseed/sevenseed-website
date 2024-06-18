@@ -19,7 +19,7 @@ export default function ClientInfoPage() {
 					type="date"
 					required
 				/>
-				<RadioFormInput id="civilStatus" label="Company Address">
+				<RadioFormInput id="civilStatus" label="Civil Status">
 					<RadioOption
 						id="civilStatus"
 						label="Single"
