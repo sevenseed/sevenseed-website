@@ -1,5 +1,10 @@
 import type { Dispatch, SetStateAction, FormEventHandler } from "react";
 import type { UUID } from "crypto";
+import type { OwnersAction } from "@/contexts/partials/CompanyOwners";
+
+type Email = `${string}@${string}.${string}` | "";
+type CivilStatus = "Single" | "Married" | "Legal Cohabitation";
+type AddressType = "HomeAddress" | "CreateNewAddress" | "ExistingAddress";
 
 export type KeyArray<T> = Array<keyof T>;
 
@@ -7,32 +12,27 @@ export interface GenericObject extends Object {
 	[key: string | number]: any;
 }
 
+export interface CompanyOwner extends GenericObject {
+	id: UUID;
+	name: string;
+	email: Email;
+	civilStatus: CivilStatus;
+	phoneNumber: string;
+}
+
 export interface CompanyData extends GenericObject {
-	contactName: string;
-	dateOfBirth: string;
-	civilStatus: "Single" | "Married" | "Legal Cohabitation" | string;
-	contactEmail: string;
-	contactPhoneNumber: string;
+	name: string;
+	description: string;
+	phoneNumber: string;
+	legalEntityType: string;
 
-	contactAddressCountry: string;
-	contactAddressRegion?: string;
-	contactAddressCity: string;
-	contactAddressPostalCode: string;
-	contactAddressAddressLine1: string;
-	contactAddressAddressLine2?: string;
-
-	companyName: string;
-	companyDescription: string;
-	companyPhoneNumber: string;
-	legalEntity: string;
-
-	companyAddressType: "HomeAddress" | "CreateNewAddress" | "ExistingAddress";
-	companyAddressCountry: string;
-	companyAddressRegion?: string;
-	companyAddressCity: string;
-	companyAddressPostalCode: string;
-	companyAddressAddressLine1: string;
-	companyAddressAddressLine2?: string;
+	addressType: AddressType;
+	country: string;
+	region?: string;
+	city: string;
+	postalCode: string;
+	addressLine1: string;
+	addressLine2?: string;
 }
 
 // * snake_case version of the `CompanyData` type
@@ -41,31 +41,18 @@ export interface DatabaseReadyCompanyData extends GenericObject {
 	id?: UUID;
 	application_submitted: boolean;
 
-	contact_name: string;
-	date_of_birth: string;
-	civil_status: "Single" | "Married" | "Legal Cohabitation" | string;
-	contact_email: string;
-	contact_phone_number: string;
+	name: string;
+	description: string;
+	phone_number: string;
+	legal_entity_type: string;
 
-	contact_address_country: string;
-	contact_address_region?: string;
-	contact_address_city: string;
-	contact_address_postal_code: string;
-	contact_address_address_line1: string;
-	contact_address_address_line2?: string;
-
-	company_name: string;
-	company_description: string;
-	company_phone_number: string;
-	legal_entity: string;
-
-	company_address_type: "HomeAddress" | "CreateNewAddress" | "ExistingAddress";
-	company_address_country: string;
-	company_address_region?: string;
-	company_address_city: string;
-	company_address_postal_code: string;
-	company_address_address_line1: string;
-	company_address_address_line2?: string;
+	address_type: "HomeAddress" | "CreateNewAddress" | "ExistingAddress";
+	country: string;
+	region?: string;
+	city: string;
+	postal_code: string;
+	address_line1: string;
+	address_line2?: string;
 }
 
 export interface Form {
@@ -82,7 +69,10 @@ export interface NewCompanyContext {
 	companyData: CompanyData;
 	setCompanyData: Dispatch<SetStateAction<CompanyData>>;
 
-	formState: { [key: string]: any };
+	owners: CompanyOwner[];
+	dispatch: Dispatch<OwnersAction>;
+
+	formState: GenericObject;
 	handleSubmit: FormEventHandler<HTMLFormElement>;
 
 	nextStep: Form | null;

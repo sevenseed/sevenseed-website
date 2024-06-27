@@ -58,8 +58,8 @@ export default function CompanySegment() {
 				/* if any of the applications are unsubmitted */
 				unsubmittedApplications && unsubmittedApplications.length ? (
 					unsubmittedApplications.map((application) => {
-						const companyName = application.company_name.length
-							? application.company_name
+						const companyName = application.name.length
+							? application.name
 							: "a yet-unnamed company";
 
 						return (

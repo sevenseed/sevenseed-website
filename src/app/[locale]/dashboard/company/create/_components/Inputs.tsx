@@ -5,16 +5,13 @@ import {
 	useCallback,
 	useContext,
 } from "react";
-import { NewCompanyContext } from "@/contexts/NewCompanyContext";
-import {
-	type FormInputProps,
-	type MultilineInputProps,
-	type RadioInputProps,
-} from "./types";
-import { validateChildrenAsComponent } from "@/api/validate";
 import clsx from "clsx";
+import { NewCompanyContext } from "@/contexts/NewCompanyContext";
+import { validateChildrenAsComponent } from "@/api/validate";
+import type { FormInputProps, MultilineInputProps, RadioInputProps } from "./types";
 
 import styles from "../../company.module.css";
+import { CompanyData, CompanyOwner } from "@/api/interfaces";
 
 // TODO: revamp as HOCs
 
@@ -30,7 +27,7 @@ export function RadioOption({
 	value,
 	required = false,
 }: {
-	id: string;
+	id: keyof CompanyData;
 	label: string;
 	value: string;
 	required?: boolean;
@@ -49,11 +46,52 @@ export function RadioOption({
 			<input
 				type="radio"
 				id={id + value.replaceAll(" ", "")}
-				name={id}
+				name={id as string}
 				value={value}
 				onChange={onChange}
 				required={required}
 				defaultChecked={value === companyData[id]}
+			/>
+			<span>{label}</span>
+		</label>
+	);
+}
+
+export function OwnersRadioOption({
+	owner,
+	id,
+	label,
+	value,
+	required = false,
+}: {
+	owner: CompanyOwner;
+	id: keyof CompanyOwner;
+	label: string;
+	value: string;
+	required?: boolean;
+}) {
+	const { owners, dispatch } = useContext(NewCompanyContext);
+
+	const onChange = useCallback(
+		(event: ChangeEvent<HTMLInputElement>) => {
+			dispatch({
+				type: "UPDATE",
+				obj: { ...owner, [id]: event.currentTarget.value },
+			});
+		},
+		[id, owners],
+	);
+
+	return (
+		<label className={styles.inputRadio}>
+			<input
+				type="radio"
+				id={id + value.replaceAll(" ", "") + owner.id}
+				name={id + owner.id as string}
+				value={value}
+				onChange={onChange}
+				required={required}
+				defaultChecked={value === owner[id]}
 			/>
 			<span>{label}</span>
 		</label>
@@ -100,6 +138,63 @@ export function SimpleFormInput({
 
 				<input
 					id={id}
+					name={id}
+					type={type}
+					required={required}
+					placeholder={placeholder}
+					value={inputValue}
+					onChange={onChange}
+					className={clsx(styles.inputText, className)}
+				/>
+			</label>
+		</fieldset>
+	);
+}
+
+export function OwnersSimpleFormInput({
+	owner,
+	id,
+	label,
+	description = "",
+	placeholder = "",
+	type = "text",
+	required = false,
+	disabled = false,
+	className = "",
+	value = undefined,
+}: FormInputProps & { owner: CompanyOwner }) {
+	const { owners, dispatch } = useContext(NewCompanyContext);
+
+	// * nullish coalescence in order to force empty values to display empty
+	// * instead of falling back on an available `owner[id]` value
+	// * e.g. with company address
+	const inputValue = value ?? owner[id];
+
+	const onChange = useCallback(
+		(event: ChangeEvent<HTMLInputElement>) => {
+			dispatch({
+				type: "UPDATE",
+				obj: { ...owner, [id]: event.currentTarget.value },
+			});
+		},
+		[id, owners],
+	);
+
+	return (
+		<fieldset className={styles.fieldset} disabled={disabled}>
+			<label className={styles.label}>
+				<span className={styles.labelText}>
+					{label}
+					{required && <RequiredMark />}
+				</span>
+				{description ? (
+					<span className={styles.description}>{description}</span>
+				) : (
+					""
+				)}
+
+				<input
+					id={`${id}-${owner.id}`}
 					name={id}
 					type={type}
 					required={required}
@@ -162,13 +257,18 @@ export function MultilineFormInput({
 }
 
 export function RadioFormInput({
-	// id,
 	label = "",
 	required = false,
 	children,
 }: RadioInputProps & PropsWithChildren) {
-	if (!validateChildrenAsComponent(children, RadioOption)) {
-		throw new Error("Children of a <RadioFormInput /> are not all <RadioOption />");
+	const hasCorrectChildren =
+		validateChildrenAsComponent(children, RadioOption) ||
+		validateChildrenAsComponent(children, OwnersRadioOption);
+
+	if (!hasCorrectChildren) {
+		throw new Error(
+			"Children of a <RadioFormInput /> should only be <RadioOption />",
+		);
 	}
 
 	return (

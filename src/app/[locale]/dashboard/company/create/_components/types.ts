@@ -1,10 +1,13 @@
-import { type HTMLProps } from "react";
+import type { HTMLProps } from "react";
+
+// TODO: use `keyof CompanyData`
+export type IDKey = string;
 
 type HTMLInputProps = HTMLProps<HTMLInputElement>;
 type HTMLTextareaProps = HTMLProps<HTMLTextAreaElement>;
 type CompanyFormInputProps = {
 	// makes `id` a mandatory member
-	id: string;
+	id: IDKey;
 	description?: string;
 };
 
