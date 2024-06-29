@@ -1,6 +1,6 @@
 import { headers } from "next/headers";
-import supabase from "./supabase";
 import { RedirectType, redirect } from "next/navigation";
+import { createClient } from "./supabase/server";
 
 const getFullPath = () => {
 	const urlString = headers().get("x-url");
@@ -10,7 +10,8 @@ const getFullPath = () => {
 };
 
 const getUserOptional = async () => {
-	const { data, error } = await supabase().auth.getUser();
+	const supabase = createClient();
+	const { data, error } = await supabase.auth.getUser();
 	if (error) {
 		if (error.status === 401) {
 			return null;
@@ -36,11 +37,11 @@ const getUser = async () => {
 	const fullPath = getFullPath();
 	if (fullPath) {
 		return redirect(
-			`/login?${new URLSearchParams({ returnTo: fullPath })}`,
+			`/auth?${new URLSearchParams({ returnTo: fullPath })}`,
 			RedirectType.replace,
 		);
 	} else {
-		return redirect("/login", RedirectType.replace);
+		return redirect("/auth", RedirectType.replace);
 	}
 };
 export default getUser;
