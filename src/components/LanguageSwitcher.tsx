@@ -1,10 +1,33 @@
 "use client";
-
-import { GenericObject } from "@/api/interfaces";
-import locales from "@/locales";
+import { useState } from "react";
 import { useLocale } from "next-intl";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import locales from "@/locales";
+
+type Locale = "en" | "fr" | "nl";
+type LocaleIndicator = {
+	[locale in Locale]: {
+		[translated in Locale]: string;
+	};
+};
+
+const localeIndicator: LocaleIndicator = {
+	en: {
+		en: "🇬🇧 English",
+		fr: "🇫🇷 French",
+		nl: "🇳🇱 Dutch",
+	},
+	fr: {
+		en: "🇬🇧 Anglais",
+		fr: "🇫🇷 Français",
+		nl: "🇳🇱 Néerlandais",
+	},
+	nl: {
+		en: "🇬🇧 Engels",
+		fr: "🇫🇷 Frans",
+		nl: "🇳🇱 Nederlands",
+	},
+};
 
 const DownArrow = () => (
 	<svg
@@ -40,27 +63,9 @@ const UpArrow = () => (
 	</svg>
 );
 
-const localeIndicator: GenericObject = {
-	en: {
-		en: "🇬🇧 English",
-		fr: "🇫🇷 French",
-		nl: "🇳🇱 Dutch",
-	},
-	fr: {
-		en: "🇬🇧 Anglais",
-		fr: "🇫🇷 Français",
-		nl: "🇳🇱 Néerlandais",
-	},
-	nl: {
-		en: "🇬🇧 Engels",
-		fr: "🇫🇷 Frans",
-		nl: "🇳🇱 Nederlands",
-	},
-};
-
 const LanguageSwitcher = () => {
 	const [expanded, setExpanded] = useState(false);
-	const currentLocale = useLocale();
+	const currentLocale = useLocale() as Locale;
 	const router = useRouter();
 
 	const setLanguage = (locale: string) => {

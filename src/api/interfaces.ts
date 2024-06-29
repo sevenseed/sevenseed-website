@@ -18,6 +18,15 @@ export interface CompanyOwner extends GenericObject {
 	email: Email;
 	civilStatus: CivilStatus;
 	phoneNumber: string;
+
+	addressLine1: string;
+	addressLine2?: string;
+	postalCode: string;
+	city: string;
+	region?: string;
+	country: string;
+
+	shares: number;
 }
 
 export interface CompanyData extends GenericObject {

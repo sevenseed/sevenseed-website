@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import { NewCompanyContext } from "@/contexts/NewCompanyContext";
 import clsx from "clsx";
+import { NewCompanyContext } from "@/contexts/NewCompanyContext";
+import type { Form } from "@/api/interfaces";
 
 import styles from "../../company.module.css";
-import { Form } from "@/api/interfaces";
 
 type Category = {
 	order: number;
@@ -13,7 +13,7 @@ type Category = {
 
 const CATEGORIES: Category[] = [
 	{ order: 0, label: "Company", forms: ["company", "companyAddress"] },
-	{ order: 1, label: "Client", forms: ["kyc"] },
+	{ order: 1, label: "Owners", forms: ["kyc", "shares"] },
 ].sort((a, b) => a.order - b.order);
 
 export default function NavigationSidebar() {

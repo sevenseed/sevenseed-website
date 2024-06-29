@@ -1,5 +1,6 @@
 import type { UUID } from "crypto";
 import type { CompanyOwner } from "@/api/interfaces";
+import { getRandomColor } from "@/utilities";
 
 export type OwnersAction =
 	| {
@@ -15,6 +16,17 @@ function newOwnerObject() {
 		email: "",
 		civilStatus: "Single",
 		phoneNumber: "",
+
+		addressLine1: "",
+		addressLine2: "",
+		postalCode: "",
+		city: "",
+		region: "",
+		country: "",
+
+		// for displaying ownership shares
+		color: getRandomColor(),
+		shares: 0,
 	} as CompanyOwner;
 }
 
@@ -29,7 +41,7 @@ export function ownersReducer(state: CompanyOwner[], action: OwnersAction) {
 		case "UPDATE":
 			const index = state.findIndex((owner) => owner.id === action.obj.id);
 			const originalObject = state[index];
-			return state.toSpliced(index, 1, Object.assign(action.obj, originalObject));
+			return state.toSpliced(index, 1, Object.assign(originalObject, action.obj));
 
 		default:
 			return state;

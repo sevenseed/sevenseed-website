@@ -79,7 +79,7 @@ export function OwnersRadioOption({
 				obj: { ...owner, [id]: event.currentTarget.value },
 			});
 		},
-		[id, owners],
+		[id, owner, dispatch],
 	);
 
 	return (
@@ -87,7 +87,7 @@ export function OwnersRadioOption({
 			<input
 				type="radio"
 				id={id + value.replaceAll(" ", "") + owner.id}
-				name={id + owner.id as string}
+				name={(id + owner.id) as string}
 				value={value}
 				onChange={onChange}
 				required={required}
@@ -177,7 +177,7 @@ export function OwnersSimpleFormInput({
 				obj: { ...owner, [id]: event.currentTarget.value },
 			});
 		},
-		[id, owners],
+		[id, owner, dispatch],
 	);
 
 	return (

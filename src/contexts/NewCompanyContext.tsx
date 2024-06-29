@@ -55,6 +55,7 @@ const forms: Form[] = [
 	{ order: 1, id: "companyAddress", label: "Address" },
 
 	{ order: 2, id: "kyc", label: "Founders" },
+	{ order: 3, id: "shares", label: "Ownership" },
 ].sort((a, b) => a.order - b.order);
 
 export const NewCompanyContext = createContext<NewCompanyContextInterface>({
