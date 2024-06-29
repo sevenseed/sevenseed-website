@@ -25,6 +25,7 @@ import NavigationSidebar from "./_components/NavigationSidebar";
 import CompanyInfoPage from "./_pages/CompanyInfoPage";
 import CompanyAddressPage from "./_pages/CompanyAddressPage";
 import KYCPage from "./_pages/KYCPage";
+import OwnershipPage from "./_pages/OwnershipPage";
 
 const supabase = createClient();
 
@@ -189,6 +190,7 @@ export default function Create() {
 						<CompanyAddressPage />
 
 						<KYCPage />
+						<OwnershipPage />
 					</form>
 				</div>
 

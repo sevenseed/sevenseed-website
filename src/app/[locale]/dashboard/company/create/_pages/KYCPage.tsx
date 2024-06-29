@@ -1,15 +1,9 @@
-"use client";
 import { useContext } from "react";
 import FormPage from "../_components/FormPage";
-import {
-	OwnersRadioOption,
-	OwnersSimpleFormInput,
-	RadioFormInput,
-} from "../_components/Inputs";
 import { NewCompanyContext } from "@/contexts/NewCompanyContext";
+import OwnerForm from "../_components/OwnerForm";
 
 import styles from "./pages.module.css";
-import { Button } from "@/components/Button";
 
 const AddUserIcon = () => (
 	<svg
@@ -43,119 +37,7 @@ export default function KYCPage() {
 		<div className={styles.pageWrapper}>
 			<FormPage step="kyc" label="Founders">
 				{owners.map((owner) => (
-					<div
-						key={owner.id}
-						className="flex flex-col gap-y-4 bg-slate-50 border rounded p-4"
-					>
-						<div className="flex flex-col gap-y-2">
-							<div className="flex justify-between">
-								<span className="text-xl font-semibold">
-									Personal details
-								</span>
-								{owners.length > 1 && (
-									<Button
-										variant="outline"
-										color="red"
-										className="text-red-900 hover:text-red-800"
-										onClick={() =>
-											dispatch({ type: "REMOVE", id: owner.id })
-										}
-									>
-										Remove
-									</Button>
-								)}
-							</div>
-							<OwnersSimpleFormInput
-								owner={owner}
-								id="name"
-								label="Name"
-								placeholder="John Doe"
-								required
-							/>
-							<OwnersSimpleFormInput
-								owner={owner}
-								id="email"
-								label="Email"
-								type="email"
-								placeholder="hello@world.com"
-								required
-							/>
-							<RadioFormInput id="civilStatus" label="Civil Status">
-								<OwnersRadioOption
-									owner={owner}
-									id="civilStatus"
-									label="Single"
-									value="Single"
-									required
-								/>
-								<OwnersRadioOption
-									owner={owner}
-									id="civilStatus"
-									label="Married"
-									value="Married"
-									required
-								/>
-								<OwnersRadioOption
-									owner={owner}
-									id="civilStatus"
-									label="Legal Cohabitation"
-									value="LegalCohabitation"
-									required
-								/>
-							</RadioFormInput>
-						</div>
-
-						<div className="flex flex-col gap-y-2">
-							<span className="text-xl font-semibold">
-								Personal address
-							</span>
-							<OwnersSimpleFormInput
-								owner={owner}
-								id="addressLine1"
-								label="Address line 1"
-								placeholder="Rue de la Loi, 123"
-								required
-							/>
-							<OwnersSimpleFormInput
-								owner={owner}
-								id="addressLine2"
-								label="Address line 2"
-								placeholder="Apt 123"
-							/>
-							<div className="grid sm:grid-cols-[1fr_3fr] gap-x-2 gap-y-1 flex-wrap sm:flex-nowrap">
-								<OwnersSimpleFormInput
-									owner={owner}
-									id="postalCode"
-									label="Postal code"
-									placeholder="1040"
-									className="sm:max-w-[10ch]"
-								/>
-								<OwnersSimpleFormInput
-									owner={owner}
-									id="city"
-									label="City"
-									placeholder="Brussels"
-									required
-								/>
-							</div>
-							<OwnersSimpleFormInput
-								owner={owner}
-								id="region"
-								label="State / Province / Region"
-								placeholder="Brussels-Capital Region"
-							/>
-							<OwnersSimpleFormInput
-								owner={owner}
-								id="country"
-								label="Country"
-								placeholder="Belgium"
-								required
-							/>
-						</div>
-						<div className="flex justify-end">
-							<Button color="blue">Save</Button>
-						</div>
-					</div>
+					<OwnerForm key={owner.id} owner={owner} />
 				))}
 				<div
 					className="flex items-center gap-x-4 bg-slate-50 hover:bg-blue-50 border rounded p-4 cursor-pointer select-none"
@@ -166,7 +48,7 @@ export default function KYCPage() {
 					</span>
 					<div className="w-full text-center">
 						<span className="text-lg font-semibold text-blue-600">
-							Add a new company founder
+							Add a new company owner
 						</span>
 					</div>
 				</div>
