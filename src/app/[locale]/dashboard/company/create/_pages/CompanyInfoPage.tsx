@@ -13,35 +13,40 @@ export default function CompanyInfoPage() {
 		<div className={styles.pageWrapper}>
 			<FormPage step="company" label="Company Information">
 				<SimpleFormInput
-					id="companyName"
+					id="name"
 					label="Company Name"
 					placeholder="Google, Inc."
 					required
 				/>
 				<MultilineFormInput
-					id="companyDescription"
+					id="description"
 					label="Company Description"
 					placeholder="Acme Inc. is a globally diversified corporation setting new standards of excellence in various sectors."
 					rows={4}
 					required
 				/>
-				<RadioFormInput id="legalEntity" label="Legal Entity" required>
-					<RadioOption id="legalEntity" label="SRL" value="SRL" required />
+				<RadioFormInput id="legalEntityType" label="Legal Entity" required>
 					<RadioOption
-						id="legalEntity"
+						id="legalEntityType"
+						label="SRL"
+						value="SRL"
+						required
+					/>
+					<RadioOption
+						id="legalEntityType"
 						label="Independent Entrepreneur"
 						value="IndependentEntrepreneur"
 						required
 					/>
 					<RadioOption
-						id="legalEntity"
+						id="legalEntityType"
 						label="Other"
 						value="Other"
 						required
 					/>
 				</RadioFormInput>
 				<SimpleFormInput
-					id="companyPhoneNumber"
+					id="phoneNumber"
 					label="Company Phone"
 					description="If you don't have one yet, enter your personal phone number"
 					type="tel"
