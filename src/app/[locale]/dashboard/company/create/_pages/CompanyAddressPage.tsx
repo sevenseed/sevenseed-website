@@ -12,95 +12,71 @@ export default function CompanyInfoPage() {
 	return (
 		<div className={styles.pageWrapper}>
 			<FormPage step="companyAddress" label="Company Address">
-				<RadioFormInput id="companyAddressType">
+				<RadioFormInput id="addressType">
 					<RadioOption
-						id="companyAddressType"
+						id="addressType"
 						label="Use my home address"
 						value="HomeAddress"
 						required
 					/>
 					<RadioOption
-						id="companyAddressType"
+						id="addressType"
 						label="Get me an address"
 						value="CreateNewAddress"
 						required
 					/>
 					<RadioOption
-						id="companyAddressType"
+						id="addressType"
 						label="Use an existing address"
 						value="ExistingAddress"
 						required
 					/>
 				</RadioFormInput>
 				<SimpleFormInput
-					id="companyAddressAddressLine1"
+					id="addressLine1"
 					label="Address line 1"
 					placeholder="Rue de la Loi, 123"
-					value={
-						usesExistingAddress
-							? companyData.companyAddressAddressLine1
-							: companyData.contactAddressAddressLine1
-					}
+					value={usesExistingAddress ? companyData.addressLine1 : ""}
 					required={usesExistingAddress}
 					disabled={!usesExistingAddress}
 				/>
 				<SimpleFormInput
-					id="companyAddressAddressLine2"
+					id="addressLine2"
 					label="Address line 2"
 					placeholder="Apt 123"
-					value={
-						usesExistingAddress
-							? companyData.companyAddressAddressLine2
-							: companyData.contactAddressAddressLine2
-					}
+					value={usesExistingAddress ? companyData.addressLine2 : ""}
 					disabled={!usesExistingAddress}
 				/>
 				<div className="grid sm:grid-cols-[1fr_3fr] gap-x-2 gap-y-1 flex-wrap sm:flex-nowrap">
 					<SimpleFormInput
-						id="companyAddressPostalCode"
+						id="postalCode"
 						label="Postal code"
 						placeholder="1040"
 						className="sm:max-w-[10ch]"
-						value={
-							usesExistingAddress
-								? companyData.companyAddressPostalCode
-								: companyData.contactAddressPostalCode
-						}
+						value={usesExistingAddress ? companyData.postalCode : ""}
 						disabled={!usesExistingAddress}
 					/>
 					<SimpleFormInput
-						id="companyAddressCity"
+						id="city"
 						label="City"
 						placeholder="Brussels"
-						value={
-							usesExistingAddress
-								? companyData.companyAddressCity
-								: companyData.contactAddressCity
-						}
+						value={usesExistingAddress ? companyData.city : ""}
 						required={usesExistingAddress}
 						disabled={!usesExistingAddress}
 					/>
 				</div>
 				<SimpleFormInput
-					id="companyAddressRegion"
+					id="region"
 					label="State / Province / Region"
 					placeholder="Brussels-Capital Region"
-					value={
-						usesExistingAddress
-							? companyData.companyAddressRegion
-							: companyData.contactAddressRegion
-					}
+					value={usesExistingAddress ? companyData.region : ""}
 					disabled={!usesExistingAddress}
 				/>
 				<SimpleFormInput
-					id="companyAddressCountry"
+					id="country"
 					label="Country"
 					placeholder="Belgium"
-					value={
-						usesExistingAddress
-							? companyData.companyAddressCountry
-							: companyData.contactAddressCountry
-					}
+					value={usesExistingAddress ? companyData.country : ""}
 					required={usesExistingAddress}
 					disabled={!usesExistingAddress}
 				/>
