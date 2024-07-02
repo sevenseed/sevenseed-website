@@ -27,6 +27,8 @@ export interface CompanyOwner extends GenericObject {
 	country: string;
 
 	shares: number;
+
+	color: string;
 }
 
 export interface CompanyData extends GenericObject {
