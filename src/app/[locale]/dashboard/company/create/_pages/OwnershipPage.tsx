@@ -1,6 +1,5 @@
 import { ChangeEvent, useCallback, useContext, useMemo } from "react";
 import clsx from "clsx";
-import { getRandomColor } from "@/utilities";
 import { NewCompanyContext } from "@/contexts/NewCompanyContext";
 import FormPage from "../_components/FormPage";
 import type { CompanyOwner } from "@/api/interfaces";
