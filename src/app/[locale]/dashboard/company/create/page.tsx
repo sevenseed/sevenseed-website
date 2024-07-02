@@ -61,13 +61,10 @@ export default function Create() {
 		async (submitting = false) => {
 			saveSnapshot();
 
-			// * keys that currently store non-null properties in the database
-			const omitKeys = ["initialFunding", "specialRequests"];
-
 			// * adjust `companyData` key case to fit with the SQL DB's preferred snake_case
 			// * only send the keys the values of which the DB can ingest
 			const databaseReadySnapshot = changeKeys.snakeCase(
-				omit(companyData, omitKeys),
+				companyData,
 			) as DatabaseReadyCompanyData;
 
 			const upsertValues = {

@@ -1,4 +1,4 @@
-import { useCallback, useContext, useState } from "react";
+import { useContext, useState } from "react";
 import clsx from "clsx";
 import { Button } from "@/components/Button";
 import { NewCompanyContext } from "@/contexts/NewCompanyContext";
