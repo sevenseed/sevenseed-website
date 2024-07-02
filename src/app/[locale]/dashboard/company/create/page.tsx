@@ -15,7 +15,11 @@ import { getUser } from "@/api/actions/auth";
 import { getApplication } from "@/api/actions/database";
 import omit from "just-omit";
 import * as changeKeys from "change-case/keys";
-import type { DatabaseReadyCompanyData, CompanyData } from "@/api/interfaces";
+import type {
+	DatabaseReadyCompanyData,
+	CompanyData,
+	CompanyOwner,
+} from "@/api/interfaces";
 import type { UUID } from "crypto";
 
 import Loader from "@/components/Loader";
@@ -30,7 +34,7 @@ import OwnershipPage from "./_pages/OwnershipPage";
 const supabase = createClient();
 
 export default function Create() {
-	const { companyData, setCompanyData, formState, handleSubmit } =
+	const { companyData, setCompanyData, owners, formState, handleSubmit } =
 		useContext(NewCompanyContext);
 
 	const [isLoading, setIsLoading] = useState(true);
@@ -67,31 +71,53 @@ export default function Create() {
 				companyData,
 			) as DatabaseReadyCompanyData;
 
-			const upsertValues = {
-				schema: 0,
+			const companyUpsertValues = {
+				// * schema version used
+				schema: 1,
 				id: applicationId,
-				owner_id: userId,
+				user_id: userId,
+				owners: [...owners.map((owner) => owner.id)],
 				application_submitted: submitting,
 			};
 
-			const upsertObject = { ...upsertValues, ...databaseReadySnapshot };
+			const companyUpsertObject = {
+				...companyUpsertValues,
+				...databaseReadySnapshot,
+			};
 
-			const { data, error } = await supabase
+			const { data: companyDataResponse, error: companyError } = await supabase
 				.from("companies")
 				// * if `id` is received from the DB, use it to supply data further
 				// * when `id` already exists in the DB, row data would be overridden
 				// * `.select()` the data so we can extract `id`
-				.upsert(upsertObject, {
+				.upsert(companyUpsertObject, {
 					onConflict: "id",
 				})
 				.select();
 
-			if (error) throw new Error(error.message);
-			if (!applicationId) setApplicationId(data?.[0].id!);
+			if (companyError) throw new Error(companyError.message);
+			if (!applicationId) setApplicationId(companyDataResponse?.[0].id!);
 
-			return data;
+			const ownersOmitKeys = ["color"];
+			const ownersUpsertArray = owners.map((owner) =>
+				omit(owner, ownersOmitKeys),
+			);
+
+			const { data: ownersDataResponse, error: ownersError } = await supabase
+				.from("owners")
+				// * if `id` is received from the DB, use it to supply data further
+				// * when `id` already exists in the DB, row data would be overridden
+				// * `.select()` the data so we can extract `id`
+				.upsert(ownersUpsertArray, {
+					onConflict: "id",
+				})
+				.select();
+
+			if (ownersError) throw new Error(ownersError.message);
+
+			return companyDataResponse;
 		},
-		[companyData, applicationId, userId, saveSnapshot],
+		[companyData, owners, applicationId, userId, saveSnapshot],
 	);
 
 	const handleCompanyFormSubmit = useCallback(
@@ -124,7 +150,8 @@ export default function Create() {
 
 			const DBOmitKeys = [
 				"id",
-				"owner_id",
+				"user_id",
+				"owners",
 				"created_at",
 				"updated_at",
 				"application_submitted",
