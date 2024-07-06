@@ -70,7 +70,7 @@ export function OwnersRadioOption({
 	value: string;
 	required?: boolean;
 }) {
-	const { owners, dispatch } = useContext(NewCompanyContext);
+	const { dispatch } = useContext(NewCompanyContext);
 
 	const onChange = useCallback(
 		(event: ChangeEvent<HTMLInputElement>) => {
@@ -163,7 +163,7 @@ export function OwnersSimpleFormInput({
 	className = "",
 	value = undefined,
 }: FormInputProps & { owner: CompanyOwner }) {
-	const { owners, dispatch } = useContext(NewCompanyContext);
+	const { dispatch } = useContext(NewCompanyContext);
 
 	// * nullish coalescence in order to force empty values to display empty
 	// * instead of falling back on an available `owner[id]` value
