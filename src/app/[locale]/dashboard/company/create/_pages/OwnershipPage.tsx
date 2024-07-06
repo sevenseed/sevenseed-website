@@ -11,27 +11,15 @@ const overallShares = 1_000_000;
 export default function OwnershipPage() {
 	const { owners, dispatch } = useContext(NewCompanyContext);
 
-	const currentShares = owners.map((owner) => owner.shares);
-	const currentSharesTotal = currentShares.reduce((accumulator, shares) => {
+	const currentShareValues = owners.map((owner) => owner.shares);
+	const currentShares = currentShareValues.reduce((accumulator, shares) => {
 		accumulator += shares;
 		return accumulator;
 	}, 0);
 
-	const sharesDecimal = (currentSharesTotal / overallShares) * 100;
-	const isExactlyOneHundredPercent = sharesDecimal === 100;
-	const isOverOneHundredPercent = sharesDecimal > 100;
-
-	const displayReadyOwners = useMemo(
-		() =>
-			owners.map((owner) => {
-				return {
-					name: owner.name,
-					shares: owner.shares,
-					color: owner.color,
-				};
-			}),
-		[owners],
-	);
+	const sharesPercentage = (currentShares / overallShares) * 100;
+	const isExactlyOneHundredPercent = sharesPercentage === 100;
+	const isOverOneHundredPercent = sharesPercentage > 100;
 
 	const onChange = useCallback(
 		(event: ChangeEvent<HTMLInputElement>, owner: CompanyOwner) => {
@@ -43,11 +31,26 @@ export default function OwnershipPage() {
 		[dispatch],
 	);
 
+	if (!owners.length)
+		return (
+			<div className={styles.pageWrapper}>
+				<FormPage step="shares" label="Ownership">
+					<div className="flex flex-col gap-y-2 w-full text-balance text-slate-600">
+						<span className="text-xl">
+							Here you will be able to adjust the amount of shares per
+							owner
+						</span>
+						<span>Add owner information to begin</span>
+					</div>
+				</FormPage>
+			</div>
+		);
+
 	return (
 		<div className={styles.pageWrapper}>
 			<FormPage step="shares" label="Ownership">
 				<div className="flex h-10 bg-slate-50 border rounded overflow-hidden">
-					{displayReadyOwners.map(({ name, shares, color }) => (
+					{owners.map(({ name, shares, color }) => (
 						<div
 							key={name}
 							className="h-full"
@@ -66,6 +69,7 @@ export default function OwnershipPage() {
 							</span>
 							<input
 								type="number"
+								placeholder="10000"
 								className="min-w-[8ch] max-w-[14ch] pl-1 border rounded overflow-hidden"
 								onChange={(event) => onChange(event, owner)}
 							/>
@@ -73,27 +77,22 @@ export default function OwnershipPage() {
 					))}
 				</div>
 				<div className="flex flex-col items-end mt-2">
-					<span>Shares division:</span>
+					<span>Shares coverage:</span>
 					<span
 						className={clsx(
-							isOverOneHundredPercent && "text-red-300",
 							isExactlyOneHundredPercent && "text-green-500",
+							isOverOneHundredPercent && "text-red-300",
 						)}
 					>
-						{sharesDecimal < 0.01
+						{sharesPercentage < 0.01
 							? "<0.01"
-							: Number.parseFloat(
-									(
-										(currentSharesTotal / overallShares) *
-										100
-									).toFixed(2),
-								)}
+							: Number.parseFloat(sharesPercentage.toFixed(2))}
 						%
 					</span>
 					{isOverOneHundredPercent && (
 						<span>
-							Collective shares of owners exceed company shares, please
-							adjust individual owner shares
+							Collective shares of owners exceed total company shares,
+							please adjust individual owner shares
 						</span>
 					)}
 				</div>

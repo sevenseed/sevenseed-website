@@ -31,10 +31,14 @@ import CompanyAddressPage from "./_pages/CompanyAddressPage";
 import KYCPage from "./_pages/KYCPage";
 import OwnershipPage from "./_pages/OwnershipPage";
 
+const env = process.env.VERCEL_ENV;
+const isTesting = env === undefined || env === "development" || env === "preview";
+console.log("🚀 ~ isTesting:", isTesting);
+
 const supabase = createClient();
 
 export default function Create() {
-	const { companyData, setCompanyData, owners, formState, handleSubmit } =
+	const { companyData, setCompanyData, owners, dispatch, formState, handleSubmit } =
 		useContext(NewCompanyContext);
 
 	const [isLoading, setIsLoading] = useState(true);
@@ -44,36 +48,33 @@ export default function Create() {
 		[searchParams],
 	);
 
-	const [snapshot, setSnapshot] = useState<Partial<CompanyData>>(companyData);
+	const [companyDataSnapshot, setCompanyDataSnapshot] =
+		useState<CompanyData>(companyData);
+	const [ownersSnapshot, setOwnersSnapshot] = useState<CompanyOwner[]>(owners);
 	const [applicationId, setApplicationId] = useState<UUID>();
 	const [userId, setUserId] = useState<UUID>();
 	const formElement = useRef<HTMLFormElement>(null);
 	const router = useRouter();
 
-	const env = process.env.VERCEL_ENV;
-	const isTesting = env === undefined || env === "development" || env === "preview";
-
-	const goToDepositPage = useCallback(() => {
-		return router.push(`/dashboard/payment/deposit`);
+	const goToDashboard = useCallback(() => {
+		return router.push(`/dashboard/`);
 	}, [router]);
 
 	const saveSnapshot = useCallback(() => {
-		setSnapshot({ ...companyData });
+		setCompanyDataSnapshot({ ...companyData });
 	}, [companyData]);
 
 	const saveDataToSupabase = useCallback(
 		async (submitting = false) => {
-			saveSnapshot();
+			if (!submitting) saveSnapshot();
 
 			// * adjust `companyData` key case to fit with the SQL DB's preferred snake_case
-			// * only send the keys the values of which the DB can ingest
-			const databaseReadySnapshot = changeKeys.snakeCase(
+			const databaseReadyCompanyData = changeKeys.snakeCase(
 				companyData,
 			) as DatabaseReadyCompanyData;
 
 			const companyUpsertValues = {
-				// * schema version used
-				schema: 1,
+				schema_version: 1,
 				id: applicationId,
 				user_id: userId,
 				owners: [...owners.map((owner) => owner.id)],
@@ -82,7 +83,7 @@ export default function Create() {
 
 			const companyUpsertObject = {
 				...companyUpsertValues,
-				...databaseReadySnapshot,
+				...databaseReadyCompanyData,
 			};
 
 			const { data: companyDataResponse, error: companyError } = await supabase
@@ -93,22 +94,18 @@ export default function Create() {
 				.upsert(companyUpsertObject, {
 					onConflict: "id",
 				})
-				.select();
+				.select()
+				.single();
 
 			if (companyError) throw new Error(companyError.message);
-			if (!applicationId) setApplicationId(companyDataResponse?.[0].id!);
+			if (!applicationId) setApplicationId(companyDataResponse?.id);
 
-			const ownersOmitKeys = ["color"];
-			const ownersUpsertArray = owners.map((owner) =>
-				omit(owner, ownersOmitKeys),
-			);
-
-			const { data: ownersDataResponse, error: ownersError } = await supabase
+			const { error: ownersError } = await supabase
 				.from("owners")
 				// * if `id` is received from the DB, use it to supply data further
 				// * when `id` already exists in the DB, row data would be overridden
 				// * `.select()` the data so we can extract `id`
-				.upsert(ownersUpsertArray, {
+				.upsert(owners, {
 					onConflict: "id",
 				})
 				.select();
@@ -120,6 +117,8 @@ export default function Create() {
 		[companyData, owners, applicationId, userId, saveSnapshot],
 	);
 
+	// * disjointed form submit handling and form submit trigger (via lowbar)
+	// * this enables us to have a form and a submit button in different components
 	const handleCompanyFormSubmit = useCallback(
 		async (event: FormEvent<HTMLFormElement>) => {
 			event.preventDefault();
@@ -127,12 +126,12 @@ export default function Create() {
 			await saveDataToSupabase(/* submitting the application */ true);
 
 			if (isTesting) {
-				goToDepositPage();
+				goToDashboard();
 			} else {
 				handleSubmit(event);
 			}
 		},
-		[goToDepositPage, handleSubmit, isTesting, saveDataToSupabase],
+		[goToDashboard, handleSubmit, saveDataToSupabase],
 	);
 
 	const getUserSession = useCallback(async () => {
@@ -143,10 +142,13 @@ export default function Create() {
 
 	const getApplicationById = useCallback(
 		async (id: UUID) => {
-			const application: DatabaseReadyCompanyData = await getApplication(id);
+			const [application, owners] = await getApplication(id);
 			const localizedApplication = changeKeys.camelCase(
 				application,
 			) as Partial<CompanyData>;
+			const localizedOwners = owners.map((owner) =>
+				changeKeys.camelCase(owner),
+			) as CompanyOwner[];
 
 			const DBOmitKeys = [
 				"id",
@@ -164,9 +166,10 @@ export default function Create() {
 
 			setApplicationId(id);
 			setCompanyData({ ...reactReadyApplication });
-			setSnapshot({ ...reactReadyApplication });
+			setCompanyDataSnapshot({ ...reactReadyApplication });
+			dispatch({ type: "SET", owners: localizedOwners });
 		},
-		[setCompanyData],
+		[setCompanyData, dispatch],
 	);
 
 	useEffect(() => {
@@ -178,19 +181,19 @@ export default function Create() {
 	}, [getUserSession, URLApplicationId, getApplicationById]);
 
 	if (formState.succeeded) {
-		return goToDepositPage();
+		return goToDashboard();
 	}
 
 	return (
 		<>
 			<div
+				id="loading-indicator"
 				className={
 					isLoading
 						? "fixed inset-0 h-full flex justify-center items-center bg-slate-100/50 z-50"
 						: "hidden"
 				}
 			>
-				{/* full-screen loading indicator */}
 				<Loader size={32} themed />
 			</div>
 			<div className="flex flex-col py-4 sm:py-8 lg:py-16 px-8 w-full md:w-3/4 lg:w-1/2 gap-y-8 mx-auto">
@@ -220,7 +223,8 @@ export default function Create() {
 
 				<StickyLowbar
 					formRef={formElement}
-					snapshot={snapshot}
+					companyDataSnapshot={companyDataSnapshot}
+					ownersSnapshot={ownersSnapshot}
 					saveFn={() => saveDataToSupabase()}
 				/>
 			</div>

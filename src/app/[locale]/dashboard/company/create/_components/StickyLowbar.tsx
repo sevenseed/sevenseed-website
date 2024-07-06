@@ -10,7 +10,7 @@ import {
 	defaultRequiredCompanyData,
 	existingAddressRequiredCompanyData,
 } from "@/contexts/NewCompanyContext";
-import { type CompanyData } from "@/api/interfaces";
+import { CompanyOwner, type CompanyData } from "@/api/interfaces";
 import clsx from "clsx";
 import compare from "just-compare";
 
@@ -22,15 +22,18 @@ import styles from "../../company.module.css";
 // * while retaining its `.submit()` capabilities
 export default function StickyLowbar({
 	formRef,
-	snapshot,
+	companyDataSnapshot,
+	ownersSnapshot,
 	saveFn,
 }: {
 	formRef: RefObject<HTMLFormElement>;
-	snapshot: Partial<CompanyData>;
+	companyDataSnapshot: CompanyData;
+	ownersSnapshot: CompanyOwner[];
 	saveFn: MouseEventHandler<HTMLButtonElement>;
 }) {
 	const {
 		companyData,
+		owners,
 		formState,
 		nextStep,
 		moveToNextStep,
@@ -45,17 +48,19 @@ export default function StickyLowbar({
 				: defaultRequiredCompanyData;
 
 		const allRequiredFieldsFilled = Object.entries(companyData)
-			.filter((entry) => requiredKeysArray.includes(entry[0]))
-			.every((entry) => {
-				return entry[1] !== "";
+			.filter(([key, value]) => requiredKeysArray.includes(key))
+			.every(([key, value]) => {
+				return value !== "";
 			});
 
 		return allRequiredFieldsFilled;
 	}, [companyData]);
 
 	const hasDataChanged = useMemo(
-		() => !compare(snapshot, companyData),
-		[snapshot, companyData],
+		() =>
+			!compare(companyDataSnapshot, companyData) &&
+			!compare(ownersSnapshot, owners),
+		[companyDataSnapshot, companyData, ownersSnapshot, owners],
 	);
 
 	// * `.requestSubmit()` triggers the `submit` event in browser

@@ -31,6 +31,25 @@ export interface CompanyOwner extends GenericObject {
 	color: string;
 }
 
+export interface DatabaseReadyCompanyOwner extends GenericObject {
+	id: UUID;
+	name: string;
+	email: Email;
+	civil_status: CivilStatus;
+	phone_number: string;
+
+	address_line1: string;
+	address_line2?: string;
+	postal_code: string;
+	city: string;
+	region?: string;
+	country: string;
+
+	shares: number;
+
+	color: string;
+}
+
 export interface CompanyData extends GenericObject {
 	name: string;
 	description: string;

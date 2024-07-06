@@ -3,6 +3,7 @@ import type { CompanyOwner } from "@/api/interfaces";
 import { getRandomColor } from "@/utilities";
 
 export type OwnersAction =
+	| { type: "SET"; owners: CompanyOwner[] }
 	| {
 			type: "ADD";
 	  }
@@ -34,6 +35,8 @@ export const defaultOwners: CompanyOwner[] = [newOwnerObject()];
 
 export function ownersReducer(state: CompanyOwner[], action: OwnersAction) {
 	switch (action.type) {
+		case "SET":
+			return action.owners;
 		case "ADD":
 			return [...state, newOwnerObject()];
 		case "REMOVE":
