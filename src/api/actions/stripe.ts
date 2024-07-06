@@ -14,7 +14,7 @@ const BACKEND_HOST =
 
 const stripe = new Stripe(STRIPE_SK);
 
-export async function createCheckoutSession(customer_email: string) {
+export async function createCheckoutSession(customerEmail: string) {
 	const session = await stripe.checkout.sessions.create({
 		line_items: [
 			{
@@ -22,7 +22,7 @@ export async function createCheckoutSession(customer_email: string) {
 				quantity: 1,
 			},
 		],
-		customer_email,
+		customer_email: customerEmail,
 		customer_creation: "always",
 		mode: "payment",
 		success_url: `${BACKEND_HOST}/dashboard/identity/verify?session_id={CHECKOUT_SESSION_ID}`,

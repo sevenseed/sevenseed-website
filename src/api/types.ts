@@ -1,1 +1,2 @@
-export type NullableString = string | null;
+export type Nullable<T> = T | null;
+export type NullableString = Nullable<string>;
