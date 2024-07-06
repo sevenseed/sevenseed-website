@@ -40,7 +40,7 @@ export default function StickyLowbar({
 
 	const formHasEnoughInfo = useMemo(() => {
 		const requiredKeysArray =
-			companyData.companyAddressType === "ExistingAddress"
+			companyData.addressType === "ExistingAddress"
 				? [...defaultRequiredCompanyData, ...existingAddressRequiredCompanyData]
 				: defaultRequiredCompanyData;
 
