@@ -23,7 +23,7 @@ export default function CompanySegment() {
 		const { data, error } = await supabase
 			.from("companies")
 			.select()
-			.eq("owner_id", user!.id);
+			.eq("user_id", user!.id);
 
 		if (error) throw new Error(error.message);
 		if (!data)
