@@ -276,7 +276,37 @@ export function RadioFormInput({
 			{label ? (
 				<span className={styles.labelText}>
 					{label}
-					{required ? <RequiredMark /> : ""}
+					{required && <RequiredMark />}
+				</span>
+			) : (
+				""
+			)}
+			<div className={styles.inputRadioContainer}>{children}</div>
+		</fieldset>
+	);
+}
+
+export function OwnersRadioFormInput({
+	label = "",
+	required = false,
+	children,
+}: OwnersFormInputProps & HTMLInputProps & PropsWithChildren) {
+	/* const hasCorrectChildren =
+		validateChildrenAsComponent(children, OwnersRadioOption) ||
+		validateChildrenAsComponent(children, OwnersRadioOptionWithSelect);
+
+	if (!hasCorrectChildren) {
+		throw new Error(
+			"Children of a <OwnersRadioFormInput /> should only be <OwnersRadioOption /> or <OwnersRadioOptionWithSelect />",
+		);
+	} */
+
+	return (
+		<fieldset className={styles.fieldset}>
+			{label ? (
+				<span className={styles.labelText}>
+					{label}
+					{required && <RequiredMark />}
 				</span>
 			) : (
 				""

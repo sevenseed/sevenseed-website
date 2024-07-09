@@ -17,12 +17,30 @@ export default function CompanyInfoPage() {
 		<div className={styles.pageWrapper}>
 			<FormPage step="companyAddress" label="Company Address">
 				<RadioFormInput id="addressType">
-					<RadioOption
-						id="addressType"
-						label="Use my home address"
-						value="HomeAddress"
-						required
-					/>
+					<div className="w-full flex flex-col sm:flex-row gap-x-2">
+						<RadioOption
+							id="addressType"
+							label="Use home address of"
+							value="HomeAddress"
+							required
+						/>
+						<select
+							className="flex-1 rounded border ml-4 -mt-2 sm:ml-0 sm:mt-0 disabled:bg-zinc-100"
+							name="addressSource"
+							id="addressSource"
+							disabled={!usesHomeAddress}
+						>
+							{owners.length ? (
+								owners.map((owner) => (
+									<option value={owner.id} key={owner.id}>
+										{owner.name || "an unnamed owner"}
+									</option>
+								))
+							) : (
+								<option>one of the owners</option>
+							)}
+						</select>
+					</div>
 					<RadioOption
 						id="addressType"
 						label="Get me an address"
