@@ -5,13 +5,13 @@ import {
 	useContext,
 	useMemo,
 } from "react";
+import clsx from "clsx";
+import compare from "just-compare";
 import {
 	NewCompanyContext,
 	defaultRequiredCompanyData,
 	existingAddressRequiredCompanyData,
 } from "@/contexts/NewCompanyContext";
-import clsx from "clsx";
-import compare from "just-compare";
 import type { CompanyData } from "@/api/interfaces/company";
 import type { CompanyOwner } from "@/api/interfaces/owners";
 
@@ -44,11 +44,13 @@ export default function StickyLowbar({
 
 	const formHasEnoughInfo = useMemo(() => {
 		const requiredKeysArray =
-			companyData.addressType === "ExistingAddress"
+			(companyData.addressType as CompanyData["addressType"]) ===
+			"ExistingAddress"
 				? [...defaultRequiredCompanyData, ...existingAddressRequiredCompanyData]
 				: defaultRequiredCompanyData;
 
-		const allRequiredFieldsFilled = Object.entries(companyData)
+		const entries = Object.entries(companyData) as Array<[keyof CompanyData, any]>;
+		const allRequiredFieldsFilled = entries
 			.filter(([key, value]) => requiredKeysArray.includes(key))
 			.every(([key, value]) => {
 				return value !== "";

@@ -7,7 +7,7 @@
 }
 
 .fieldset {
-	@apply flex flex-col w-full space-y-1;
+	@apply flex flex-col w-full gap-y-1;
 }
 
 .label {
@@ -35,7 +35,7 @@
 }
 
 .inputRadio {
-	@apply flex items-center gap-x-1;
+	@apply flex items-center gap-x-1 py-2 sm:py-0;
 }
 
 .navigationSidebar {

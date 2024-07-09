@@ -1,4 +1,4 @@
-import { ChangeEvent, useCallback, useContext, useMemo } from "react";
+import { ChangeEvent, useCallback, useContext } from "react";
 import clsx from "clsx";
 import { NewCompanyContext } from "@/contexts/NewCompanyContext";
 import FormPage from "../_components/FormPage";

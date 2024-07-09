@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import FormPage from "../_components/FormPage";
 import { NewCompanyContext } from "@/contexts/NewCompanyContext";
+import FormPage from "../_components/FormPage";
 import OwnerForm from "../_components/OwnerForm";
 
 import styles from "./pages.module.css";
@@ -46,7 +46,7 @@ export default function KYCPage() {
 					<span className="h-10 text-blue-600">
 						<AddUserIcon />
 					</span>
-					<div className="w-full text-center">
+					<div className="w-full">
 						<span className="text-lg font-semibold text-blue-600">
 							Add a new company owner
 						</span>

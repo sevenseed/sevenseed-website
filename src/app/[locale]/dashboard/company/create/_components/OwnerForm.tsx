@@ -37,25 +37,27 @@ export default function OwnerForm({ owner }: { owner: CompanyOwner }) {
 			onClick={() => collapsed && setCollapsed(false)}
 		>
 			{collapsed ? (
-				<div className="flex justify-between items-center">
-					<span className="h-10">
+				<div className="flex gap-x-4 justify-between items-center">
+					<span className="h-12">
 						<UserIcon />
 					</span>
-					<div className="w-full text-center">
+					<div className="w-full">
 						<span className="text-xl font-semibold">
 							{owner.name || "Unnamed owner"}
 						</span>
 					</div>
-					{owners.length > 1 && (
-						<Button
-							variant="outline"
-							color="red"
-							className="text-red-900 hover:text-red-800"
-							onClick={() => dispatch({ type: "REMOVE", id: owner.id })}
-						>
-							Remove
-						</Button>
-					)}
+					<Button
+						variant="outline"
+						color="red"
+						className={clsx(
+							"text-red-900 hover:text-red-800",
+							owners.length < 2 && "invisible",
+						)}
+						onClick={() => dispatch({ type: "REMOVE", id: owner.id })}
+						disabled={owners.length < 2}
+					>
+						Remove
+					</Button>
 				</div>
 			) : (
 				<>

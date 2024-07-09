@@ -25,9 +25,10 @@ function newOwnerObject() {
 		region: "",
 		country: "",
 
-		// for displaying ownership shares
-		color: getRandomColor(),
 		shares: 0,
+
+		// * for displaying ownership shares
+		color: getRandomColor(),
 	} as CompanyOwner;
 }
 
