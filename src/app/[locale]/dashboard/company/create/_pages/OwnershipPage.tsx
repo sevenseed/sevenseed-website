@@ -49,7 +49,12 @@ export default function OwnershipPage() {
 	return (
 		<div className={styles.pageWrapper}>
 			<FormPage step="shares" label="Ownership">
-				<div className="flex h-10 bg-slate-50 border rounded overflow-hidden">
+				<div
+					className={clsx(
+						"flex h-10 bg-slate-50 border rounded overflow-hidden",
+						isOverOneHundredPercent && "border-4 border-red-300",
+					)}
+				>
 					{owners.map(({ name, shares, color }) => (
 						<div
 							key={name}
@@ -64,7 +69,11 @@ export default function OwnershipPage() {
 				<div className="flex flex-col gap-y-2">
 					{owners.map((owner) => (
 						<label key={owner.id} className="flex justify-between">
-							<span className="font-semibold">
+							<span className="inline-flex gap-x-1 items-baseline font-semibold">
+								<span
+									className="inline-block w-3 h-3 rounded"
+									style={{ backgroundColor: owner.color }}
+								/>{" "}
 								{owner.name || "Unnamed owner"}
 							</span>
 							<input
@@ -78,16 +87,21 @@ export default function OwnershipPage() {
 				</div>
 				<div className="flex flex-col items-end mt-2">
 					<span>Shares coverage:</span>
-					<span
-						className={clsx(
-							isExactlyOneHundredPercent && "text-green-500",
-							isOverOneHundredPercent && "text-red-300",
-						)}
-					>
-						{sharesPercentage < 0.01
-							? "<0.01"
-							: Number.parseFloat(sharesPercentage.toFixed(2))}
-						%
+					<span className="flex gap-x-4">
+						<span>
+							{currentShares} / {overallShares}
+						</span>
+						<span
+							className={clsx(
+								isExactlyOneHundredPercent && "text-green-500",
+								isOverOneHundredPercent && "text-red-300",
+							)}
+						>
+							{sharesPercentage < 0.01
+								? "<0.01"
+								: Number.parseFloat(sharesPercentage.toFixed(2))}
+							%
+						</span>
 					</span>
 					{isOverOneHundredPercent && (
 						<span>
