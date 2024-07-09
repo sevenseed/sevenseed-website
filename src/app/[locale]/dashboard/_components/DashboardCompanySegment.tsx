@@ -4,7 +4,7 @@ import { createClient } from "@/supabase/client";
 import { getUser } from "@/api/actions/auth";
 import { Button } from "@/components/Button";
 import Loader from "@/components/Loader";
-import type { DatabaseReadyCompanyData } from "@/api/interfaces";
+import type { DatabaseReadyCompanyData } from "@/api/interfaces/company";
 
 const supabase = createClient();
 

@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { Button } from "@/components/Button";
 import { NewCompanyContext } from "@/contexts/NewCompanyContext";
 import { OwnersSimpleFormInput, RadioFormInput, OwnersRadioOption } from "./Inputs";
-import type { CompanyOwner } from "@/api/interfaces";
+import type { CompanyOwner } from "@/api/interfaces/owners";
 
 const UserIcon = () => (
 	<svg

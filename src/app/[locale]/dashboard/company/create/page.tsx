@@ -15,12 +15,12 @@ import { getUser } from "@/api/actions/auth";
 import { getApplication } from "@/api/actions/database";
 import omit from "just-omit";
 import * as changeKeys from "change-case/keys";
-import type {
-	DatabaseReadyCompanyData,
-	CompanyData,
-	CompanyOwner,
-} from "@/api/interfaces";
+import {
+	type DatabaseReadyCompanyData,
+	type CompanyData,
+} from "@/api/interfaces/company";
 import type { UUID } from "crypto";
+import type { CompanyOwner } from "@/api/interfaces/owners";
 
 import Loader from "@/components/Loader";
 import StickyLowbar from "./_components/StickyLowbar";

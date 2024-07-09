@@ -1,10 +1,8 @@
 "use server";
 import { createClient } from "@/supabase/server";
 import type { UUID } from "crypto";
-import type {
-	DatabaseReadyCompanyData,
-	DatabaseReadyCompanyOwner,
-} from "../interfaces";
+import type { DatabaseReadyCompanyData } from "@/api/interfaces/company";
+import type { DatabaseReadyCompanyOwner } from "@/api/interfaces/owners";
 
 export const getApplication = async (id: UUID) => {
 	const supabase = createClient();

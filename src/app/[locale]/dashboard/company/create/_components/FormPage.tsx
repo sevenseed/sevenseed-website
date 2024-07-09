@@ -1,5 +1,5 @@
 import { useContext, useMemo, type PropsWithChildren } from "react";
-import { type FormPage as FormPageInterface } from "@/api/interfaces";
+import { type FormPage as FormPageInterface } from "@/api/interfaces/form";
 import { NewCompanyContext } from "@/contexts/NewCompanyContext";
 
 import styles from "../../company.module.css";

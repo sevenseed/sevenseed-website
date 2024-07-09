@@ -2,7 +2,7 @@ import { ChangeEvent, useCallback, useContext, useMemo } from "react";
 import clsx from "clsx";
 import { NewCompanyContext } from "@/contexts/NewCompanyContext";
 import FormPage from "../_components/FormPage";
-import type { CompanyOwner } from "@/api/interfaces";
+import type { CompanyOwner } from "@/api/interfaces/owners";
 
 import styles from "./pages.module.css";
 

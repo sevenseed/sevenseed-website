@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import clsx from "clsx";
 import { NewCompanyContext } from "@/contexts/NewCompanyContext";
-import type { Form } from "@/api/interfaces";
+import type { Form } from "@/api/interfaces/form";
 
 import styles from "../../company.module.css";
 
