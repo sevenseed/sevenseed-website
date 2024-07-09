@@ -1,5 +1,5 @@
 import type { UUID } from "crypto";
-import type { CompanyOwner } from "@/api/interfaces";
+import type { CompanyOwner } from "@/api/interfaces/owners";
 import { getRandomColor } from "@/utilities";
 
 export type OwnersAction =

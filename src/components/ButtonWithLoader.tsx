@@ -1,5 +1,5 @@
 import type { ButtonHTMLAttributes, PropsWithChildren } from "react";
-import { type GenericObject } from "@/api/interfaces";
+import type { GenericObject } from "@/api/types";
 import Loader from "@/components/Loader";
 import clsx from "clsx";
 

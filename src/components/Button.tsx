@@ -1,7 +1,7 @@
 import Link from "next/link";
 import clsx from "clsx";
 import { ComponentPropsWithoutRef } from "react";
-import { GenericObject } from "@/api/interfaces";
+import type { GenericObject } from "@/api/types";
 
 const baseStyles: GenericObject = {
 	solid: "inline-flex justify-center rounded-md py-1 px-4 text-base font-semibold tracking-tight shadow-sm duration-200 focus:outline-none",

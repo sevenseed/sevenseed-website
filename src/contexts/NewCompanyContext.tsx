@@ -8,13 +8,13 @@ import {
 	useReducer,
 } from "react";
 import { useForm } from "@formspree/react";
-import {
-	type Form,
-	type CompanyData,
-	type KeyArray,
-	type NewCompanyContext as NewCompanyContextInterface,
-} from "@/api/interfaces";
 import { defaultOwners, ownersReducer } from "./partials/CompanyOwners";
+import type {
+	CompanyData,
+	NewCompanyContext as NewCompanyContextInterface,
+} from "@/api/interfaces/company";
+import type { KeyArray } from "@/api/types";
+import type { Form } from "@/api/interfaces/form";
 
 const defaultCompanyData: CompanyData = {
 	name: "",

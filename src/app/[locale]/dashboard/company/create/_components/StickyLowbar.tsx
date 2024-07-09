@@ -10,9 +10,10 @@ import {
 	defaultRequiredCompanyData,
 	existingAddressRequiredCompanyData,
 } from "@/contexts/NewCompanyContext";
-import { CompanyOwner, type CompanyData } from "@/api/interfaces";
 import clsx from "clsx";
 import compare from "just-compare";
+import type { CompanyData } from "@/api/interfaces/company";
+import type { CompanyOwner } from "@/api/interfaces/owners";
 
 import styles from "../../company.module.css";
 
