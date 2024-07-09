@@ -2,7 +2,11 @@ import { useContext, useState } from "react";
 import clsx from "clsx";
 import { Button } from "@/components/Button";
 import { NewCompanyContext } from "@/contexts/NewCompanyContext";
-import { OwnersSimpleFormInput, RadioFormInput, OwnersRadioOption } from "./Inputs";
+import {
+	OwnersSimpleFormInput,
+	OwnersRadioOption,
+	OwnersRadioFormInput,
+} from "./Inputs";
 import type { CompanyOwner } from "@/api/interfaces/owners";
 
 const UserIcon = () => (
@@ -31,7 +35,7 @@ export default function OwnerForm({ owner }: { owner: CompanyOwner }) {
 	return (
 		<div
 			className={clsx([
-				"flex flex-col gap-y-4 bg-slate-50 border rounded p-4",
+				"flex flex-col gap-y-4 bg-slate-50 border rounded p-4 py-3",
 				collapsed && "cursor-pointer hover:bg-slate-100",
 			])}
 			onClick={() => collapsed && setCollapsed(false)}
@@ -94,7 +98,7 @@ export default function OwnerForm({ owner }: { owner: CompanyOwner }) {
 							placeholder="hello@world.com"
 							required
 						/>
-						<RadioFormInput id="civilStatus" label="Civil Status">
+						<OwnersRadioFormInput id="civilStatus" label="Civil Status">
 							<OwnersRadioOption
 								owner={owner}
 								id="civilStatus"
@@ -116,7 +120,7 @@ export default function OwnerForm({ owner }: { owner: CompanyOwner }) {
 								value="LegalCohabitation"
 								required
 							/>
-						</RadioFormInput>
+						</OwnersRadioFormInput>
 					</div>
 
 					<div className="flex flex-col gap-y-2">
