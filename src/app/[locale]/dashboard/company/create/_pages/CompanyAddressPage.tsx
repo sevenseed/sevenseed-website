@@ -2,12 +2,16 @@ import { useContext } from "react";
 import FormPage from "../_components/FormPage";
 import { RadioFormInput, RadioOption, SimpleFormInput } from "../_components/Inputs";
 import { NewCompanyContext } from "@/contexts/NewCompanyContext";
+import type { CompanyData } from "@/api/interfaces/company";
 
 import styles from "./pages.module.css";
 
 export default function CompanyInfoPage() {
-	const { companyData } = useContext(NewCompanyContext);
-	const usesExistingAddress = companyData.companyAddressType === "ExistingAddress";
+	const { companyData, owners } = useContext(NewCompanyContext);
+	const usesExistingAddress =
+		(companyData.addressType as CompanyData["addressType"]) === "ExistingAddress";
+	const usesHomeAddress =
+		(companyData.addressType as CompanyData["addressType"]) === "HomeAddress";
 
 	return (
 		<div className={styles.pageWrapper}>

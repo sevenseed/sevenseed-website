@@ -8,13 +8,13 @@ import {
 	useEffect,
 	useMemo,
 } from "react";
+import omit from "just-omit";
+import * as changeKeys from "change-case/keys";
 import { useRouter, useSearchParams } from "next/navigation";
 import { createClient } from "@/supabase/client";
 import { NewCompanyContext } from "@/contexts/NewCompanyContext";
 import { getUser } from "@/api/actions/auth";
 import { getApplication } from "@/api/actions/database";
-import omit from "just-omit";
-import * as changeKeys from "change-case/keys";
 import {
 	type DatabaseReadyCompanyData,
 	type CompanyData,
@@ -44,14 +44,14 @@ export default function Create() {
 	const [isLoading, setIsLoading] = useState(true);
 	const searchParams = useSearchParams();
 	const URLApplicationId = useMemo(
-		() => (searchParams.get("applicationId") as UUID) || "",
+		() => (searchParams.get("applicationId") as CompanyData["id"]) || "",
 		[searchParams],
 	);
 
 	const [companyDataSnapshot, setCompanyDataSnapshot] =
 		useState<CompanyData>(companyData);
 	const [ownersSnapshot, setOwnersSnapshot] = useState<CompanyOwner[]>(owners);
-	const [applicationId, setApplicationId] = useState<UUID>();
+	const [applicationId, setApplicationId] = useState<CompanyData["id"]>();
 	const [userId, setUserId] = useState<UUID>();
 	const formElement = useRef<HTMLFormElement>(null);
 	const router = useRouter();
@@ -141,7 +141,7 @@ export default function Create() {
 	}, [router]);
 
 	const getApplicationById = useCallback(
-		async (id: UUID) => {
+		async (id: CompanyData["id"]) => {
 			const [application, owners] = await getApplication(id);
 			const localizedApplication = changeKeys.camelCase(
 				application,

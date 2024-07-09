@@ -4,9 +4,9 @@ import { useRouter } from "next/navigation";
 import { createCheckoutSession } from "@/api/actions/stripe";
 import ButtonWithLoader from "@/components/ButtonWithLoader";
 import StripeInlineLogo from "@/components/StripeInlineLogo";
+import { NewCompanyContext } from "@/contexts/NewCompanyContext";
 
 import styles from "../../dashboard.module.css";
-import { NewCompanyContext } from "@/contexts/NewCompanyContext";
 
 export default function Deposit() {
 	const { companyData } = useContext(NewCompanyContext);

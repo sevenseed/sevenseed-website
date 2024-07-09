@@ -1,6 +1,6 @@
 import Link from "next/link";
 import clsx from "clsx";
-import { ComponentPropsWithoutRef } from "react";
+import type { ComponentPropsWithoutRef } from "react";
 import type { GenericObject } from "@/api/types";
 
 const baseStyles: GenericObject = {
