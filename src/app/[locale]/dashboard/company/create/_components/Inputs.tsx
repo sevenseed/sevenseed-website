@@ -7,11 +7,19 @@ import {
 } from "react";
 import clsx from "clsx";
 import { NewCompanyContext } from "@/contexts/NewCompanyContext";
-import { validateChildrenAsComponent } from "@/api/validate";
-import type { FormInputProps, MultilineInputProps, RadioInputProps } from "./types";
+import { validateChildrenAsComponent } from "@/api/utility/validate";
+import type {
+	IDKey,
+	FormInputProps,
+	MultilineInputProps,
+	RadioInputProps,
+	OwnerIDKey,
+	OwnersFormInputProps,
+	HTMLInputProps,
+} from "./types";
+import type { CompanyOwner } from "@/api/interfaces/owners";
 
 import styles from "../../company.module.css";
-import { CompanyData, CompanyOwner } from "@/api/interfaces";
 
 // TODO: revamp as HOCs
 
@@ -27,7 +35,7 @@ export function RadioOption({
 	value,
 	required = false,
 }: {
-	id: keyof CompanyData;
+	id: IDKey;
 	label: string;
 	value: string;
 	required?: boolean;
@@ -58,6 +66,47 @@ export function RadioOption({
 }
 
 export function OwnersRadioOption({
+	owner,
+	id,
+	label,
+	value,
+	required = false,
+}: {
+	owner: CompanyOwner;
+	id: keyof CompanyOwner;
+	label: string;
+	value: string;
+	required?: boolean;
+}) {
+	const { dispatch } = useContext(NewCompanyContext);
+
+	const onChange = useCallback(
+		(event: ChangeEvent<HTMLInputElement>) => {
+			dispatch({
+				type: "UPDATE",
+				obj: { ...owner, [id]: event.currentTarget.value },
+			});
+		},
+		[id, owner, dispatch],
+	);
+
+	return (
+		<label className={styles.inputRadio}>
+			<input
+				type="radio"
+				id={id + value.replaceAll(" ", "") + owner.id}
+				name={(id + owner.id) as string}
+				value={value}
+				onChange={onChange}
+				required={required}
+				defaultChecked={value === owner[id]}
+			/>
+			<span>{label}</span>
+		</label>
+	);
+}
+
+export function OwnersRadioOptionWithSelect({
 	owner,
 	id,
 	label,
@@ -162,7 +211,7 @@ export function OwnersSimpleFormInput({
 	disabled = false,
 	className = "",
 	value = undefined,
-}: FormInputProps & { owner: CompanyOwner }) {
+}: OwnersFormInputProps & HTMLInputProps & { owner: CompanyOwner }) {
 	const { dispatch } = useContext(NewCompanyContext);
 
 	// * nullish coalescence in order to force empty values to display empty
@@ -261,15 +310,14 @@ export function RadioFormInput({
 	required = false,
 	children,
 }: RadioInputProps & PropsWithChildren) {
-	const hasCorrectChildren =
-		validateChildrenAsComponent(children, RadioOption) ||
-		validateChildrenAsComponent(children, OwnersRadioOption);
+	/* const hasCorrectChildren =
+		validateChildrenAsComponent(children, RadioOption)
 
 	if (!hasCorrectChildren) {
 		throw new Error(
 			"Children of a <RadioFormInput /> should only be <RadioOption />",
 		);
-	}
+	} */
 
 	return (
 		<fieldset className={styles.fieldset}>

@@ -1,8 +1,9 @@
 "use server";
 import Stripe from "stripe";
-
-const STRIPE_SK = process.env.STRIPE_SK;
-if (!STRIPE_SK) throw "Stripe secret key not found";
+import { createClient } from "@/supabase/server";
+import { createKYCSessionForOwner, getOwnerById } from "@/api/actions/database";
+import { STRIPE_SK } from "@/config";
+import type { CompanyOwner } from "@/api/interfaces/owners";
 
 const PRODUCT_KEY = process.env.PRODUCT_KEY_INCORPORATION_REGULAR;
 if (!PRODUCT_KEY) throw "Product key not found";
@@ -13,6 +14,8 @@ const BACKEND_HOST =
 	"http://127.0.0.1:3000";
 
 const stripe = new Stripe(STRIPE_SK);
+
+const supabase = createClient();
 
 export async function createCheckoutSession(customerEmail: string) {
 	const session = await stripe.checkout.sessions.create({
@@ -50,12 +53,29 @@ export async function expireCheckoutSession(sessionId: string) {
 	return { email: session.customer_email };
 }
 
-export async function createVerificationSession(sessionId: string) {
+export async function createOrReturnVerificationSession(ownerId: CompanyOwner["id"]) {
+	const owner = await getOwnerById(ownerId);
+	// @ts-ignore This value exists in the database and is supplied with the raw `owner` object
+	if (owner.kyc_session_id) {
+		// TODO: handle cancelled sessions
+		const existingSession = await stripe.identity.verificationSessions.retrieve(
+			// @ts-ignore This value exists in the database and is supplied with the raw `owner` object
+			owner.kyc_session_id,
+		);
+
+		return existingSession.url;
+	}
+
 	const verificationSession = await stripe.identity.verificationSessions.create({
 		type: "document",
-		return_url: `${BACKEND_HOST}/dashboard/identity/submitted`,
-		client_reference_id: sessionId,
+		return_url: `${BACKEND_HOST}/dashboard/owner/identity/submitted/${ownerId}`,
 	});
+
+	try {
+		await createKYCSessionForOwner(ownerId, verificationSession.id);
+	} catch (error: any) {
+		throw new Error(error.message);
+	}
 
 	return verificationSession.url;
 }

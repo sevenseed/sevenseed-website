@@ -2,9 +2,9 @@ import { type ReactNode, type ElementType, Children, isValidElement } from "reac
 
 export const validateChildrenAsComponent = (
 	children: ReactNode | ReactNode[],
-	type: ElementType,
+	desiredType: ElementType,
 ) => {
 	return Children.toArray(children).every((child) => {
-		return isValidElement(child) && child.type === type;
+		return isValidElement(child) && child.type === desiredType;
 	});
 };

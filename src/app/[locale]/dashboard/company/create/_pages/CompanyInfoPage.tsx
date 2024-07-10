@@ -53,6 +53,14 @@ export default function CompanyInfoPage() {
 					placeholder="+32123456789"
 					required
 				/>
+				<SimpleFormInput
+					id="email"
+					label="Company Email"
+					description="If you don't have one yet, enter an address we can reach you with"
+					type="email"
+					placeholder="jon.d@google.com"
+					required
+				/>
 			</FormPage>
 		</div>
 	);

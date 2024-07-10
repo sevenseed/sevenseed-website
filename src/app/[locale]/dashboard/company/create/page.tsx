@@ -16,9 +16,11 @@ import { NewCompanyContext } from "@/contexts/NewCompanyContext";
 import { getUser } from "@/api/actions/auth";
 import { getApplication } from "@/api/actions/database";
 import {
+	DBOmitKeys,
 	type DatabaseReadyCompanyData,
 	type CompanyData,
 } from "@/api/interfaces/company";
+import { createOrReturnVerificationSession } from "@/api/actions/stripe";
 import type { UUID } from "crypto";
 import type { CompanyOwner } from "@/api/interfaces/owners";
 
@@ -125,13 +127,17 @@ export default function Create() {
 
 			await saveDataToSupabase(/* submitting the application */ true);
 
+			owners.forEach(
+				async (owner) => await createOrReturnVerificationSession(owner.id),
+			);
+
 			if (isTesting) {
 				goToDashboard();
 			} else {
 				handleSubmit(event);
 			}
 		},
-		[goToDashboard, handleSubmit, saveDataToSupabase],
+		[owners, goToDashboard, handleSubmit, saveDataToSupabase],
 	);
 
 	const getUserSession = useCallback(async () => {
@@ -140,26 +146,17 @@ export default function Create() {
 		setUserId(user?.id as UUID);
 	}, [router]);
 
+	// TODO: solve typing issues
 	const getApplicationById = useCallback(
 		async (id: CompanyData["id"]) => {
 			const [application, owners] = await getApplication(id);
-			const localizedApplication = changeKeys.camelCase(
-				application,
-			) as Partial<CompanyData>;
-			const localizedOwners = owners.map((owner) =>
-				changeKeys.camelCase(owner),
-			) as CompanyOwner[];
+			const localizedApplication = changeKeys.camelCase(application);
+			const localizedOwners = owners.map(
+				(owner) => changeKeys.camelCase(owner) as CompanyOwner,
+			);
 
-			const DBOmitKeys = [
-				"id",
-				"user_id",
-				"owners",
-				"created_at",
-				"updated_at",
-				"application_submitted",
-				"schema",
-			];
 			const reactReadyApplication = omit(
+				// @ts-ignore
 				localizedApplication,
 				DBOmitKeys,
 			) as CompanyData;

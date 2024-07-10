@@ -32,6 +32,9 @@ export default function OwnerForm({ owner }: { owner: CompanyOwner }) {
 	const { owners, dispatch } = useContext(NewCompanyContext);
 	const [collapsed, setCollapsed] = useState(false);
 
+	// TODO: make "Unnamed owner" display with an index
+	// * e.g. "Unnamed owner 1", "Unnamed owner 2", ..., "Unnamed owner 7" etc.
+
 	return (
 		<div
 			className={clsx([

@@ -2,11 +2,11 @@
 import { createClient } from "@/supabase/server";
 import type { UUID } from "crypto";
 import type { DatabaseReadyCompanyData } from "@/api/interfaces/company";
-import type { DatabaseReadyCompanyOwner } from "@/api/interfaces/owners";
+import type { CompanyOwner, DatabaseReadyCompanyOwner } from "@/api/interfaces/owners";
+
+const supabase = createClient();
 
 export const getApplication = async (id: UUID) => {
-	const supabase = createClient();
-
 	const { data: applicationData, error: applicationError } = await supabase
 		.from("companies")
 		.select()
@@ -29,3 +29,39 @@ export const getApplication = async (id: UUID) => {
 		DatabaseReadyCompanyOwner[],
 	];
 };
+
+export const getOwnerById = async (id: CompanyOwner["id"]) => {
+	const { data, error } = await supabase
+		.from("owners")
+		.select()
+		.eq("id", id)
+		.single();
+	if (error) throw new Error(error.message);
+
+	if (data) {
+		return data as DatabaseReadyCompanyOwner;
+	} else {
+		throw new Error("Owner not found when searching by ID");
+	}
+};
+
+export async function createKYCSessionForOwner(
+	ownerId: CompanyOwner["id"],
+	sessionId: string,
+) {
+	await supabase
+		.from("owners")
+		.update({ kyc_session_id: sessionId })
+		.eq("id", ownerId)
+		.select()
+		.single();
+}
+
+export async function markOwnerDocumentAsSubmitted(id: CompanyOwner["id"]) {
+	await supabase
+		.from("owners")
+		.update({ document_submitted: true })
+		.eq("id", id)
+		.select()
+		.single();
+}

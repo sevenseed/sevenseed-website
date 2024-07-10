@@ -11,6 +11,12 @@ export const SUPABASE_ANON_KEY = (() => {
 	return supabaseKey;
 })();
 
+export const STRIPE_SK = (() => {
+	const stripeSecretKey = process.env.STRIPE_SK;
+	if (!stripeSecretKey) throw new Error("STRIPE_SK is missing");
+	return stripeSecretKey;
+})();
+
 /**
  * https://github.com/vercel/next.js/issues/5354#issuecomment-520305040
  */

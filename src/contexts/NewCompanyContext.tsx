@@ -13,13 +13,17 @@ import type {
 	CompanyData,
 	NewCompanyContext as NewCompanyContextInterface,
 } from "@/api/interfaces/company";
+import type { UUID } from "crypto";
 import type { KeyArray } from "@/api/types";
 import type { Form } from "@/api/interfaces/form";
 
 const defaultCompanyData: CompanyData = {
+	id: crypto.randomUUID() as UUID,
+
 	name: "",
 	description: "",
 	phoneNumber: "",
+	email: "",
 	legalEntityType: "SRL",
 
 	addressType: "HomeAddress",
