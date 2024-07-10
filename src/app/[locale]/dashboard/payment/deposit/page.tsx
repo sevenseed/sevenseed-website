@@ -15,7 +15,7 @@ export default function Deposit() {
 	const [redirecting, setRedirecting] = useState(false);
 
 	const redirectToCheckout = async () => {
-		const url = await createCheckoutSession(companyData.contactEmail);
+		const url = await createCheckoutSession(companyData.email);
 		if (!url) throw "Checkout session did not return a URL";
 
 		router.replace(url);

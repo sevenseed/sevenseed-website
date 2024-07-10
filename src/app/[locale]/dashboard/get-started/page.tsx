@@ -22,7 +22,7 @@ export default function Signup() {
 			const contactName = formData.get("fullName") as string;
 			const contactEmail = formData.get("email") as string;
 
-			setCompanyData({ ...companyData, contactEmail, contactName });
+			setCompanyData({ ...companyData, email: contactEmail });
 
 			const { message, error } = await signUp(formData);
 

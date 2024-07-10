@@ -8,7 +8,7 @@ import type { DatabaseReadyCompanyData } from "@/api/interfaces/company";
 
 const supabase = createClient();
 
-export default function CompanySegment() {
+export default function OwnersSegment() {
 	const [isLoading, setIsLoading] = useState(true);
 	const [applications, setApplications] = useState<DatabaseReadyCompanyData[] | null>(
 		null,

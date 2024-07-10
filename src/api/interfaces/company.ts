@@ -20,6 +20,7 @@ export interface CompanyData {
 	name: string;
 	description: string;
 	phoneNumber: string;
+	email: string;
 	legalEntityType: string;
 
 	addressType: AddressType;
@@ -41,6 +42,7 @@ export interface DatabaseReadyCompanyData {
 	name: string;
 	description: string;
 	phone_number: string;
+	email: string;
 	legal_entity_type: string;
 
 	address_type: AddressType;
