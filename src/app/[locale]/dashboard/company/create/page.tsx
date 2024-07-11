@@ -22,7 +22,7 @@ import {
 } from "@/api/interfaces/company";
 import { createOrReturnVerificationSession } from "@/api/actions/stripe";
 import type { UUID } from "crypto";
-import type { CompanyOwner } from "@/api/interfaces/owners";
+import type { CompanyOwner, DatabaseReadyCompanyOwner } from "@/api/interfaces/owners";
 
 import Loader from "@/components/Loader";
 import StickyLowbar from "./_components/StickyLowbar";
@@ -90,9 +90,6 @@ export default function Create() {
 
 			const { data: companyDataResponse, error: companyError } = await supabase
 				.from("companies")
-				// * if `id` is received from the DB, use it to supply data further
-				// * when `id` already exists in the DB, row data would be overridden
-				// * `.select()` the data so we can extract `id`
 				.upsert(companyUpsertObject, {
 					onConflict: "id",
 				})
@@ -104,12 +101,14 @@ export default function Create() {
 
 			const { error: ownersError } = await supabase
 				.from("owners")
-				// * if `id` is received from the DB, use it to supply data further
-				// * when `id` already exists in the DB, row data would be overridden
-				// * `.select()` the data so we can extract `id`
-				.upsert(owners, {
-					onConflict: "id",
-				})
+				.upsert(
+					owners.map((owner) =>
+						changeKeys.snakeCase(owner),
+					) as DatabaseReadyCompanyOwner[],
+					{
+						onConflict: "id",
+					},
+				)
 				.select();
 
 			if (ownersError) throw new Error(ownersError.message);
