@@ -2,7 +2,7 @@
 import { createClient } from "@/supabase/server";
 import type { UUID } from "crypto";
 import type { DatabaseReadyCompanyData } from "@/api/interfaces/company";
-import type { CompanyOwner, DatabaseReadyCompanyOwner } from "@/api/interfaces/owners";
+import type { CompanyOwner, DatabaseReadyCompanyOwner, OwnerExtraDatabaseColumns } from "@/api/interfaces/owners";
 
 const supabase = createClient();
 
@@ -39,7 +39,7 @@ export const getOwnerById = async (id: CompanyOwner["id"]) => {
 	if (error) throw new Error(error.message);
 
 	if (data) {
-		return data as DatabaseReadyCompanyOwner;
+		return data as DatabaseReadyCompanyOwner & OwnerExtraDatabaseColumns;
 	} else {
 		throw new Error("Owner not found when searching by ID");
 	}
