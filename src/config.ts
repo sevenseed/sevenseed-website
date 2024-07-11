@@ -1,3 +1,8 @@
+/**
+ * https://github.com/vercel/next.js/issues/5354#issuecomment-520305040
+ */
+export const IS_SERVER = typeof window === "undefined";
+
 export const SUPABASE_URL = (() => {
 	const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 	if (!supabaseUrl || !supabaseUrl.includes("supabase.co"))
@@ -13,11 +18,8 @@ export const SUPABASE_ANON_KEY = (() => {
 
 export const STRIPE_SK = (() => {
 	const stripeSecretKey = process.env.STRIPE_SK;
-	if (!stripeSecretKey) throw new Error("STRIPE_SK is missing");
+	// * a non-public key will always be missing from the client
+	// * so we only check for it on the server side
+	if (!stripeSecretKey && IS_SERVER) throw new Error("STRIPE_SK is missing");
 	return stripeSecretKey;
 })();
-
-/**
- * https://github.com/vercel/next.js/issues/5354#issuecomment-520305040
- */
-export const IS_SERVER = typeof window === "undefined";

@@ -1,9 +1,10 @@
 "use server";
 import Stripe from "stripe";
-import { createClient } from "@/supabase/server";
 import { createKYCSessionForOwner, getOwnerById } from "@/api/actions/database";
 import { STRIPE_SK } from "@/config";
 import type { CompanyOwner } from "@/api/interfaces/owners";
+
+if (!STRIPE_SK) throw new Error("STRIPE_SK not found in server actions");
 
 const PRODUCT_KEY = process.env.PRODUCT_KEY_INCORPORATION_REGULAR;
 if (!PRODUCT_KEY) throw "Product key not found";
@@ -14,8 +15,6 @@ const BACKEND_HOST =
 	"http://127.0.0.1:3000";
 
 const stripe = new Stripe(STRIPE_SK);
-
-const supabase = createClient();
 
 export async function createCheckoutSession(customerEmail: string) {
 	const session = await stripe.checkout.sessions.create({
