@@ -55,11 +55,9 @@ export async function expireCheckoutSession(sessionId: string) {
 
 export async function createOrReturnVerificationSession(ownerId: CompanyOwner["id"]) {
 	const owner = await getOwnerById(ownerId);
-	// @ts-ignore This value exists in the database and is supplied with the raw `owner` object
 	if (owner.kyc_session_id) {
 		// TODO: handle cancelled sessions
 		const existingSession = await stripe.identity.verificationSessions.retrieve(
-			// @ts-ignore This value exists in the database and is supplied with the raw `owner` object
 			owner.kyc_session_id,
 		);
 

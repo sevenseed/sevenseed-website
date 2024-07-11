@@ -40,3 +40,8 @@ export interface DatabaseReadyCompanyOwner {
 
 	color: string;
 }
+
+export interface OwnerExtraDatabaseColumns {
+	document_submitted: boolean;
+	kyc_session_id: string;
+}
