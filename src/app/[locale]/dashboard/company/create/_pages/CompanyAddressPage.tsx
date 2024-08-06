@@ -1,8 +1,9 @@
-import { useContext } from "react";
+import { useContext, useMemo, useState } from "react";
 import FormPage from "../_components/FormPage";
 import { RadioFormInput, RadioOption, SimpleFormInput } from "../_components/Inputs";
 import { NewCompanyContext } from "@/contexts/NewCompanyContext";
 import type { CompanyData } from "@/api/interfaces/company";
+import type { UUID } from "crypto";
 
 import styles from "./pages.module.css";
 
@@ -12,6 +13,11 @@ export default function CompanyInfoPage() {
 		(companyData.addressType as CompanyData["addressType"]) === "ExistingAddress";
 	const usesHomeAddress =
 		(companyData.addressType as CompanyData["addressType"]) === "HomeAddress";
+
+	const [contactOwnerID, setContactOwner] = useState<UUID | null>(null);
+	const contactOwner = useMemo(() => {
+		return owners.find((owner) => owner.id === contactOwnerID);
+	}, [owners, contactOwnerID]);
 
 	return (
 		<div className={styles.pageWrapper}>
@@ -28,6 +34,10 @@ export default function CompanyInfoPage() {
 							className="flex-1 -mt-2 sm:mt-0 ml-4 sm:ml-0 border rounded disabled:bg-zinc-100"
 							name="addressSource"
 							id="addressSource"
+							value={contactOwnerID as string}
+							onChange={(event) => {
+								setContactOwner(event.currentTarget.value as UUID);
+							}}
 							disabled={!usesHomeAddress}
 						>
 							{owners.length ? (
@@ -58,7 +68,13 @@ export default function CompanyInfoPage() {
 					id="addressLine1"
 					label="Address line 1"
 					placeholder="Rue de la Loi, 123"
-					value={usesExistingAddress ? companyData.addressLine1 : ""}
+					value={
+						usesExistingAddress
+							? companyData.addressLine1
+							: usesHomeAddress
+								? contactOwner?.addressLine1
+								: ""
+					}
 					required={usesExistingAddress}
 					disabled={!usesExistingAddress}
 				/>
@@ -66,7 +82,13 @@ export default function CompanyInfoPage() {
 					id="addressLine2"
 					label="Address line 2"
 					placeholder="Apt 123"
-					value={usesExistingAddress ? companyData.addressLine2 : ""}
+					value={
+						usesExistingAddress
+							? companyData.addressLine2
+							: usesHomeAddress
+								? contactOwner?.addressLine2
+								: ""
+					}
 					disabled={!usesExistingAddress}
 				/>
 				<div className="flex-wrap sm:flex-nowrap gap-x-2 gap-y-1 grid sm:grid-cols-[1fr_3fr]">
@@ -75,14 +97,26 @@ export default function CompanyInfoPage() {
 						label="Postal code"
 						placeholder="1040"
 						className="sm:max-w-[10ch]"
-						value={usesExistingAddress ? companyData.postalCode : ""}
+						value={
+							usesExistingAddress
+								? companyData.postalCode
+								: usesHomeAddress
+									? contactOwner?.postalCode
+									: ""
+						}
 						disabled={!usesExistingAddress}
 					/>
 					<SimpleFormInput
 						id="city"
 						label="City"
 						placeholder="Brussels"
-						value={usesExistingAddress ? companyData.city : ""}
+						value={
+							usesExistingAddress
+								? companyData.city
+								: usesHomeAddress
+									? contactOwner?.city
+									: ""
+						}
 						required={usesExistingAddress}
 						disabled={!usesExistingAddress}
 					/>
@@ -91,14 +125,26 @@ export default function CompanyInfoPage() {
 					id="region"
 					label="State / Province / Region"
 					placeholder="Brussels-Capital Region"
-					value={usesExistingAddress ? companyData.region : ""}
+					value={
+						usesExistingAddress
+							? companyData.region
+							: usesHomeAddress
+								? contactOwner?.region
+								: ""
+					}
 					disabled={!usesExistingAddress}
 				/>
 				<SimpleFormInput
 					id="country"
 					label="Country"
 					placeholder="Belgium"
-					value={usesExistingAddress ? companyData.country : ""}
+					value={
+						usesExistingAddress
+							? companyData.country
+							: usesHomeAddress
+								? contactOwner?.country
+								: ""
+					}
 					required={usesExistingAddress}
 					disabled={!usesExistingAddress}
 				/>
