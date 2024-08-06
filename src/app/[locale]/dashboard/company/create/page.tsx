@@ -1,12 +1,12 @@
 "use client";
 import {
-	type FormEvent,
 	useCallback,
 	useContext,
 	useRef,
 	useState,
 	useEffect,
 	useMemo,
+	type FormEvent,
 } from "react";
 import omit from "just-omit";
 import * as changeKeys from "change-case/keys";
@@ -192,8 +192,8 @@ export default function Create() {
 			>
 				<Loader size={32} themed />
 			</div>
-			<div className="flex flex-col py-4 sm:py-8 lg:py-16 px-8 w-full md:w-3/4 lg:w-1/2 gap-y-8 mx-auto">
-				<h1 className="font-display text-4xl font-extrabold text-slate-900 text-balance">
+			<div className="md:w-3/4 lg:w-1/2 w-full flex flex-col gap-y-8 mx-auto px-8 py-4 sm:py-8 lg:py-16">
+				<h1 className="font-display font-extrabold text-4xl text-balance text-slate-900">
 					Seven Seed Entity Questionnaire
 				</h1>
 				<div className="w-full flex flex-1 sm:gap-x-8">

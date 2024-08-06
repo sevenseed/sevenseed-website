@@ -2,7 +2,11 @@
 import { createClient } from "@/supabase/server";
 import type { UUID } from "crypto";
 import type { DatabaseReadyCompanyData } from "@/api/interfaces/company";
-import type { CompanyOwner, DatabaseReadyCompanyOwner, OwnerExtraDatabaseColumns } from "@/api/interfaces/owners";
+import type {
+	CompanyOwner,
+	DatabaseReadyCompanyOwner,
+	OwnerExtraDatabaseColumns,
+} from "@/api/interfaces/owners";
 
 const supabase = createClient();
 
