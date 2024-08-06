@@ -23,3 +23,11 @@ export const STRIPE_SK = (() => {
 	if (!stripeSecretKey && IS_SERVER) throw new Error("STRIPE_SK is missing");
 	return stripeSecretKey;
 })();
+
+export const LOOPS_KYC_EMAIL_KEY = (() => {
+	const loopsKey = process.env.LOOPS_KYC_EMAIL_KEY;
+	// * a non-public key will always be missing from the client
+	// * so we only check for it on the server side
+	if (!loopsKey && IS_SERVER) throw new Error("LOOPS_KYC_EMAIL_KEY is missing");
+	return loopsKey;
+})();
