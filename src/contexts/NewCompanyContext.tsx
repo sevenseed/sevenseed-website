@@ -36,10 +36,6 @@ const defaultCompanyData: CompanyData = {
 };
 
 export const defaultRequiredCompanyData: KeyArray<CompanyData> = [
-	"addressLine1",
-	"city",
-	"country",
-
 	"name",
 	"description",
 	"legalEntityType",
