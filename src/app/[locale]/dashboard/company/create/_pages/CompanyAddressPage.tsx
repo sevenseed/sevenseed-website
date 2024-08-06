@@ -17,7 +17,7 @@ export default function CompanyInfoPage() {
 		<div className={styles.pageWrapper}>
 			<FormPage step="companyAddress" label="Company Address">
 				<RadioFormInput id="addressType">
-					<div className="w-full flex flex-col sm:flex-row gap-x-2">
+					<div className="w-full flex sm:flex-row flex-col gap-x-2">
 						<RadioOption
 							id="addressType"
 							label="Use home address of"
@@ -25,7 +25,7 @@ export default function CompanyInfoPage() {
 							required
 						/>
 						<select
-							className="flex-1 rounded border ml-4 -mt-2 sm:ml-0 sm:mt-0 disabled:bg-zinc-100"
+							className="flex-1 -mt-2 sm:mt-0 ml-4 sm:ml-0 border rounded disabled:bg-zinc-100"
 							name="addressSource"
 							id="addressSource"
 							disabled={!usesHomeAddress}
@@ -69,7 +69,7 @@ export default function CompanyInfoPage() {
 					value={usesExistingAddress ? companyData.addressLine2 : ""}
 					disabled={!usesExistingAddress}
 				/>
-				<div className="grid sm:grid-cols-[1fr_3fr] gap-x-2 gap-y-1 flex-wrap sm:flex-nowrap">
+				<div className="flex-wrap sm:flex-nowrap gap-x-2 gap-y-1 grid sm:grid-cols-[1fr_3fr]">
 					<SimpleFormInput
 						id="postalCode"
 						label="Postal code"
