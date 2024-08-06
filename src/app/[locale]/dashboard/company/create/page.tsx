@@ -145,25 +145,20 @@ export default function Create() {
 		setUserId(user?.id as UUID);
 	}, [router]);
 
-	// TODO: solve typing issues
 	const getApplicationById = useCallback(
 		async (id: CompanyData["id"]) => {
 			const [application, owners] = await getApplication(id);
-			const localizedApplication = changeKeys.camelCase(application);
-			const localizedOwners = owners.map(
+			const reactReadyApplication = changeKeys.camelCase(
+				omit(application, DBOmitKeys),
+			) as CompanyData;
+			const reactReadyOwners = owners.map(
 				(owner) => changeKeys.camelCase(owner) as CompanyOwner,
 			);
-
-			const reactReadyApplication = omit(
-				// @ts-ignore
-				localizedApplication,
-				DBOmitKeys,
-			) as CompanyData;
 
 			setApplicationId(id);
 			setCompanyData({ ...reactReadyApplication });
 			setCompanyDataSnapshot({ ...reactReadyApplication });
-			dispatch({ type: "SET", owners: localizedOwners });
+			dispatch({ type: "SET", owners: reactReadyOwners });
 		},
 		[setCompanyData, dispatch],
 	);
