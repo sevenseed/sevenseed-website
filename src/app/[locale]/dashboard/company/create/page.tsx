@@ -21,6 +21,7 @@ import {
 	type CompanyData,
 } from "@/api/interfaces/company";
 import { createOrReturnVerificationSession } from "@/api/actions/stripe";
+import { sendKYCEmailToOwner } from "@/api/actions/emails";
 import type { UUID } from "crypto";
 import type { CompanyOwner, DatabaseReadyCompanyOwner } from "@/api/interfaces/owners";
 
@@ -44,6 +45,7 @@ export default function Create() {
 		useContext(NewCompanyContext);
 
 	const [isLoading, setIsLoading] = useState(true);
+	const [isSubmitting, setIsSubmitting] = useState(false);
 	const searchParams = useSearchParams();
 	const URLApplicationId = useMemo(
 		() => (searchParams.get("applicationId") as CompanyData["id"]) || "",
@@ -64,7 +66,8 @@ export default function Create() {
 
 	const saveSnapshot = useCallback(() => {
 		setCompanyDataSnapshot({ ...companyData });
-	}, [companyData]);
+		setOwnersSnapshot([...owners]);
+	}, [owners, companyData]);
 
 	const saveDataToSupabase = useCallback(
 		async (submitting = false) => {
@@ -124,13 +127,24 @@ export default function Create() {
 		async (event: FormEvent<HTMLFormElement>) => {
 			event.preventDefault();
 
+			setIsSubmitting(true);
+
 			await saveDataToSupabase(/* submitting the application */ true);
 
-			owners.forEach(
-				async (owner) => await createOrReturnVerificationSession(owner.id),
-			);
+			const promises = owners.map(async (owner) => {
+				const [sessionUrl, emailResponse] = await Promise.all([
+					createOrReturnVerificationSession(owner.id),
+					sendKYCEmailToOwner(owner.email, owner.id),
+				]);
+				return { sessionUrl, emailResponse };
+			});
+
+			await Promise.all(promises)
+				.then(() => setIsSubmitting(false))
+				.catch((reason) => console.log(reason));
 
 			if (isTesting) {
+				console.log("In test mode, redirecting to dashboard...");
 				goToDashboard();
 			} else {
 				handleSubmit(event);
@@ -180,7 +194,7 @@ export default function Create() {
 			<div
 				id="loading-indicator"
 				className={
-					isLoading
+					isLoading || isSubmitting
 						? "fixed inset-0 h-full flex justify-center items-center bg-slate-100/50 z-50"
 						: "hidden"
 				}
