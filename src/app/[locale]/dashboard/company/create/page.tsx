@@ -35,7 +35,7 @@ import OwnershipPage from "./_pages/OwnershipPage";
 
 const env = process.env.VERCEL_ENV;
 const isTesting = env === undefined || env === "development" || env === "preview";
-console.log("🚀 ~ isTesting:", isTesting);
+isTesting && console.log("🚀 ~ isTesting:", isTesting);
 
 const supabase = createClient();
 
@@ -59,7 +59,7 @@ export default function Create() {
 	const router = useRouter();
 
 	const goToDashboard = useCallback(() => {
-		return router.push(`/dashboard/`);
+		return router.replace("/dashboard");
 	}, [router]);
 
 	const saveSnapshot = useCallback(() => {

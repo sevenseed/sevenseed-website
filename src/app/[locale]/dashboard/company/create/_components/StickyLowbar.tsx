@@ -113,7 +113,11 @@ export default function StickyLowbar({
 						onClick={submitForm}
 						disabled={disableSubmit}
 						className={clsx(styles.button, "flex-1")}
-						title={disableSubmit && "Please fill out all required fields"}
+						title={
+							disableSubmit
+								? "Please fill out all required fields"
+								: undefined
+						}
 					>
 						{formState.submitting ? "Submitting..." : "Submit"}
 					</button>

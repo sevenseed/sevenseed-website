@@ -12,7 +12,7 @@ export const DBOmitKeys = [
 	"updated_at",
 	"application_submitted",
 	"schema_version",
-] as const;
+] as Array<keyof DatabaseReadyCompanyData>;
 
 export interface CompanyData {
 	id: UUID;

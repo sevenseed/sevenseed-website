@@ -27,7 +27,7 @@ function VerifyOwnerIdentity({ params }: { params: { id: CompanyOwner["id"] } })
 
 	const redirectToVerification = useCallback(async () => {
 		const url = await createOrReturnVerificationSession(params.id);
-		if (!url) throw "Verification session did not return a URL";
+		if (!url) throw new Error("Verification session did not return a URL");
 
 		router.replace(url);
 	}, [params.id, router]);
@@ -67,8 +67,7 @@ function VerifyOwnerIdentity({ params }: { params: { id: CompanyOwner["id"] } })
 				<ButtonWithLoader
 					theme="verification"
 					isLoaderVisible={isRedirecting}
-					onClick={(event) => {
-						// event.preventDefault();
+					onClick={() => {
 						setIsRedirecting(true);
 						return redirectToVerification();
 					}}
