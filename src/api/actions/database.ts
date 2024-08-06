@@ -53,19 +53,27 @@ export async function createKYCSessionForOwner(
 	ownerId: CompanyOwner["id"],
 	sessionId: string,
 ) {
-	await supabase
+	const { data, error } = await supabase
 		.from("owners")
 		.update({ kyc_session_id: sessionId })
 		.eq("id", ownerId)
 		.select()
 		.single();
+
+	if (error) throw new Error(error.message);
+
+	return data;
 }
 
 export async function markOwnerDocumentAsSubmitted(id: CompanyOwner["id"]) {
-	await supabase
+	const { data, error } = await supabase
 		.from("owners")
 		.update({ document_submitted: true })
 		.eq("id", id)
 		.select()
 		.single();
+
+	if (error) throw new Error(error.message);
+
+	return data;
 }
