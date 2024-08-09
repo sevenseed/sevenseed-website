@@ -167,6 +167,7 @@ export function SimpleFormInput({
 
 	const onChange = useCallback(
 		(event: ChangeEvent<HTMLInputElement>) => {
+			if (!Object.hasOwn(companyData, id)) return;
 			setCompanyData({ ...companyData, [id]: event.currentTarget.value });
 		},
 		[id, companyData, setCompanyData],

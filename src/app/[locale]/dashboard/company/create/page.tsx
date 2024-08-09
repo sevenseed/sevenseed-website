@@ -16,7 +16,7 @@ import { NewCompanyContext } from "@/contexts/NewCompanyContext";
 import { getUser } from "@/api/actions/auth";
 import { getApplication } from "@/api/actions/database";
 import {
-	DBOmitKeys,
+	DATABASE_OMIT_KEYS,
 	type DatabaseReadyCompanyData,
 	type CompanyData,
 } from "@/api/interfaces/company";
@@ -163,7 +163,7 @@ export default function Create() {
 		async (id: CompanyData["id"]) => {
 			const [application, owners] = await getApplication(id);
 			const reactReadyApplication = changeKeys.camelCase(
-				omit(application, DBOmitKeys),
+				omit(application, DATABASE_OMIT_KEYS),
 			) as CompanyData;
 			const reactReadyOwners = owners.map(
 				(owner) => changeKeys.camelCase(owner) as CompanyOwner,

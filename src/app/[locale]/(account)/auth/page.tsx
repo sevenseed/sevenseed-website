@@ -38,11 +38,11 @@ export default function Signup() {
 			setIsSubmitting(true);
 			setMessage("");
 
-			const { message, error } = await signIn(formData, returnTo);
+			const response = await signIn(formData, returnTo);
 
-			if (error) console.error(error);
+			if (response.error) console.error(response.error);
 
-			if (message) setMessage(message);
+			if (response.message) setMessage(message);
 
 			setIsSubmitting(false);
 		},
