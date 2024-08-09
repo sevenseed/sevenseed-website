@@ -80,6 +80,7 @@ export default function OwnershipPage() {
 								type="number"
 								placeholder="10000"
 								className="min-w-[8ch] max-w-[14ch] pl-1 border rounded overflow-hidden"
+								value={owner.shares}
 								onChange={(event) => onChange(event, owner)}
 							/>
 						</label>
