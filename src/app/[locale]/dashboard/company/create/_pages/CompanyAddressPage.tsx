@@ -35,7 +35,7 @@ export default function CompanyInfoPage() {
 			"postalCode",
 		]);
 		setCompanyData({ ...companyData, ...address });
-	}, [contactOwner]);
+	}, [companyData, setCompanyData, contactOwner]);
 
 	return (
 		<div className={styles.pageWrapper}>
