@@ -42,7 +42,7 @@ export default function Signup() {
 
 			if (response.error) console.error(response.error);
 
-			if (response.message) setMessage(message);
+			if (response.message) setMessage(response.message);
 
 			setIsSubmitting(false);
 		},
