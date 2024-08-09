@@ -42,7 +42,7 @@ export default function CompanyInfoPage() {
 						>
 							{owners.length ? (
 								owners.map((owner) => (
-									<option value={owner.id} key={owner.id}>
+									<option key={owner.id} value={owner.id}>
 										{owner.name || "an unnamed owner"}
 									</option>
 								))

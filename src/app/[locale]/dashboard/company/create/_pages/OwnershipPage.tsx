@@ -35,7 +35,7 @@ export default function OwnershipPage() {
 		return (
 			<div className={styles.pageWrapper}>
 				<FormPage step="shares" label="Ownership">
-					<div className="flex flex-col gap-y-2 w-full text-balance text-slate-600">
+					<div className="w-full flex flex-col gap-y-2 text-balance text-slate-600">
 						<span className="text-xl">
 							Here you will be able to adjust the amount of shares per
 							owner
@@ -51,7 +51,7 @@ export default function OwnershipPage() {
 			<FormPage step="shares" label="Ownership">
 				<div
 					className={clsx(
-						"flex h-10 bg-slate-50 border rounded overflow-hidden",
+						"h-10 flex border rounded bg-slate-50 overflow-hidden",
 						isOverOneHundredPercent && "border-4 border-red-300",
 					)}
 				>
@@ -69,9 +69,9 @@ export default function OwnershipPage() {
 				<div className="flex flex-col gap-y-2">
 					{owners.map((owner) => (
 						<label key={owner.id} className="flex justify-between">
-							<span className="inline-flex gap-x-1 items-baseline font-semibold">
+							<span className="inline-flex items-baseline gap-x-1 font-semibold">
 								<span
-									className="inline-block w-3 h-3 rounded"
+									className="h-3 inline-block rounded w-3"
 									style={{ backgroundColor: owner.color }}
 								/>{" "}
 								{owner.name || "Unnamed owner"}
