@@ -140,7 +140,11 @@ export default function Signup() {
 								</div>
 							</label>
 						</div>
-						<ButtonWithLoader theme="signIn" isLoaderVisible={isSubmitting}>
+						<ButtonWithLoader
+							type="submit"
+							theme="signIn"
+							isLoaderVisible={isSubmitting}
+						>
 							Sign In
 						</ButtonWithLoader>
 					</form>
@@ -185,7 +189,11 @@ export default function Signup() {
 								</div>
 							</label>
 						</div>
-						<ButtonWithLoader theme="signUp" isLoaderVisible={isSubmitting}>
+						<ButtonWithLoader
+							type="submit"
+							theme="signUp"
+							isLoaderVisible={isSubmitting}
+						>
 							Sign Up
 						</ButtonWithLoader>
 					</form>
