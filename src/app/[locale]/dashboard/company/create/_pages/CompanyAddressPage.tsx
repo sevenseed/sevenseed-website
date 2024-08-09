@@ -1,4 +1,5 @@
-import { useContext, useMemo, useState } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
+import pick from "just-pick";
 import FormPage from "../_components/FormPage";
 import { RadioFormInput, RadioOption, SimpleFormInput } from "../_components/Inputs";
 import { NewCompanyContext } from "@/contexts/NewCompanyContext";
@@ -8,16 +9,33 @@ import type { UUID } from "crypto";
 import styles from "./pages.module.css";
 
 export default function CompanyInfoPage() {
-	const { companyData, owners } = useContext(NewCompanyContext);
+	const { companyData, setCompanyData, owners } = useContext(NewCompanyContext);
 	const usesExistingAddress =
 		(companyData.addressType as CompanyData["addressType"]) === "ExistingAddress";
 	const usesHomeAddress =
 		(companyData.addressType as CompanyData["addressType"]) === "HomeAddress";
 
-	const [contactOwnerID, setContactOwner] = useState<UUID | null>(null);
+	const [contactOwnerID, setContactOwnerID] = useState<UUID | null>(null);
 	const contactOwner = useMemo(() => {
 		return owners.find((owner) => owner.id === contactOwnerID);
 	}, [owners, contactOwnerID]);
+
+	useEffect(() => {
+		setContactOwnerID(companyData.addressSource || null);
+	}, [companyData]);
+
+	useEffect(() => {
+		if (!contactOwner) return;
+		const address = pick(contactOwner, [
+			"addressLine1",
+			"addressLine2",
+			"city",
+			"region",
+			"country",
+			"postalCode",
+		]);
+		setCompanyData({ ...companyData, ...address });
+	}, [contactOwner]);
 
 	return (
 		<div className={styles.pageWrapper}>
@@ -34,9 +52,15 @@ export default function CompanyInfoPage() {
 							className="flex-1 -mt-2 sm:mt-0 ml-4 sm:ml-0 border rounded disabled:bg-zinc-100"
 							name="addressSource"
 							id="addressSource"
-							value={contactOwnerID as string}
+							value={contactOwnerID ?? ""}
 							onChange={(event) => {
-								setContactOwner(event.currentTarget.value as UUID);
+								const sourceValue = event.currentTarget.value as UUID;
+								setContactOwnerID(sourceValue ? sourceValue : null);
+								if (!sourceValue) return;
+								setCompanyData({
+									...companyData,
+									addressSource: event.currentTarget.value as UUID,
+								});
 							}}
 							disabled={!usesHomeAddress}
 						>
