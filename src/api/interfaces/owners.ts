@@ -36,8 +36,6 @@ export interface DatabaseReadyCompanyOwner {
 	region?: string;
 	country: string;
 
-	shares: number;
-
 	color: string;
 }
 
