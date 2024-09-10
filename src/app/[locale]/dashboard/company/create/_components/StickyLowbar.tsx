@@ -60,14 +60,15 @@ export default function StickyLowbar({
 			(owner) => !Number.isNaN(owner.shares) && owner.shares > 0,
 		);
 
-	const hasDataChanged = useMemo(
-		() =>
-			!compare(companyDataSnapshot, companyData) &&
-			!compare(ownersSnapshot, owners),
-		[companyDataSnapshot, companyData, ownersSnapshot, owners],
-	);
 		return allRequiredFieldsFilled && allOwnersHaveShares;
 	}, [companyData, owners]);
+
+	const hasDataChanged = useMemo(() => {
+		const hasCompanyDataChanged = !compare(companyDataSnapshot, companyData);
+		const hasOwnersDataChanged = !compare(ownersSnapshot, owners);
+
+		return hasCompanyDataChanged || hasOwnersDataChanged;
+	}, [companyDataSnapshot, companyData, ownersSnapshot, owners]);
 
 	// * `.requestSubmit()` triggers the `submit` event in browser
 	// * `.submit()` doesn't trigger it
