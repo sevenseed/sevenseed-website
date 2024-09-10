@@ -56,8 +56,9 @@ export default function StickyLowbar({
 				return value !== "";
 			});
 
-		return allRequiredFieldsFilled;
-	}, [companyData]);
+		const allOwnersHaveShares = owners.every(
+			(owner) => !Number.isNaN(owner.shares) && owner.shares > 0,
+		);
 
 	const hasDataChanged = useMemo(
 		() =>
@@ -65,6 +66,8 @@ export default function StickyLowbar({
 			!compare(ownersSnapshot, owners),
 		[companyDataSnapshot, companyData, ownersSnapshot, owners],
 	);
+		return allRequiredFieldsFilled && allOwnersHaveShares;
+	}, [companyData, owners]);
 
 	// * `.requestSubmit()` triggers the `submit` event in browser
 	// * `.submit()` doesn't trigger it

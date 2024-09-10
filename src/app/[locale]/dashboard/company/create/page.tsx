@@ -79,10 +79,13 @@ export default function Create() {
 			) as DatabaseReadyCompanyData;
 
 			const companyUpsertValues = {
-				schema_version: 1,
+				schema_version: 2,
 				id: applicationId,
 				user_id: userId,
-				owners: [...owners.map((owner) => owner.id)],
+				owners: owners.map((owner) => owner.id),
+				shares_by_owner: JSON.stringify(
+					owners.map((owner) => [owner.id, owner.shares]),
+				),
 				application_submitted: submitting,
 			};
 
@@ -90,6 +93,11 @@ export default function Create() {
 				...companyUpsertValues,
 				...databaseReadyCompanyData,
 			};
+
+			const ownersUpsertArray = owners.map((owner) => {
+				const { shares, ...updatedOwner } = owner;
+				return changeKeys.snakeCase(updatedOwner);
+			});
 
 			const { data: companyDataResponse, error: companyError } = await supabase
 				.from("companies")
@@ -104,14 +112,9 @@ export default function Create() {
 
 			const { error: ownersError } = await supabase
 				.from("owners")
-				.upsert(
-					owners.map((owner) =>
-						changeKeys.snakeCase(owner),
-					) as DatabaseReadyCompanyOwner[],
-					{
-						onConflict: "id",
-					},
-				)
+				.upsert(ownersUpsertArray as DatabaseReadyCompanyOwner[], {
+					onConflict: "id",
+				})
 				.select();
 
 			if (ownersError) throw new Error(ownersError.message);
@@ -162,17 +165,31 @@ export default function Create() {
 	const getApplicationById = useCallback(
 		async (id: CompanyData["id"]) => {
 			const [application, owners] = await getApplication(id);
+			const sharesByOwner = JSON.parse(application.shares_by_owner) as Array<
+				[CompanyOwner["id"], CompanyOwner["shares"]]
+			>;
 			const reactReadyApplication = changeKeys.camelCase(
 				omit(application, DATABASE_OMIT_KEYS),
 			) as CompanyData;
-			const reactReadyOwners = owners.map(
-				(owner) => changeKeys.camelCase(owner) as CompanyOwner,
-			);
+			const reactReadyOwners = owners.map((owner) => {
+				const sharesOfCurrentOwner = sharesByOwner.find(
+					(sharesArray) => sharesArray[0] === owner.id,
+				);
+				if (!sharesOfCurrentOwner)
+					throw new Error(
+						"Cannot find shares of owner by ID while restoring application!",
+					);
+				return changeKeys.camelCase({
+					...owner,
+					shares: sharesOfCurrentOwner[1],
+				}) as CompanyOwner;
+			});
 
 			setApplicationId(id);
 			setCompanyData({ ...reactReadyApplication });
 			setCompanyDataSnapshot({ ...reactReadyApplication });
 			dispatch({ type: "SET", owners: reactReadyOwners });
+			setOwnersSnapshot(reactReadyOwners);
 		},
 		[setCompanyData, dispatch],
 	);

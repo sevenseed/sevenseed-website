@@ -13,6 +13,7 @@ export const DATABASE_OMIT_KEYS = [
 	"updated_at",
 	"application_submitted",
 	"schema_version",
+	"shares_by_owner",
 ] as Array<keyof DatabaseReadyCompanyData>;
 
 export interface CompanyData {
@@ -54,6 +55,9 @@ export interface DatabaseReadyCompanyData {
 	postal_code: string;
 	address_line1: string;
 	address_line2?: string;
+
+	// * JSONized array of objects
+	shares_by_owner: string;
 }
 
 export interface NewCompanyContext {
