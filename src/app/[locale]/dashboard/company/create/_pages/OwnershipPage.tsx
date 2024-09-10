@@ -11,7 +11,10 @@ const overallShares = 1_000_000;
 export default function OwnershipPage() {
 	const { owners, dispatch } = useContext(NewCompanyContext);
 
-	const currentShareValues = owners.map((owner) => owner.shares);
+	const currentShareValues = owners.map((owner) =>
+		// * `NaN` check prevents `NaN` appearing instead of shares percentage
+		Number.isNaN(owner.shares) ? 0 : owner.shares,
+	);
 	const currentShares = currentShareValues.reduce((accumulator, shares) => {
 		accumulator += shares;
 		return accumulator;
@@ -80,7 +83,7 @@ export default function OwnershipPage() {
 								type="number"
 								placeholder="10000"
 								className="min-w-[8ch] max-w-[14ch] pl-1 border rounded overflow-hidden"
-								value={owner.shares}
+								value={owner.shares || ""}
 								onChange={(event) => onChange(event, owner)}
 							/>
 						</label>
@@ -98,9 +101,11 @@ export default function OwnershipPage() {
 								isOverOneHundredPercent && "text-red-300",
 							)}
 						>
-							{sharesPercentage < 0.01
-								? "<0.01"
-								: Number.parseFloat(sharesPercentage.toFixed(2))}
+							{sharesPercentage === 0
+								? "0"
+								: sharesPercentage < 0.01
+									? "<0.01"
+									: Number.parseFloat(sharesPercentage.toFixed(2))}
 							%
 						</span>
 					</span>

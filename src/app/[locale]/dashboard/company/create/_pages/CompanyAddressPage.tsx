@@ -3,20 +3,18 @@ import pick from "just-pick";
 import FormPage from "../_components/FormPage";
 import { RadioFormInput, RadioOption, SimpleFormInput } from "../_components/Inputs";
 import { NewCompanyContext } from "@/contexts/NewCompanyContext";
-import type { CompanyData } from "@/api/interfaces/company";
 import type { UUID } from "crypto";
 
 import styles from "./pages.module.css";
 
 export default function CompanyInfoPage() {
 	const { companyData, setCompanyData, owners } = useContext(NewCompanyContext);
-	const usesExistingAddress =
-		(companyData.addressType as CompanyData["addressType"]) === "ExistingAddress";
-	const usesHomeAddress =
-		(companyData.addressType as CompanyData["addressType"]) === "HomeAddress";
+	const usesExistingAddress = companyData.addressType === "ExistingAddress";
+	const usesHomeAddress = companyData.addressType === "HomeAddress";
 
 	const [contactOwnerID, setContactOwnerID] = useState<UUID | null>(null);
 	const contactOwner = useMemo(() => {
+		if (!contactOwnerID) return null;
 		return owners.find((owner) => owner.id === contactOwnerID);
 	}, [owners, contactOwnerID]);
 
@@ -55,11 +53,11 @@ export default function CompanyInfoPage() {
 							value={contactOwnerID ?? ""}
 							onChange={(event) => {
 								const sourceValue = event.currentTarget.value as UUID;
-								setContactOwnerID(sourceValue ? sourceValue : null);
 								if (!sourceValue) return;
+								setContactOwnerID(sourceValue);
 								setCompanyData({
 									...companyData,
-									addressSource: event.currentTarget.value as UUID,
+									addressSource: sourceValue,
 								});
 							}}
 							disabled={!usesHomeAddress}

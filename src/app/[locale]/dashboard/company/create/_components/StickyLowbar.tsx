@@ -80,7 +80,7 @@ export default function StickyLowbar({
 	return (
 		<div
 			className={clsx(
-				"flex flex-col sm:flex-row justify-between items-stretch sm:items-none gap-y-4",
+				"flex sm:flex-row flex-col justify-between items-stretch sm:items-none gap-y-4",
 				"sticky bottom-4 p-4 -m-4",
 				"backdrop-blur sm:rounded-lg sm:shadow-lg",
 			)}
@@ -89,9 +89,9 @@ export default function StickyLowbar({
 				<button
 					type="button"
 					className={clsx(
-						"w-full sm:w-max duration-200",
+						"sm:w-max w-full duration-200",
 						hasDataChanged ? styles.button : styles.buttonOutline,
-						hasDataChanged || "bg-white",
+						hasDataChanged ? "" : "bg-white",
 					)}
 					onClick={saveFn}
 				>
