@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useCallback, useContext } from "react";
 import { NewCompanyContext } from "@/contexts/NewCompanyContext";
 import FormPage from "../_components/FormPage";
 import OwnerForm from "../_components/OwnerForm";
@@ -33,6 +33,8 @@ const AddUserIcon = () => (
 export default function KYCPage() {
 	const { owners, dispatch } = useContext(NewCompanyContext);
 
+	const addNewOwner = useCallback(() => dispatch({ type: "ADD" }), [dispatch]);
+
 	return (
 		<div className={styles.pageWrapper}>
 			<FormPage step="kyc" label="Founders">
@@ -40,8 +42,8 @@ export default function KYCPage() {
 					<OwnerForm key={owner.id} owner={owner} />
 				))}
 				<div
-					onClick={() => dispatch({ type: "ADD" })}
 					className="flex items-center gap-x-4 p-4 border rounded bg-slate-50 hover:bg-blue-50 cursor-pointer select-none"
+					onClick={addNewOwner}
 				>
 					<span className="h-10 text-blue-600">
 						<AddUserIcon />
