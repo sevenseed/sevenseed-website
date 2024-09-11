@@ -5,7 +5,7 @@ import type { Form } from "@/api/interfaces/form";
 import type { CompanyOwner } from "@/api/interfaces/owners";
 import type { OwnersAction } from "@/contexts/partials/CompanyOwners";
 
-// * keys to be removed from the database upon retrieval of company data
+// * keys to be removed from company data upon retrieval of company database info
 export const DATABASE_OMIT_KEYS = [
 	"user_id",
 	"owners",
