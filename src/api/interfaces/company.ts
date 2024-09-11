@@ -26,7 +26,7 @@ export interface CompanyData {
 	legalEntityType: string;
 
 	addressType: AddressType;
-	addressSource?: CompanyOwner["id"];
+	addressSource: CompanyOwner["id"];
 	country: string;
 	region?: string;
 	city: string;
