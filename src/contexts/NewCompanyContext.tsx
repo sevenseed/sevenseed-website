@@ -27,7 +27,7 @@ const defaultCompanyData: CompanyData = {
 	legalEntityType: "SRL",
 
 	addressType: "HomeAddress",
-	addressSource: undefined,
+	addressSource: defaultOwners[0].id,
 	country: "",
 	region: "",
 	city: "",
