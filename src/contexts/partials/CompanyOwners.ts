@@ -3,10 +3,9 @@ import type { CompanyOwner } from "@/api/interfaces/owners";
 import { getRandomColor } from "@/utilities";
 
 export type OwnersAction =
+	// * "ADD" type takes no parameters on purpose
+	| { type: "ADD" }
 	| { type: "SET"; owners: CompanyOwner[] }
-	| {
-			type: "ADD";
-	  }
 	| { type: "REMOVE"; id: UUID }
 	| { type: "UPDATE"; obj: CompanyOwner };
 

@@ -40,14 +40,14 @@ export default function KYCPage() {
 					<OwnerForm key={owner.id} owner={owner} />
 				))}
 				<div
-					className="flex items-center gap-x-4 bg-slate-50 hover:bg-blue-50 border rounded p-4 cursor-pointer select-none"
 					onClick={() => dispatch({ type: "ADD" })}
+					className="flex items-center gap-x-4 p-4 border rounded bg-slate-50 hover:bg-blue-50 cursor-pointer select-none"
 				>
 					<span className="h-10 text-blue-600">
 						<AddUserIcon />
 					</span>
 					<div className="w-full">
-						<span className="text-lg font-semibold text-blue-600">
+						<span className="font-semibold text-blue-600 text-lg">
 							Add a new company owner
 						</span>
 					</div>
