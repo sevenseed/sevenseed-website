@@ -7,7 +7,7 @@ import type { UUID } from "crypto";
 
 import styles from "./pages.module.css";
 
-export default function CompanyInfoPage() {
+export default function CompanyAddressPage() {
 	const { companyData, setCompanyData, owners } = useContext(NewCompanyContext);
 	const usesExistingAddress = companyData.addressType === "ExistingAddress";
 	const usesHomeAddress = companyData.addressType === "HomeAddress";
