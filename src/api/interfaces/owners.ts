@@ -1,5 +1,16 @@
+import { CompanyData } from "./company";
 import type { UUID } from "crypto";
 import type { Email, CivilStatus } from "@/api/types";
+
+// * keys for extracting address-related values from relevant objects
+export const ADDRESS_KEYS = [
+	"country",
+	"region",
+	"city",
+	"postalCode",
+	"addressLine1",
+	"addressLine2",
+] as Array<keyof CompanyOwner & keyof CompanyData>;
 
 export interface CompanyOwner {
 	id: UUID;

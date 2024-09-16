@@ -1,8 +1,8 @@
-import { useContext, useEffect, useMemo, useState } from "react";
-import pick from "just-pick";
+import { useContext, useMemo } from "react";
 import FormPage from "../_components/FormPage";
 import { RadioFormInput, RadioOption, SimpleFormInput } from "../_components/Inputs";
 import { NewCompanyContext } from "@/contexts/NewCompanyContext";
+import { getOwnerObjectById } from "../page";
 import type { UUID } from "crypto";
 
 import styles from "./pages.module.css";
@@ -12,28 +12,10 @@ export default function CompanyAddressPage() {
 	const usesExistingAddress = companyData.addressType === "ExistingAddress";
 	const usesHomeAddress = companyData.addressType === "HomeAddress";
 
-	const [contactOwnerID, setContactOwnerID] = useState<UUID | null>(null);
+	// TODO: come up with a straightforward solution to updating contact owner information without recomputing `contactOwner` on every change in `owners`
 	const contactOwner = useMemo(() => {
-		if (!contactOwnerID) return null;
-		return owners.find((owner) => owner.id === contactOwnerID);
-	}, [owners, contactOwnerID]);
-
-	useEffect(() => {
-		setContactOwnerID(companyData.addressSource || null);
-	}, [companyData]);
-
-	useEffect(() => {
-		if (!contactOwner) return;
-		const address = pick(contactOwner, [
-			"addressLine1",
-			"addressLine2",
-			"city",
-			"region",
-			"country",
-			"postalCode",
-		]);
-		setCompanyData({ ...companyData, ...address });
-	}, [companyData, setCompanyData, contactOwner]);
+		return getOwnerObjectById(owners, companyData.addressSource);
+	}, [owners, companyData.addressSource]);
 
 	return (
 		<div className={styles.pageWrapper}>
@@ -50,14 +32,12 @@ export default function CompanyAddressPage() {
 							className="flex-1 -mt-2 sm:mt-0 ml-4 sm:ml-0 border rounded disabled:bg-zinc-100"
 							name="addressSource"
 							id="addressSource"
-							value={contactOwnerID ?? ""}
+							value={companyData.addressSource ?? ""}
 							onChange={(event) => {
-								const sourceValue = event.currentTarget.value as UUID;
-								if (!sourceValue) return;
-								setContactOwnerID(sourceValue);
+								const addressSource = event.currentTarget.value as UUID;
 								setCompanyData({
 									...companyData,
-									addressSource: sourceValue,
+									addressSource,
 								});
 							}}
 							disabled={!usesHomeAddress}
