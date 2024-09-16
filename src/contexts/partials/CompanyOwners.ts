@@ -1,6 +1,6 @@
+import { getRandomColor } from "@/utilities";
 import type { UUID } from "crypto";
 import type { CompanyOwner } from "@/api/interfaces/owners";
-import { getRandomColor } from "@/utilities";
 
 export type OwnersAction =
 	// * "ADD" type takes no parameters on purpose
