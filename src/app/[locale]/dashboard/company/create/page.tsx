@@ -9,6 +9,7 @@ import {
 	type FormEvent,
 } from "react";
 import omit from "just-omit";
+import pick from "just-pick";
 import * as changeKeys from "change-case/keys";
 import { useRouter, useSearchParams } from "next/navigation";
 import { createClient } from "@/supabase/client";
@@ -20,10 +21,14 @@ import {
 	type DatabaseReadyCompanyData,
 	type CompanyData,
 } from "@/api/interfaces/company";
+import {
+	ADDRESS_KEYS,
+	type CompanyOwner,
+	type DatabaseReadyCompanyOwner,
+} from "@/api/interfaces/owners";
 import { createOrReturnVerificationSession } from "@/api/actions/stripe";
 import { sendKYCEmailToOwner } from "@/api/actions/emails";
 import type { UUID } from "crypto";
-import type { CompanyOwner, DatabaseReadyCompanyOwner } from "@/api/interfaces/owners";
 
 import Loader from "@/components/Loader";
 import StickyLowbar from "./_components/StickyLowbar";
@@ -40,6 +45,16 @@ isTesting && console.log("🚀 ~ isTesting:", isTesting);
 
 const supabase = createClient();
 
+export const getOwnerObjectById = (owners: CompanyOwner[], id: CompanyOwner["id"]) => {
+	const owner = owners.find((owner) => owner.id === id);
+	if (!owner) throw new Error("Owner not found when searching by ID!");
+	return owner;
+};
+
+const pickAddressFromObject = (source: CompanyOwner | CompanyData) => {
+	return pick(source, ADDRESS_KEYS);
+};
+
 export default function Create() {
 	const { companyData, setCompanyData, owners, dispatch, formState, handleSubmit } =
 		useContext(NewCompanyContext);
@@ -54,7 +69,7 @@ export default function Create() {
 
 	const [companyDataSnapshot, setCompanyDataSnapshot] =
 		useState<CompanyData>(companyData);
-	const [ownersSnapshot, setOwnersSnapshot] = useState<CompanyOwner[]>(owners);
+	const [ownersSnapshot, setOwnersSnapshot] = useState<CompanyOwner[]>([...owners]);
 	const [applicationId, setApplicationId] = useState<CompanyData["id"]>();
 	const [userId, setUserId] = useState<UUID>();
 	const formElement = useRef<HTMLFormElement>(null);
@@ -73,13 +88,21 @@ export default function Create() {
 		async (submitting = false) => {
 			if (!submitting) saveSnapshot();
 
+			const companyAddress =
+				companyData.addressType === "HomeAddress"
+					? pickAddressFromObject(
+							getOwnerObjectById(owners, companyData.addressSource),
+						)
+					: companyData;
+
 			// * adjust `companyData` key case to fit with the SQL DB's preferred snake_case
-			const databaseReadyCompanyData = changeKeys.snakeCase(
-				companyData,
-			) as DatabaseReadyCompanyData;
+			const databaseReadyCompanyData = changeKeys.snakeCase({
+				...companyData,
+				...companyAddress,
+			}) as DatabaseReadyCompanyData;
 
 			const companyUpsertValues = {
-				schema_version: 2,
+				schema_version: 1,
 				id: applicationId,
 				user_id: userId,
 				owners: owners.map((owner) => owner.id),
@@ -90,8 +113,8 @@ export default function Create() {
 			};
 
 			const companyUpsertObject = {
-				...companyUpsertValues,
 				...databaseReadyCompanyData,
+				...companyUpsertValues,
 			};
 
 			const ownersUpsertArray = owners.map((owner) => {
@@ -189,7 +212,7 @@ export default function Create() {
 			setCompanyData({ ...reactReadyApplication });
 			setCompanyDataSnapshot({ ...reactReadyApplication });
 			dispatch({ type: "SET", owners: reactReadyOwners });
-			setOwnersSnapshot(reactReadyOwners);
+			setOwnersSnapshot([...reactReadyOwners]);
 		},
 		[setCompanyData, dispatch],
 	);
