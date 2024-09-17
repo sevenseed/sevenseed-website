@@ -104,7 +104,7 @@ export default function Pricing() {
 				<Plan
 					nameKey="basicPlanName"
 					descriptionKey="basicPlanDescription"
-					price="2000"
+					price="2200"
 					featureKeys={basicPlanFeatures}
 				/>
 			</div>
