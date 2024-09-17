@@ -2,7 +2,7 @@ import { useContext, useMemo } from "react";
 import FormPage from "../_components/FormPage";
 import { RadioFormInput, RadioOption, SimpleFormInput } from "../_components/Inputs";
 import { NewCompanyContext } from "@/contexts/NewCompanyContext";
-import { getOwnerObjectById } from "../page";
+import { getOwnerObjectById } from "@/api/utility/get";
 import type { UUID } from "crypto";
 
 import styles from "./pages.module.css";
