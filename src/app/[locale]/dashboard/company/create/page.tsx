@@ -38,18 +38,13 @@ import CompanyInfoPage from "./_pages/CompanyInfoPage";
 import CompanyAddressPage from "./_pages/CompanyAddressPage";
 import KYCPage from "./_pages/KYCPage";
 import OwnershipPage from "./_pages/OwnershipPage";
+import { getOwnerObjectById } from "@/api/utility/get";
 
 const env = process.env.VERCEL_ENV;
 const isTesting = env === undefined || env === "development" || env === "preview";
 isTesting && console.log("🚀 ~ isTesting:", isTesting);
 
 const supabase = createClient();
-
-export const getOwnerObjectById = (owners: CompanyOwner[], id: CompanyOwner["id"]) => {
-	const owner = owners.find((owner) => owner.id === id);
-	if (!owner) throw new Error("Owner not found when searching by ID!");
-	return owner;
-};
 
 const pickAddressFromObject = (source: CompanyOwner | CompanyData) => {
 	return pick(source, ADDRESS_KEYS);
