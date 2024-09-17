@@ -3,9 +3,9 @@ import { createClient } from "@/supabase/server";
 import { RedirectType, redirect } from "next/navigation";
 import { headers } from "next/headers";
 
-export const getUser = async () => {
-	const supabase = createClient();
+const supabase = createClient();
 
+export const getUser = async () => {
 	const { data, error } = await supabase.auth.getUser();
 
 	if (error) {
@@ -28,9 +28,7 @@ export const getUser = async () => {
 	};
 };
 
-export const signIn = async (formData: FormData, returnTo = "") => {
-	const supabase = createClient();
-
+export const signIn = async (formData: FormData, returnTo = "/dashboard") => {
 	const email = formData.get("email") as string;
 	const password = formData.get("password") as string;
 
@@ -51,8 +49,6 @@ export const signIn = async (formData: FormData, returnTo = "") => {
 };
 
 export const signUp = async (formData: FormData, redirectTo = "/dashboard") => {
-	const supabase = createClient();
-
 	const origin = headers().get("origin");
 	const email = formData.get("email") as string;
 	const password = formData.get("password") as string;
@@ -69,12 +65,10 @@ export const signUp = async (formData: FormData, redirectTo = "/dashboard") => {
 		return { message: "Could not sign up user", error };
 	}
 
-	return redirect(redirectTo);
+	return redirect(redirectTo, RedirectType.replace);
 };
 
 export const sendPasswordRecoveryEmail = async (email: string) => {
-	const supabase = createClient();
-
 	const origin = headers().get("origin");
 
 	const response = await supabase.auth.resetPasswordForEmail(email, {
@@ -85,8 +79,6 @@ export const sendPasswordRecoveryEmail = async (email: string) => {
 };
 
 export const setPassword = async (password: string) => {
-	const supabase = createClient();
-
 	const response = await supabase.auth.updateUser({ password });
 
 	return response;

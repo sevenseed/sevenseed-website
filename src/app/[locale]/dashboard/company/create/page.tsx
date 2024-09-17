@@ -1,115 +1,177 @@
 "use client";
 import {
-	type FormEvent,
 	useCallback,
 	useContext,
 	useRef,
 	useState,
 	useEffect,
 	useMemo,
+	type FormEvent,
 } from "react";
+import omit from "just-omit";
+import pick from "just-pick";
+import * as changeKeys from "change-case/keys";
 import { useRouter, useSearchParams } from "next/navigation";
 import { createClient } from "@/supabase/client";
 import { NewCompanyContext } from "@/contexts/NewCompanyContext";
 import { getUser } from "@/api/actions/auth";
-import omit from "just-omit";
-import * as changeKeys from "change-case/keys";
-import type { DatabaseReadyCompanyData, CompanyData } from "@/api/interfaces";
+import { getApplication } from "@/api/actions/database";
+import {
+	DATABASE_OMIT_KEYS,
+	type DatabaseReadyCompanyData,
+	type CompanyData,
+} from "@/api/interfaces/company";
+import {
+	ADDRESS_KEYS,
+	type CompanyOwner,
+	type DatabaseReadyCompanyOwner,
+} from "@/api/interfaces/owners";
+import { createOrReturnVerificationSession } from "@/api/actions/stripe";
+import { sendKYCEmailToOwner } from "@/api/actions/emails";
 import type { UUID } from "crypto";
 
 import Loader from "@/components/Loader";
 import StickyLowbar from "./_components/StickyLowbar";
 
 import NavigationSidebar from "./_components/NavigationSidebar";
-import ClientInfoPage from "./_pages/ClientInfoPage";
-import ClientAddressPage from "./_pages/ClientAddressPage";
 import CompanyInfoPage from "./_pages/CompanyInfoPage";
 import CompanyAddressPage from "./_pages/CompanyAddressPage";
-import { getApplication } from "@/api/actions/database";
+import KYCPage from "./_pages/KYCPage";
+import OwnershipPage from "./_pages/OwnershipPage";
+import { getOwnerObjectById } from "@/api/utility/get";
+
+const env = process.env.VERCEL_ENV;
+const isTesting = env === undefined || env === "development" || env === "preview";
+isTesting && console.log("🚀 ~ isTesting:", isTesting);
 
 const supabase = createClient();
 
+const pickAddressFromObject = (source: CompanyOwner | CompanyData) => {
+	return pick(source, ADDRESS_KEYS);
+};
+
 export default function Create() {
-	const { companyData, setCompanyData, formState, handleSubmit } =
+	const { companyData, setCompanyData, owners, dispatch, formState, handleSubmit } =
 		useContext(NewCompanyContext);
 
 	const [isLoading, setIsLoading] = useState(true);
+	const [isSubmitting, setIsSubmitting] = useState(false);
 	const searchParams = useSearchParams();
 	const URLApplicationId = useMemo(
-		() => (searchParams.get("applicationId") as UUID) || "",
+		() => (searchParams.get("applicationId") as CompanyData["id"]) || "",
 		[searchParams],
 	);
 
-	const [snapshot, setSnapshot] = useState<Partial<CompanyData>>(companyData);
-	const [applicationId, setApplicationId] = useState<UUID>();
+	const [companyDataSnapshot, setCompanyDataSnapshot] =
+		useState<CompanyData>(companyData);
+	const [ownersSnapshot, setOwnersSnapshot] = useState<CompanyOwner[]>([...owners]);
+	const [applicationId, setApplicationId] = useState<CompanyData["id"]>();
 	const [userId, setUserId] = useState<UUID>();
 	const formElement = useRef<HTMLFormElement>(null);
 	const router = useRouter();
 
-	const env = process.env.VERCEL_ENV;
-	const isTesting = env === undefined || env === "development" || env === "preview";
-
-	const goToDepositPage = useCallback(() => {
-		return router.push(`/dashboard/payment/deposit`);
+	const goToDashboard = useCallback(() => {
+		return router.replace("/dashboard");
 	}, [router]);
 
 	const saveSnapshot = useCallback(() => {
-		setSnapshot({ ...companyData });
-	}, [companyData]);
+		setCompanyDataSnapshot({ ...companyData });
+		setOwnersSnapshot([...owners]);
+	}, [owners, companyData]);
 
 	const saveDataToSupabase = useCallback(
 		async (submitting = false) => {
-			saveSnapshot();
+			if (!submitting) saveSnapshot();
 
-			// * keys that currently store non-null properties in the database
-			const omitKeys = ["initialFunding", "specialRequests"];
+			const companyAddress =
+				companyData.addressType === "HomeAddress"
+					? pickAddressFromObject(
+							getOwnerObjectById(owners, companyData.addressSource),
+						)
+					: companyData;
 
 			// * adjust `companyData` key case to fit with the SQL DB's preferred snake_case
-			// * only send the keys the values of which the DB can ingest
-			const databaseReadySnapshot = changeKeys.snakeCase(
-				omit(companyData, omitKeys),
-			) as DatabaseReadyCompanyData;
+			const databaseReadyCompanyData = changeKeys.snakeCase({
+				...companyData,
+				...companyAddress,
+			}) as DatabaseReadyCompanyData;
 
-			const upsertValues = {
-				schema: 0,
+			const companyUpsertValues = {
+				schema_version: 1,
 				id: applicationId,
-				owner_id: userId,
+				user_id: userId,
+				owners: owners.map((owner) => owner.id),
+				shares_by_owner: JSON.stringify(
+					owners.map((owner) => [owner.id, owner.shares]),
+				),
 				application_submitted: submitting,
 			};
 
-			const upsertObject = { ...upsertValues, ...databaseReadySnapshot };
+			const companyUpsertObject = {
+				...databaseReadyCompanyData,
+				...companyUpsertValues,
+			};
 
-			const { data, error } = await supabase
+			const ownersUpsertArray = owners.map((owner) => {
+				const { shares, ...updatedOwner } = owner;
+				return changeKeys.snakeCase(updatedOwner);
+			});
+
+			const { data: companyDataResponse, error: companyError } = await supabase
 				.from("companies")
-				// * if `id` is received from the DB, use it to supply data further
-				// * when `id` already exists in the DB, row data would be overridden
-				// * `.select()` the data so we can extract `id`
-				.upsert(upsertObject, {
+				.upsert(companyUpsertObject, {
+					onConflict: "id",
+				})
+				.select()
+				.single();
+
+			if (companyError) throw new Error(companyError.message);
+			if (!applicationId) setApplicationId(companyDataResponse?.id);
+
+			const { error: ownersError } = await supabase
+				.from("owners")
+				.upsert(ownersUpsertArray as DatabaseReadyCompanyOwner[], {
 					onConflict: "id",
 				})
 				.select();
 
-			if (error) throw new Error(error.message);
-			if (!applicationId) setApplicationId(data?.[0].id!);
+			if (ownersError) throw new Error(ownersError.message);
 
-			return data;
+			return companyDataResponse;
 		},
-		[companyData, applicationId, userId, saveSnapshot],
+		[companyData, owners, applicationId, userId, saveSnapshot],
 	);
 
+	// * disjointed form submit handling and form submit trigger (via lowbar)
+	// * this enables us to have a form and a submit button in different components
 	const handleCompanyFormSubmit = useCallback(
 		async (event: FormEvent<HTMLFormElement>) => {
 			event.preventDefault();
 
+			setIsSubmitting(true);
+
 			await saveDataToSupabase(/* submitting the application */ true);
 
+			const promises = owners.map(async (owner) => {
+				const [sessionUrl, emailResponse] = await Promise.all([
+					createOrReturnVerificationSession(owner.id),
+					sendKYCEmailToOwner(owner.email, owner.id),
+				]);
+				return { sessionUrl, emailResponse };
+			});
+
+			await Promise.all(promises)
+				.then(() => setIsSubmitting(false))
+				.catch((reason) => console.log(reason));
+
 			if (isTesting) {
-				goToDepositPage();
+				console.log("In test mode, redirecting to dashboard...");
+				goToDashboard();
 			} else {
 				handleSubmit(event);
 			}
 		},
-		[goToDepositPage, handleSubmit, isTesting, saveDataToSupabase],
+		[owners, goToDashboard, handleSubmit, saveDataToSupabase],
 	);
 
 	const getUserSession = useCallback(async () => {
@@ -119,30 +181,35 @@ export default function Create() {
 	}, [router]);
 
 	const getApplicationById = useCallback(
-		async (id: UUID) => {
-			const application: DatabaseReadyCompanyData = await getApplication(id);
-			const localizedApplication = changeKeys.camelCase(
-				application,
-			) as Partial<CompanyData>;
-
-			const DBOmitKeys = [
-				"id",
-				"owner_id",
-				"created_at",
-				"updated_at",
-				"application_submitted",
-				"schema",
-			];
-			const reactReadyApplication = omit(
-				localizedApplication,
-				DBOmitKeys,
+		async (id: CompanyData["id"]) => {
+			const [application, owners] = await getApplication(id);
+			const sharesByOwner = JSON.parse(application.shares_by_owner) as Array<
+				[CompanyOwner["id"], CompanyOwner["shares"]]
+			>;
+			const reactReadyApplication = changeKeys.camelCase(
+				omit(application, DATABASE_OMIT_KEYS),
 			) as CompanyData;
+			const reactReadyOwners = owners.map((owner) => {
+				const sharesOfCurrentOwner = sharesByOwner.find(
+					(sharesArray) => sharesArray[0] === owner.id,
+				);
+				if (!sharesOfCurrentOwner)
+					throw new Error(
+						"Cannot find shares of owner by ID while restoring application!",
+					);
+				return changeKeys.camelCase({
+					...owner,
+					shares: sharesOfCurrentOwner[1],
+				}) as CompanyOwner;
+			});
 
 			setApplicationId(id);
 			setCompanyData({ ...reactReadyApplication });
-			setSnapshot({ ...reactReadyApplication });
+			setCompanyDataSnapshot({ ...reactReadyApplication });
+			dispatch({ type: "SET", owners: reactReadyOwners });
+			setOwnersSnapshot([...reactReadyOwners]);
 		},
-		[setCompanyData],
+		[setCompanyData, dispatch],
 	);
 
 	useEffect(() => {
@@ -154,23 +221,23 @@ export default function Create() {
 	}, [getUserSession, URLApplicationId, getApplicationById]);
 
 	if (formState.succeeded) {
-		return goToDepositPage();
+		return goToDashboard();
 	}
 
 	return (
 		<>
 			<div
+				id="loading-indicator"
 				className={
-					isLoading
+					isLoading || isSubmitting
 						? "fixed inset-0 h-full flex justify-center items-center bg-slate-100/50 z-50"
 						: "hidden"
 				}
 			>
-				{/* full-screen loading indicator */}
 				<Loader size={32} themed />
 			</div>
-			<div className="flex flex-col py-4 sm:py-8 lg:py-16 px-8 w-full md:w-3/4 lg:w-1/2 gap-y-8 mx-auto">
-				<h1 className="font-display text-4xl font-extrabold text-slate-900 text-balance">
+			<div className="md:w-3/4 lg:w-1/2 w-full flex flex-col gap-y-8 mx-auto px-8 py-4 sm:py-8 lg:py-16">
+				<h1 className="font-display font-extrabold text-4xl text-balance text-slate-900">
 					Seven Seed Entity Questionnaire
 				</h1>
 				<div className="w-full flex flex-1 sm:gap-x-8">
@@ -186,16 +253,18 @@ export default function Create() {
 							value="Application for Seven Seed"
 						/>
 
-						<ClientInfoPage />
-						<ClientAddressPage />
 						<CompanyInfoPage />
 						<CompanyAddressPage />
+
+						<KYCPage />
+						<OwnershipPage />
 					</form>
 				</div>
 
 				<StickyLowbar
 					formRef={formElement}
-					snapshot={snapshot}
+					companyDataSnapshot={companyDataSnapshot}
+					ownersSnapshot={ownersSnapshot}
 					saveFn={() => saveDataToSupabase()}
 				/>
 			</div>

@@ -5,84 +5,67 @@ import {
 	useState,
 	useMemo,
 	useCallback,
+	useReducer,
 } from "react";
 import { useForm } from "@formspree/react";
-import {
-	type Form,
-	type CompanyData,
-	type KeyArray,
-	type NewCompanyContext as NewCompanyContextInterface,
-} from "@/api/interfaces";
+import { defaultOwners, ownersReducer } from "./partials/CompanyOwners";
+import type {
+	CompanyData,
+	NewCompanyContext as NewCompanyContextInterface,
+} from "@/api/interfaces/company";
+import type { UUID } from "crypto";
+import type { KeyArray } from "@/api/types";
+import type { Form } from "@/api/interfaces/form";
 
 const defaultCompanyData: CompanyData = {
-	contactName: "",
-	dateOfBirth: "",
-	civilStatus: "Single",
-	contactEmail: "",
-	contactPhoneNumber: "",
+	id: crypto.randomUUID() as UUID,
 
-	contactAddressAddressLine1: "",
-	contactAddressAddressLine2: "",
-	contactAddressPostalCode: "",
-	contactAddressCity: "",
-	contactAddressRegion: "",
-	contactAddressCountry: "",
+	name: "",
+	description: "",
+	phoneNumber: "",
+	email: "",
+	legalEntityType: "SRL",
 
-	legalEntity: "SRL",
-	companyName: "",
-	companyDescription: "",
-	companyPhoneNumber: "",
-
-	companyAddressType: "HomeAddress",
-	companyAddressCountry: "",
-	companyAddressRegion: "",
-	companyAddressCity: "",
-	companyAddressPostalCode: "",
-	companyAddressAddressLine1: "",
-	companyAddressAddressLine2: "",
-
-	initialFunding: "",
-	specialRequests: "",
+	addressType: "HomeAddress",
+	addressSource: defaultOwners[0].id,
+	country: "",
+	region: "",
+	city: "",
+	postalCode: "",
+	addressLine1: "",
+	addressLine2: "",
 };
 
 export const defaultRequiredCompanyData: KeyArray<CompanyData> = [
-	"contactName",
-	"dateOfBirth",
-	"civilStatus",
-	"contactEmail",
-	"contactPhoneNumber",
+	"name",
+	"description",
+	"legalEntityType",
+	"phoneNumber",
 
-	"contactAddressAddressLine1",
-	"contactAddressCity",
-	"contactAddressCountry",
-
-	"companyName",
-	"companyDescription",
-	"legalEntity",
-	"companyPhoneNumber",
-
-	"companyAddressType",
+	"addressType",
 ];
 
 export const existingAddressRequiredCompanyData: KeyArray<CompanyData> = [
-	"companyAddressAddressLine1",
-	"companyAddressCity",
-	"companyAddressCountry",
+	"addressLine1",
+	"city",
+	"country",
 ];
 
 const forms: Form[] = [
-	{ order: 0, id: "client", label: "Information" },
-	{ order: 1, id: "clientAddress", label: "Address" },
+	{ order: 0, id: "company", label: "Information" },
+	{ order: 1, id: "companyAddress", label: "Address" },
 
-	{ order: 2, id: "company", label: "Information" },
-	{ order: 3, id: "companyAddress", label: "Address" },
+	{ order: 2, id: "kyc", label: "Founders" },
+	{ order: 3, id: "shares", label: "Ownership" },
 ].sort((a, b) => a.order - b.order);
 
 export const NewCompanyContext = createContext<NewCompanyContextInterface>({
-	step: "client",
+	step: "",
 	setStep: () => {},
 	companyData: defaultCompanyData,
 	setCompanyData: () => {},
+	owners: defaultOwners,
+	dispatch: () => {},
 	formState: {},
 	handleSubmit: () => {},
 	forms,
@@ -98,6 +81,7 @@ if (!formID) throw new Error("Formspree form ID not found in environment file");
 export function NewCompanyContextProvider({ children }: PropsWithChildren) {
 	const [step, setStep] = useState(forms[0].id);
 	const [companyData, setCompanyData] = useState<CompanyData>(defaultCompanyData);
+	const [owners, dispatch] = useReducer(ownersReducer, defaultOwners);
 	const [formState, handleSubmit] = useForm(formID!);
 
 	const currentStep = useMemo(() => {
@@ -150,6 +134,8 @@ export function NewCompanyContextProvider({ children }: PropsWithChildren) {
 				setStep,
 				companyData,
 				setCompanyData,
+				owners,
+				dispatch,
 				formState,
 				handleSubmit,
 				forms,

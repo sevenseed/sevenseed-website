@@ -1,5 +1,5 @@
 import type { ButtonHTMLAttributes, PropsWithChildren } from "react";
-import { type GenericObject } from "@/api/interfaces";
+import type { GenericObject } from "@/api/types";
 import Loader from "@/components/Loader";
 import clsx from "clsx";
 
@@ -25,6 +25,7 @@ export default function ButtonWithLoader({
 }: StripeButtonProps) {
 	return (
 		<button
+			type="button"
 			className={clsx(
 				"flex items-center justify-between",
 				"w-full py-4 md:py-2 px-4 rounded-lg text-center tracking-wide duration-200 select-none",

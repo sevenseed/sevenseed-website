@@ -1,8 +1,10 @@
 "use server";
 import Stripe from "stripe";
+import { createKYCSessionForOwner, getOwnerById } from "@/api/actions/database";
+import { STRIPE_SK } from "@/config";
+import type { CompanyOwner } from "@/api/interfaces/owners";
 
-const STRIPE_SK = process.env.STRIPE_SK;
-if (!STRIPE_SK) throw "Stripe secret key not found";
+if (!STRIPE_SK) throw new Error("STRIPE_SK not found in server actions");
 
 const PRODUCT_KEY = process.env.PRODUCT_KEY_INCORPORATION_REGULAR;
 if (!PRODUCT_KEY) throw "Product key not found";
@@ -14,7 +16,7 @@ const BACKEND_HOST =
 
 const stripe = new Stripe(STRIPE_SK);
 
-export async function createCheckoutSession(customer_email: string) {
+export async function createCheckoutSession(customerEmail: string) {
 	const session = await stripe.checkout.sessions.create({
 		line_items: [
 			{
@@ -22,7 +24,7 @@ export async function createCheckoutSession(customer_email: string) {
 				quantity: 1,
 			},
 		],
-		customer_email,
+		customer_email: customerEmail,
 		customer_creation: "always",
 		mode: "payment",
 		success_url: `${BACKEND_HOST}/dashboard/identity/verify?session_id={CHECKOUT_SESSION_ID}`,
@@ -50,12 +52,27 @@ export async function expireCheckoutSession(sessionId: string) {
 	return { email: session.customer_email };
 }
 
-export async function createVerificationSession(sessionId: string) {
+export async function createOrReturnVerificationSession(ownerId: CompanyOwner["id"]) {
+	const owner = await getOwnerById(ownerId);
+	if (owner.kyc_session_id) {
+		// TODO: handle cancelled sessions
+		const existingSession = await stripe.identity.verificationSessions.retrieve(
+			owner.kyc_session_id,
+		);
+
+		return existingSession.url;
+	}
+
 	const verificationSession = await stripe.identity.verificationSessions.create({
 		type: "document",
-		return_url: `${BACKEND_HOST}/dashboard/identity/submitted`,
-		client_reference_id: sessionId,
+		return_url: `${BACKEND_HOST}/dashboard/owner/identity/submitted/${ownerId}`,
 	});
+
+	try {
+		await createKYCSessionForOwner(ownerId, verificationSession.id);
+	} catch (error: any) {
+		throw new Error(error.message);
+	}
 
 	return verificationSession.url;
 }

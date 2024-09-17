@@ -5,14 +5,19 @@ import {
 	useCallback,
 	useContext,
 } from "react";
-import { NewCompanyContext } from "@/contexts/NewCompanyContext";
-import {
-	type FormInputProps,
-	type MultilineInputProps,
-	type RadioInputProps,
-} from "./types";
-import { validateChildrenAsComponent } from "@/api/validate";
 import clsx from "clsx";
+import { NewCompanyContext } from "@/contexts/NewCompanyContext";
+import { validateChildrenAsComponent } from "@/api/utility/validate";
+import type {
+	IDKey,
+	FormInputProps,
+	MultilineInputProps,
+	RadioInputProps,
+	OwnerIDKey,
+	OwnersFormInputProps,
+	HTMLInputProps,
+} from "./types";
+import type { CompanyOwner } from "@/api/interfaces/owners";
 
 import styles from "../../company.module.css";
 
@@ -30,7 +35,7 @@ export function RadioOption({
 	value,
 	required = false,
 }: {
-	id: string;
+	id: IDKey;
 	label: string;
 	value: string;
 	required?: boolean;
@@ -49,11 +54,93 @@ export function RadioOption({
 			<input
 				type="radio"
 				id={id + value.replaceAll(" ", "")}
-				name={id}
+				name={id as string}
 				value={value}
 				onChange={onChange}
 				required={required}
 				defaultChecked={value === companyData[id]}
+			/>
+			<span>{label}</span>
+		</label>
+	);
+}
+
+export function OwnersRadioOption({
+	owner,
+	id,
+	label,
+	value,
+	required = false,
+}: {
+	owner: CompanyOwner;
+	id: keyof CompanyOwner;
+	label: string;
+	value: string;
+	required?: boolean;
+}) {
+	const { dispatch } = useContext(NewCompanyContext);
+
+	const onChange = useCallback(
+		(event: ChangeEvent<HTMLInputElement>) => {
+			dispatch({
+				type: "UPDATE",
+				obj: { ...owner, [id]: event.currentTarget.value },
+			});
+		},
+		[id, owner, dispatch],
+	);
+
+	return (
+		<label className={styles.inputRadio}>
+			<input
+				type="radio"
+				id={id + value.replaceAll(" ", "") + owner.id}
+				name={(id + owner.id) as string}
+				value={value}
+				onChange={onChange}
+				required={required}
+				defaultChecked={value === owner[id]}
+			/>
+			<span>{label}</span>
+		</label>
+	);
+}
+
+export function OwnersRadioOptionWithSelect({
+	owner,
+	id,
+	label,
+	value,
+	required = false,
+}: {
+	owner: CompanyOwner;
+	id: keyof CompanyOwner;
+	label: string;
+	value: string;
+	required?: boolean;
+}) {
+	const { dispatch } = useContext(NewCompanyContext);
+
+	const onChange = useCallback(
+		(event: ChangeEvent<HTMLInputElement>) => {
+			dispatch({
+				type: "UPDATE",
+				obj: { ...owner, [id]: event.currentTarget.value },
+			});
+		},
+		[id, owner, dispatch],
+	);
+
+	return (
+		<label className={styles.inputRadio}>
+			<input
+				type="radio"
+				id={id + value.replaceAll(" ", "") + owner.id}
+				name={(id + owner.id) as string}
+				value={value}
+				onChange={onChange}
+				required={required}
+				defaultChecked={value === owner[id]}
 			/>
 			<span>{label}</span>
 		</label>
@@ -80,6 +167,7 @@ export function SimpleFormInput({
 
 	const onChange = useCallback(
 		(event: ChangeEvent<HTMLInputElement>) => {
+			if (!Object.hasOwn(companyData, id)) return;
 			setCompanyData({ ...companyData, [id]: event.currentTarget.value });
 		},
 		[id, companyData, setCompanyData],
@@ -100,6 +188,63 @@ export function SimpleFormInput({
 
 				<input
 					id={id}
+					name={id}
+					type={type}
+					required={required}
+					placeholder={placeholder}
+					value={inputValue}
+					onChange={onChange}
+					className={clsx(styles.inputText, className)}
+				/>
+			</label>
+		</fieldset>
+	);
+}
+
+export function OwnersSimpleFormInput({
+	owner,
+	id,
+	label,
+	description = "",
+	placeholder = "",
+	type = "text",
+	required = false,
+	disabled = false,
+	className = "",
+	value = undefined,
+}: OwnersFormInputProps & HTMLInputProps & { owner: CompanyOwner }) {
+	const { dispatch } = useContext(NewCompanyContext);
+
+	// * nullish coalescence in order to force empty values to display empty
+	// * instead of falling back on an available `owner[id]` value
+	// * e.g. with company address
+	const inputValue = value ?? owner[id];
+
+	const onChange = useCallback(
+		(event: ChangeEvent<HTMLInputElement>) => {
+			dispatch({
+				type: "UPDATE",
+				obj: { ...owner, [id]: event.currentTarget.value },
+			});
+		},
+		[id, owner, dispatch],
+	);
+
+	return (
+		<fieldset className={styles.fieldset} disabled={disabled}>
+			<label className={styles.label}>
+				<span className={styles.labelText}>
+					{label}
+					{required && <RequiredMark />}
+				</span>
+				{description ? (
+					<span className={styles.description}>{description}</span>
+				) : (
+					""
+				)}
+
+				<input
+					id={`${id}-${owner.id}`}
 					name={id}
 					type={type}
 					required={required}
@@ -162,21 +307,55 @@ export function MultilineFormInput({
 }
 
 export function RadioFormInput({
-	// id,
 	label = "",
 	required = false,
 	children,
 }: RadioInputProps & PropsWithChildren) {
-	if (!validateChildrenAsComponent(children, RadioOption)) {
-		throw new Error("Children of a <RadioFormInput /> are not all <RadioOption />");
-	}
+	/* const hasCorrectChildren =
+		validateChildrenAsComponent(children, RadioOption)
+
+	if (!hasCorrectChildren) {
+		throw new Error(
+			"Children of a <RadioFormInput /> should only be <RadioOption />",
+		);
+	} */
 
 	return (
 		<fieldset className={styles.fieldset}>
 			{label ? (
 				<span className={styles.labelText}>
 					{label}
-					{required ? <RequiredMark /> : ""}
+					{required && <RequiredMark />}
+				</span>
+			) : (
+				""
+			)}
+			<div className={styles.inputRadioContainer}>{children}</div>
+		</fieldset>
+	);
+}
+
+export function OwnersRadioFormInput({
+	label = "",
+	required = false,
+	children,
+}: OwnersFormInputProps & HTMLInputProps & PropsWithChildren) {
+	/* const hasCorrectChildren =
+		validateChildrenAsComponent(children, OwnersRadioOption) ||
+		validateChildrenAsComponent(children, OwnersRadioOptionWithSelect);
+
+	if (!hasCorrectChildren) {
+		throw new Error(
+			"Children of a <OwnersRadioFormInput /> should only be <OwnersRadioOption /> or <OwnersRadioOptionWithSelect />",
+		);
+	} */
+
+	return (
+		<fieldset className={styles.fieldset}>
+			{label ? (
+				<span className={styles.labelText}>
+					{label}
+					{required && <RequiredMark />}
 				</span>
 			) : (
 				""

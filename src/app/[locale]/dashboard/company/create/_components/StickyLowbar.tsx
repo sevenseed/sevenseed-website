@@ -5,14 +5,15 @@ import {
 	useContext,
 	useMemo,
 } from "react";
+import clsx from "clsx";
+import compare from "just-compare";
 import {
 	NewCompanyContext,
 	defaultRequiredCompanyData,
 	existingAddressRequiredCompanyData,
 } from "@/contexts/NewCompanyContext";
-import { type CompanyData } from "@/api/interfaces";
-import clsx from "clsx";
-import compare from "just-compare";
+import type { CompanyData } from "@/api/interfaces/company";
+import type { CompanyOwner } from "@/api/interfaces/owners";
 
 import styles from "../../company.module.css";
 
@@ -22,15 +23,18 @@ import styles from "../../company.module.css";
 // * while retaining its `.submit()` capabilities
 export default function StickyLowbar({
 	formRef,
-	snapshot,
+	companyDataSnapshot,
+	ownersSnapshot,
 	saveFn,
 }: {
 	formRef: RefObject<HTMLFormElement>;
-	snapshot: Partial<CompanyData>;
+	companyDataSnapshot: CompanyData;
+	ownersSnapshot: CompanyOwner[];
 	saveFn: MouseEventHandler<HTMLButtonElement>;
 }) {
 	const {
 		companyData,
+		owners,
 		formState,
 		nextStep,
 		moveToNextStep,
@@ -40,23 +44,31 @@ export default function StickyLowbar({
 
 	const formHasEnoughInfo = useMemo(() => {
 		const requiredKeysArray =
-			companyData.companyAddressType === "ExistingAddress"
+			(companyData.addressType as CompanyData["addressType"]) ===
+			"ExistingAddress"
 				? [...defaultRequiredCompanyData, ...existingAddressRequiredCompanyData]
 				: defaultRequiredCompanyData;
 
-		const allRequiredFieldsFilled = Object.entries(companyData)
-			.filter((entry) => requiredKeysArray.includes(entry[0]))
-			.every((entry) => {
-				return entry[1] !== "";
+		const entries = Object.entries(companyData) as Array<[keyof CompanyData, any]>;
+		const allRequiredFieldsFilled = entries
+			.filter(([key, value]) => requiredKeysArray.includes(key))
+			.every(([key, value]) => {
+				return value !== "";
 			});
 
-		return allRequiredFieldsFilled;
-	}, [companyData]);
+		const allOwnersHaveShares = owners.every(
+			(owner) => !Number.isNaN(owner.shares) && owner.shares > 0,
+		);
 
-	const hasDataChanged = useMemo(
-		() => !compare(snapshot, companyData),
-		[snapshot, companyData],
-	);
+		return allRequiredFieldsFilled && allOwnersHaveShares;
+	}, [companyData, owners]);
+
+	const hasDataChanged = useMemo(() => {
+		const hasCompanyDataChanged = !compare(companyDataSnapshot, companyData);
+		const hasOwnersDataChanged = !compare(ownersSnapshot, owners);
+
+		return hasCompanyDataChanged || hasOwnersDataChanged;
+	}, [companyDataSnapshot, companyData, ownersSnapshot, owners]);
 
 	// * `.requestSubmit()` triggers the `submit` event in browser
 	// * `.submit()` doesn't trigger it
@@ -72,7 +84,7 @@ export default function StickyLowbar({
 	return (
 		<div
 			className={clsx(
-				"flex flex-col sm:flex-row justify-between items-stretch sm:items-none gap-y-4",
+				"flex sm:flex-row flex-col justify-between items-stretch sm:items-none gap-y-4",
 				"sticky bottom-4 p-4 -m-4",
 				"backdrop-blur sm:rounded-lg sm:shadow-lg",
 			)}
@@ -81,9 +93,9 @@ export default function StickyLowbar({
 				<button
 					type="button"
 					className={clsx(
-						"w-full sm:w-max duration-200",
+						"sm:w-max w-full duration-200",
 						hasDataChanged ? styles.button : styles.buttonOutline,
-						hasDataChanged || "bg-white",
+						hasDataChanged ? "" : "bg-white",
 					)}
 					onClick={saveFn}
 				>
@@ -105,7 +117,11 @@ export default function StickyLowbar({
 						onClick={submitForm}
 						disabled={disableSubmit}
 						className={clsx(styles.button, "flex-1")}
-						title={disableSubmit && "Please fill out all required fields"}
+						title={
+							disableSubmit
+								? "Please fill out all required fields"
+								: undefined
+						}
 					>
 						{formState.submitting ? "Submitting..." : "Submit"}
 					</button>
