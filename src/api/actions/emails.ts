@@ -23,7 +23,6 @@ export async function sendKYCEmailToOwner(email: string, ownerID: CompanyOwner["
 
 	const response = await fetch("https://app.loops.so/api/v1/transactional", options)
 		.then((response) => response.json())
-		.then((response) => console.log("sendKYCEmailToOwner", response))
 		.catch((err) => {
 			throw new Error(err);
 		});
