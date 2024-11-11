@@ -9,8 +9,10 @@ import logo from "@/images/logo.svg";
 import { Button } from "../Button";
 
 const navigation = [
+	{ name: "Grants", href: "/grants" },
+	{ name: "Private Funding", href: "/private-challenges" },
 	{ name: "Contact", href: "/contact" },
-	{ name: "Login", href: "/auth" },
+	{ name: "Login", href: "/auth" }
 ];
 
 const Header = () => {
