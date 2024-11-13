@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 const Introduction = () => {
 	const t = useTranslations("Grants-getStarted");
 	const t2 = useTranslations("Private-Introduction");
-  
+
 	return (
 		<div className="mx-auto max-w-2xl pb-12 px-5">
 			<div className="hidden sm:mb-8 sm:flex sm:justify-center"></div>
