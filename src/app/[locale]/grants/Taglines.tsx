@@ -3,19 +3,20 @@ import { useTranslations } from "next-intl";
 const Taglines = () => {
 	const t = useTranslations("Grants-taglines");
 	const taglines = [
-        {
-            name: t("tagline1"), 
-            description: t("description1"),
-        },
-        {
-            name: 'From Concept to Funding:',
-            description: 'Guiding SMEs Through the Grant Challenges and Beyond',
-        },
-        {
-            name: 'Europe Innovation Landscape:',
-            description: 'Expert Mentoring, Securing Funding, Partnerships, and Strategic Support',
-        },
-    ];
+		{
+			name: t("tagline1"),
+			description: t("description1"),
+		},
+		{
+			name: "From Concept to Funding:",
+			description: "Guiding SMEs Through the Grant Challenges and Beyond",
+		},
+		{
+			name: "Europe Innovation Landscape:",
+			description:
+				"Expert Mentoring, Securing Funding, Partnerships, and Strategic Support",
+		},
+	];
 	return (
 		<div>
 			<div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -30,8 +31,8 @@ const Taglines = () => {
 									{tagline.name}
 								</dt>
 								<dd className="mt-auto flex flex-auto flex-col text-base leading-7 text-gray-500">
-                                    <p className="flex-auto">{tagline.description}</p>
-                                </dd>
+									<p className="flex-auto">{tagline.description}</p>
+								</dd>
 							</div>
 						))}
 					</dl>
