@@ -118,5 +118,175 @@
 		"gitHub": "GitHub",
 		"copyright": "Seven Seed SRL. Tous droits réservés.",
 		"privacyPolicy": "Politique de confidentialité"
+	},
+	"Grants-getStarted": {
+		"pretitle": "Solutions de financement pour",
+		"title": "PME et startups en Europe",
+		"description": "Donnez un coup de pouce à votre parcours d'innovation avec Seven Seed. Nous guidons les PME et les startups dans l'obtention de financements, la gestion des défis et la création de partenariats stratégiques pour stimuler la croissance en Europe.",
+		"getStarted": "Commencer",
+		"contactUs": "Contactez-nous"
+	},
+	"Grants-taglines": {
+		"tagline1": "Renforcer l'innovation :",
+		"description1": "Votre chemin vers des financements sécurisés et une croissance stratégique en Europe",
+		"tagline2": "De l'idée au financement :",
+		"description2": "Guidage des PME à travers les défis des subventions et au-delà",
+		"tagline3": "Innovation en Europe :",
+		"description3": "Mentorat d'experts, obtention de financements, partenariats et soutien stratégique"
+	},
+	"Grants-services": {
+		"title": "Services de Subventions",
+		"subtitle": "Nos services de subventions sont conçus pour les PME en phase de démarrage et les startups, leur offrant des informations précieuses et des stratégies pour obtenir des financements via des subventions, des marchés publics et des opportunités d'appels d'offres.",
+		"service": {
+			"title": "Orientation",
+			"description": "Nous guidons les PME à travers le processus complexe des subventions, y compris la rédaction de propositions, la recherche et la négociation de consortiums et de partenariats, en veillant à ce que la proposition des PME se démarque."
+		},
+		"service2": {
+			"title": "Équipe",
+			"description": "Dans notre équipe, nous avons un point de contact (POC) qui peut communiquer avec la Commission européenne, recueillant des informations essentielles et clarifiant les exigences pour renforcer votre demande de subvention."
+		},
+		"service3": {
+			"title": "Tendance du marché",
+			"description": "En suivant les tendances du marché, nous concentrons nos candidatures sur l'IA, l'IoT, les Big Data, les technologies à double usage et l'économie circulaire."
+		},
+		"service4": {
+			"title": "Innovation",
+			"description": "Nous poursuivons et participons aux appels des plus grandes institutions qui promeuvent l'innovation, telles que Horizon Europe, le Conseil européen de l'innovation (EIC), l'Agence spatiale européenne (ESA), le Conseil européen de la recherche (CER), etc."
+		},
+		"service5": {
+			"title": "Processus clair",
+			"description": "En résumé, nous développons un processus clair pour accompagner les startups et les PME tout au long du processus de demande de subvention, de la construction du consortium à la soumission finale."
+		},
+		"service6": {
+			"title": "Assistance",
+			"description": "Nous aidons les PME à intégrer le réseau bruxellois (bulle), à se faire reconnaître par des consortiums clés et à naviguer dans les domaines d'intervention évolutifs de l'EIC, du CER, de Horizon et des financements de la défense européenne."
+		}
+	},
+	"Grants-challenges": {
+		"title": "Défi",
+		"subtitle": "Il est important de souligner les divers défis auxquels les startups peuvent être confrontées au cours du processus de subvention :",
+		"challenge": {
+			"name": "Forte concurrence",
+			"description": "La forte concurrence pour le financement signifie que seule une petite fraction des candidats réussit, ce qui rend essentiel la création de propositions remarquables dépassant les exigences de base."
+		},
+		"challenge2": {
+			"name": "Exigences complexes",
+			"description": "Les appels à subventions impliquent souvent des critères détaillés et complexes qui doivent être respectés, ce qui peut être chronophage et difficile à naviguer."
+		},
+		"challenge3": {
+			"name": "Alignement avec les priorités",
+			"description": "Assurer que votre projet respecte les exigences et s'aligne sur les domaines et priorités spécifiques du programme de financement peut être difficile."
+		},
+		"challenge4": {
+			"name": "Construction de consortium",
+			"description": "Former des partenariats transfrontaliers solides répondant aux exigences du consortium de la subvention peut être extrêmement difficile pour les entreprises en phase de démarrage."
+		},
+		"challenge5": {
+			"name": "Navigation dans la bureaucratie",
+			"description": "Comprendre et se conformer aux exigences administratives et légales du processus de subvention peut être accablant."
+		},
+		"challenge6": {
+			"name": "Compréhension du paysage de financement",
+			"description": "Se tenir à jour des tendances, priorités et opportunités de financement nécessite des recherches continues et une adaptation."
+		}
+	},
+	"Grants-solutions": {
+		"title": "Nos solutions sur mesure",
+		"subtitle": "Naviguer dans le processus de subvention peut être difficile pour les startups, mais avec le bon soutien, le parcours peut être plus fluide.",
+		"solution": {
+			"name": "Forte concurrence",
+			"description": "Pour faire face à la forte concurrence, nous recherchons des correspondances de subventions basées sur l'IA, permettant aux startups de se concentrer sur des opportunités correspondant à leur profil et de maximiser leur taux de succès."
+		},
+		"solution2": {
+			"name": "Exigences complexes",
+			"description": "Simplifier les exigences complexes est essentiel, nous fournissons donc des services de conseil expert ou des outils automatisés pour guider les startups à travers les critères, ce qui peut économiser du temps et réduire la frustration."
+		},
+		"solution3": {
+			"name": "Priorités des fonds",
+			"description": "Pour assurer l'alignement avec les priorités des fonds, notre accélérateur peut proposer des sessions de cadrage de projet, aidant les startups à affiner les propositions qui résonnent avec les objectifs spécifiques des institutions de financement."
+		},
+		"solution4": {
+			"name": "Construction de consortium",
+			"description": "Enfin, nous facilitons la construction de consortiums en tirant parti du réseau de notre accélérateur pour connecter les startups avec des partenaires stratégiques transfrontaliers, favorisant la collaboration et répondant aux exigences des subventions."
+		}
+	},
+	"Grants-euchallanges": {
+		"title": "Défis de financement européen",
+		"euchallenge": {
+			"name": "Financement européen",
+			"description": "Le paysage du financement européen évolue constamment, et rester en avance sur ces changements peut être accablant pour les startups et PME. De nouveaux domaines d’intérêt émergent, les priorités changent, et les stratégies doivent s’adapter. C’est là que nous apportons de la valeur."
+		},
+		"euchallenge2": {
+			"name": "Évolutions",
+			"description": "Nous suivons de près ces évolutions, garantissant que votre entreprise reste en phase avec les dernières tendances et priorités. En ajustant continuellement vos stratégies de financement, nous positionnons votre PME pour qu'elle s'aligne avec les orientations actuelles des programmes de financement européens, vous assurant d'être toujours en avance sur la courbe."
+		},
+		"euchallenge3": {
+			"name": "Obtention de financement",
+			"description": "Obtenir des financements de programmes tels que l'EIC et l'ERC devient de plus en plus compétitif. Avec la pression croissante sur les ressources disponibles, il est essentiel de disposer de l'expertise adéquate pour faire ressortir votre entreprise dans ces candidatures."
+		},
+		"euchallenge4": {
+			"name": "Soutien stratégique",
+			"description": "Notre équipe offre le soutien stratégique et l'orientation nécessaires pour augmenter vos chances de succès. Nous vous aidons à naviguer dans les complexités, à rédiger des propositions convaincantes et à élaborer une stratégie solide, pour que votre PME puisse concourir en toute confiance et sécuriser ces fonds."
+		}
+	},
+	"Grants-cta": {
+		"title": "POURQUOI CHOISIR SEVEN SEED POUR L'ASSISTANCE AU FINANCEMENT DES SUBVENTIONS ?",
+		"description": "Chez Seven Seed, nous aidons les PME et les startups à obtenir des subventions en simplifiant les exigences complexes, en élaborant des propositions percutantes et en gérant chaque étape – de la constitution du consortium à la navigation légale. Grâce à un accompagnement expert et des informations privilégiées, nous veillons à ce que votre projet s'aligne avec les priorités des financeurs et suive les tendances du secteur. Laissez-nous transformer vos idées en succès financés."
+	},
+	"Private-Introduction": {
+		"title": "Financement",
+		"title-color": "Privé",
+		"description": "Soutenir les PME pour obtenir des financements essentiels, favoriser des connexions précieuses et établir une base pour un succès durable au sein de l'écosystème bruxellois et au-delà. Chez Seven Seed, nous nous engageons à vous guider à chaque étape de votre croissance, en veillant à ce que votre entreprise ne se contente pas de se démarquer, mais prospère dans des marchés compétitifs."
+	},
+	"Private-Assistance": {
+		"title": "Assistance au Financement Privé",
+		"assistance": {
+			"name": "Préparation de Pitch Deck",
+			"description": "Nous créons des pitch decks percutants qui permettent aux PME de se démarquer dans un marché compétitif."
+		},
+		"assistance2": {
+			"name": "Correspondance Ciblée avec des Investisseurs",
+			"description": "Nous vous connectons avec des investisseurs alignés sur votre secteur grâce à notre réseau étendu de VCs, business angels et sociétés de capital-investissement."
+		},
+		"assistance3": {
+			"name": "Création de Consortiums",
+			"description": "Construction de consortiums transfrontaliers alignés sur les priorités environnementales, sanitaires et sécuritaires."
+		},
+		"assistance4": {
+			"name": "Soutien Post-Financement",
+			"description": "Accompagnement continu dans la gestion financière, les rapports et la stratégie de croissance pour maximiser les avantages de l'investissement."
+		}
+	},
+	"WhySevenSeed": {
+		"title": "Pourquoi Seven Seed?",
+		"description": "Nos services d'assistance au financement privé sont conçus pour vous guider à chaque étape de ce processus, de la préparation du pitch deck à la croissance post-investissement. Grâce à notre expertise, notre réseau et notre approche personnalisée, nous veillons à ce que votre startup soit bien positionnée pour attirer les bons investisseurs et obtenir les capitaux nécessaires pour prospérer.",
+		"benefit1": "Soutien d'experts à chaque étape du financement",
+		"benefit2": "Réseau étendu d'investisseurs de haute valeur",
+		"benefit3": "Services de conseil stratégiques axés sur la croissance"
+	},
+	"OvercomingChallenges": {
+		"title": "Surmonter les Défis de l'Écosystème Bruxellois",
+		"person1": {
+			"name": "Percer à Bruxelles",
+			"role": "Se faire connaître dans les cercles clés",
+			"bio": "Gagner en visibilité à Bruxelles peut être un défi. Nous vous aidons à faire une impression en vous connectant avec les acteurs clés, en assurant votre place dans les réseaux influents et en faisant entendre votre voix là où cela compte."
+		},
+		"person2": {
+			"name": "Sécuriser des Consortiums Clés",
+			"role": "Renforcer votre Réseau",
+			"bio": "Notre équipe vous guide dans la création de connexions au sein de consortiums essentiels, positionnant votre entreprise à l'avant-garde de l'innovation industrielle et sectorielle tout en maximisant les opportunités de collaboration."
+		}
+	},
+	"Dynamic-Market": {
+		"headerTitle": "Dynamiser Votre Entreprise dans un Marché en Évolution",
+		"headerDescription": "Découvrez comment notre accompagnement vous permet de rester en avance sur les tendances et de vous connecter avec des partenaires essentiels pour débloquer de nouvelles opportunités de croissance.",
+		"dynamicMarketTitle": "Rester à l'Avant-Garde dans un Marché en Mouvement",
+		"dynamicMarketDescription": "Seven Seed surveille activement les évolutions des principaux programmes de financement européens, y compris l'EIC, l'ERC, Horizon et le financement européen de la défense. En alignant votre entreprise sur les priorités émergentes, nous vous aidons à tirer parti de nouvelles opportunités au fur et à mesure qu'elles se présentent.",
+		"strategicPartnersTitle": "Vous Connecter avec des Partenaires Stratégiques",
+		"strategicPartnersDescription": "Nos partenariats avec des universités et le Réseau Européen des Entreprises ouvrent des portes pour la création de consortiums et des projets collaboratifs, vous offrant un accès à une expertise précieuse et à des opportunités de collaboration à long terme."
+	},
+	"Private-cta": {
+		"title": "POURQUOI CHOISIR SEVEN SEED POUR L'ASSISTANCE AU FINANCEMENT PRIVÉ?",
+		"description": "Chez Seven Seed, notre objectif n'est pas seulement de vous aider à obtenir des financements ; nous cherchons à vous assurer un succès durable. Nos services d'assistance au financement privé sont conçus pour vous guider à chaque étape de ce processus, de la préparation du pitch deck à la croissance post-investissement. Grâce à notre expertise, notre réseau et notre approche personnalisée, nous veillons à ce que votre startup soit bien positionnée pour attirer les bons investisseurs et obtenir les capitaux nécessaires pour prospérer."
 	}
 }

@@ -125,5 +125,175 @@
 		"resetPassword": "Reset password",
 		"forgotPasswordDescription": "Enter your email address in the field below. If an account registered to it exists, you should receive an email guiding you through the password reset process.",
 		"resetPasswordDescription": "Enter your new password"
+	},
+	"Grants-getStarted": {
+		"pretitle": "Grant Funding Solutions for",
+		"title": "SMEs and Startups in Europe",
+		"description": "Empower your innovation journey with Seven Seed. We guide SMEs and startups through securing grant funding, navigating challenges, and building strategic partnerships to drive growth in Europe.",
+		"getStarted": "Get started",
+		"contactUs": "Contact us"
+	},
+	"Grants-taglines": {
+		"tagline1": "Empowering Innovation:",
+		"description1": "Your Path to Secured Funding and Strategic Growth in Europe",
+		"tagline2": "From Concept to Funding:",
+		"description2": "Guiding SMEs Through the Grant Challenges and Beyond",
+		"tagline3": "Europe Innovation Landscape:",
+		"description3": "Expert Mentoring, Securing Funding, Partnerships, and Strategic Support"
+	},
+	"Grants-services": {
+		"title": "Grant Services",
+		"subtitle": "Our Grant services are designed for early-stage SMEs and startups, providing them with valuable insights and strategies for securing funding through grants, procurements, and tendering opportunities.",
+		"service": {
+			"title": "Guidance",
+			"description": "We guide SMEs through the complex grant process, including grant writing, finding and negotiating consortiums, and partnerships, and ensuring the SMEs' proposal stands out."
+		},
+		"service2": {
+			"title": "Team",
+			"description": "In our team, we have a POC who can liaise with the European Commission, gathering crucial insights and clarifying requirements to strengthen your grant application."
+		},
+		"service3": {
+			"title": "Market Trend",
+			"description": "Following the market trend, we focus our application on AI, IoT, Big Data, Dual-use technologies, and the Circular Economy."
+		},
+		"service4": {
+			"title": "Innovation",
+			"description": "We pursue and compete for the highest level institutions that promote innovation, including Horizon Europe, the European Innovative Council (EIC), the European Space Agency (ESA), the European Research Council (ERC), etc."
+		},
+		"service5": {
+			"title": "Clear Process",
+			"description": "In summary, we develop a clear process for helping Startups and SMEs through the entire grant application process, from consortium building to final submission."
+		},
+		"service6": {
+			"title": "Help",
+			"description": "We help SMEs break into the Brussels network (bubble), get recognized by key consortiums, and navigate the evolving focus areas of EIC, ERC, Horizon, and European Defense Funding."
+		}
+	},
+	"Grants-challenges": {
+		"title": "Challenges",
+		"subtitle": "It is important to underline the various challenges that startups can face along the grant process:",
+		"challenge": {
+			"name": "High competition",
+			"description": "High competition for funding means that only a small fraction of applicants succeed, making it essential to create standout proposals that exceed basic requirements."
+		},
+		"challenge2": {
+			"name": "Complex requirements",
+			"description": "Grant Calls often involve detailed and complex criteria that must be met, which can be time-consuming and challenging to navigate"
+		},
+		"challenge3": {
+			"name": "Alignment with priorities",
+			"description": "Ensuring that your project meets the requirements and aligns with the specific focus areas and priorities of the funding program can be hard."
+		},
+		"challenge4": {
+			"name": "Consortium building",
+			"description": "Forming strong, cross-border partnerships that meet the grant’s consortium requirements can be extremely challenging for early-stage businesses."
+		},
+		"challenge5": {
+			"name": "Navigating Bureaucracy",
+			"description": "Understanding and complying with the administrative and legal requirements of the grant process can be overwhelming."
+		},
+		"challenge6": {
+			"name": "Understanding Funding Landscape",
+			"description": "Staying up-to-date with the funding trends, priorities, and opportunities requires ongoing research and adaptation"
+		}
+	},
+	"Grants-solutions": {
+		"title": "Our tailored solutions",
+		"subtitle": "Navigating the grant process can be tough for startups, but with the right support, the journey can be smoother.",
+		"solution": {
+			"name": "High competition",
+			"description": "To tackle high competition, we search for AI-driven grant matching, ensuring startups focus on opportunities that fit their profile and maximize their success rate."
+		},
+		"solution2": {
+			"name": "Complex requirements",
+			"description": "Simplifying complex requirements is key, so we provide expert advisory services or automated tools to guide startups through the criteria, which can save time and reduce frustration."
+		},
+		"solution3": {
+			"name": "Fund priorities",
+			"description": "To ensure alignment with fund priorities, our accelerator can offer project scoping sessions, helping startups fine-tune proposals that resonate with the specific goals of funding institutions."
+		},
+		"solution4": {
+			"name": "Consortium building",
+			"description": "Lastly, we make consortium building easier by leveraging our accelerator’s network to connect startups with strategic, cross-border partners, enhancing collaboration and meeting grant requirements."
+		}
+	},
+	"Grants-euchallanges": {
+		"title": "EU Funding Challenges",
+		"euchallenge": {
+			"name": "European funding",
+			"description": "The European funding landscape is always evolving, and staying ahead of these changes can be overwhelming for startups and SMEs. New focus areas emerge, priorities shift, and strategies need to adapt. That’s where we bring value."
+		},
+		"euchallenge2": {
+			"name": "Developments",
+			"description": "We track these developments closely, ensuring your business stays in sync with the latest trends and priorities. By continuously adjusting your funding strategies, we position your SME to align with the current focus of European funding programs, making sure you're always one step ahead of the curve."
+		},
+		"euchallenge3": {
+			"name": "Securing funding",
+			"description": "Securing funding from programs such as the EIC and ERC is becoming more competitive than ever. With increasing pressure on available resources, it’s vital to have the right expertise to make your business stand out on those applications. "
+		},
+		"euchallenge4": {
+			"name": "Strategic support",
+			"description": "Our team provides the strategic support and the necessary guidance to boost your chances of success. We help you navigate the complexities, craft compelling proposals, and build a robust strategy, so your SME can confidently compete for and secure these funds."
+		}
+	},
+	"Grants-cta": {
+		"title": "WHY CHOOSE SEVEN SEED FOR GRANT FUNDING ASSISTANCE?",
+		"description": "At Seven Seed, we help SMEs and startups secure grant funding by simplifying complex requirements, crafting standout proposals, and managing every step—from consortium building to legal navigation. With expert guidance and insider insights, we ensure your project aligns with funder priorities and keeps pace with industry trends. Let us turn your ideas into funded successes."
+	},
+	"Private-Introduction": {
+		"title": "Private",
+		"title-color": "Funding",
+		"description": "Empowering SMEs to secure essential funding, promote valuable connections, and build a foundation for long-term success within the Brussels ecosystem and beyond. At Seven Seed, we are committed to guiding you through each stage of growth, ensuring your business not only stands out but also thrives in competitive markets."
+	},
+	"Private-Assistance": {
+		"title": "Private Funding Assistance",
+		"assistance": {
+			"name": "Pitch Deck Preparation",
+			"description": "We create compelling pitch decks that make SMEs stand out in a competitive market."
+		},
+		"assistance2": {
+			"name": "Targeted Investor Matching",
+			"description": "Connecting you with industry-aligned investors through our extensive network of VCs, angel investors, and PE firms."
+		},
+		"assistance3": {
+			"name": "Consortium Building",
+			"description": "Building cross-border consortiums aligned with environmental, health, and security priorities."
+		},
+		"assistance4": {
+			"name": "Post-Funding Support",
+			"description": "Ongoing guidance in financial management, reporting, and growth strategy to maximize investment benefits."
+		}
+	},
+	"WhySevenSeed": {
+		"title": "Why Seven Seed?",
+		"description": "Our Private Funding Assistance Services are designed to guide you through every step of this process, from the pitch deck preparation to the post-investment growth. With our expertise, network, and personalized approach, we ensure that your startup is well-positioned to attract the right investors and secure the capital necessary to thrive.",
+		"benefit1": "Expert support at every funding stage",
+		"benefit2": "Extensive network of high-value investors",
+		"benefit3": "Strategic growth-focused advisory services"
+	},
+	"OvercomingChallenges": {
+		"title": "Overcoming Challenges in the Brussels Ecosystem",
+		"person1": {
+			"name": "Breaking Through in Brussels",
+			"role": "Building Visibility in Key Circles",
+			"bio": "Gaining traction in Brussels can be challenging. We help you make an impact by connecting you with key players, securing your place in influential networks, and ensuring your voice is heard where it matters."
+		},
+		"person2": {
+			"name": "Securing Key Consortiums",
+			"role": "Strengthening Your Network",
+			"bio": "Our team guides you in building connections within essential consortiums, positioning your business at the forefront of industry and sector innovation while maximizing collaboration opportunities."
+		}
+	},
+	"Dynamic-Market": {
+		"headerTitle": "Empowering Your Business in a Dynamic Market",
+		"headerDescription": "Discover how our guidance keeps you ahead of shifting trends and connects you with essential partners to unlock new growth opportunities.",
+		"dynamicMarketTitle": "Staying Ahead in a Dynamic Market",
+		"dynamicMarketDescription": "Seven Seed actively monitors shifts in major European funding programs, including EIC, ERC, Horizon, and European Defense Funding. By keeping your business aligned with emerging priorities, we help you capitalize on new opportunities as they arise.",
+		"strategicPartnersTitle": "Connecting You with Strategic Partners",
+		"strategicPartnersDescription": "Our partnerships with universities and the European Enterprise Network open doors for consortium building and collaborative projects, giving you access to valuable expertise and long-term collaboration opportunities."
+	},
+	"Private-cta": {
+		"title": "WHY CHOOSE SEVEN SEED FOR PRIVATE FUNDING ASSISTANCE?",
+		"description": "At Seven Seed, we’re not just about helping you secure funding; we’re about setting you up for sustained success. Our Private Funding Assistance Services are designed to guide you through every step of this process, from the pitch deck preparation to the post-investment growth. With our expertise, network, and personalized approach, we ensure that your startup is well-positioned to attract the right investors and secure the capital necessary to thrive."
 	}
 }
