@@ -119,175 +119,174 @@
 		"copyright": "Seven Seed BV. Alle rechten voorbehouden.",
 		"privacyPolicy": "Privacybeleid"
 	},
-		"Grants-getStarted": {
-			"pretitle": "Financieringsoplossingen voor",
-			"title": "KMO's en startups in Europa",
-			"description": "Versterk je innovatietraject met Seven Seed. We begeleiden KMO's en startups bij het verkrijgen van subsidie, het overwinnen van uitdagingen en het opbouwen van strategische partnerschappen om groei in Europa te stimuleren.",
-			"getStarted": "Aan de slag",
-			"contactUs": "Neem contact op"
+	"Grants-getStarted": {
+		"pretitle": "Financieringsoplossingen voor",
+		"title": "KMO's en startups in Europa",
+		"description": "Versterk je innovatietraject met Seven Seed. We begeleiden KMO's en startups bij het verkrijgen van subsidie, het overwinnen van uitdagingen en het opbouwen van strategische partnerschappen om groei in Europa te stimuleren.",
+		"getStarted": "Aan de slag",
+		"contactUs": "Neem contact op"
+	},
+	"Grants-taglines": {
+		"tagline1": "Innovatie versterken:",
+		"description1": "Jouw pad naar veilige financiering en strategische groei in Europa",
+		"tagline2": "Van idee tot financiering:",
+		"description2": "Begeleiding van KMO's door de subsidie-uitdagingen en verder",
+		"tagline3": "Innovatielandschap Europa:",
+		"description3": "Expertmentoring, het verkrijgen van financiering, partnerschappen en strategische ondersteuning"
+	},
+	"Grants-services": {
+		"title": "Subsidiediensten",
+		"subtitle": "Onze subsidiediensten zijn ontworpen voor jonge kmo's en startups en bieden hen waardevolle inzichten en strategieën om financiering te verkrijgen via subsidies, aanbestedingen en tenderkansen.",
+		"service": {
+			"title": "Begeleiding",
+			"description": "We begeleiden KMO's door het complexe subsidieproces, waaronder het schrijven van aanvragen, het vinden en onderhandelen van consortiums en partnerschappen, en zorgen ervoor dat de aanvraag van de KMO's opvalt."
 		},
-		"Grants-taglines": {
-			"tagline1": "Innovatie versterken:",
-			"description1": "Jouw pad naar veilige financiering en strategische groei in Europa",
-			"tagline2": "Van idee tot financiering:",
-			"description2": "Begeleiding van KMO's door de subsidie-uitdagingen en verder",
-			"tagline3": "Innovatielandschap Europa:",
-			"description3": "Expertmentoring, het verkrijgen van financiering, partnerschappen en strategische ondersteuning"
+		"service2": {
+			"title": "Team",
+			"description": "In ons team hebben we een contactpersoon (POC) die kan communiceren met de Europese Commissie, essentiële inzichten verzamelt en vereisten verduidelijkt om je subsidieaanvraag te versterken."
 		},
-		"Grants-services": {
-			"title": "Subsidiediensten",
-			"subtitle": "Onze subsidiediensten zijn ontworpen voor jonge kmo's en startups en bieden hen waardevolle inzichten en strategieën om financiering te verkrijgen via subsidies, aanbestedingen en tenderkansen.",
-			"service": {
-				"title": "Begeleiding",
-				"description": "We begeleiden KMO's door het complexe subsidieproces, waaronder het schrijven van aanvragen, het vinden en onderhandelen van consortiums en partnerschappen, en zorgen ervoor dat de aanvraag van de KMO's opvalt."
-			},
-			"service2": {
-				"title": "Team",
-				"description": "In ons team hebben we een contactpersoon (POC) die kan communiceren met de Europese Commissie, essentiële inzichten verzamelt en vereisten verduidelijkt om je subsidieaanvraag te versterken."
-			},
-			"service3": {
-				"title": "Markttrend",
-				"description": "We volgen de markttrend en richten onze aanvragen op AI, IoT, Big Data, dual-use technologieën en de circulaire economie."
-			},
-			"service4": {
-				"title": "Innovatie",
-				"description": "We streven naar de hoogste instellingen die innovatie bevorderen, zoals Horizon Europe, de Europese Innovatieraad (EIC), het Europees Ruimteagentschap (ESA), de Europese Onderzoeksraad (ERC), enz."
-			},
-			"service5": {
-				"title": "Duidelijk proces",
-				"description": "Kortom, we ontwikkelen een duidelijk proces om startups en KMO's te helpen door het volledige subsidieaanvraagproces, van het opbouwen van een consortium tot de uiteindelijke indiening."
-			},
-			"service6": {
-				"title": "Hulp",
-				"description": "We helpen KMO's om toegang te krijgen tot het Brusselse netwerk (bubbel), erkend te worden door belangrijke consortiums en hun weg te vinden in de evoluerende aandachtsgebieden van de EIC, ERC, Horizon en Europese Defensie Financiering."
-			}
-		
+		"service3": {
+			"title": "Markttrend",
+			"description": "We volgen de markttrend en richten onze aanvragen op AI, IoT, Big Data, dual-use technologieën en de circulaire economie."
+		},
+		"service4": {
+			"title": "Innovatie",
+			"description": "We streven naar de hoogste instellingen die innovatie bevorderen, zoals Horizon Europe, de Europese Innovatieraad (EIC), het Europees Ruimteagentschap (ESA), de Europese Onderzoeksraad (ERC), enz."
+		},
+		"service5": {
+			"title": "Duidelijk proces",
+			"description": "Kortom, we ontwikkelen een duidelijk proces om startups en KMO's te helpen door het volledige subsidieaanvraagproces, van het opbouwen van een consortium tot de uiteindelijke indiening."
+		},
+		"service6": {
+			"title": "Hulp",
+			"description": "We helpen KMO's om toegang te krijgen tot het Brusselse netwerk (bubbel), erkend te worden door belangrijke consortiums en hun weg te vinden in de evoluerende aandachtsgebieden van de EIC, ERC, Horizon en Europese Defensie Financiering."
+		}
 	},
 	"Grants-challenges": {
-    "title": "Uitdaging",
-    "subtitle": "Het is belangrijk om de verschillende uitdagingen te benadrukken waarmee startups te maken kunnen krijgen tijdens het subsidieproces:",
-    "challenge": {
-        "name": "Hoge concurrentie",
-        "description": "De hoge concurrentie om financiering betekent dat slechts een klein deel van de aanvragers slaagt, wat het essentieel maakt om opvallende voorstellen te maken die de basisvereisten overtreffen."
-    },
-    "challenge2": {
-        "name": "Complexe vereisten",
-        "description": "Subsidieoproepen omvatten vaak gedetailleerde en complexe criteria waaraan moet worden voldaan, wat tijdrovend en uitdagend kan zijn om te navigeren."
-    },
-    "challenge3": {
-        "name": "Afstemming op prioriteiten",
-        "description": "Het waarborgen dat uw project aan de vereisten voldoet en aansluit bij de specifieke focusgebieden en prioriteiten van het financieringsprogramma kan moeilijk zijn."
-    },
-    "challenge4": {
-        "name": "Consortium opbouwen",
-        "description": "Het vormen van sterke, grensoverschrijdende samenwerkingen die voldoen aan de consortiumvereisten van de subsidie kan voor beginnende bedrijven zeer uitdagend zijn."
-    },
-    "challenge5": {
-        "name": "Bureaucratie navigeren",
-        "description": "Het begrijpen en naleven van de administratieve en juridische vereisten van het subsidieproces kan overweldigend zijn."
-    },
-    "challenge6": {
-        "name": "Inzicht in het financieringslandschap",
-        "description": "Op de hoogte blijven van de financieringstrends, prioriteiten en kansen vereist voortdurende research en aanpassing."
-    }
-},
-"Grants-solutions": {
-    "title": "Onze op maat gemaakte oplossingen",
-    "subtitle": "Het subsidieproces kan moeilijk zijn voor startups, maar met de juiste ondersteuning kan de reis soepeler verlopen.",
-    "solution": {
-        "name": "Hoge concurrentie",
-        "description": "Om de hoge concurrentie aan te pakken, zoeken we met AI-gedreven matching naar subsidies, zodat startups zich richten op kansen die passen bij hun profiel en hun slagingskans maximaliseren."
-    },
-    "solution2": {
-        "name": "Complexe vereisten",
-        "description": "Het vereenvoudigen van complexe vereisten is essentieel, dus bieden we deskundig advies of geautomatiseerde tools om startups door de criteria te leiden, wat tijd bespaart en frustratie vermindert."
-    },
-    "solution3": {
-        "name": "Fondsprioriteiten",
-        "description": "Om ervoor te zorgen dat startups aansluiten bij de prioriteiten van het fonds, biedt ons acceleratorprogramma projectsessies aan, die helpen om voorstellen af te stemmen op de specifieke doelen van financieringsinstellingen."
-    },
-    "solution4": {
-        "name": "Consortium opbouwen",
-        "description": "Ten slotte maken we het bouwen van een consortium gemakkelijker door het netwerk van onze accelerator te benutten om startups te verbinden met strategische, grensoverschrijdende partners, wat de samenwerking versterkt en aan de subsidievereisten voldoet."
-    }
-},
-"Grants-euchallanges": {
-    "title": "EU-financieringsuitdagingen",
-    "euchallenge": {
-        "name": "Europese financiering",
-        "description": "Het Europese financieringslandschap evolueert voortdurend, en het bijhouden van deze veranderingen kan overweldigend zijn voor startups en MKB’s. Nieuwe focusgebieden ontstaan, prioriteiten verschuiven en strategieën moeten worden aangepast. Dat is waar wij waarde toevoegen."
-    },
-    "euchallenge2": {
-        "name": "Ontwikkelingen",
-        "description": "Wij volgen deze ontwikkelingen op de voet, zodat uw bedrijf in lijn blijft met de nieuwste trends en prioriteiten. Door uw financieringsstrategieën continu aan te passen, positioneren wij uw MKB om in lijn te zijn met de huidige focus van Europese financieringsprogramma’s, zodat u altijd een stap voor bent."
-    },
-    "euchallenge3": {
-        "name": "Financiering veiligstellen",
-        "description": "Het verkrijgen van financiering uit programma’s zoals de EIC en ERC wordt steeds competitiever. Met de toenemende druk op beschikbare middelen is het essentieel om de juiste expertise te hebben om uw bedrijf op te laten vallen in die aanvragen."
-    },
-    "euchallenge4": {
-        "name": "Strategische ondersteuning",
-        "description": "Ons team biedt de strategische ondersteuning en de nodige begeleiding om uw slagingskansen te vergroten. We helpen u door de complexiteit te navigeren, overtuigende voorstellen op te stellen en een robuuste strategie te ontwikkelen, zodat uw MKB vol vertrouwen kan concurreren en deze middelen kan veiligstellen."
-    }
-},
-"Grants-cta": {
-    "title": "WAAROM KIEZEN VOOR SEVEN SEED VOOR SUBSIDIEONDERSTEUNING?",
-    "description": "Bij Seven Seed helpen we MKB's en startups om subsidies te verkrijgen door complexe vereisten te vereenvoudigen, opvallende voorstellen te maken en elke stap te beheren – van consortia opbouwen tot juridische navigatie. Met deskundige begeleiding en insiderkennis zorgen we ervoor dat uw project aansluit bij de prioriteiten van de financiers en gelijke tred houdt met de trends in de industrie. Laat ons uw ideeën omzetten in succesvolle financieringen."
-},
+		"title": "Uitdaging",
+		"subtitle": "Het is belangrijk om de verschillende uitdagingen te benadrukken waarmee startups te maken kunnen krijgen tijdens het subsidieproces:",
+		"challenge": {
+			"name": "Hoge concurrentie",
+			"description": "De hoge concurrentie om financiering betekent dat slechts een klein deel van de aanvragers slaagt, wat het essentieel maakt om opvallende voorstellen te maken die de basisvereisten overtreffen."
+		},
+		"challenge2": {
+			"name": "Complexe vereisten",
+			"description": "Subsidieoproepen omvatten vaak gedetailleerde en complexe criteria waaraan moet worden voldaan, wat tijdrovend en uitdagend kan zijn om te navigeren."
+		},
+		"challenge3": {
+			"name": "Afstemming op prioriteiten",
+			"description": "Het waarborgen dat uw project aan de vereisten voldoet en aansluit bij de specifieke focusgebieden en prioriteiten van het financieringsprogramma kan moeilijk zijn."
+		},
+		"challenge4": {
+			"name": "Consortium opbouwen",
+			"description": "Het vormen van sterke, grensoverschrijdende samenwerkingen die voldoen aan de consortiumvereisten van de subsidie kan voor beginnende bedrijven zeer uitdagend zijn."
+		},
+		"challenge5": {
+			"name": "Bureaucratie navigeren",
+			"description": "Het begrijpen en naleven van de administratieve en juridische vereisten van het subsidieproces kan overweldigend zijn."
+		},
+		"challenge6": {
+			"name": "Inzicht in het financieringslandschap",
+			"description": "Op de hoogte blijven van de financieringstrends, prioriteiten en kansen vereist voortdurende research en aanpassing."
+		}
+	},
+	"Grants-solutions": {
+		"title": "Onze op maat gemaakte oplossingen",
+		"subtitle": "Het subsidieproces kan moeilijk zijn voor startups, maar met de juiste ondersteuning kan de reis soepeler verlopen.",
+		"solution": {
+			"name": "Hoge concurrentie",
+			"description": "Om de hoge concurrentie aan te pakken, zoeken we met AI-gedreven matching naar subsidies, zodat startups zich richten op kansen die passen bij hun profiel en hun slagingskans maximaliseren."
+		},
+		"solution2": {
+			"name": "Complexe vereisten",
+			"description": "Het vereenvoudigen van complexe vereisten is essentieel, dus bieden we deskundig advies of geautomatiseerde tools om startups door de criteria te leiden, wat tijd bespaart en frustratie vermindert."
+		},
+		"solution3": {
+			"name": "Fondsprioriteiten",
+			"description": "Om ervoor te zorgen dat startups aansluiten bij de prioriteiten van het fonds, biedt ons acceleratorprogramma projectsessies aan, die helpen om voorstellen af te stemmen op de specifieke doelen van financieringsinstellingen."
+		},
+		"solution4": {
+			"name": "Consortium opbouwen",
+			"description": "Ten slotte maken we het bouwen van een consortium gemakkelijker door het netwerk van onze accelerator te benutten om startups te verbinden met strategische, grensoverschrijdende partners, wat de samenwerking versterkt en aan de subsidievereisten voldoet."
+		}
+	},
+	"Grants-euchallanges": {
+		"title": "EU-financieringsuitdagingen",
+		"euchallenge": {
+			"name": "Europese financiering",
+			"description": "Het Europese financieringslandschap evolueert voortdurend, en het bijhouden van deze veranderingen kan overweldigend zijn voor startups en MKB’s. Nieuwe focusgebieden ontstaan, prioriteiten verschuiven en strategieën moeten worden aangepast. Dat is waar wij waarde toevoegen."
+		},
+		"euchallenge2": {
+			"name": "Ontwikkelingen",
+			"description": "Wij volgen deze ontwikkelingen op de voet, zodat uw bedrijf in lijn blijft met de nieuwste trends en prioriteiten. Door uw financieringsstrategieën continu aan te passen, positioneren wij uw MKB om in lijn te zijn met de huidige focus van Europese financieringsprogramma’s, zodat u altijd een stap voor bent."
+		},
+		"euchallenge3": {
+			"name": "Financiering veiligstellen",
+			"description": "Het verkrijgen van financiering uit programma’s zoals de EIC en ERC wordt steeds competitiever. Met de toenemende druk op beschikbare middelen is het essentieel om de juiste expertise te hebben om uw bedrijf op te laten vallen in die aanvragen."
+		},
+		"euchallenge4": {
+			"name": "Strategische ondersteuning",
+			"description": "Ons team biedt de strategische ondersteuning en de nodige begeleiding om uw slagingskansen te vergroten. We helpen u door de complexiteit te navigeren, overtuigende voorstellen op te stellen en een robuuste strategie te ontwikkelen, zodat uw MKB vol vertrouwen kan concurreren en deze middelen kan veiligstellen."
+		}
+	},
+	"Grants-cta": {
+		"title": "WAAROM KIEZEN VOOR SEVEN SEED VOOR SUBSIDIEONDERSTEUNING?",
+		"description": "Bij Seven Seed helpen we MKB's en startups om subsidies te verkrijgen door complexe vereisten te vereenvoudigen, opvallende voorstellen te maken en elke stap te beheren – van consortia opbouwen tot juridische navigatie. Met deskundige begeleiding en insiderkennis zorgen we ervoor dat uw project aansluit bij de prioriteiten van de financiers en gelijke tred houdt met de trends in de industrie. Laat ons uw ideeën omzetten in succesvolle financieringen."
+	},
 	"Private-Introduction": {
-	  "title": "Privé",
-	  "title-color": "Financiering",
-	  "description": "Ondersteuning van MKB's om essentiële financiering veilig te stellen, waardevolle connecties te bevorderen en een basis te leggen voor langdurig succes binnen het Brusselse ecosysteem en daarbuiten. Bij Seven Seed zetten we ons in om u te begeleiden bij elke groeifase, zodat uw bedrijf niet alleen opvalt, maar ook bloeit in concurrerende markten."
+		"title": "Privé",
+		"title-color": "Financiering",
+		"description": "Ondersteuning van MKB's om essentiële financiering veilig te stellen, waardevolle connecties te bevorderen en een basis te leggen voor langdurig succes binnen het Brusselse ecosysteem en daarbuiten. Bij Seven Seed zetten we ons in om u te begeleiden bij elke groeifase, zodat uw bedrijf niet alleen opvalt, maar ook bloeit in concurrerende markten."
 	},
 	"Private-Assistance": {
-	  "title": "Hulp bij Privéfinanciering",
-	  "assistance": {
-		"name": "Pitch Deck Voorbereiding",
-		"description": "Wij creëren overtuigende pitch decks waarmee MKB's opvallen in een competitieve markt."
-	  },
-	  "assistance2": {
-		"name": "Gerichte Investeerdersmatching",
-		"description": "Wij verbinden u met investeerders die aansluiten bij uw sector via ons uitgebreide netwerk van durfkapitalisten, business angels en private-equityfirma's."
-	  },
-	  "assistance3": {
-		"name": "Consortiumvorming",
-		"description": "Wij bouwen grensoverschrijdende consortiums die aansluiten bij milieu-, gezondheids- en veiligheidsprioriteiten."
-	  },
-	  "assistance4": {
-		"name": "Ondersteuning na Financiering",
-		"description": "Doorlopende begeleiding op het gebied van financieel beheer, rapportage en groeistrategie om de voordelen van de investering te maximaliseren."
-	  }
+		"title": "Hulp bij Privéfinanciering",
+		"assistance": {
+			"name": "Pitch Deck Voorbereiding",
+			"description": "Wij creëren overtuigende pitch decks waarmee MKB's opvallen in een competitieve markt."
+		},
+		"assistance2": {
+			"name": "Gerichte Investeerdersmatching",
+			"description": "Wij verbinden u met investeerders die aansluiten bij uw sector via ons uitgebreide netwerk van durfkapitalisten, business angels en private-equityfirma's."
+		},
+		"assistance3": {
+			"name": "Consortiumvorming",
+			"description": "Wij bouwen grensoverschrijdende consortiums die aansluiten bij milieu-, gezondheids- en veiligheidsprioriteiten."
+		},
+		"assistance4": {
+			"name": "Ondersteuning na Financiering",
+			"description": "Doorlopende begeleiding op het gebied van financieel beheer, rapportage en groeistrategie om de voordelen van de investering te maximaliseren."
+		}
 	},
 	"WhySevenSeed": {
-	  "title": "Waarom Seven Seed?",
-	  "description": "Onze diensten voor hulp bij privéfinanciering zijn ontworpen om u bij elke stap van dit proces te begeleiden, van de voorbereiding van de pitch deck tot de groei na de investering. Met onze expertise, ons netwerk en onze persoonlijke aanpak zorgen wij ervoor dat uw startup goed gepositioneerd is om de juiste investeerders aan te trekken en het kapitaal veilig te stellen dat nodig is om te gedijen.",
-	  "benefit1": "Deskundige ondersteuning bij elke financieringsfase",
-	  "benefit2": "Uitgebreid netwerk van investeerders van hoge waarde",
-	  "benefit3": "Strategische adviesdiensten gericht op groei"
+		"title": "Waarom Seven Seed?",
+		"description": "Onze diensten voor hulp bij privéfinanciering zijn ontworpen om u bij elke stap van dit proces te begeleiden, van de voorbereiding van de pitch deck tot de groei na de investering. Met onze expertise, ons netwerk en onze persoonlijke aanpak zorgen wij ervoor dat uw startup goed gepositioneerd is om de juiste investeerders aan te trekken en het kapitaal veilig te stellen dat nodig is om te gedijen.",
+		"benefit1": "Deskundige ondersteuning bij elke financieringsfase",
+		"benefit2": "Uitgebreid netwerk van investeerders van hoge waarde",
+		"benefit3": "Strategische adviesdiensten gericht op groei"
 	},
 	"OvercomingChallenges": {
-	  "title": "Uitdagingen Overwinnen binnen het Brusselse Ecosysteem",
-	  "person1": {
-		"name": "Doorbreken in Brussel",
-		"role": "Zichtbaarheid Opbouwen in Belangrijke Kringen",
-		"bio": "Het verkrijgen van zichtbaarheid in Brussel kan een uitdaging zijn. Wij helpen u indruk te maken door u te verbinden met belangrijke spelers, uw plaats te verzekeren in invloedrijke netwerken en uw stem te laten horen waar dat ertoe doet."
-	  },
-	  "person2": {
-		"name": "Belangrijke Consortiums Verzekeren",
-		"role": "Uw Netwerk Versterken",
-		"bio": "Ons team begeleidt u bij het opbouwen van verbindingen binnen essentiële consortiums, waarmee uw bedrijf voorop blijft lopen in sector- en industriële innovaties terwijl u maximale samenwerkingsmogelijkheden benut."
-	  }
+		"title": "Uitdagingen Overwinnen binnen het Brusselse Ecosysteem",
+		"person1": {
+			"name": "Doorbreken in Brussel",
+			"role": "Zichtbaarheid Opbouwen in Belangrijke Kringen",
+			"bio": "Het verkrijgen van zichtbaarheid in Brussel kan een uitdaging zijn. Wij helpen u indruk te maken door u te verbinden met belangrijke spelers, uw plaats te verzekeren in invloedrijke netwerken en uw stem te laten horen waar dat ertoe doet."
+		},
+		"person2": {
+			"name": "Belangrijke Consortiums Verzekeren",
+			"role": "Uw Netwerk Versterken",
+			"bio": "Ons team begeleidt u bij het opbouwen van verbindingen binnen essentiële consortiums, waarmee uw bedrijf voorop blijft lopen in sector- en industriële innovaties terwijl u maximale samenwerkingsmogelijkheden benut."
+		}
 	},
 	"Dynamic-Market": {
-	  "headerTitle": "Uw Bedrijf Versterken in een Dynamische Markt",
-	  "headerDescription": "Ontdek hoe onze begeleiding u voorop houdt bij verschuivende trends en u verbindt met essentiële partners om nieuwe groeikansen te benutten.",
-	  "dynamicMarketTitle": "Vooroplopen in een Dynamische Markt",
-	  "dynamicMarketDescription": "Seven Seed houdt actief de verschuivingen in grote Europese financieringsprogramma's in de gaten, waaronder EIC, ERC, Horizon en Europese Defensie Financiering. Door uw bedrijf af te stemmen op opkomende prioriteiten, helpen wij u nieuwe kansen te benutten zodra deze zich voordoen.",
-	  "strategicPartnersTitle": "Verbinding met Strategische Partners",
-	  "strategicPartnersDescription": "Onze partnerschappen met universiteiten en het European Enterprise Network openen deuren voor consortiumvorming en samenwerkingsprojecten, waardoor u toegang krijgt tot waardevolle expertise en langetermijnsamenwerkingskansen."
+		"headerTitle": "Uw Bedrijf Versterken in een Dynamische Markt",
+		"headerDescription": "Ontdek hoe onze begeleiding u voorop houdt bij verschuivende trends en u verbindt met essentiële partners om nieuwe groeikansen te benutten.",
+		"dynamicMarketTitle": "Vooroplopen in een Dynamische Markt",
+		"dynamicMarketDescription": "Seven Seed houdt actief de verschuivingen in grote Europese financieringsprogramma's in de gaten, waaronder EIC, ERC, Horizon en Europese Defensie Financiering. Door uw bedrijf af te stemmen op opkomende prioriteiten, helpen wij u nieuwe kansen te benutten zodra deze zich voordoen.",
+		"strategicPartnersTitle": "Verbinding met Strategische Partners",
+		"strategicPartnersDescription": "Onze partnerschappen met universiteiten en het European Enterprise Network openen deuren voor consortiumvorming en samenwerkingsprojecten, waardoor u toegang krijgt tot waardevolle expertise en langetermijnsamenwerkingskansen."
 	},
 	"Private-cta": {
-	  "title": "WAAROM KIEZEN VOOR SEVEN SEED BIJ PRIVÉFINANCIERING?",
-	  "description": "Bij Seven Seed gaat het ons niet alleen om het veiligstellen van financiering; wij streven ernaar u klaar te stomen voor duurzaam succes. Onze diensten voor hulp bij privéfinanciering zijn ontworpen om u bij elke stap van dit proces te begeleiden, van de voorbereiding van de pitch deck tot de groei na de investering. Met onze expertise, ons netwerk en onze persoonlijke aanpak zorgen wij ervoor dat uw startup goed gepositioneerd is om de juiste investeerders aan te trekken en het kapitaal veilig te stellen dat nodig is om te gedijen."
+		"title": "WAAROM KIEZEN VOOR SEVEN SEED BIJ PRIVÉFINANCIERING?",
+		"description": "Bij Seven Seed gaat het ons niet alleen om het veiligstellen van financiering; wij streven ernaar u klaar te stomen voor duurzaam succes. Onze diensten voor hulp bij privéfinanciering zijn ontworpen om u bij elke stap van dit proces te begeleiden, van de voorbereiding van de pitch deck tot de groei na de investering. Met onze expertise, ons netwerk en onze persoonlijke aanpak zorgen wij ervoor dat uw startup goed gepositioneerd is om de juiste investeerders aan te trekken en het kapitaal veilig te stellen dat nodig is om te gedijen."
 	}
 }
