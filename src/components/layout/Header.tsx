@@ -10,9 +10,9 @@ import { Button } from "../Button";
 
 const navigation = [
 	{ name: "Grants", href: "/grants" },
+	{ name: "Program", href: "/program" },
 	{ name: "Private Funding", href: "/private-challenges" },
-	{ name: "Contact", href: "/contact" },
-	{ name: "Login", href: "/auth" }
+	
 ];
 
 const Header = () => {
@@ -58,8 +58,8 @@ const Header = () => {
 							{item.name}
 						</a>
 					))}
-					<Button href="/dashboard/get-started" variant="solid" color="blue">
-						Get started
+					<Button href="/contact" variant="solid" color="blue">
+						Contact Us
 					</Button>
 				</div>
 			</nav>
