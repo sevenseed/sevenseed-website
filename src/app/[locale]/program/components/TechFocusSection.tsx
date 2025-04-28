@@ -20,8 +20,8 @@ export default function TechFocusSection() {
 					Channel Your Ambition
 				</h2>
 				<p className="text-center text-gray-600 max-w-2xl mx-auto mb-16">
-					Contribute to Europe's technological resilience. Build something
-					that matters.
+					Contribute to Europe&apos;s technological resilience. Build
+					something that matters.
 				</p>
 
 				<div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
@@ -46,8 +46,8 @@ export default function TechFocusSection() {
 
 				<div className="mt-16 text-center">
 					<p className="text-gray-600 italic max-w-2xl mx-auto text-lg">
-						"This isn't just about finding product-market fit; it's about
-						contributing to something bigger."
+						&quot;This isn&apos;t just about finding product-market fit;
+						it&apos;s about contributing to something bigger.&quot;
 					</p>
 				</div>
 			</div>

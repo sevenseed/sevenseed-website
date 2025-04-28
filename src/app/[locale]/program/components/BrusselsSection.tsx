@@ -64,8 +64,8 @@ export default function BrusselsSection() {
 								AI, cybersecurity, and dual-use.
 							</CheckItem>
 							<CheckItem title="Thriving Tech Hub:">
-								Join Brussels' rapidly growing startup scene with
-								accessible grants and R&D incentives.
+								Join Brussels&apos; rapidly growing startup scene with
+								accessible grants and R&amp;D incentives.
 							</CheckItem>
 						</div>
 					</div>

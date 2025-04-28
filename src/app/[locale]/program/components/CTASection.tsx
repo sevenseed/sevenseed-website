@@ -31,9 +31,9 @@ export default function CTASection() {
 					Your European Journey Starts Now!
 				</h2>
 				<p className="text-lg mb-10 max-w-2xl mx-auto">
-					Spaces are limited. Our Fall 2025 cohort is filling up fast. Don't
-					miss the chance to establish your startup in Europe's most strategic
-					city.
+					Spaces are limited. Our Fall 2025 cohort is filling up fast.
+					Don&apos;t miss the chance to establish your startup in
+					Europe&apos;s most strategic city.
 				</p>
 				<div className="flex flex-col sm:flex-row justify-center gap-4">
 					<Link href="/contact">
