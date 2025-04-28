@@ -10,7 +10,7 @@ import { Button } from "../Button";
 
 const navigation = [
 	{ name: "Grants", href: "/grants" },
-	{ name: "Program", href: "/program" },
+	{ name: "Incubator", href: "/incubator" },
 	{ name: "Private Funding", href: "/private-challenges" },
 	
 ];
