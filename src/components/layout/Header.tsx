@@ -9,10 +9,8 @@ import logo from "@/images/logo.svg";
 import { Button } from "../Button";
 
 const navigation = [
-	{ name: "Grants", href: "/grants" },
-	{ name: "Program", href: "/program" },
-	{ name: "Private Funding", href: "/private-challenges" },
-	
+	{ name: "Funding", href: "/funding" },
+	{ name: "Incorporate", href: "/incorporate" },
 ];
 
 const Header = () => {
@@ -21,7 +19,7 @@ const Header = () => {
 	return (
 		<>
 			<nav
-				className="mx-auto flex w-full max-w-7xl items-center justify-between p-6 lg:px-8 mb-16"
+				className="mx-auto flex w-full max-w-7xl items-center justify-between p-6 lg:px-8 mb-16 z-20"
 				aria-label="Global"
 			>
 				<GridPattern
@@ -48,7 +46,6 @@ const Header = () => {
 					</button>
 				</div>
 				<div className="hidden lg:flex lg:gap-x-12 items-center">
-					<LanguageSwitcher />
 					{navigation.map((item) => (
 						<a
 							key={item.name}
@@ -58,6 +55,7 @@ const Header = () => {
 							{item.name}
 						</a>
 					))}
+					<LanguageSwitcher />
 					<Button href="/contact" variant="solid" color="blue">
 						Contact Us
 					</Button>

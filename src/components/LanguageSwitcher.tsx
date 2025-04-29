@@ -13,19 +13,19 @@ type LocaleIndicator = {
 
 const localeIndicator: LocaleIndicator = {
 	en: {
-		en: "🇬🇧 English",
-		fr: "🇫🇷 French",
-		nl: "🇳🇱 Dutch",
+		en: "English",
+		fr: "French",
+		nl: "Dutch",
 	},
 	fr: {
-		en: "🇬🇧 Anglais",
-		fr: "🇫🇷 Français",
-		nl: "🇳🇱 Néerlandais",
+		en: "Anglais",
+		fr: "Français",
+		nl: "Néerlandais",
 	},
 	nl: {
-		en: "🇬🇧 Engels",
-		fr: "🇫🇷 Frans",
-		nl: "🇳🇱 Nederlands",
+		en: "Engels",
+		fr: "Frans",
+		nl: "Nederlands",
 	},
 };
 
