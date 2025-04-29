@@ -10,6 +10,11 @@ const nextConfig = withNextIntl({
 				destination: "/?utm_source=business-card&utm_medium=qrcode",
 				permanent: false,
 			},
+			{
+				source: "/program",
+				destination: "/",
+				permanent: true,
+			},
 		];
 	},
 	eslint: {
