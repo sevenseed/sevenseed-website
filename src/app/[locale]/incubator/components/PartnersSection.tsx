@@ -73,24 +73,6 @@ export default function PartnersSection() {
 							</p>
 						</div>
 					</div>
-					<div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:border-blue-100 transition-all duration-300 hover:shadow-md group">
-						<div className="relative h-32 flex items-center justify-center">
-							<div className="absolute inset-0 bg-blue-50 opacity-0 group-hover:opacity-10 transition-opacity duration-300 rounded-lg"></div>
-							<Image
-								src="/images/logo/payoneer.svg"
-								alt="Ingram"
-								width={240}
-								height={120}
-								className="opacity-80 group-hover:opacity-100 transition-opacity max-h-24 w-auto"
-							/>
-						</div>
-						<div className="mt-4 text-center">
-							<h3 className="text-gray-800 font-medium">Payoneer</h3>
-							<p className="text-gray-500 text-sm mt-1">
-								Global payments made simple
-							</p>
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>

@@ -70,7 +70,7 @@ export default function HeroSection() {
 							Have your US activities been impacted by recent administrative decisions?
 							<br className="hidden md:block" /> Looking to rebuild a
 							future somewhere else? <br className="hidden md:block" />
-							Re-launch your startup in Europe, with other founders like
+							Launch your startup in the heart of Europe, with other founders like
 							you.
 						</p>
 
