@@ -23,7 +23,7 @@ export default function FoundersSection() {
 					</h2>
 
 					<p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
-						We're looking for visionary founders ready to make the leap to
+						We’re looking for visionary founders ready to make the leap to
 						Europe and build something extraordinary.
 					</p>
 				</div>
