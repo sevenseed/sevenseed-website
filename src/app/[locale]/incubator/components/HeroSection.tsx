@@ -1,6 +1,6 @@
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function HeroSection() {
 	return (
@@ -67,8 +67,8 @@ export default function HeroSection() {
 							<span className="text-blue-600">Europe</span>
 						</h1>
 						<p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto lg:mx-0 mb-6">
-							Feeling stuck as US politics take a worrying turn?{" "}
-							<br className="hidden md:block" /> Looking to build a better
+							Have your US activities been impacted by recent administrative decisions?
+							<br className="hidden md:block" /> Looking to rebuild a
 							future somewhere else? <br className="hidden md:block" />
 							Re-launch your startup in Europe, with other founders like
 							you.
