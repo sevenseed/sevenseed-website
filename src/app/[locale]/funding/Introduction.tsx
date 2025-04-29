@@ -11,6 +11,7 @@ const Introduction = () => {
 					{t("pretitle")}
 					<span className="font-display text-5xl font-extrabold text-blue-700 sm:text-6xl">
 						{" "}
+						<br />
 						{t("title")}
 					</span>
 				</h1>

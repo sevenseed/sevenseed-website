@@ -1,19 +1,25 @@
-import Hero from "@/components/layout/Hero";
-import Introduction from "@/components/layout/Introduction";
-import Features from "@/components/layout/Features";
-import Testimonials from "@/components/layout/Testimonials";
-import Pricing from "@/components/layout/Pricing";
-import GetStarted from "@/components/layout/GetStarted";
+"use client";
+
+import HeroSection from "./incubator/components/HeroSection";
+import BrusselsSection from "./incubator/components/BrusselsSection";
+import TechFocusSection from "./incubator/components/TechFocusSection";
+import PartnersSection from "./incubator/components/PartnersSection";
+import ProgramBenefitsSection from "./incubator/components/ProgramBenefitsSection";
+import DealSection from "./incubator/components/DealSection";
+import FoundersSection from "./incubator/components/FoundersSection";
+import CTASection from "./incubator/components/CTASection";
 
 export default function Home() {
 	return (
-		<main className="flex flex-col gap-y-16 px-8 mb-8">
-			<Hero />
-			<Introduction />
-			<Features />
-			<Testimonials />
-			<Pricing />
-			<GetStarted />
+		<main className="min-h-screen bg-white mx-auto ">
+			<HeroSection />
+			<TechFocusSection />
+			<BrusselsSection />
+			<PartnersSection />
+			<ProgramBenefitsSection />
+			<DealSection />
+			<FoundersSection />
+			<CTASection />
 		</main>
 	);
 }
