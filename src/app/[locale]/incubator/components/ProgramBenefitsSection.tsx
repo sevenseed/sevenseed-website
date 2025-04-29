@@ -1,15 +1,15 @@
 "use client";
 
-import Image from "next/image";
-import { useState } from "react";
 import {
+	BanknotesIcon,
 	BuildingLibraryIcon,
+	CurrencyEuroIcon,
 	GlobeAltIcon,
 	LightBulbIcon,
-	CurrencyEuroIcon,
-	BanknotesIcon,
 } from "@heroicons/react/24/outline";
+import Image from "next/image";
 import type { ReactNode } from "react";
+import { useState } from "react";
 
 export default function ProgramBenefitsSection() {
 	const [activeBenefit, setActiveBenefit] = useState<string>("company");
@@ -28,8 +28,8 @@ export default function ProgramBenefitsSection() {
 					</h2>
 
 					<p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
-						Join a hand-picked cohort of 12-15 US-based startups for an
-						intensive, hands-on program.
+						Join a hand-picked cohort of up to 15 founders like you for an
+						awesome, hybrid program.
 					</p>
 				</div>
 
@@ -89,15 +89,15 @@ export default function ProgramBenefitsSection() {
 					{/* Benefit Content */}
 					<div className="lg:w-2/3">
 						<div className="relative">
-							{/* Company Formation */}
+							{/* Company Incorporation */}
 							<BenefitContent
 								isActive={activeBenefit === "company"}
-								title="Seamless Company Formation"
+								title="Seamless Company Incorporation"
 								description="We handle it all – legal setup, financial plan, statutes, registered address, VAT, compliance. Hit the ground running."
 								imageSrc="/images/company.jpg"
 								imageAlt="Company formation"
 								features={[
-									"Complete legal entity setup",
+									"Complete compliant legal entity setup",
 									"Financial plan development",
 									"VAT and compliance handling",
 								]}
@@ -153,7 +153,7 @@ export default function ProgramBenefitsSection() {
 								imageSrc="/images/banking.jpg"
 								imageAlt="Banking setup"
 								features={[
-									"Assistance opening a European business banking account with our partner",
+									"Assistance opening an EU business banking account with our partner",
 									"Company set up without blocked capital",
 									"Payment processing credits on your first 5000€",
 								]}
