@@ -1,7 +1,6 @@
 import {
-	CheckIcon,
 	ArrowPathIcon,
-	QuestionMarkCircleIcon,
+	CheckIcon
 } from "@heroicons/react/24/outline";
 import type { ReactNode } from "react";
 
@@ -68,7 +67,7 @@ export default function DealSection() {
 									Equity Stake
 								</p>
 								<p className="text-xs text-gray-600">
-									Standard for Seven Seed
+									For Seven Seed
 								</p>
 							</div>
 
@@ -86,7 +85,7 @@ export default function DealSection() {
 									Profit-Sharing
 								</p>
 								<p className="text-xs text-gray-600">
-									Of profits shared with cohort
+									Exit proceeds shared back with cohort
 								</p>
 							</div>
 						</div>
@@ -116,7 +115,7 @@ export default function DealSection() {
 
 								<div className="bg-blue-50 p-2 rounded-lg text-center w-24">
 									<p className="text-xs font-medium text-gray-800">
-										25% Shared
+										25% Shared Back
 									</p>
 								</div>
 							</div>
@@ -138,12 +137,11 @@ export default function DealSection() {
 								are shared back with each cohort member
 							</CheckItem>
 							<CheckItem>
-								Example: If Seven Seed receives €1M from an exit in your
-								cohort, €250k is distributed among the other startups
+								The remaining 25% are shared across cohort sponsors
 							</CheckItem>
 							<CheckItem>
-								Optional: For an additional €5,000 investment, double
-								your individual share from this profit-sharing pool
+								Example: If Seven Seed receives €1M from an exit in your
+								cohort, €250k is distributed among the other startups
 							</CheckItem>
 						</div>
 					</div>
