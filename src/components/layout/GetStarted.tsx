@@ -16,10 +16,10 @@ const GetStarted = () => {
 				<div className="w-full flex justify-center">
 					<Button
 						className="flex-1 sm:flex-none"
-						href="/dashboard/get-started"
+						href="/contact"
 						color="blue"
 					>
-						{t("getStarted")}
+						{t("contactUs")}
 					</Button>
 				</div>
 			</div>

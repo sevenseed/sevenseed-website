@@ -17,15 +17,7 @@ const CTA = () => {
 					<div className="w-full flex gap-4 justify-between sm:justify-center pt-6">
 						<Button
 							className="flex-1 sm:flex-none"
-							href="/dashboard/get-started"
-							color="blue"
-						>
-							{t("getStarted")}
-						</Button>
-						<Button
-							className="flex-1 sm:flex-none"
 							href="/contact"
-							variant="outline"
 							color="blue"
 						>
 							{t("contactUs")}
