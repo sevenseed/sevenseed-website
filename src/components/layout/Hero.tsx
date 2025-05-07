@@ -15,15 +15,7 @@ const Hero = () => {
 				<div className="w-full flex gap-4 justify-between sm:justify-center">
 					<Button
 						className="flex-1 sm:flex-none"
-						href="/dashboard/get-started"
-						color="blue"
-					>
-						{t("getStarted")}
-					</Button>
-					<Button
-						className="flex-1 sm:flex-none"
 						href="/contact"
-						variant="outline"
 						color="blue"
 					>
 						{t("contactUs")}
