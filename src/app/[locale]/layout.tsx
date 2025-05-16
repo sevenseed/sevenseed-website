@@ -45,6 +45,23 @@ export default function RootLayout({ children }: PropsWithChildren) {
 				/>
 				{/* Stripe recommends preloading its JS toolkit because it enables them to track potential fraud better */}
 				<script src="https://js.stripe.com/v3" async />
+
+				{/* --- Open Graph Meta Tags --- */}
+				<meta property="og:type" content="website" />
+				<meta
+					property="og:title"
+					content="Seven Seed - Your company in Seven Days"
+				/>
+				<meta
+					property="og:description"
+					content="Incorporate in Belgium in just seven days. Entirely online."
+				/>
+				<meta property="og:url" content="https://sevenseed.eu/" />
+				<meta
+					property="og:image"
+					content="https://sevenseed.eu/images/sevenseed-og.png"
+				/>
+				<meta property="og:site_name" content="Seven Seed" />
 				{locales.map((locale) => {
 					const urlObj = new URL(url);
 					urlObj.searchParams.set("lang", locale);
