@@ -43,7 +43,7 @@ export default function DealSection() {
 									</span>
 								</div>
 								<h4 className="text-lg font-bold mb-1 text-gray-900">
-									€6,500
+									€6,000
 								</h4>
 								<p className="text-xs text-blue-600 font-medium mb-1">
 									Program Fee

@@ -75,7 +75,7 @@ export default function CTASection() {
 					</div>
 
 					<p className="mt-8 text-blue-100 text-sm">
-						Application deadline: August 15, 2025
+						Application deadline: July 1st, 2025
 					</p>
 				</div>
 			</div>
