@@ -12,7 +12,6 @@ const navigation = {
 		{ key: "about", href: "/#about-us" },
 		{ key: "jobs", href: "mailto:jobs@sevenseed.eu" },
 		{ key: "press", href: "mailto:press@sevenseed.eu" },
-		{ key: "partners", href: "/partners" },
 		{ key: "privacyPolicy", href: "/privacy" },
 	],
 	social: [
