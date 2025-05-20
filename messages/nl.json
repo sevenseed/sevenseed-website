@@ -106,8 +106,26 @@
 	},
 	"GetStarted": {
 		"title": "Laten we beginnen",
-		"content": "Je draait de sleutel om. Wij zorgen ervoor dat het bedrijf snel van de grond komt.",
-		"getStarted": "Beginnen"
+		"content": "U draait de sleutel om. Wij zorgen ervoor dat het bedrijf snel van start gaat.",
+		"form": {
+			"name": "Naam",
+			"email": "E-mail",
+			"phone": "Telefoon",
+			"companyName": "Gewenste bedrijfsnaam",
+			"activities": "Wat zijn de activiteiten van het bedrijf?",
+			"region": "Gewenste regio",
+			"regions": {
+				"brussels": "Brussel",
+				"flanders": "Vlaanderen",
+				"wallonia": "Wallonië",
+				"noPreference": "Geen voorkeur"
+			},
+			"separateAddress": "Ja, ik wil een zakelijk adres dat verschilt van mijn thuisadres",
+			"submit": "Verzenden",
+			"submitting": "Bezig met verzenden...",
+			"success": "Formulier succesvol verzonden. We nemen spoedig contact met u op!",
+			"error": "Er is iets misgegaan. Probeer het later opnieuw."
+		}
 	},
 	"Footer": {
 		"about": "Over",
