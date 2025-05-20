@@ -105,28 +105,28 @@
 		"getStarted": "Commencer"
 	},
 	"GetStarted": {
-    "title": "Commençons",
-    "content": "Vous tournez la clé. Nous veillons à ce que la société démarre rapidement.",
-    "form": {
-      "name": "Nom",
-      "email": "E-mail",
-      "phone": "Téléphone",
-      "companyName": "Nom souhaité de la société",
-      "activities": "Quelles sont les activités de la société ?",
-      "region": "Région souhaitée",
-      "regions": {
-        "brussels": "Bruxelles",
-        "flanders": "Flandre",
-        "wallonia": "Wallonie",
-        "noPreference": "Pas de préférence"
-      },
-      "separateAddress": "Oui, je souhaite une adresse professionnelle différente de mon adresse personnelle",
-      "submit": "Envoyer",
-      "submitting": "Envoi en cours...",
-      "success": "Formulaire envoyé avec succès. Nous vous recontacterons bientôt !",
-      "error": "Une erreur est survenue. Veuillez réessayer plus tard."
-    }
-  },
+		"title": "Commençons",
+		"content": "Vous tournez la clé. Nous veillons à ce que la société démarre rapidement.",
+		"form": {
+			"name": "Nom",
+			"email": "E-mail",
+			"phone": "Téléphone",
+			"companyName": "Nom souhaité de la société",
+			"activities": "Quelles sont les activités de la société ?",
+			"region": "Région souhaitée",
+			"regions": {
+				"brussels": "Bruxelles",
+				"flanders": "Flandre",
+				"wallonia": "Wallonie",
+				"noPreference": "Pas de préférence"
+			},
+			"separateAddress": "Oui, je souhaite une adresse professionnelle différente de mon adresse personnelle",
+			"submit": "Envoyer",
+			"submitting": "Envoi en cours...",
+			"success": "Formulaire envoyé avec succès. Nous vous recontacterons bientôt !",
+			"error": "Une erreur est survenue. Veuillez réessayer plus tard."
+		}
+	},
 	"Footer": {
 		"about": "À propos",
 		"jobs": "Emplois",
