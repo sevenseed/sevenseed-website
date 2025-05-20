@@ -106,10 +106,27 @@
 		"getStarted": "Get started"
 	},
 	"GetStarted": {
-		"title": "Let's get started",
-		"content": "You turn the key. We make sure the company gets off the ground at speed.",
-		"getStarted": "Get started"
-	},
+    "title": "Let's get started",
+    "content": "You turn the key. We make sure the company gets off the ground at speed.",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "companyName": "Desired company name",
+      "activities": "What are the activities of the company?",
+      "region": "Desired region",
+      "regions": {
+        "brussels": "Brussels",
+        "flanders": "Flanders",
+        "wallonia": "Wallonia",
+        "noPreference": "No preference"
+      },
+      "separateAddress": "Yes, I want a business address separate from my home address",
+      "submit": "Submit",
+      "submitting": "Submitting...",
+      "success": "Form submitted successfully. We'll get back to you soon!",
+      "error": "Something went wrong. Please try again later."
+    }},
 	"Footer": {
 		"about": "About",
 		"jobs": "Jobs",
