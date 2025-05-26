@@ -1,7 +1,4 @@
-import {
-	ArrowPathIcon,
-	CheckIcon
-} from "@heroicons/react/24/outline";
+import { ArrowPathIcon, CheckIcon } from "@heroicons/react/24/outline";
 import type { ReactNode } from "react";
 
 export default function DealSection() {
@@ -66,9 +63,7 @@ export default function DealSection() {
 								<p className="text-xs text-blue-600 font-medium mb-1">
 									Equity Stake
 								</p>
-								<p className="text-xs text-gray-600">
-									For Seven Seed
-								</p>
+								<p className="text-xs text-gray-600">For Seven Seed</p>
 							</div>
 
 							{/* Profit-Sharing */}
@@ -130,18 +125,20 @@ export default function DealSection() {
 
 						<div className="space-y-4 flex-grow flex flex-col justify-center">
 							<CheckItem>
-								Seven Seed retains 50% of proceeds from its equity
+								Seven Seed receives proceeds from exits and dividends
+								based on its 5% stake.
 							</CheckItem>
 							<CheckItem>
-								25% of our profits from exits across the whole cohort
-								are shared back with each cohort member
+								25% of these across the whole cohort are shared back to
+								the other cohort members.
 							</CheckItem>
 							<CheckItem>
-								The remaining 25% are shared across cohort sponsors
+								The remaining 25% are shared across cohort sponsors.
 							</CheckItem>
 							<CheckItem>
 								Example: If Seven Seed receives €1M from an exit in your
-								cohort, €250k is distributed among the other startups
+								cohort, €250k is distributed among each other startup
+								(even if shut down).
 							</CheckItem>
 						</div>
 					</div>
