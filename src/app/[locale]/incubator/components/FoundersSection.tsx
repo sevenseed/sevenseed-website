@@ -89,23 +89,6 @@ export default function FoundersSection() {
 	);
 }
 
-interface FounderCriteriaCardProps {
-	icon: ReactNode;
-	title: string;
-	color: string;
-}
-
-function FounderCriteriaCard({ icon, title, color }: FounderCriteriaCardProps) {
-	return (
-		<div
-			className={`${color} text-gray-800 p-3 rounded-full shadow-md flex items-center space-x-2 animate-float`}
-		>
-			<div className="bg-white p-1.5 rounded-full">{icon}</div>
-			<span className="font-medium text-sm pr-1">{title}</span>
-		</div>
-	);
-}
-
 interface FounderCriteriaDetailProps {
 	icon: ReactNode;
 	title: string;
