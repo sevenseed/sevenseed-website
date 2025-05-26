@@ -8,6 +8,7 @@ import ProgramBenefitsSection from "./incubator/components/ProgramBenefitsSectio
 import DealSection from "./incubator/components/DealSection";
 import FoundersSection from "./incubator/components/FoundersSection";
 import CTASection from "./incubator/components/CTASection";
+import MentorsSection from "./incubator/components/MentorsSection";
 
 export default function Home() {
 	return (
@@ -17,6 +18,7 @@ export default function Home() {
 			<BrusselsSection />
 			<PartnersSection />
 			<ProgramBenefitsSection />
+			<MentorsSection />
 			<DealSection />
 			<FoundersSection />
 			<CTASection />
