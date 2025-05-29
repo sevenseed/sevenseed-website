@@ -16,8 +16,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-	title: "Seven Seed - Your company in Seven Days",
-	description: "Incorporate in Belgium in just seven days. Entirely online.",
+	title: "Seven Seed - Launch Your Startup in Europe",
+	description:
+		"Join a six month tech startup incubation program. Apply before July 1st for the next cohort.",
 };
 
 export default function RootLayout({ children }: PropsWithChildren) {
@@ -50,11 +51,11 @@ export default function RootLayout({ children }: PropsWithChildren) {
 				<meta property="og:type" content="website" />
 				<meta
 					property="og:title"
-					content="Seven Seed - Your company in Seven Days"
+					content="Seven Seed - Launch Your Startup in Europe"
 				/>
 				<meta
 					property="og:description"
-					content="Incorporate in Belgium in just seven days. Entirely online."
+					content="Join a six month tech startup incubation program. Apply before July 1st for the next cohort."
 				/>
 				<meta property="og:url" content="https://sevenseed.eu/" />
 				<meta
