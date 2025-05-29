@@ -16,8 +16,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-	title: "Seven Seed - Your company in Seven Days",
-	description: "Incorporate in Belgium in just seven days. Entirely online.",
+	title: "Seven Seed - Launch Your Startup in Europe",
+	description:
+		"Join a six month tech startup incubation program. Apply before July 1st for the next cohort.",
 };
 
 export default function RootLayout({ children }: PropsWithChildren) {
