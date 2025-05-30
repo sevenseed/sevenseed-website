@@ -6,25 +6,25 @@ export default function MentorsSection() {
 		{
 			id: 1,
 			name: "Jerome Leclanche",
-			title: "Founder of Ingram Technologies",
+			title: "Serial Entrepreneur in US and EU. Founder of Seven Seed and Seven Capital.",
 			image: "/images/members/jerome.webp",
 		},
 		{
 			id: 2,
 			name: "Alessandra Guion",
-			title: "Board Member of Fintech Belgium",
+			title: "Founder of Fintech Belgium. Board Member Isabel Group & EDFA. FinTech wizard.",
 			image: "/images/mentors/alessandra-guion.webp",
 		},
 		{
 			id: 3,
 			name: "Frank Hoogendijk",
-			title: "Founder of Found Advisory",
+			title: "Legal Advisor. Founder of Found Advisory, specialized in startup advisory.",
 			image: "/images/mentors/FrankHoogendijk.jpg",
 		},
 		{
 			id: 4,
 			name: "Ron Eddings",
-			title: "Founder of Hacker Valley Media",
+			title: "Founder of Hacker Valley Media. Cybersecurity Expert.",
 			image: "/images/mentors/RonEddings.webp",
 		},
 	];
