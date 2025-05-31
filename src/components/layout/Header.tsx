@@ -57,7 +57,6 @@ const Header = () => {
 							{item.name}
 						</a>
 					))}
-					<LanguageSwitcher />
 					{pathname === "/" ? (
 						<Button href="/apply" variant="solid" color="blue">
 							Apply Now
