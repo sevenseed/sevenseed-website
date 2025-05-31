@@ -16,6 +16,7 @@ const navigation = [
 
 const Header = () => {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+	const pathname = usePathname();
 
 	return (
 		<>
@@ -57,9 +58,15 @@ const Header = () => {
 						</a>
 					))}
 					<LanguageSwitcher />
-					<Button href="/contact" variant="solid" color="blue">
-						Contact Us
-					</Button>
+					{pathname === "/" ? (
+						<Button href="/apply" variant="solid" color="blue">
+							Apply Now
+						</Button>
+					) : (
+						<Button href="/contact" variant="solid" color="blue">
+							Contact Us
+						</Button>
+					)}
 				</div>
 			</nav>
 			<Dialog
