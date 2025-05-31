@@ -67,11 +67,12 @@ export default function HeroSection() {
 							<span className="text-blue-600">Europe</span>
 						</h1>
 						<p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto lg:mx-0 mb-6">
-							Have your US activities been impacted by recent administrative decisions?
+							Have your US activities been impacted by recent
+							administrative decisions?
 							<br className="hidden md:block" /> Looking to rebuild a
 							future somewhere else? <br className="hidden md:block" />
-							Launch your startup in the heart of Europe, with other founders like
-							you.
+							Launch your startup in the heart of Europe, with other
+							founders like you.
 						</p>
 
 						{/* Feature highlights */}
@@ -143,7 +144,7 @@ export default function HeroSection() {
 
 						<div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
 							<Link
-								href="https://forms.gle/VQNnxviCGBJ1G1gNA"
+								href="/apply"
 								className="bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-full px-6 py-3 flex items-center justify-center transition-all duration-300"
 							>
 								<span>Apply for Fall 2025 Cohort</span>

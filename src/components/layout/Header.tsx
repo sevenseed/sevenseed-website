@@ -1,12 +1,13 @@
 "use client";
+import logo from "@/images/logo.svg";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { Button } from "../Button";
 import { GridPattern } from "../GridPattern";
 import LanguageSwitcher from "../LanguageSwitcher";
-import Image from "next/image";
-import logo from "@/images/logo.svg";
-import { Button } from "../Button";
 
 const navigation = [
 	{ name: "Funding", href: "/funding" },

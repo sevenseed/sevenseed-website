@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
+import Link from "next/link";
 
 export default function CTASection() {
 	return (
@@ -59,7 +59,7 @@ export default function CTASection() {
 
 					<div className="flex flex-col sm:flex-row justify-center gap-4">
 						<Link
-							href="https://forms.gle/VQNnxviCGBJ1G1gNA"
+							href="/apply"
 							className="bg-white hover:bg-gray-100 text-blue-600 font-medium rounded-full px-8 py-4 flex items-center justify-center transition-all duration-300 group hover:shadow-lg hover:shadow-blue-700/30"
 						>
 							<span>Apply for Fall 2025 Cohort</span>

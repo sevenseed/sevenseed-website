@@ -15,6 +15,11 @@ const nextConfig = withNextIntl({
 				destination: "/",
 				permanent: true,
 			},
+			{
+				source: "/apply",
+				destination: "https://forms.gle/VQNnxviCGBJ1G1gNA",
+				permanent: false,
+			},
 		];
 	},
 	eslint: {
