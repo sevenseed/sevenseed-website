@@ -1,4 +1,4 @@
-import { UserIcon, BriefcaseIcon, AcademicCapIcon } from "@heroicons/react/24/outline";
+import { AcademicCapIcon, BriefcaseIcon, UserIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 
 export default function MentorsSection() {
@@ -26,6 +26,18 @@ export default function MentorsSection() {
 			name: "Ron Eddings",
 			title: "Founder of Hacker Valley Media. Cybersecurity Expert.",
 			image: "/images/mentors/RonEddings.webp",
+		},
+		{
+			id: 5,
+			name: "Jean-Raymond Naveau",
+			title: "Founder of OpenThink Outcomes. 40 years between Silicon Valley & Belgium.",
+			image: "/images/mentors/jean-raymond-naveau.png",
+		},
+		{
+			id: 6,
+			name: "Denis Pokataev",
+			title: "Tech strategy advisor & startup mentor. Prev. Amazon, Oracle, Stripe, Meta.",
+			image: "/images/mentors/denis-pokataev.jpg",
 		},
 	];
 
