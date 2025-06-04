@@ -142,7 +142,7 @@ export default function MentorsSection() {
 							className="bg-white bg-opacity-80 backdrop-blur-sm p-6 rounded-xl shadow-sm border border-gray-100 hover:border-blue-100 transition-all duration-300 text-center group hover:shadow-md"
 						>
 							<div className="relative w-24 h-24 mx-auto mb-4">
-								<div className="absolute -inset-1 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full opacity-50 group-hover:opacity-70 transition-opacity duration-300"></div>
+								<div className="absolute -inset-1 bg-linear-to-br from-blue-100 to-blue-200 rounded-full opacity-50 group-hover:opacity-70 transition-opacity duration-300"></div>
 								<div className="relative w-full h-full rounded-full overflow-hidden bg-gray-100">
 									<Image
 										src={mentor.image || "/placeholder.svg"}

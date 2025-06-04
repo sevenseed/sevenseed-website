@@ -232,7 +232,7 @@ function BenefitContent({
 
 	return (
 		<div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden transition-all duration-500 animate-fade-in">
-			<div className="relative h-64 md:h-80 bg-gradient-to-r from-blue-50 to-white">
+			<div className="relative h-64 md:h-80 bg-linear-to-r from-blue-50 to-white">
 				<Image
 					src={imageSrc || "/placeholder.svg"}
 					alt={imageAlt}
@@ -248,7 +248,7 @@ function BenefitContent({
 				<div className="space-y-3">
 					{features.map((feature, index) => (
 						<div key={index} className="flex items-start">
-							<div className="flex-shrink-0 h-6 w-6 rounded-full bg-blue-100 flex items-center justify-center mr-3 mt-0.5">
+							<div className="shrink-0 h-6 w-6 rounded-full bg-blue-100 flex items-center justify-center mr-3 mt-0.5">
 								<svg
 									className="h-4 w-4 text-blue-600"
 									xmlns="http://www.w3.org/2000/svg"

@@ -47,7 +47,7 @@ function Plan({
 						"flex flex-auto justify-center",
 						"tracking-tight text-slate-900",
 						"p-8 border-t",
-						"md:flex md:px-4 md:col-span-1 md:border-r md:border-t-0 md:order-none",
+						"md:flex md:px-4 md:col-span-1 md:border-r md:border-t-0 md:order-0",
 						"sm:block sm:text-sm sm:col-span-2 sm:columns-2 sm:order-last",
 					)}
 				>

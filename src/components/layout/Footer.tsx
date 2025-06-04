@@ -34,7 +34,7 @@ export default function Footer() {
 
 	return (
 		<footer className="flex justify-center relative mt-16 pt-32 px-8 pb-8">
-			<div className="absolute inset-x-0 top-0 h-32 text-slate-900/10 [mask-image:linear-gradient(white,transparent)]">
+			<div className="absolute inset-x-0 top-0 h-32 text-slate-900/10 mask-[linear-gradient(white,transparent)]">
 				<GridPattern x="50%" />
 			</div>
 			<div className="flex flex-col gap-y-6 w-full max-w-3xl">

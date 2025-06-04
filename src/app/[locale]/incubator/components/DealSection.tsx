@@ -123,7 +123,7 @@ export default function DealSection() {
 							Key Details
 						</h3>
 
-						<div className="space-y-4 flex-grow flex flex-col justify-center">
+						<div className="space-y-4 grow flex flex-col justify-center">
 							<CheckItem>
 								Seven Seed receives proceeds from exits and dividends
 								based on its 5% stake.
@@ -159,7 +159,7 @@ function ArrowFlow() {
 function CheckItem({ children }: { children: ReactNode }) {
 	return (
 		<div className="flex items-start">
-			<div className="flex-shrink-0 h-5 w-5 rounded-full bg-blue-100 flex items-center justify-center mr-2 mt-0.5">
+			<div className="shrink-0 h-5 w-5 rounded-full bg-blue-100 flex items-center justify-center mr-2 mt-0.5">
 				<CheckIcon className="h-3 w-3 text-blue-600" />
 			</div>
 			<span className="text-gray-700 text-sm">{children}</span>

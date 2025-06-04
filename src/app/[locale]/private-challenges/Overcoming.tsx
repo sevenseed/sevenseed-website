@@ -34,7 +34,7 @@ const Overcoming = () => {
 					{people.map((person, index) => (
 						<li key={index}>
 							<Image
-								className="aspect-[4/2] w-full object-contain object-left"
+								className="aspect-4/2 w-full object-contain object-left"
 								alt=""
 								src={person.imageUrl}
 								height={1000}

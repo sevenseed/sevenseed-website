@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function CTASection() {
 	return (
 		<div className="py-16 md:py-20 relative overflow-hidden w-full max-w-7xl mx-auto my-12">
-			<div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-blue-700 rounded-3xl"></div>
+			<div className="absolute inset-0 bg-linear-to-br from-blue-600 to-blue-700 rounded-3xl"></div>
 
 			{/* Abstract pattern background */}
 			<div className="absolute inset-0 overflow-hidden opacity-10">
