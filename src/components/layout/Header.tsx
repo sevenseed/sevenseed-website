@@ -3,6 +3,7 @@ import logo from "@/images/logo.svg";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Button } from "../Button";
@@ -29,7 +30,7 @@ const Header = () => {
 					patternTransform="translate(0 80)"
 					className="text-slate-900/10 w-full inset-0 absolute pointer-events-none mask-image-gradient-to-b from-black to-transparent"
 				/>
-				<a href="/" className="-m-1.5 p-1.5">
+				<Link href="/" className="-m-1.5 p-1.5">
 					<span className="sr-only">Seven Seed</span>
 					<Image
 						className="h-12 w-auto"
@@ -37,7 +38,7 @@ const Header = () => {
 						alt="Seven Seed"
 						priority
 					/>
-				</a>
+				</Link>
 				<div className="flex lg:hidden">
 					<button
 						type="button"
@@ -50,13 +51,13 @@ const Header = () => {
 				</div>
 				<div className="hidden lg:flex lg:gap-x-12 items-center">
 					{navigation.map((item) => (
-						<a
+						<Link
 							key={item.name}
 							href={item.href}
 							className="text-sm font-semibold leading-6 text-gray-900"
 						>
 							{item.name}
-						</a>
+						</Link>
 					))}
 					{pathname === "/" ? (
 						<Button href="/apply" variant="solid" color="blue">
@@ -78,14 +79,14 @@ const Header = () => {
 				<div className="fixed inset-0 z-10" />
 				<Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 space-y-6">
 					<div className="flex items-center justify-between">
-						<a href="/" className="-m-1.5 p-1.5">
+						<Link href="/" className="-m-1.5 p-1.5">
 							<span className="sr-only">Seven Seed</span>
 							<Image
 								className="h-12 w-auto"
 								src={logo}
 								alt="Seven Seed"
 							/>
-						</a>
+						</Link>
 						<button
 							type="button"
 							className="self-end -m-2.5 rounded-md p-2.5 text-gray-700"
@@ -98,20 +99,20 @@ const Header = () => {
 					<div className="flow-root space-y-2">
 						<LanguageSwitcher />
 						{navigation.map((item) => (
-							<a
+							<Link
 								key={item.name}
 								href={item.href}
 								className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
 							>
 								{item.name}
-							</a>
+							</Link>
 						))}
-						<a
-							href="/start"
+						<Link
+							href="/apply"
 							className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
 						>
-							Get started
-						</a>
+							Apply Now
+						</Link>
 					</div>
 				</Dialog.Panel>
 			</Dialog>

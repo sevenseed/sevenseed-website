@@ -1,11 +1,12 @@
-import clsx from "clsx";
-import Image from "next/image";
-import { useTranslations } from "next-intl";
 import { GridPattern } from "@/components/GridPattern";
+import clsx from "clsx";
+import { useTranslations } from "next-intl";
+import Image from "next/image";
 
-import LinkedInIcon from "../icons/LinkedInIcon";
-import GithubIcon from "../icons/GithubIcon";
 import logo from "@/images/logo.svg";
+import Link from "next/link";
+import GithubIcon from "../icons/GithubIcon";
+import LinkedInIcon from "../icons/LinkedInIcon";
 
 const navigation = {
 	main: [
@@ -39,14 +40,14 @@ export default function Footer() {
 			<div className="flex flex-col gap-y-6 w-full max-w-3xl">
 				<div className="max-w-3xl grid sm:grid-cols-2 sm:place-content-center gap-y-8">
 					<div>
-						<a href="/">
+						<Link href="/">
 							<Image
 								className="w-32"
 								src={logo}
 								alt="Seven Seed logo"
 								aria-hidden
 							/>
-						</a>
+						</Link>
 						<span className="sr-only">Seven Seed</span>
 					</div>
 					<nav
