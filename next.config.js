@@ -11,6 +11,11 @@ const nextConfig = withNextIntl({
 				permanent: false,
 			},
 			{
+				source: "/press-release",
+				destination: "https://docs.google.com/document/d/e/2PACX-1vSJ9N-_RyKFro__H1epqLTvj5ZnCJ8ddGixXt_hF6hnEOZOTb1csNLffxDVdAcToaFlD6_F65StEyVj/pub",
+				permanent: false,
+			},
+			{
 				source: "/program",
 				destination: "/",
 				permanent: true,
