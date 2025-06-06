@@ -9,7 +9,7 @@ export default function MentorsPage() {
             image: "/images/mentors/jerome-leclanche.jpg",
             experience: "15+ years",
             companies: 4,
-            linkedin: "https://linkedin.com/in/jerome-leclanche",
+            linkedin: "https://www.linkedin.com/in/jleclanche/",
             bio: "Jerome Leclanche is a serial entrepreneur with experience in both US and EU markets. He is the founder of Seven Seed and Seven Capital, where he has built multiple successful ventures over his 15+ year career. Jerome specializes in helping startups with fundraising strategy, international expansion, and building high-performing teams. He has raised over $50M across his various companies and has extensive experience in B2B SaaS scaling.",
         },
         {
@@ -19,7 +19,7 @@ export default function MentorsPage() {
             image: "/images/mentors/alessandra-guion.jpg",
             experience: "20+ years",
             companies: 2,
-            linkedin: "https://linkedin.com/in/alessandra-guion",
+            linkedin: "https://www.linkedin.com/in/alessandraguion/",
             bio: "Alessandra Guion is the founder of Fintech Belgium and serves as a board member for Isabel Group & EDFA. With over 20 years in financial services, she is recognized as a leading FinTech expert in Europe. Alessandra helps startups navigate complex regulatory landscapes, build strategic partnerships within the financial ecosystem, and develop compliant fintech solutions. Her extensive network in European financial services makes her invaluable for fintech companies looking to scale.",
         },
         {
@@ -29,7 +29,7 @@ export default function MentorsPage() {
             image: "/images/mentors/frank-hoogendijk.jpg",
             experience: "12+ years",
             companies: 1,
-            linkedin: "https://linkedin.com/in/frank-hoogendijk",
+            linkedin: "https://www.linkedin.com/in/frankhoogendijk/",
             bio: "Frank Hoogendijk is the founder of Found Advisory, specializing in startup legal strategy and advisory services. With 12+ years of experience, he helps early-stage companies navigate complex legal frameworks, protect intellectual property, and structure their organizations for growth. Frank's practical approach to legal strategy helps startups avoid common pitfalls while scaling efficiently, particularly in areas of corporate structure, compliance, and contract negotiation.",
         },
         {
@@ -39,7 +39,7 @@ export default function MentorsPage() {
             image: "/images/mentors/ron-eddings.jpg",
             experience: "18+ years",
             companies: 3,
-            linkedin: "https://linkedin.com/in/ron-eddings",
+            linkedin: "https://www.linkedin.com/in/ronaldeddings/",
             bio: "Ron Eddings is the founder of Hacker Valley Media and a recognized cybersecurity expert with 18+ years in the industry. He combines deep technical knowledge with media expertise to help security startups build thought leadership and market presence. Ron specializes in helping cybersecurity and defense tech companies develop go-to-market strategies, establish technical credibility, and navigate the competitive security market landscape.",
         },
         {
@@ -49,7 +49,7 @@ export default function MentorsPage() {
             image: "/images/mentors/jean-raymond-naveau.jpg",
             experience: "40+ years",
             companies: 6,
-            linkedin: "https://linkedin.com/in/jean-raymond-naveau",
+            linkedin: "https://www.linkedin.com/in/jeanraymondnaveau/",
             bio: "Jean-Raymond Naveau brings 40 years of experience spanning Silicon Valley and Belgium as the founder of OpenThink Outcomes. He has built 6 companies and raised over $200M throughout his career. Jean-Raymond specializes in helping European startups expand to US markets and American companies enter European markets, leveraging his extensive Silicon Valley network and deep understanding of international business dynamics.",
         },
         {
@@ -59,7 +59,7 @@ export default function MentorsPage() {
             image: "/images/mentors/denis-pokataev.jpg",
             experience: "15+ years",
             companies: 2,
-            linkedin: "https://linkedin.com/in/denis-pokataev",
+            linkedin: "https://www.linkedin.com/in/denispokataev/",
             bio: "Denis Pokataev is a tech strategy advisor with experience at Amazon, Oracle, Stripe, and Meta. He specializes in helping startups leverage big tech insights for product development, scaling, and strategic partnerships. Denis applies methodologies from major technology platforms to help startups build scalable products, optimize operations, and develop strategic partnerships. His insider knowledge provides startups with competitive advantages in product strategy and market positioning.",
         },
         {
@@ -79,7 +79,7 @@ export default function MentorsPage() {
             image: "/images/mentors/filip-maertens.jpg",
             experience: "20+ years",
             companies: 8,
-            linkedin: "https://linkedin.com/in/filip-maertens",
+            linkedin: "https://www.linkedin.com/in/fmaertens/",
             bio: "Filip Maertens is a venture builder and AI expert with 20+ years of experience building and scaling technology companies. He is a Forbes Technology Council member and keynote speaker who has built 8 companies and raised over $150M in total funding. Filip helps tech startups build scalable venture models, implement AI strategies, and navigate the complexities of rapid growth and technology adoption in competitive markets.",
         },
     ]
