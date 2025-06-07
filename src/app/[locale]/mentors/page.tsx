@@ -5,10 +5,11 @@ export default function MentorsPage() {
 		{
 			id: 1,
 			name: "Jerome Leclanche",
-			title: "Serial Entrepreneur",
+			title: "Serial Founder - Tech Wizard",
 			image: "/images/mentors/jerome-leclanche.jpg",
 			experience: "15+ years",
-			companies: 4,
+			companies: 9,
+			exits: 2,
 			linkedin: "https://www.linkedin.com/in/jleclanche/",
 			bio: "Jerome Leclanche is a serial entrepreneur and engineer with a background in AI, cybersecurity, and open source. He is the founder of Seven Seed, Seven Camp, and Seven Capital as well as the AI venture studio Ingram Technologies. Over his 15+ year career, he has built and led ventures across video games, fintech, and AI, with multiple successful exits. Jerome focuses on deep tech, dual-use startups, and European tech sovereignty.",
 		},
@@ -18,7 +19,6 @@ export default function MentorsPage() {
 			title: "FinTech Expert & Board Member",
 			image: "/images/mentors/alessandra-guion.jpg",
 			experience: "20+ years",
-			companies: 2,
 			linkedin: "https://www.linkedin.com/in/alessandraguion/",
 			bio: "Alessandra Guion is the founder of Fintech Belgium and serves as a board member for Isabel Group & EDFA. With over 20 years in financial services, she is recognized as a leading FinTech expert in Europe. Alessandra helps startups navigate complex regulatory landscapes, build strategic partnerships within the financial ecosystem, and develop compliant fintech solutions. Her extensive network in European financial services makes her invaluable for fintech companies looking to scale.",
 		},
@@ -45,9 +45,9 @@ export default function MentorsPage() {
 		{
 			id: 5,
 			name: "Jean-Raymond Naveau",
-			title: "Silicon Valley Veteran",
+			title: "Product Manager & Silicon Valley Veteran",
 			image: "/images/mentors/jean-raymond-naveau.jpg",
-			experience: "40+ years",
+			experience: "30+ years",
 			companies: 6,
 			linkedin: "https://www.linkedin.com/in/jeanraymondnaveau/",
 			bio: "Jean-Raymond Naveau is a strategist, advisor, and mentor to startups, scaleups, and corporates tackling the product-market fit challenge. With 30+ years in product management—17 of them in Silicon Valley—he’s the founder of Innovation Attitude and co-founder of the Global IPR Exchange. Jean-Raymond helps organizations design adaptable innovation systems, de-risk growth strategies, and co-create value within open innovation ecosystems.",
@@ -57,7 +57,7 @@ export default function MentorsPage() {
 			name: "Denis Pokataev",
 			title: "Tech Strategy Advisor",
 			image: "/images/mentors/denis-pokataev.jpg",
-			experience: "15+ years",
+			experience: "20+ years",
 			companies: 2,
 			linkedin: "https://www.linkedin.com/in/denispokataev/",
 			bio: "Denis Pokataev is a tech strategy advisor with experience at Amazon, Oracle, Stripe, and Meta. He specializes in helping startups leverage big tech insights for product development, scaling, and strategic partnerships. Denis applies methodologies from major technology platforms to help startups build scalable products, optimize operations, and develop strategic partnerships. His insider knowledge provides startups with competitive advantages in product strategy and market positioning.",
@@ -68,7 +68,6 @@ export default function MentorsPage() {
 			title: "Marketing & Growth Specialist",
 			image: "/images/mentors/nicolas-streel.jpg",
 			experience: "10+ years",
-			companies: 3,
 			linkedin: "https://linkedin.com/in/nicolas-streel",
 			bio: "Nicolas Streel is a Belgian entrepreneur and CMO, co-founder of Line-Out and The Maul—two ventures helping startups and SMEs prototype and launch MVPs fast. A former director at BEyond by Pulse Foundation, Nicolas is a hands-on operator known for his love of execution, strategic thinking, and mental models. ",
 		},
@@ -214,17 +213,19 @@ export default function MentorsPage() {
 													exp
 												</span>
 											</div>
-											<div className="flex items-center gap-1.5 px-2.5 py-1 bg-gray-50 rounded-full">
-												<div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
-												<span className="text-xs font-medium text-gray-700">
-													{mentor.companies}
-												</span>
-												<span className="text-xs text-gray-500">
-													{mentor.companies === 1
-														? "co"
-														: "cos"}
-												</span>
-											</div>
+											{mentor.companies ? (
+												<div className="flex items-center gap-1.5 px-2.5 py-1 bg-gray-50 rounded-full">
+													<div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
+													<span className="text-xs font-medium text-gray-700">
+														{mentor.companies}
+													</span>
+													<span className="text-xs text-gray-500">
+														{mentor.companies === 1
+															? "co"
+															: "cos"}
+													</span>
+												</div>
+											) : null}
 										</div>
 
 										<p className="text-sm text-gray-700 leading-relaxed">
@@ -270,18 +271,37 @@ export default function MentorsPage() {
 																	experience
 																</span>
 															</div>
-															<div className="flex items-center gap-2 px-3 py-1 bg-gray-50 rounded-full">
-																<div className="w-2 h-2 bg-green-500 rounded-full"></div>
-																<span className="text-sm font-medium text-gray-700">
-																	{mentor.companies}
-																</span>
-																<span className="text-sm text-gray-500">
-																	{mentor.companies ===
-																	1
-																		? "company"
-																		: "companies"}
-																</span>
-															</div>
+															{mentor.companies ? (
+																<div className="flex items-center gap-2 px-3 py-1 bg-gray-50 rounded-full">
+																	<div className="w-2 h-2 bg-green-500 rounded-full"></div>
+																	<span className="text-sm font-medium text-gray-700">
+																		{
+																			mentor.companies
+																		}
+																	</span>
+																	<span className="text-sm text-gray-500">
+																		{mentor.companies ===
+																		1
+																			? "company"
+																			: "companies"}
+																	</span>
+																	{mentor.exits ? (
+																		<>
+																			<span className="text-sm font-medium text-gray-700">
+																				{
+																					mentor.exits
+																				}
+																			</span>
+																			<span className="text-sm text-gray-500">
+																				{mentor.exits ===
+																				1
+																					? "exit"
+																					: "exits"}
+																			</span>
+																		</>
+																	) : null}
+																</div>
+															) : null}
 														</div>
 													</div>
 
