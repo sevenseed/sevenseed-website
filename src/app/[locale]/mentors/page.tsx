@@ -60,7 +60,7 @@ export default function MentorsPage() {
 			experience: "20+ years",
 			companies: 2,
 			linkedin: "https://www.linkedin.com/in/denispokataev/",
-			bio: "Denis Pokataev is a tech strategy advisor with experience at Amazon, Oracle, Stripe, and Meta. He specializes in helping startups leverage big tech insights for product development, scaling, and strategic partnerships. Denis applies methodologies from major technology platforms to help startups build scalable products, optimize operations, and develop strategic partnerships. His insider knowledge provides startups with competitive advantages in product strategy and market positioning.",
+			bio: "Denis Pokataev is a tech advisor and mentor with 25+ years of experience across startups and FAANG companies. Ex-Stripe, Meta & Amazon, he specializes in tech strategy, go-to-market roadmaps, and scaling both products and engineering teams. His focus is on building platforms and growing future engineering leaders.",
 		},
 		{
 			id: 7,
