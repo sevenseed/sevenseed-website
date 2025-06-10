@@ -122,26 +122,6 @@ export default function MentorsPage() {
 							industry experts who provide personalized guidance to help
 							startups navigate challenges and accelerate growth.
 						</p>
-						<div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-8 text-base sm:text-lg text-gray-500">
-							<div className="flex items-center justify-center gap-2">
-								<span className="font-bold text-xl sm:text-2xl text-gray-900">
-									120+
-								</span>
-								<span>Years Combined Experience</span>
-							</div>
-							<div className="flex items-center justify-center gap-2">
-								<span className="font-bold text-xl sm:text-2xl text-gray-900">
-									30+
-								</span>
-								<span>Companies Built</span>
-							</div>
-							<div className="flex items-center justify-center gap-2">
-								<span className="font-bold text-xl sm:text-2xl text-gray-900">
-									$570M+
-								</span>
-								<span>Total Funding Raised</span>
-							</div>
-						</div>
 					</div>
 				</div>
 			</div>
