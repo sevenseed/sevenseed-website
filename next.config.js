@@ -11,7 +11,8 @@ const nextConfig = withNextIntl({
 			},
 			{
 				source: "/press-release",
-				destination: "https://docs.google.com/document/d/e/2PACX-1vSJ9N-_RyKFro__H1epqLTvj5ZnCJ8ddGixXt_hF6hnEOZOTb1csNLffxDVdAcToaFlD6_F65StEyVj/pub",
+				destination:
+					"https://docs.google.com/document/d/e/2PACX-1vSJ9N-_RyKFro__H1epqLTvj5ZnCJ8ddGixXt_hF6hnEOZOTb1csNLffxDVdAcToaFlD6_F65StEyVj/pub",
 				permanent: false,
 			},
 			{
@@ -22,6 +23,12 @@ const nextConfig = withNextIntl({
 			{
 				source: "/apply",
 				destination: "https://forms.gle/VQNnxviCGBJ1G1gNA",
+				permanent: false,
+			},
+			{
+				source: "/one-pager",
+				destination:
+					"https://docs.google.com/document/d/e/2PACX-1vTcJULqX4QcxV-cwS08zBcbasRyM8NWRVnk--ftNFbkvcnWFQwv2yYlumk9hO8NNQ1eLsR_Otf-Xi8S/pub",
 				permanent: false,
 			},
 		];
