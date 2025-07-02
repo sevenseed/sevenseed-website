@@ -36,18 +36,16 @@ export default function DealSection() {
 							<div className="text-center">
 								<div className="inline-flex items-center justify-center w-14 h-14 bg-blue-100 rounded-full mb-3 mx-auto">
 									<span className="text-blue-600 font-bold text-xl">
-										€
+										⏱
 									</span>
 								</div>
 								<h4 className="text-lg font-bold mb-1 text-gray-900">
-									€6,000
+									6 Months
 								</h4>
 								<p className="text-xs text-blue-600 font-medium mb-1">
-									Program Fee
+									Program Length
 								</p>
-								<p className="text-xs text-gray-600">
-									Company formation & benefits
-								</p>
+								<p className="text-xs text-gray-600">Hybrid</p>
 							</div>
 
 							{/* Equity Stake */}

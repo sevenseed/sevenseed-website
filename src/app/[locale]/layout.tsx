@@ -13,10 +13,12 @@ const inter = Inter({
 	variable: "--font-inter",
 });
 
+const DESCRIPTION =
+	"Join a six month tech startup incubation program. Apply for the Fall 2025 cohort now!";
+
 export const metadata: Metadata = {
 	title: "Seven Seed - Launch Your Startup in Europe",
-	description:
-		"Join a six month tech startup incubation program. Apply before July 1st for the next cohort.",
+	description: DESCRIPTION,
 };
 
 const RootLayout = ({ children }: PropsWithChildren) => {
@@ -45,10 +47,7 @@ const RootLayout = ({ children }: PropsWithChildren) => {
 					property="og:title"
 					content="Seven Seed - Launch Your Startup in Europe"
 				/>
-				<meta
-					property="og:description"
-					content="Join a six month tech startup incubation program. Apply before July 1st for the next cohort."
-				/>
+				<meta property="og:description" content={DESCRIPTION} />
 				<meta property="og:url" content="https://sevenseed.eu/" />
 				<meta
 					property="og:image"
