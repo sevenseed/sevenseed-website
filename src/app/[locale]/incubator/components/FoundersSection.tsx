@@ -46,8 +46,8 @@ export default function FoundersSection() {
 				<div className="grid md:grid-cols-5 gap-6 max-w-4xl mx-auto">
 					<FounderCriteriaDetail
 						icon={<UserIcon className="h-8 w-8" />}
-						title="US-Based"
-						description="Committed to relocating and establishing primary operations in Brussels"
+						title="EU-Focused"
+						description="Committed to European resilience and establishing operations in Brussels"
 						color="text-blue-600"
 						bgColor="bg-blue-100"
 					/>

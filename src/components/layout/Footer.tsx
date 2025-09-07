@@ -39,55 +39,78 @@ export default function Footer() {
 			<div className="absolute inset-x-0 top-0 h-32 text-slate-900/10 mask-[linear-gradient(white,transparent)]">
 				<GridPattern x="50%" />
 			</div>
-			<div className="flex flex-col gap-y-6 w-full max-w-3xl">
-				<div className="max-w-3xl grid sm:grid-cols-2 sm:place-content-center gap-y-8">
-					<div>
+			<div className="flex flex-col gap-y-12 w-full max-w-6xl">
+				<div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+					{/* Logo and description column */}
+					<div className="md:col-span-1">
 						<Link href="/">
 							<Image
-								className="w-32"
+								className="w-32 mb-4"
 								src={logo}
 								alt="Seven Seed logo"
 								aria-hidden
 							/>
 						</Link>
 						<span className="sr-only">Seven Seed</span>
+						<p className="text-sm text-gray-600 mt-2">
+							Brussels-based accelerator for dual-use and defence startups.
+						</p>
 					</div>
-					<nav
-						className="flex flex-col sm:items-end gap-y-6"
-						aria-label="Footer"
-					>
-						<div className="flex flex-col items-start sm:items-end sm:gap-y-2">
-							{navigation.main.map((item) => (
+					
+					{/* Resources column */}
+					<div>
+						<h3 className="font-semibold text-gray-900 mb-4">Resources</h3>
+						<nav className="flex flex-col gap-y-2" aria-label="Resources">
+							<Link href="/funding" className="text-sm text-gray-600 hover:text-blue-600 duration-200">
+								{t("funding")}
+							</Link>
+							<Link href="/incorporate" className="text-sm text-gray-600 hover:text-blue-600 duration-200">
+								{t("incorporate")}
+							</Link>
+							<Link href="/privacy" className="text-sm text-gray-600 hover:text-blue-600 duration-200">
+								{t("privacyPolicy")}
+							</Link>
+						</nav>
+					</div>
+					
+					{/* Company column */}
+					<div>
+						<h3 className="font-semibold text-gray-900 mb-4">Company</h3>
+						<nav className="flex flex-col gap-y-2" aria-label="Company">
+							<Link href="/#about-us" className="text-sm text-gray-600 hover:text-blue-600 duration-200">
+								{t("about")}
+							</Link>
+							<a href="mailto:jobs@sevenseed.eu" className="text-sm text-gray-600 hover:text-blue-600 duration-200">
+								{t("jobs")}
+							</a>
+							<a href="mailto:press@sevenseed.eu" className="text-sm text-gray-600 hover:text-blue-600 duration-200">
+								{t("press")}
+							</a>
+						</nav>
+					</div>
+					
+					{/* Connect column */}
+					<div>
+						<h3 className="font-semibold text-gray-900 mb-4">Connect</h3>
+						<div className="flex gap-x-4">
+							{navigation.social.map((item) => (
 								<a
 									key={item.key}
 									href={item.href}
-									className={clsx(
-										"leading-6 text-gray-600 hover:text-blue-600 duration-200 p-2 -mx-2",
-										"sm:text-sm sm:p-0 sm:mx-0",
-									)}
+									className="text-gray-400 hover:text-gray-500"
 								>
-									{t(item.key)}
+									<span className="sr-only">{t(item.key)}</span>
+									<item.icon />
 								</a>
 							))}
 						</div>
-					</nav>
+					</div>
 				</div>
-				<div className="flex sm:flex-row-reverse justify-between items-center flex-wrap gap-x-8 gap-y-4">
-					<p className="sm:text-xs leading-5 text-gray-500">
+				{/* Bottom section with copyright */}
+				<div className="pt-8 border-t border-gray-200">
+					<p className="text-xs text-center text-gray-500">
 						&copy; {new Date().getUTCFullYear()} {t("copyright")}
 					</p>
-					<div className="flex justify-center gap-x-6 sm:gap-x-4">
-						{navigation.social.map((item) => (
-							<a
-								key={item.key}
-								href={item.href}
-								className="text-gray-400 hover:text-gray-500"
-							>
-								<span className="sr-only">{t(item.key)}</span>
-								<item.icon />
-							</a>
-						))}
-					</div>
 				</div>
 			</div>
 		</footer>

@@ -3,7 +3,6 @@ import Image from "next/image";
 export default function MentorsPage() {
 	const mentors = [
 		{
-			id: 1,
 			name: "Jerome Leclanche",
 			title: "Serial Founder - Tech Wizard",
 			image: "/images/mentors/jerome-leclanche.jpg",
@@ -14,7 +13,6 @@ export default function MentorsPage() {
 			bio: "Jerome Leclanche is a serial entrepreneur and engineer with a background in AI, cybersecurity, and open source. He is the founder of Seven Seed, Seven Camp, and Seven Capital as well as the AI venture studio Ingram Technologies. Over his 15+ year career, he has built and led ventures across video games, fintech, and AI, with multiple successful exits. Jerome focuses on deep tech, dual-use startups, and European tech sovereignty.",
 		},
 		{
-			id: 2,
 			name: "Andriy Kolodyuk",
 			title: "Venture Capital Pioneer & Defence Tech Investor",
 			image: "/images/andriy-kolodyuk.jpg",
@@ -25,7 +23,6 @@ export default function MentorsPage() {
 			bio: "Andriy Kolodyuk is the founder and managing partner of AVentures Capital and chairman of the Ukrainian Venture Capital and Private Equity Association (UVCA). With over 25 years of experience, he has built 10+ companies in IT, telecom, and media, including some reaching $1B in revenues. His fund has invested $2.8B in the Ukrainian ecosystem, with notable exits including Augmented Pixels (acquired by Qualcomm). A Young Global Leader at the World Economic Forum, Andriy specializes in dual-use technologies, defence tech, and Eastern European innovation ecosystems.",
 		},
 		{
-			id: 3,
 			name: "Alessandra Guion",
 			title: "FinTech Expert & Board Member",
 			image: "/images/mentors/alessandra-guion.jpg",
@@ -34,7 +31,6 @@ export default function MentorsPage() {
 			bio: "Alessandra Guion is the founder of Fintech Belgium and serves as a board member for Isabel Group & EDFA. With over 20 years in financial services, she is recognized as a leading FinTech expert in Europe. Alessandra helps startups navigate complex regulatory landscapes, build strategic partnerships within the financial ecosystem, and develop compliant fintech solutions. Her extensive network in European financial services makes her invaluable for fintech companies looking to scale.",
 		},
 		{
-			id: 3,
 			name: "Frank Hoogendijk",
 			title: "Legal Advisor & Startup Specialist",
 			image: "/images/mentors/frank-hoogendijk.jpg",
@@ -44,7 +40,6 @@ export default function MentorsPage() {
 			bio: "Frank Hoogendijk is the founder of Found Advisory, specializing in startup legal strategy and advisory services. With 12+ years of experience, he helps early-stage companies navigate complex legal frameworks, protect intellectual property, and structure their organizations for growth. Frank's practical approach to legal strategy helps startups avoid common pitfalls while scaling efficiently, particularly in areas of corporate structure, compliance, and contract negotiation.",
 		},
 		{
-			id: 4,
 			name: "Ron Eddings",
 			title: "Cybersecurity Expert",
 			image: "/images/mentors/ron-eddings.jpg",
@@ -54,7 +49,6 @@ export default function MentorsPage() {
 			bio: "Ron Eddings is the founder of Hacker Valley Media and a recognized cybersecurity expert with 18+ years in the industry. He combines deep technical knowledge with media expertise to help security startups build thought leadership and market presence. Ron specializes in helping cybersecurity and defense tech companies develop go-to-market strategies, establish technical credibility, and navigate the competitive security market landscape.",
 		},
 		{
-			id: 5,
 			name: "Jean-Raymond Naveau",
 			title: "Product Manager & Silicon Valley Veteran",
 			image: "/images/mentors/jean-raymond-naveau.jpg",
@@ -64,7 +58,6 @@ export default function MentorsPage() {
 			bio: "Jean-Raymond Naveau is a strategist, advisor, and mentor to startups, scaleups, and corporates tackling the product-market fit challenge. With 30+ years in product management—17 of them in Silicon Valley—he’s the founder of Innovation Attitude and co-founder of the Global IPR Exchange. Jean-Raymond helps organizations design adaptable innovation systems, de-risk growth strategies, and co-create value within open innovation ecosystems.",
 		},
 		{
-			id: 6,
 			name: "Denis Pokataev",
 			title: "Tech Strategy Advisor",
 			image: "/images/mentors/denis-pokataev.jpg",
@@ -74,7 +67,6 @@ export default function MentorsPage() {
 			bio: "Denis Pokataev is a tech advisor and mentor with 25+ years of experience across startups and FAANG companies. Ex-Stripe, Meta & Amazon, he specializes in tech strategy, go-to-market roadmaps, and scaling both products and engineering teams. His focus is on building platforms and growing future engineering leaders.",
 		},
 		{
-			id: 7,
 			name: "Nicolas Streel",
 			title: "Marketing & Growth Specialist",
 			image: "/images/mentors/nicolas-streel.jpg",
@@ -83,7 +75,6 @@ export default function MentorsPage() {
 			bio: "Nicolas Streel is a Belgian entrepreneur and CMO, co-founder of Line-Out and The Maul—two ventures helping startups and SMEs prototype and launch MVPs fast. A former director at BEyond by Pulse Foundation, Nicolas is a hands-on operator known for his love of execution, strategic thinking, and mental models. ",
 		},
 		{
-			id: 8,
 			name: "Filip Maertens",
 			title: "Venture Builder & AI Expert",
 			image: "/images/mentors/filip-maertens.jpg",
@@ -146,7 +137,7 @@ export default function MentorsPage() {
 						<div className="space-y-6 sm:space-y-8">
 							{category.mentors.map((mentor) => (
 								<div
-									key={mentor.id}
+									key={mentor.name}
 									className="group bg-white border border-gray-200 rounded-2xl p-4 sm:p-6 md:p-8 hover:shadow-lg hover:border-gray-300 transition-all duration-300"
 								>
 									<div className="block sm:hidden">
