@@ -28,8 +28,8 @@ export default function ProgramBenefitsSection() {
 					</h2>
 
 					<p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
-						Comprehensive support for dual-use startups entering the European
-						defence ecosystem.
+						Comprehensive support for dual-use startups entering the
+						European defence ecosystem.
 					</p>
 				</div>
 
@@ -108,7 +108,7 @@ export default function ProgramBenefitsSection() {
 								isActive={activeBenefit === "procurement"}
 								title="Clear Pathways to Procurement"
 								description="Navigate the complex procurement landscape with expert guidance. Access corporate partners and government contracts through our established network."
-								imageSrc="/images/strategic.jpg"
+								imageSrc="/images/eu.jpg"
 								imageAlt="Procurement pathways"
 								features={[
 									"Direct access to corporate procurement teams",
@@ -136,7 +136,7 @@ export default function ProgramBenefitsSection() {
 								isActive={activeBenefit === "mentorship"}
 								title="Expert Mentorship Network"
 								description="Learn from successful entrepreneurs and industry experts. Get personalized guidance on strategy, fundraising, and scaling in the European market."
-								imageSrc="/images/atomium.jpg"
+								imageSrc="/images/strategic.jpg"
 								imageAlt="Expert mentorship"
 								features={[
 									"1-on-1 coaching with industry veterans",
@@ -150,7 +150,7 @@ export default function ProgramBenefitsSection() {
 								isActive={activeBenefit === "events"}
 								title="Major Event Representation"
 								description="Get visibility at major European defence and tech events. We ensure your startup is represented where key decisions and partnerships are made."
-								imageSrc="/images/eu.jpg"
+								imageSrc="/images/atomium.jpg"
 								imageAlt="Event representation"
 								features={[
 									"Representation at major EU defence events",

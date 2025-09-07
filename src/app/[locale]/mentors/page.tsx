@@ -89,9 +89,12 @@ export default function MentorsPage() {
 		{
 			title: "Serial Entrepreneurs",
 			mentors: mentors.filter((m) =>
-				["Jerome Leclanche", "Andriy Kolodyuk", "Jean-Raymond Naveau", "Filip Maertens"].includes(
-					m.name,
-				),
+				[
+					"Jerome Leclanche",
+					"Andriy Kolodyuk",
+					"Jean-Raymond Naveau",
+					"Filip Maertens",
+				].includes(m.name),
 			),
 		},
 		{

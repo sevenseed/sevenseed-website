@@ -8,6 +8,7 @@
 		"start": "next start",
 		"lint": "next lint --max-warnings=0 && prettier --check '**/*.json'",
 		"lint:fix": "next lint --fix --max-warnings=0 && prettier --write '**/*.json'",
+		"format": "prettier --write src/ *.md *.json",
 		"typecheck:watch": "tsc --noEmit --watch --preserveWatchOutput --project tsconfig.watch.json"
 	},
 	"dependencies": {

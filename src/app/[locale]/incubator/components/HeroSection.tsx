@@ -67,10 +67,11 @@ export default function HeroSection() {
 							<span className="text-blue-600">Brussels</span>
 						</h1>
 						<p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto lg:mx-0 mb-6">
-							European defence startups seeking a strategic entry point
-							to Brussels?
-							<br className="hidden md:block" /> Access procurement pathways,
-							EU defence networks, and funding opportunities. <br className="hidden md:block" />
+							European defence startups seeking a strategic entry point to
+							Brussels?
+							<br className="hidden md:block" /> Access procurement
+							pathways, EU defence networks, and funding opportunities.{" "}
+							<br className="hidden md:block" />
 							Join our 6-month program designed for dual-use innovation.
 						</p>
 

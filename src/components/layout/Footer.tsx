@@ -53,42 +53,61 @@ export default function Footer() {
 						</Link>
 						<span className="sr-only">Seven Seed</span>
 						<p className="text-sm text-gray-600 mt-2">
-							Brussels-based accelerator for dual-use and defence startups.
+							Brussels-based accelerator for dual-use and defence
+							startups.
 						</p>
 					</div>
-					
+
 					{/* Resources column */}
 					<div>
 						<h3 className="font-semibold text-gray-900 mb-4">Resources</h3>
 						<nav className="flex flex-col gap-y-2" aria-label="Resources">
-							<Link href="/funding" className="text-sm text-gray-600 hover:text-blue-600 duration-200">
+							<Link
+								href="/funding"
+								className="text-sm text-gray-600 hover:text-blue-600 duration-200"
+							>
 								{t("funding")}
 							</Link>
-							<Link href="/incorporate" className="text-sm text-gray-600 hover:text-blue-600 duration-200">
+							<Link
+								href="/incorporate"
+								className="text-sm text-gray-600 hover:text-blue-600 duration-200"
+							>
 								{t("incorporate")}
 							</Link>
-							<Link href="/privacy" className="text-sm text-gray-600 hover:text-blue-600 duration-200">
+							<Link
+								href="/privacy"
+								className="text-sm text-gray-600 hover:text-blue-600 duration-200"
+							>
 								{t("privacyPolicy")}
 							</Link>
 						</nav>
 					</div>
-					
+
 					{/* Company column */}
 					<div>
 						<h3 className="font-semibold text-gray-900 mb-4">Company</h3>
 						<nav className="flex flex-col gap-y-2" aria-label="Company">
-							<Link href="/#about-us" className="text-sm text-gray-600 hover:text-blue-600 duration-200">
+							<Link
+								href="/#about-us"
+								className="text-sm text-gray-600 hover:text-blue-600 duration-200"
+							>
 								{t("about")}
 							</Link>
-							<a href="mailto:jobs@sevenseed.eu" className="text-sm text-gray-600 hover:text-blue-600 duration-200">
+							<a
+								href="mailto:jobs@sevenseed.eu"
+								className="text-sm text-gray-600 hover:text-blue-600 duration-200"
+							>
 								{t("jobs")}
 							</a>
-							<a href="mailto:press@sevenseed.eu" className="text-sm text-gray-600 hover:text-blue-600 duration-200">
+							<a
+								href="mailto:press@sevenseed.eu"
+								className="text-sm text-gray-600 hover:text-blue-600 duration-200"
+							>
 								{t("press")}
 							</a>
 						</nav>
 					</div>
-					
+
 					{/* Connect column */}
 					<div>
 						<h3 className="font-semibold text-gray-900 mb-4">Connect</h3>

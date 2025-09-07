@@ -12,9 +12,7 @@ export default function DealSection() {
 
 					<h2 className="text-3xl md:text-4xl font-bold mb-4">
 						The Program:{" "}
-						<span className="text-blue-600">
-							Funded & Collaborative
-						</span>
+						<span className="text-blue-600">Funded & Collaborative</span>
 					</h2>
 
 					<p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -123,23 +121,23 @@ export default function DealSection() {
 
 						<div className="space-y-4 grow flex flex-col justify-center">
 							<CheckItem>
-								Seven Seed receives proceeds from exits and dividends
-								based on its 7% stake.
+								Seven Seed receives proceeds from exits based on its 7%
+								stake.
 							</CheckItem>
 							<CheckItem>
 								25% of these across the whole cohort are shared back to
 								the other cohort members.
 							</CheckItem>
 							<CheckItem>
-								50% are redistributed to the Investor Pool.
+								50% are redistributed to Cohort Investors.
 							</CheckItem>
 							<CheckItem>
 								The remaining 25% are retained by Seven Seed.
 							</CheckItem>
 							<CheckItem>
-								Example: If Seven Seed receives €1M from an exit in your
-								cohort, €250k is distributed among each other startup
-								(even if shut down).
+								Example: If one cohort members has a €20M exit, €1.4M
+								gets redistributed and each cohort participant gets
+								~€35K.
 							</CheckItem>
 						</div>
 					</div>
