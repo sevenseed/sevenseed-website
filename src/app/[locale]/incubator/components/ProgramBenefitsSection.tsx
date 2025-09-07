@@ -122,7 +122,7 @@ export default function ProgramBenefitsSection() {
 								isActive={activeBenefit === "funding"}
 								title="EU Funding & Grant Support"
 								description="Access millions in non-dilutive funding. We help identify and apply for EU grants, including EDF, Horizon Europe, and dual-use technology programs."
-								imageSrc="/images/eu.jpg"
+								imageSrc="/images/banking.jpg"
 								imageAlt="EU funding access"
 								features={[
 									"Grant identification and application support",
@@ -150,7 +150,7 @@ export default function ProgramBenefitsSection() {
 								isActive={activeBenefit === "events"}
 								title="Major Event Representation"
 								description="Get visibility at major European defence and tech events. We ensure your startup is represented where key decisions and partnerships are made."
-								imageSrc="/images/banking.jpg"
+								imageSrc="/images/eu.jpg"
 								imageAlt="Event representation"
 								features={[
 									"Representation at major EU defence events",

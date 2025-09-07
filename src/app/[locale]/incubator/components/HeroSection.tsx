@@ -162,7 +162,7 @@ export default function HeroSection() {
 									alt="European Defence Innovation"
 									width={500}
 									height={400}
-									className="rounded-xl"
+									className="rounded-xl brightness-[1.3]"
 								/>
 							</div>
 						</div>
