@@ -158,8 +158,8 @@ export default function HeroSection() {
 							<div className="absolute -inset-4 bg-blue-100 rounded-full opacity-50 blur-xl"></div>
 							<div className="relative bg-white p-2 rounded-2xl shadow-xl rotate-2">
 								<Image
-									src="/images/atomium.jpg"
-									alt="European Opportunity"
+									src="/images/defence-sketch.jpg"
+									alt="European Defence Innovation"
 									width={500}
 									height={400}
 									className="rounded-xl"

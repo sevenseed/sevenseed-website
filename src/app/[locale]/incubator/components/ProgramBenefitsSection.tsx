@@ -136,7 +136,7 @@ export default function ProgramBenefitsSection() {
 								isActive={activeBenefit === "mentorship"}
 								title="Expert Mentorship Network"
 								description="Learn from successful entrepreneurs and industry experts. Get personalized guidance on strategy, fundraising, and scaling in the European market."
-								imageSrc="/images/strategic.jpg"
+								imageSrc="/images/atomium.jpg"
 								imageAlt="Expert mentorship"
 								features={[
 									"1-on-1 coaching with industry veterans",
