@@ -20,37 +20,42 @@ const AboutPage = () => (
 				<li>A supportive community of like-minded founders to iterate with</li>
 				<li>Focused workshops by highly experienced mentors to learn from</li>
 				<li>High-quality investor and advisor intros to help raise funds</li>
+				<li>Path to procurement - workshops and entry points to defence procurement in corporates and governments</li>
+				<li>€12,500 cash contribution towards program expenses</li>
 				<li>
 					A support structure that abstracts any and all administrative pains
 				</li>
 			</ul>
 			<p>
-				Also included is a unique profit-sharing program which ensures every
+				Also included is a unique redistribution program which ensures every
 				cohort participant is always invested in each other&apos;s success. We
 				are proudly spearheading this model and encouraging other incubators to
-				adopt it.
+				adopt it. Seven Seed takes 7% equity in each member of the cohort, with
+				25% of any exit proceeds redistributed equally among all cohort members.
 			</p>
 			<h2>Who should apply?</h2>
 			<p>
-				The Fall 2025 cohort is specially designed for US-based tech founders
-				that wish to make a new life in Europe. Seven Seed&apos;s role goes
-				beyond that of most incubators, by assisting with the immigration
-				procedures and the incorporation (&quot;soft landing&quot;). The program
-				also includes special workshops highlighting key differences between the
-				US and EU in doing business and fundraising and how to adapt.
+				The Fall 2025 cohort is designed for European defence and dual-use startups
+				that want to establish a strategic presence in Brussels. Seven Seed&apos;s role goes
+				beyond that of most incubators, providing a comprehensive soft landing program
+				including incorporation assistance, administrative support, and access to 
+				Belgian and EU defence networks. The program includes specialized workshops on
+				defence procurement processes, grant applications, and navigating the Brussels
+				ecosystem for dual-use technologies.
 			</p>
 			<h2>Why Brussels?</h2>
 			<p>
-				Geographically and politically located at the heart of Europe, and with
-				a rare startup-friendly tax regime, Brussels presents US founders with
-				an opportunity like no other city can. As the most international city in
-				the world, it&apos;s very welcoming to foreign founders. And within 2
-				hours of Paris, Amsterdam and London, it&apos;s strategically at the
-				crossroads of three other high-impact hubs.
+				As the capital of Europe and home to NATO headquarters, Brussels is the
+				epicenter of European defence policy and procurement decisions. With a
+				startup-friendly tax regime and proximity to key EU institutions, Brussels
+				offers defence and dual-use startups unparalleled access to decision-makers,
+				procurement opportunities, and funding programs. Within 2 hours of Paris, 
+				Amsterdam and London, it&apos;s strategically positioned at the crossroads 
+				of Europe&apos;s major defence markets.
 				<br />
-				But more than that, Brussels is a human-sized, walkable city that
-				perfectly represents the European mindset while still buzzing with
-				activity.
+				But more than that, Brussels offers a collaborative ecosystem where defence
+				innovation meets policy, creating unique opportunities for startups to shape
+				the future of European security.
 			</p>
 			<h2>About the Founder</h2>
 			<p>

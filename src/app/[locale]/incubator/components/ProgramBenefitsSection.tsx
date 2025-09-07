@@ -120,28 +120,28 @@ export default function ProgramBenefitsSection() {
 							{/* Strategic Guidance */}
 							<BenefitContent
 								isActive={activeBenefit === "guidance"}
-								title="Strategic Guidance"
-								description="1-on-1 coaching tailored to your startup. Refine strategy, nail your fundraising narrative, and navigate the European landscape."
+								title="Path to Procurement"
+								description="Navigate defence procurement with expert guidance. Access workshops on corporate and government procurement processes, tender preparation, and compliance requirements."
 								imageSrc="/images/strategic.jpg"
-								imageAlt="Strategic guidance"
+								imageAlt="Procurement pathways"
 								features={[
-									"Personalized mentorship",
-									"Fundraising strategy",
-									"European market navigation",
+									"Defence procurement workshops",
+									"Government tender preparation",
+									"Corporate procurement entry points",
 								]}
 							/>
 
 							{/* EU Funding */}
 							<BenefitContent
 								isActive={activeBenefit === "funding"}
-								title="EU Funding Access"
-								description="Get expert help identifying and applying for lucrative European grants and subsidies. Tap into millions in non-dilutive funding."
+								title="EU Defence Funding Access"
+								description="Access specialized support for European Defence Fund (EDF), Horizon Europe dual-use calls, and NATO Innovation Fund opportunities. Expert guidance on defence-specific grants."
 								imageSrc="/images/eu.jpg"
-								imageAlt="EU funding access"
+								imageAlt="EU defence funding access"
 								features={[
-									"Grant identification and application",
-									"Subsidy program navigation",
-									"Non-dilutive funding opportunities",
+									"European Defence Fund applications",
+									"Dual-use technology grants",
+									"NATO Innovation Fund access",
 								]}
 							/>
 

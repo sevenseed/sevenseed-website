@@ -14,10 +14,10 @@ const inter = Inter({
 });
 
 const DESCRIPTION =
-	"Join a six month tech startup incubation program. Apply for the Fall 2025 cohort now!";
+	"Brussels-based accelerator for dual-use and defence startups. 6-month program with procurement pathways, EU funding access, and €12,500 cash contribution. Apply for Fall 2025!";
 
 export const metadata: Metadata = {
-	title: "Seven Seed - Launch Your Startup in Europe",
+	title: "Seven Seed - Defence & Dual-Use Accelerator in Brussels",
 	description: DESCRIPTION,
 };
 
@@ -45,7 +45,7 @@ const RootLayout = ({ children }: PropsWithChildren) => {
 				<meta property="og:type" content="website" />
 				<meta
 					property="og:title"
-					content="Seven Seed - Launch Your Startup in Europe"
+					content="Seven Seed - Defence & Dual-Use Accelerator in Brussels"
 				/>
 				<meta property="og:description" content={DESCRIPTION} />
 				<meta property="og:url" content="https://sevenseed.eu/" />

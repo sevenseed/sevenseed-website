@@ -11,15 +11,15 @@ export default function DealSection() {
 					</div>
 
 					<h2 className="text-3xl md:text-4xl font-bold mb-4">
-						The Deal:{" "}
+						The Program:{" "}
 						<span className="text-blue-600">
-							Transparent & Founder-Friendly
+							Funded & Collaborative
 						</span>
 					</h2>
 
 					<p className="text-lg text-gray-600 max-w-2xl mx-auto">
-						We believe in straightforward partnerships where incentives are
-						aligned.
+						We invest in your success with cash, resources, and a unique
+						redistribution model that aligns everyone&apos;s interests.
 					</p>
 				</div>
 
@@ -28,24 +28,24 @@ export default function DealSection() {
 					{/* Left Column - Deal Terms */}
 					<div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col">
 						<h3 className="text-xl font-bold mb-6 text-center">
-							Deal Terms
+							Program Structure
 						</h3>
 
 						<div className="grid grid-cols-3 gap-4 mb-8">
-							{/* Program Fee */}
+							{/* Cash Contribution */}
 							<div className="text-center">
 								<div className="inline-flex items-center justify-center w-14 h-14 bg-blue-100 rounded-full mb-3 mx-auto">
 									<span className="text-blue-600 font-bold text-xl">
-										⏱
+										€
 									</span>
 								</div>
 								<h4 className="text-lg font-bold mb-1 text-gray-900">
-									6 Months
+									€12,500
 								</h4>
 								<p className="text-xs text-blue-600 font-medium mb-1">
-									Program Length
+									Cash Contribution
 								</p>
-								<p className="text-xs text-gray-600">Hybrid</p>
+								<p className="text-xs text-gray-600">Per startup</p>
 							</div>
 
 							{/* Equity Stake */}
@@ -56,7 +56,7 @@ export default function DealSection() {
 									</span>
 								</div>
 								<h4 className="text-lg font-bold mb-1 text-gray-900">
-									5%
+									7%
 								</h4>
 								<p className="text-xs text-blue-600 font-medium mb-1">
 									Equity Stake
@@ -75,7 +75,7 @@ export default function DealSection() {
 									25%
 								</h4>
 								<p className="text-xs text-blue-600 font-medium mb-1">
-									Profit-Sharing
+									Redistribution
 								</p>
 								<p className="text-xs text-gray-600">
 									Exit proceeds shared back with cohort
@@ -86,7 +86,7 @@ export default function DealSection() {
 						{/* Profit-Sharing Flow Diagram */}
 						<div className="pt-4 border-t border-gray-100 mt-auto">
 							<h4 className="text-sm font-medium mb-4 text-center text-gray-700">
-								How Profit-Sharing Works
+								How Redistribution Works
 							</h4>
 
 							<div className="flex items-center justify-between">
@@ -100,7 +100,7 @@ export default function DealSection() {
 
 								<div className="bg-blue-50 p-2 rounded-lg text-center w-24">
 									<p className="text-xs font-medium text-gray-800">
-										Seven Seed Gets 5%
+										Seven Seed Gets 7%
 									</p>
 								</div>
 
@@ -124,14 +124,17 @@ export default function DealSection() {
 						<div className="space-y-4 grow flex flex-col justify-center">
 							<CheckItem>
 								Seven Seed receives proceeds from exits and dividends
-								based on its 5% stake.
+								based on its 7% stake.
 							</CheckItem>
 							<CheckItem>
 								25% of these across the whole cohort are shared back to
 								the other cohort members.
 							</CheckItem>
 							<CheckItem>
-								The remaining 25% are shared across cohort sponsors.
+								50% are redistributed to the Investor Pool.
+							</CheckItem>
+							<CheckItem>
+								The remaining 25% are retained by Seven Seed.
 							</CheckItem>
 							<CheckItem>
 								Example: If Seven Seed receives €1M from an exit in your

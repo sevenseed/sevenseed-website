@@ -60,19 +60,18 @@ export default function HeroSection() {
 				<div className="flex flex-col lg:flex-row items-center">
 					<div className="lg:w-3/5 text-center lg:text-left mb-8 lg:mb-0">
 						<div className="inline-block bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-sm font-medium mb-4">
-							Now welcoming US founders
+							Defence & Dual-Use Accelerator
 						</div>
 						<h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-gray-900">
-							Make the leap to{" "}
-							<span className="text-blue-600">Europe</span>
+							Land your startup in{" "}
+							<span className="text-blue-600">Brussels</span>
 						</h1>
 						<p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto lg:mx-0 mb-6">
-							Have your US activities been impacted by recent
-							administrative decisions?
-							<br className="hidden md:block" /> Looking to rebuild a
-							future somewhere else? <br className="hidden md:block" />
-							Launch your startup in the heart of Europe, with other
-							founders like you.
+							European defence startups seeking a strategic entry point
+							to Brussels?
+							<br className="hidden md:block" /> Access procurement pathways,
+							EU defence networks, and funding opportunities. <br className="hidden md:block" />
+							Join our 6-month program designed for dual-use innovation.
 						</p>
 
 						{/* Feature highlights */}
@@ -95,7 +94,7 @@ export default function HeroSection() {
 									</svg>
 								</div>
 								<p className="text-gray-600 text-xs md:text-sm text-center lg:text-left">
-									Network across Europe
+									Defence procurement access
 								</p>
 							</div>
 							<div className="bg-white bg-opacity-70 backdrop-blur-sm p-3 md:p-4 rounded-lg shadow-sm">
@@ -116,7 +115,7 @@ export default function HeroSection() {
 									</svg>
 								</div>
 								<p className="text-gray-600 text-xs md:text-sm text-center lg:text-left">
-									Access new opportunities
+									EU funding & grants
 								</p>
 							</div>
 							<div className="bg-white bg-opacity-70 backdrop-blur-sm p-3 md:p-4 rounded-lg shadow-sm">
@@ -137,7 +136,7 @@ export default function HeroSection() {
 									</svg>
 								</div>
 								<p className="text-gray-600 text-xs md:text-sm text-center lg:text-left">
-									Join a community of founders
+									Brussels soft landing
 								</p>
 							</div>
 						</div>
