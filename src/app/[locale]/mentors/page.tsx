@@ -15,6 +15,17 @@ export default function MentorsPage() {
 		},
 		{
 			id: 2,
+			name: "Andriy Kolodyuk",
+			title: "Venture Capital Pioneer & Defence Tech Investor",
+			image: "/images/andriy-kolodyuk.jpg",
+			experience: "25+ years",
+			companies: 10,
+			exits: 2,
+			linkedin: "https://www.linkedin.com/in/andkol/",
+			bio: "Andriy Kolodyuk is the founder and managing partner of AVentures Capital and chairman of the Ukrainian Venture Capital and Private Equity Association (UVCA). With over 25 years of experience, he has built 10+ companies in IT, telecom, and media, including some reaching $1B in revenues. His fund has invested $2.8B in the Ukrainian ecosystem, with notable exits including Augmented Pixels (acquired by Qualcomm). A Young Global Leader at the World Economic Forum, Andriy specializes in dual-use technologies, defence tech, and Eastern European innovation ecosystems.",
+		},
+		{
+			id: 3,
 			name: "Alessandra Guion",
 			title: "FinTech Expert & Board Member",
 			image: "/images/mentors/alessandra-guion.jpg",
@@ -87,7 +98,7 @@ export default function MentorsPage() {
 		{
 			title: "Serial Entrepreneurs",
 			mentors: mentors.filter((m) =>
-				["Jerome Leclanche", "Jean-Raymond Naveau", "Filip Maertens"].includes(
+				["Jerome Leclanche", "Andriy Kolodyuk", "Jean-Raymond Naveau", "Filip Maertens"].includes(
 					m.name,
 				),
 			),

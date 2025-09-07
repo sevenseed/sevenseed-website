@@ -11,6 +11,8 @@ import LinkedInIcon from "../icons/LinkedInIcon";
 const navigation = {
 	main: [
 		{ key: "about", href: "/#about-us" },
+		{ key: "funding", href: "/funding" },
+		{ key: "incorporate", href: "/incorporate" },
 		{ key: "jobs", href: "mailto:jobs@sevenseed.eu" },
 		{ key: "press", href: "mailto:press@sevenseed.eu" },
 		{ key: "privacyPolicy", href: "/privacy" },

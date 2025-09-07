@@ -12,8 +12,6 @@ import LanguageSwitcher from "../LanguageSwitcher";
 
 const navigation = [
 	{ name: "About Us", href: "/about" },
-	{ name: "Funding", href: "/funding" },
-	{ name: "Incorporate", href: "/incorporate" },
 	{ name: "Mentors", href: "/mentors" },
 ];
 
