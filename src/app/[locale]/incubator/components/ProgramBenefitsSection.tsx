@@ -1,18 +1,18 @@
 "use client";
 
 import {
-	BanknotesIcon,
 	BuildingLibraryIcon,
 	CurrencyEuroIcon,
-	GlobeAltIcon,
-	LightBulbIcon,
+	DocumentTextIcon,
+	ShieldCheckIcon,
+	UserGroupIcon,
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import type { ReactNode } from "react";
 import { useState } from "react";
 
 export default function ProgramBenefitsSection() {
-	const [activeBenefit, setActiveBenefit] = useState<string>("company");
+	const [activeBenefit, setActiveBenefit] = useState<string>("entity");
 
 	return (
 		<div className="py-20 md:py-28 relative overflow-hidden w-full max-w-7xl mx-auto">
@@ -23,13 +23,13 @@ export default function ProgramBenefitsSection() {
 					</div>
 
 					<h2 className="text-3xl md:text-4xl font-bold mb-6">
-						Everything You Need to{" "}
-						<span className="text-blue-600">Land, Launch, and Lead</span>
+						Everything You Need for{" "}
+						<span className="text-blue-600">Defence Market Entry</span>
 					</h2>
 
 					<p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
-						Join a hand-picked cohort of up to 15 founders like you for an
-						awesome, hybrid program.
+						Comprehensive support for dual-use startups entering the European
+						defence ecosystem.
 					</p>
 				</div>
 
@@ -44,43 +44,43 @@ export default function ProgramBenefitsSection() {
 
 							<div className="space-y-3">
 								<BenefitNavItem
-									isActive={activeBenefit === "company"}
-									onClick={() => setActiveBenefit("company")}
+									isActive={activeBenefit === "entity"}
+									onClick={() => setActiveBenefit("entity")}
 									icon={<BuildingLibraryIcon className="h-6 w-6" />}
-									title="Company Formation"
-									label="Company Setup"
+									title="Belgian Entity Setup"
+									label="Legal Entity"
 								/>
 
 								<BenefitNavItem
-									isActive={activeBenefit === "relocation"}
-									onClick={() => setActiveBenefit("relocation")}
-									icon={<GlobeAltIcon className="h-6 w-6" />}
-									title="Relocation Assistance"
-									label="Relocation"
-								/>
-
-								<BenefitNavItem
-									isActive={activeBenefit === "guidance"}
-									onClick={() => setActiveBenefit("guidance")}
-									icon={<LightBulbIcon className="h-6 w-6" />}
-									title="Strategic Guidance"
-									label="Mentorship"
+									isActive={activeBenefit === "procurement"}
+									onClick={() => setActiveBenefit("procurement")}
+									icon={<ShieldCheckIcon className="h-6 w-6" />}
+									title="Path to Procurement"
+									label="Procurement"
 								/>
 
 								<BenefitNavItem
 									isActive={activeBenefit === "funding"}
 									onClick={() => setActiveBenefit("funding")}
 									icon={<CurrencyEuroIcon className="h-6 w-6" />}
-									title="EU Funding Access"
+									title="Funding & Grants"
 									label="Funding"
 								/>
 
 								<BenefitNavItem
-									isActive={activeBenefit === "banking"}
-									onClick={() => setActiveBenefit("banking")}
-									icon={<BanknotesIcon className="h-6 w-6" />}
-									title="Banking Setup"
-									label="Banking"
+									isActive={activeBenefit === "mentorship"}
+									onClick={() => setActiveBenefit("mentorship")}
+									icon={<UserGroupIcon className="h-6 w-6" />}
+									title="Expert Mentorship"
+									label="Mentorship"
+								/>
+
+								<BenefitNavItem
+									isActive={activeBenefit === "events"}
+									onClick={() => setActiveBenefit("events")}
+									icon={<DocumentTextIcon className="h-6 w-6" />}
+									title="Events & Networks"
+									label="Events"
 								/>
 							</div>
 						</div>
@@ -89,73 +89,73 @@ export default function ProgramBenefitsSection() {
 					{/* Benefit Content */}
 					<div className="lg:w-2/3">
 						<div className="relative">
-							{/* Company Incorporation */}
+							{/* Belgian Entity */}
 							<BenefitContent
-								isActive={activeBenefit === "company"}
-								title="Seamless Company Incorporation"
-								description="We handle it all – legal setup, financial plan, statutes, registered address, VAT, compliance. Hit the ground running."
+								isActive={activeBenefit === "entity"}
+								title="Belgian Legal Entity (SRL)"
+								description="Establish your official Belgian presence with full legal and administrative support. Complete incorporation to unlock EU market access."
 								imageSrc="/images/company.jpg"
-								imageAlt="Company formation"
+								imageAlt="Belgian entity setup"
 								features={[
-									"Complete compliant legal entity setup",
-									"Financial plan development",
-									"VAT and compliance handling",
+									"Complete SRL incorporation and legal presence",
+									"VAT registration and compliance handling",
+									"Business address and administrative support",
 								]}
 							/>
 
-							{/* Relocation */}
+							{/* Path to Procurement */}
 							<BenefitContent
-								isActive={activeBenefit === "relocation"}
-								title="Relocation Assistance"
-								description="Moving continents is complex. We offer guidance on visa processes, housing advice, and cultural integration support. Your soft landing guaranteed."
-								imageSrc="/images/relocation.jpg"
-								imageAlt="Relocation assistance"
-								features={[
-									"Visa and immigration process guidance",
-									"Housing assistance",
-									"Cultural integration support",
-								]}
-							/>
-
-							{/* Strategic Guidance */}
-							<BenefitContent
-								isActive={activeBenefit === "guidance"}
-								title="Path to Procurement"
-								description="Navigate defence procurement with expert guidance. Access workshops on corporate and government procurement processes, tender preparation, and compliance requirements."
+								isActive={activeBenefit === "procurement"}
+								title="Clear Pathways to Procurement"
+								description="Navigate the complex procurement landscape with expert guidance. Access corporate partners and government contracts through our established network."
 								imageSrc="/images/strategic.jpg"
 								imageAlt="Procurement pathways"
 								features={[
-									"Defence procurement workshops",
-									"Government tender preparation",
-									"Corporate procurement entry points",
+									"Direct access to corporate procurement teams",
+									"Government tender workshops and preparation",
+									"Defence and dual-use market navigation",
 								]}
 							/>
 
-							{/* EU Funding */}
+							{/* Funding & Grants */}
 							<BenefitContent
 								isActive={activeBenefit === "funding"}
-								title="EU Defence Funding Access"
-								description="Access specialized support for European Defence Fund (EDF), Horizon Europe dual-use calls, and NATO Innovation Fund opportunities. Expert guidance on defence-specific grants."
+								title="EU Funding & Grant Support"
+								description="Access millions in non-dilutive funding. We help identify and apply for EU grants, including EDF, Horizon Europe, and dual-use technology programs."
 								imageSrc="/images/eu.jpg"
-								imageAlt="EU defence funding access"
+								imageAlt="EU funding access"
 								features={[
-									"European Defence Fund applications",
-									"Dual-use technology grants",
-									"NATO Innovation Fund access",
+									"Grant identification and application support",
+									"Tender eligibility and compliance",
+									"Non-dilutive funding opportunities",
 								]}
 							/>
 
-							{/* Banking */}
+							{/* Expert Mentorship */}
 							<BenefitContent
-								isActive={activeBenefit === "banking"}
-								title="Banking Setup"
-								description="We'll help you navigate the European banking system and set up your business accounts with trusted financial institutions."
-								imageSrc="/images/banking.jpg"
-								imageAlt="Banking setup"
+								isActive={activeBenefit === "mentorship"}
+								title="Expert Mentorship Network"
+								description="Learn from successful entrepreneurs and industry experts. Get personalized guidance on strategy, fundraising, and scaling in the European market."
+								imageSrc="/images/strategic.jpg"
+								imageAlt="Expert mentorship"
 								features={[
-									"Assistance opening an EU business banking account with our partner",
-									"Company set up without blocked capital",
-									"Payment processing credits on your first 5000€",
+									"1-on-1 coaching with industry veterans",
+									"Strategic advice on market entry",
+									"Fundraising and investor introductions",
+								]}
+							/>
+
+							{/* Events & Networks */}
+							<BenefitContent
+								isActive={activeBenefit === "events"}
+								title="Major Event Representation"
+								description="Get visibility at major European defence and tech events. We ensure your startup is represented where key decisions and partnerships are made."
+								imageSrc="/images/banking.jpg"
+								imageAlt="Event representation"
+								features={[
+									"Representation at major EU defence events",
+									"Access to exclusive industry gatherings",
+									"Direct introductions to key stakeholders",
 								]}
 							/>
 						</div>

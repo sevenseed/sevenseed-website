@@ -35,7 +35,7 @@ export default function PartnersSection() {
 				</p>
 
 				{/* Partners grid */}
-				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 max-w-7xl mx-auto">
 					<div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:border-blue-100 transition-all duration-300 hover:shadow-md group">
 						<div className="relative h-32 flex items-center justify-center">
 							<div className="absolute inset-0 bg-blue-50 opacity-0 group-hover:opacity-10 transition-opacity duration-300 rounded-lg"></div>
@@ -95,17 +95,35 @@ export default function PartnersSection() {
 						<div className="relative h-32 flex items-center justify-center">
 							<div className="absolute inset-0 bg-blue-50 opacity-0 group-hover:opacity-10 transition-opacity duration-300 rounded-lg"></div>
 							<Image
-								src="/images/logo/ebury.jpeg"
-								alt="Ingram"
+								src="/images/payoneer.svg"
+								alt="Payoneer"
 								width={240}
 								height={120}
 								className="opacity-80 group-hover:opacity-100 transition-opacity max-h-24 w-auto"
 							/>
 						</div>
 						<div className="mt-4 text-center">
-							<h3 className="text-gray-800 font-medium">Ebury</h3>
+							<h3 className="text-gray-800 font-medium">Payoneer</h3>
 							<p className="text-gray-500 text-sm mt-1">
-								Global business made easy
+								Global Payment Solutions
+							</p>
+						</div>
+					</div>
+					<div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:border-blue-100 transition-all duration-300 hover:shadow-md group">
+						<div className="relative h-32 flex items-center justify-center">
+							<div className="absolute inset-0 bg-blue-50 opacity-0 group-hover:opacity-10 transition-opacity duration-300 rounded-lg"></div>
+							<Image
+								src="/images/dod-solution.png"
+								alt="DoD Solution"
+								width={240}
+								height={120}
+								className="opacity-80 group-hover:opacity-100 transition-opacity max-h-24 w-auto"
+							/>
+						</div>
+						<div className="mt-4 text-center">
+							<h3 className="text-gray-800 font-medium">DoD Solution</h3>
+							<p className="text-gray-500 text-sm mt-1">
+								Technology Partner
 							</p>
 						</div>
 					</div>
