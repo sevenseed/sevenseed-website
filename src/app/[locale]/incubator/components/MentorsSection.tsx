@@ -1,5 +1,6 @@
 import { AcademicCapIcon, BriefcaseIcon, UserIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function MentorsSection() {
 	const mentors = [
@@ -11,45 +12,21 @@ export default function MentorsSection() {
 		},
 		{
 			id: 2,
-			name: "Alessandra Guion",
-			title: "Founder of Fintech Belgium. Board Member Isabel Group & EDFA. FinTech wizard.",
-			image: "/images/mentors/alessandra-guion.jpg",
+			name: "Andriy Kolodyuk",
+			title: "Venture Capital pioneer and defence tech investor. Founder of AVentures Capital.",
+			image: "/images/andriy-kolodyuk.jpg",
 		},
 		{
 			id: 3,
-			name: "Frank Hoogendijk",
-			title: "Legal Advisor. Founder of Found Advisory, specialized in startup advisory.",
-			image: "/images/mentors/frank-hoogendijk.jpg",
+			name: "Gabriel Hebbelinck",
+			title: "Startups Manager",
+			image: "/images/mentors/gabriel-hebbelinck.jpg",
 		},
 		{
 			id: 4,
-			name: "Ron Eddings",
-			title: "Founder of Hacker Valley Media. Cybersecurity Expert.",
-			image: "/images/mentors/ron-eddings.jpg",
-		},
-		{
-			id: 5,
-			name: "Jean-Raymond Naveau",
-			title: "Founder of OpenThink Outcomes. 40 years between Silicon Valley & Belgium.",
-			image: "/images/mentors/jean-raymond-naveau.jpg",
-		},
-		{
-			id: 6,
-			name: "Denis Pokataev",
-			title: "Tech strategy advisor & startup mentor. Prev. Amazon, Oracle, Stripe, Meta.",
-			image: "/images/mentors/denis-pokataev.jpg",
-		},
-		{
-			id: 7,
-			name: "Nicolas Streel",
-			title: "Founder of Line Out & The Maul. CMO specialized in early stage startups & prototypes.",
-			image: "/images/mentors/nicolas-streel.jpg",
-		},
-		{
-			id: 8,
-			name: "Filip Maertens",
-			title: "Venture Builder | AI Veteran | Keynote Speaker | Forbes Technology Council",
-			image: "/images/mentors/filip-maertens.jpg",
+			name: "Kristina Lazebna",
+			title: "Events Manager",
+			image: "/images/mentors/kristina-lazebna.jpg",
 		},
 	];
 
@@ -75,18 +52,18 @@ export default function MentorsSection() {
 			<div className="container mx-auto px-4 relative z-10">
 				<div className="text-center mb-16">
 					<div className="inline-block bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-sm font-medium mb-6">
-						Expert Guidance
+						Our Team
 					</div>
 
 					<h2 className="text-3xl md:text-4xl font-bold mb-6">
-						Learn from{" "}
-						<span className="text-blue-600">Industry Leaders</span>
+						Meet the people{" "}
+						<span className="text-blue-600">building Seven Seed</span>
 					</h2>
 
 					<p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
-						Our mentors assist startups and coach them in their field of
-						expertise as needed, providing targeted guidance when you need
-						it most.
+						A tight-knit leadership and operations crew dedicated to helping
+						founders grow, delivering tailored support, meaningful
+						connections, and curated programming.
 					</p>
 				</div>
 
@@ -97,12 +74,12 @@ export default function MentorsSection() {
 							<BriefcaseIcon className="h-8 w-8 text-blue-600" />
 						</div>
 						<h3 className="text-gray-800 font-semibold text-lg mb-3">
-							Successful Entrepreneurs
+							Strategic Leadership
 						</h3>
 						<p className="text-gray-600 text-sm">
-							Experienced founders who provide coaching on building and
-							scaling companies, sharing practical insights from their
-							European startup journey.
+							Seasoned founders guiding the long-term vision,
+							partnerships, and investments that shape Seven Seed&apos;s
+							ecosystem.
 						</p>
 					</div>
 
@@ -111,12 +88,11 @@ export default function MentorsSection() {
 							<UserIcon className="h-8 w-8 text-blue-600" />
 						</div>
 						<h3 className="text-gray-800 font-semibold text-lg mb-3">
-							Venture Capitalists
+							Startup Operations
 						</h3>
 						<p className="text-gray-600 text-sm">
-							Investment professionals who assist with fundraising
-							strategy and coach you through the funding process in the
-							European market.
+							Hyper-focused support for founders—from day-to-day program
+							management to navigating the path from idea to growth.
 						</p>
 					</div>
 
@@ -125,12 +101,12 @@ export default function MentorsSection() {
 							<AcademicCapIcon className="h-8 w-8 text-blue-600" />
 						</div>
 						<h3 className="text-gray-800 font-semibold text-lg mb-3">
-							Industry Experts
+							Community &amp; Events
 						</h3>
 						<p className="text-gray-600 text-sm">
-							Technical specialists in AI, cybersecurity, and defense who
-							provide expert coaching and assistance in their specific
-							domains.
+							Bespoke gatherings and programming that connect startups
+							with investors, corporates, and the broader European
+							ecosystem.
 						</p>
 					</div>
 				</div>
@@ -161,16 +137,24 @@ export default function MentorsSection() {
 					))}
 				</div>
 
+				<div className="text-center mb-16">
+					<Link
+						href="/mentors"
+						className="text-blue-600 font-semibold hover:text-blue-700 transition-colors"
+					>
+						Explore the mentor network →
+					</Link>
+				</div>
+
 				<div className="text-center">
 					<div className="bg-white bg-opacity-80 backdrop-blur-sm p-8 rounded-2xl shadow-sm border border-gray-100 max-w-2xl mx-auto">
 						<h3 className="text-xl font-bold mb-4 text-gray-900">
-							1-on-1 Mentorship Sessions
+							Tailored Founder Support
 						</h3>
 						<p className="text-gray-600 mb-6">
-							Mentors are matched to startups based on specific needs and
-							expertise areas. They provide coaching and assistance as
-							required, helping you overcome challenges and accelerate
-							growth in their field of expertise.
+							From strategic guidance to active program delivery, our core
+							team matches founders with the right resources, mentors, and
+							opportunities—whenever they need it most.
 						</p>
 						<div className="flex flex-wrap justify-center gap-4 text-sm">
 							<span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full">
