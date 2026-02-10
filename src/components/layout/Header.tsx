@@ -4,20 +4,17 @@ import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Button } from "../Button";
 import { GridPattern } from "../GridPattern";
-import LanguageSwitcher from "../LanguageSwitcher";
 
 const navigation = [
-	{ name: "About Us", href: "/about" },
-	{ name: "Mentors", href: "/mentors" },
+	{ name: "About", href: "/about" },
+	{ name: "Contact", href: "/contact" },
 ];
 
 const Header = () => {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-	const pathname = usePathname();
 
 	return (
 		<>
@@ -58,15 +55,9 @@ const Header = () => {
 							{item.name}
 						</Link>
 					))}
-					{pathname === "/" ? (
-						<Button href="/apply" variant="solid" color="blue">
-							Apply Now
-						</Button>
-					) : (
-						<Button href="/contact" variant="solid" color="blue">
-							Contact Us
-						</Button>
-					)}
+					<Button href="/contact" variant="solid" color="blue">
+						Get in Touch
+					</Button>
 				</div>
 			</nav>
 			<Dialog
@@ -96,7 +87,6 @@ const Header = () => {
 						</button>
 					</div>
 					<div className="flow-root space-y-2">
-						<LanguageSwitcher />
 						{navigation.map((item) => (
 							<Link
 								key={item.name}
@@ -107,10 +97,10 @@ const Header = () => {
 							</Link>
 						))}
 						<Link
-							href="/apply"
-							className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+							href="/contact"
+							className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-blue-600 hover:bg-gray-50"
 						>
-							Apply Now
+							Get in Touch
 						</Link>
 					</div>
 				</Dialog.Panel>

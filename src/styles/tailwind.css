@@ -1,6 +1,11 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+@theme {
+	--font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+	--font-display: var(--font-roboto), ui-sans-serif, system-ui, sans-serif;
+}
+
 [hidden] {
 	display: none !important;
 }

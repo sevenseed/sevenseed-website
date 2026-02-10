@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Seven Seed is a Next.js 15 website for a Brussels-based accelerator for dual-use and defence startups. The site is built with TypeScript, Tailwind CSS, and supports internationalization (i18n) for English, French, and Dutch languages.
+Seven Seed is a Next.js 15 website for a Brussels-based think tank for European startups, focused on Artificial Intelligence and Defence. The site is built with TypeScript and Tailwind CSS, English only.
 
 ## Critical Development Rules
 
@@ -67,25 +67,14 @@ npm run typecheck:watch
 
 ### Project Structure
 
-- **App Router**: Uses Next.js 15 App Router with `src/app/[locale]/` for internationalized routes
-- **Internationalization**: Built with `next-intl`, supporting English (en), French (fr), and Dutch (nl)
+- **App Router**: Uses Next.js 15 App Router with pages in `src/app/`
+- **Pages**: Home (`/`), About (`/about`), Contact (`/contact`), Privacy (`/privacy`)
 - **Styling**: Tailwind CSS v4 with custom configuration and typography plugin
-- **Components**: Reusable components in `src/components/` with layout components in `src/components/layout/`
+- **Components**: Reusable components in `src/components/` with layout components in `src/components/layout/` and page sections in `src/components/sections/`
 
 ### Routing & Redirects
 
-The application uses middleware for i18n routing and has several configured redirects in `next.config.js`:
-
-- `/apply` → Google Forms application
-- `/press-release`, `/one-pager` → Google Docs publications
-- QR code tracking via `/qr/card` with UTM parameters
-
-### Internationalization Setup
-
-- Locales defined in `src/locales.ts`: ["en", "fr", "nl"]
-- Messages stored in `messages/[locale].json`
-- Middleware handles locale detection and cookie-based language switching via `?lang=` parameter
-- Default locale is English, with `localePrefix: "never"` (no URL prefix for default language)
+Configured redirects in `next.config.js` for old pages that no longer exist (mentors, funding, incorporate, etc.) and QR code tracking.
 
 ### Component Patterns
 
@@ -114,9 +103,8 @@ Components follow these conventions:
 ### When Making Changes
 
 1. Follow existing component patterns and file organization
-2. Maintain internationalization support - add translations to all three language files
-3. Use Tailwind utility classes rather than custom CSS
-4. Preserve tab indentation and formatting rules
+2. Use Tailwind utility classes rather than custom CSS
+3. Preserve tab indentation and formatting rules
 
 ### Testing Changes
 

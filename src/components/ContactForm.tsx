@@ -2,15 +2,14 @@
 import { useForm, ValidationError } from "@formspree/react";
 import { Button } from "./Button";
 
-const FORM_ID = process.env.NEXT_PUBLIC_FORMSPREE_FORM_ID;
-if (!FORM_ID) throw new Error("Contact form ID not found in environment");
+const FORM_ID = process.env.NEXT_PUBLIC_FORMSPREE_FORM_ID ?? "";
 
 const RequiredMark = () => (
 	<span className="font-normal text-gray-400 ml-3">required</span>
 );
 
 function ContactForm() {
-	const [state, handleSubmit] = useForm(FORM_ID!);
+	const [state, handleSubmit] = useForm(FORM_ID);
 
 	if (state.succeeded) {
 		return (
