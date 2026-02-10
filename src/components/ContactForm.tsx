@@ -1,136 +1,172 @@
 "use client";
-import { useForm, ValidationError } from "@formspree/react";
-import { Button } from "./Button";
 
-const FORM_ID = process.env.NEXT_PUBLIC_FORMSPREE_FORM_ID ?? "";
+import { useState, type ChangeEvent, type FormEvent } from "react";
 
-const RequiredMark = () => (
-	<span className="font-normal text-gray-400 ml-3">required</span>
-);
+type FormState = {
+	fullName: string;
+	email: string;
+	organisation: string;
+	message: string;
+};
 
-function ContactForm() {
-	const [state, handleSubmit] = useForm(FORM_ID);
+const initialFormState: FormState = {
+	fullName: "",
+	email: "",
+	organisation: "",
+	message: "",
+};
 
-	if (state.succeeded) {
+const inputClassName =
+	"rounded-xl border border-slate-200 px-4 py-3 text-base text-slate-900 shadow-sm transition-colors focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 disabled:bg-slate-100";
+
+export default function ContactForm() {
+	const [form, setForm] = useState<FormState>(initialFormState);
+	const [status, setStatus] = useState<
+		"idle" | "submitting" | "success" | "error"
+	>("idle");
+	const [error, setError] = useState<string | null>(null);
+
+	const handleChange =
+		(field: keyof FormState) =>
+		(event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+			setForm((previous) => ({
+				...previous,
+				[field]: event.target.value,
+			}));
+		};
+
+	const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+		event.preventDefault();
+
+		if (status === "submitting") {
+			return;
+		}
+
+		setStatus("submitting");
+		setError(null);
+
+		try {
+			const response = await fetch("/api/contact", {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify(form),
+			});
+
+			if (!response.ok) {
+				const data = await response.json().catch(() => ({}));
+				const message =
+					"error" in data
+						? data.error
+						: "Something went wrong. Please try again.";
+				throw new Error(message);
+			}
+
+			setStatus("success");
+		} catch (submissionError) {
+			setStatus("error");
+			setError(
+				submissionError instanceof Error
+					? submissionError.message
+					: "We could not send your message. Please try again later.",
+			);
+		}
+	};
+
+	if (status === "success") {
 		return (
-			<div className="flex flex-col rounded-lg p-10 bg-gray-100/50 backdrop-blur-lg gap-y-3 text-center">
-				<p className="text-lg font-semibold">Message received!</p>
-				<p>
-					Our customer support team will get back to you within 1 business
-					day.
+			<div className="rounded-2xl bg-linear-to-br from-blue-50 to-indigo-50 p-8 text-center">
+				<h4 className="text-xl font-semibold text-slate-900">
+					Message received!
+				</h4>
+				<p className="mt-3 text-base text-slate-600">
+					We&apos;ll get back to you within 1 business day.
 				</p>
 			</div>
 		);
 	}
 
 	return (
-		<form
-			className="flex flex-col rounded-lg p-8 bg-gray-100/50 backdrop-blur-lg gap-y-3"
-			onSubmit={handleSubmit}
-		>
-			<input name="subject" type="hidden" value="Contact form from Seven Seed" />
-			<div className="flex flex-col gap-y-1">
-				<span className="font-semibold pl-1">
-					Name
-					<RequiredMark />
-				</span>
-				<div className="flex gap-x-2 gap-y-1 flex-wrap sm:flex-nowrap">
-					<div className="flex flex-col w-full space-y-1">
-						<label htmlFor="name" className="pl-1">
-							First name
-						</label>
-						<input
-							id="firstName"
-							type="text"
-							name="firstName"
-							className="rounded-md border p-1 px-2 focus-visible:outline-2 focus-visible:outline-primary-300"
-							placeholder="John"
-							required
-						/>
-						<ValidationError
-							prefix="FirstName"
-							field="firstName"
-							errors={state.errors}
-						/>
-					</div>
-					<div className="flex flex-col w-full space-y-1">
-						<label htmlFor="name" className="pl-1">
-							Last name
-						</label>
-						<input
-							id="lastName"
-							type="text"
-							name="lastName"
-							className="rounded-md border p-1 px-2 focus-visible:outline-2 focus-visible:outline-primary-300"
-							placeholder="Doe"
-							required
-						/>
-						<ValidationError
-							prefix="LastName"
-							field="lastName"
-							errors={state.errors}
-						/>
-					</div>
-				</div>
-			</div>
-			<div className="flex flex-col w-full space-y-1">
-				<label htmlFor="email" className="font-semibold pl-1">
-					Email
-					<RequiredMark />
+		<form className="space-y-6" onSubmit={handleSubmit}>
+			<div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+				<label
+					className="flex flex-col gap-2 text-sm text-slate-700"
+					htmlFor="contact-full-name"
+				>
+					<span className="font-semibold">Full name</span>
+					<input
+						required
+						id="contact-full-name"
+						type="text"
+						autoComplete="name"
+						value={form.fullName}
+						onChange={handleChange("fullName")}
+						className={inputClassName}
+						disabled={status === "submitting"}
+					/>
 				</label>
-				<input
-					id="email"
-					type="email"
-					name="email"
-					className="rounded-md border p-1 px-2 focus-visible:outline-2 focus-visible:outline-primary-300"
-					placeholder="hello@example.com"
-					required
-				/>
-				<ValidationError prefix="Email" field="email" errors={state.errors} />
-			</div>
-			<div className="flex flex-col w-full space-y-1">
-				<label htmlFor="phone" className="font-semibold pl-1">
-					Phone
+
+				<label
+					className="flex flex-col gap-2 text-sm text-slate-700"
+					htmlFor="contact-email"
+				>
+					<span className="font-semibold">Email</span>
+					<input
+						required
+						id="contact-email"
+						type="email"
+						autoComplete="email"
+						value={form.email}
+						onChange={handleChange("email")}
+						className={inputClassName}
+						disabled={status === "submitting"}
+					/>
 				</label>
-				<input
-					id="phone"
-					type="tel"
-					name="phone"
-					className="rounded-md border p-1 px-2 focus-visible:outline-2 focus-visible:outline-primary-300"
-					placeholder="+32 555 123 456"
-				/>
-				<ValidationError prefix="Phone" field="phone" errors={state.errors} />
 			</div>
-			<div className="flex flex-col w-full gap-y-1">
-				<label htmlFor="message" className="font-semibold pl-1">
-					Message
-					<RequiredMark />
-				</label>
-				<textarea
-					id="message"
-					name="message"
-					className="rounded-md border p-1 px-2 focus-visible:outline-2 focus-visible:outline-primary-300"
-					rows={4}
-					placeholder="I have a question about Seven Seed..."
-					required
-				/>
-				<ValidationError
-					prefix="Message"
-					field="message"
-					errors={state.errors}
-				/>
-			</div>
-			<Button
-				variant="solid"
-				color="blue"
-				type="submit"
-				disabled={state.submitting}
-				className="mt-1"
+
+			<label
+				className="flex flex-col gap-2 text-sm text-slate-700"
+				htmlFor="contact-organisation"
 			>
-				Submit
-			</Button>
+				<span className="font-semibold">Organisation</span>
+				<input
+					id="contact-organisation"
+					type="text"
+					autoComplete="organization"
+					value={form.organisation}
+					onChange={handleChange("organisation")}
+					className={inputClassName}
+					disabled={status === "submitting"}
+				/>
+			</label>
+
+			<label
+				className="flex flex-col gap-2 text-sm text-slate-700"
+				htmlFor="contact-message"
+			>
+				<span className="font-semibold">Message</span>
+				<textarea
+					required
+					id="contact-message"
+					rows={4}
+					placeholder="How can we help?"
+					value={form.message}
+					onChange={handleChange("message")}
+					className={inputClassName}
+					disabled={status === "submitting"}
+				/>
+			</label>
+
+			{error && (
+				<p className="text-sm font-medium text-red-600">{error}</p>
+			)}
+
+			<button
+				type="submit"
+				className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-3 text-sm font-semibold text-white shadow-lg transition-transform hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 disabled:cursor-not-allowed disabled:opacity-80"
+				disabled={status === "submitting"}
+			>
+				{status === "submitting" ? "Sending…" : "Send message"}
+			</button>
 		</form>
 	);
 }
-
-export default ContactForm;

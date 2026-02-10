@@ -12,7 +12,6 @@
 		"typecheck:watch": "tsc --noEmit --watch --preserveWatchOutput --project tsconfig.watch.json"
 	},
 	"dependencies": {
-		"@formspree/react": "^3.0.0",
 		"@headlessui/react": "^2.2.9",
 		"@heroicons/react": "^2.2.0",
 		"@lostisworld/tailwind-mask": "^1.0.1",
